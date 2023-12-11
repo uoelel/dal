@@ -7,7 +7,7 @@ format:
   html:
     css: [webex.css]
     include-after-body: [webex.js]
-    # embed-resources: true 
+    embed-resources: true 
 ---
 
 ```{r}
@@ -16,6 +16,151 @@ format:
 library(webexercises)
 set.seed(32986)
 ```
+
+## R vs RStudio
+
+Beginners usually have trouble understanding the difference between R and RStudio.
+
+Let's use a car analogy.
+
+What makes the car go is the **engine** and you can control the engine through the **dashboard**.
+
+You can think of R as an engine and RStudio as the dashboard.
+
+![](../img/R_vs_RStudio_1.png)
+
+::: {.callout-tip icon="false"}
+### R
+
+-   R is a **programming language**.
+
+-   We use programming languages to **interact** with computers.
+
+-   You run **commands** written in a **console** and the related task is **executed**.
+:::
+
+::: {.callout-tip icon="false"}
+### RStudio
+
+-   RStudio is an Integrated Development Environment or **IDE**.
+
+-   It helps you using R more **efficiently**.
+
+-   It has a **graphical user interface** or GUI.
+:::
+
+The next section will give you a tour of RStudio.
+
+## RStudio
+
+When you open RStudio, you can see the window is divided into 3 panels:
+
+-   Blue (left): the **Console**.
+
+-   Green (top-right): the **Environment tab**.
+
+-   Purple (bottom-right): the **Files tab**.
+
+![](/img/rstudio-1-2.png)
+
+The **Console** is where R commands can be executed. Think of this as the interface to R.
+
+The **Environment tab** lists the objects created with R, while in the **Files tab** you can navigate folders on your computer to get to files and open them in the file Editor.
+
+### RStudio projects
+
+RStudio is an IDE (see above) which allows you to work efficiently with R, all in one place.
+
+**Note** that files and data live in folders on your computer, outside of RStudio: do not think of RStudio as an app where you can save files in.
+
+All the files that you see in the Files tab are files on your computer and you can access them from the Finder or File Explorer as you would with any other file.
+
+In principle, you can open RStudio and then navigate to any folder or file on your computer.
+
+However, there is a more efficient way of working with RStudio: **RStudio Projects**.
+
+::: callout-tip
+#### RStudio Projects
+
+An **RStudio Project** is a folder on your computer that has an `.Rproj` file.
+:::
+
+You can create as many RStudio Projects as you wish, and I recommend to create one per project (your dissertation, a research project, a course, etc...).
+
+We will create an RStudio Project for this course (meaning, you will create a folder for the course which will be the RStudio Project). You will have to use this project/folder throughout the semester.
+
+To create a new RStudio Project, click on the button that looks like a transparent light blue box with a plus, in the top-left corner of RStudio. A window like the one below will pop up.
+
+![](../img/rstudio-3.png)
+
+Click on `New Directory` then `New Project`.
+
+![](../img/rstudio-4.png)
+
+Now, this will create a new folder (aka directory) on your computer and will make that an RStudio Project (meaning, it will add a file with the `.Rproj` extension to the folder; the name of the file will be the name of the project/folder).
+
+Give a name to your new project, something like the name of the course and year (e.g. `qml-2023`).
+
+Then you need to specify where to create this new folder/Project. Click on `Browse…` and navigate to the folder you want to create the new folder/Project in.
+
+When done, click on `Create Project`. RStudio will automatically open your new project.
+
+![](../img/rstudio-5.png)
+
+::: callout-warning
+#### Important
+
+When working through these tutorials, always make sure you are in the course RStudio Project you just created.
+
+You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light blue cube icon.
+
+If you see `Project (none)` in the top-right corner, that means your **are not** in an RStudio Project.
+
+To make sure you are in the RStudio project, go to the project folder in File Explorer or Finder and double click on the `.Rproj` file.
+:::
+
+There are several ways of opening an RStudio Project:
+
+-   You can go to the RStudio Project folder in Finder or File Explorer and double click on the `.Rproj` file.
+
+-   You can click on `File > Open Project` in the RStudio menu.
+
+-   You can click on the project name in the top-right corner of RStudio, which will bring up a list of projects. Click on the desired project to open it.
+
+### A few important settings
+
+Before moving on, there are a few important settings that you need to change.
+
+![](../img/rstudio-6.png)
+
+1.  Open the RStudio preferences (`Tools > Global options...`).
+
+2.  Un-tick `Restore .RData into workspace at startup`.
+
+    -   This mean that every time you start RStudio you are working with a clean Environment. Not restoring the workspace ensures that the code you write is fully reproducible.
+
+3.  Select `Never` in `Save workspace to .RData on exit`.
+
+    -   Since we are not restoring the workspace at startup, we don't need to save it. Remember that as long as you save the code, you will not lose any of your work! You will learn how to save code from next week.
+
+4.  Click `OK` to confirm the changes.
+
+::: callout-note
+#### Quiz 1
+
+```{r}
+#| label: quiz-1
+#| results: asis
+#| echo: false
+
+cat("**True or false?**", "\n\n")
+cat("a. RStudio executes the code.", torf(FALSE), "\n\n")
+cat("b. R is a programming language.", torf(TRUE), "\n\n")
+cat("c. An IDE is necessary to run R.", torf(FALSE), "\n\n")
+cat("d. RStudio projects are folders with an `.Rproj` file.", torf(TRUE), "\n\n")
+cat("f. The project name is shown in the top-right corner of RStudio.", torf(TRUE))
+```
+:::
 
 ## Some basics
 

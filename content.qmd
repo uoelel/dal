@@ -1,19 +1,19 @@
 ## Schedule overview
 
-| Week       | Topic                                |                       |                                        |                                        |     |
-|------------|------------|------------|------------|------------|------------|
-| 1          | Quantitative methods and uncertainty | [Slides](slides/w01/) | [Tutorial](tutorials/tutorial-w01.qmd) |                                        |     |
-| 2          | Data wrangling                       | [Slides](slides/w02/) | [Tutorial](tutorials/tutorial-w02.qmd) |                                        |     |
-| 3          | Data visualisation                   | [Slides](slides/w03/) | [Tutorial](tutorials/tutorial-w03.qmd) |                                        |     |
-| 4          | Statistical modeling basics          | [Slides](slides/w04/) | [Tutorial](tutorials/tutorial-w04.qmd) |                                        |     |
-| 5          | Categorical predictors               | [Slides](slides/w05/) | [Tutorial](tutorials/tutorial-w05.qmd) | [F1](https://github.com/uoelel/qml-f1) |     |
-| 6 Catch up | *No classes*                         |                       |                                        |                                        |     |
-| 7          | Binary outcomes                      | [Slides](slides/w07/) | [Tutorial](tutorials/tutorial-w07.qmd) |                                        |     |
-| 8          | Multiple predictors and interactions | [Slides](slides/w08/) | [Tutorial](tutorials/tutorial-w08.qmd) |                                        | [S1](https://github.com/uoelel/qml-s1/)  |
-| 9          | Continuous predictors                | [Slides](slides/w09/) | [Tutorial](tutorials/tutorial-w09.qmd) |                                        |     |
-| 10         | Research process: an overview                   | [Slides](slides/w10/) | [Tutorial](tutorials/tutorial-w10.qmd) | [F2](https://github.com/uoelel/qml-f2/)                                     |     |
-| 11         | Obtaining p-values (optional)        | [Slides](slides/w11/) | [Tutorial](tutorials/tutorial-w11.qmd) |                                        |     |
-| 12         |                                      |                       |                                        |                                        | S2  |
+| Week       | Topic                                |                       |                                        |                                         |                                         |
+|------------|--------------------------------------|-----------------------|----------------------------------------|-----------------------------------------|-----------------------------------------|
+| 1          | Quantitative methods and uncertainty | [Slides](slides/w01/) | [Tutorial](tutorials/tutorial-w01.qmd) |                                         |                                         |
+| 2          | Data wrangling                       | [Slides](slides/w02/) | [Tutorial](tutorials/tutorial-w02.qmd) |                                         |                                         |
+| 3          | Data visualisation                   | [Slides](slides/w03/) | [Tutorial](tutorials/tutorial-w03.qmd) |                                         |                                         |
+| 4          | Statistical modeling basics          | [Slides](slides/w04/) | [Tutorial](tutorials/tutorial-w04.qmd) |                                         |                                         |
+| 5          | Categorical predictors               | [Slides](slides/w05/) | [Tutorial](tutorials/tutorial-w05.qmd) | [F1](https://github.com/uoelel/qml-f1)  |                                         |
+| 6 Catch up | *No classes*                         |                       |                                        |                                         |                                         |
+| 7          | Binary outcomes                      | [Slides](slides/w07/) | [Tutorial](tutorials/tutorial-w07.qmd) |                                         |                                         |
+| 8          | Multiple predictors and interactions | [Slides](slides/w08/) | [Tutorial](tutorials/tutorial-w08.qmd) |                                         | [S1](https://github.com/uoelel/qml-s1/) |
+| 9          | Continuous predictors                | [Slides](slides/w09/) | [Tutorial](tutorials/tutorial-w09.qmd) |                                         |                                         |
+| 10         | Research process: an overview        | [Slides](slides/w10/) | [Tutorial](tutorials/tutorial-w10.qmd) | [F2](https://github.com/uoelel/qml-f2/) |                                         |
+| 11         | Obtaining p-values (optional)        | [Slides](slides/w11/) | [Tutorial](tutorials/tutorial-w11.qmd) |                                         |                                         |
+| 12         |                                      |                       |                                        |                                         | S2                                      |
 
 ## Weekly schedule
 
@@ -84,14 +84,13 @@
 
 **Replication**
 
-- 👉 [Assessing the replication landscape in experimental linguistics](https://doi.org/10.31234/osf.io/fzngs).
-- [The Stark realities of reproducible statistically orientated sociological research: Some newer rules of the sociological method](
-https://doi.org/10.1177/20597991221111681).
+-   👉 [Assessing the replication landscape in experimental linguistics](https://doi.org/10.31234/osf.io/fzngs).
+-   [The Stark realities of reproducible statistically orientated sociological research: Some newer rules of the sociological method](https://doi.org/10.1177/20597991221111681).
 
 **Other**
 
-- [Methods as theory](https://stefanocoretta.github.io/post/methods-as-theory/).
-- Molnar 2022. Modeling Mindsets: The many cultures of learning from data.
+-   [Methods as theory](https://stefanocoretta.github.io/post/methods-as-theory/).
+-   Molnar 2022. Modeling Mindsets: The many cultures of learning from data.
 -   [Darwin Holmes 2020](https://doi.org/10.34293/education.v8i4.3232). Researcher Positionality - A Consideration of Its Influence and Place in Qualitative Research - A New Researcher Guide
 -   [Jafar 2018](https://doi.org/10.1136/emermed-2017-207158). What is positionality and should it be expressed in quantitative studies?
 :::
@@ -178,8 +177,8 @@ https://doi.org/10.1177/20597991221111681).
 
 **Other**
 
-- [Gabry et al 2019](https://doi.org/10.1111/rssa.12378). Visualization in Bayesian workflow.
-- [Politzer-Ahles and Piccini](https://doi.org/10.1016/j.wocn.2018.05.002). On visualizing phonetic data from repeated measures experiments with multiple random effects.
+-   [Gabry et al 2019](https://doi.org/10.1111/rssa.12378). Visualization in Bayesian workflow.
+-   [Politzer-Ahles and Piccini](https://doi.org/10.1016/j.wocn.2018.05.002). On visualizing phonetic data from repeated measures experiments with multiple random effects.
 -   [Fundamentals of Data Visualisation](https://clauswilke.com/dataviz/).
 -   **Data viz catalogues**
     -   [Directory of visualisations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
@@ -225,7 +224,7 @@ https://doi.org/10.1177/20597991221111681).
 ::: {.callout-tip collapse="true"}
 #### Materials
 
--   [optional] [The Golem of Prague](https://youtu.be/FdnMWdICdRs?si=qprHmzSkHSln0_-z) (video lecture of SreT Ch 1).
+-   \[optional\] [The Golem of Prague](https://youtu.be/FdnMWdICdRs?si=qprHmzSkHSln0_-z) (video lecture of SreT Ch 1).
 -   [Lecture slides](slides/w04/).
 -   [Workshop tutorial](tutorials/tutorial-w04.qmd).
 -   Workshop files (right-click and download):
@@ -246,14 +245,14 @@ https://doi.org/10.1177/20597991221111681).
 
 The following resources will be helpful throughout the course. Note they cover aspects that we have not yet discussed (some will be in the following weeks, others won't be due to time), but **do bookmark these** because they will be valuable when you will be working on your dissertation.
 
-- [Linear Models and Mixed Models with R](https://www.bodo-winter.net/tutorials.html) tutorials (1 and 2) by Bodo Winter (author of S4LR) for a general overview of the type of models we focus on in this course.
-- [One Thousand and One names](https://stefanocoretta.github.io/post/2022-07-22-one-thousand-and-one-names/): table with naming conventions for different types of linear models.
-- [Linear Models: A cheat-sheet](https://stefanocoretta.github.io/post/2021-08-21-regression-models-a-cheat-sheet/): use this to find out which building blocks you need for your linear model.
+-   [Linear Models and Mixed Models with R](https://www.bodo-winter.net/tutorials.html) tutorials (1 and 2) by Bodo Winter (author of S4LR) for a general overview of the type of models we focus on in this course.
+-   [One Thousand and One names](https://stefanocoretta.github.io/post/2022-07-22-one-thousand-and-one-names/): table with naming conventions for different types of linear models.
+-   [Linear Models: A cheat-sheet](https://stefanocoretta.github.io/post/2021-08-21-regression-models-a-cheat-sheet/): use this to find out which building blocks you need for your linear model.
 :::
 
 ### Week 5: Categorical predictors
 
-::: {.callout-warning}
+::: callout-warning
 #### Formative assessment 1
 
 -   **DUE on Thu 19 October at noon**.
@@ -301,7 +300,7 @@ The following resources will be helpful throughout the course. Note they cover a
 
 **Other**
 
-- [Factors, coding and contrasts](https://stefanocoretta.github.io/post/contrasts/): blog post on factors in linear models. It also discusses interactions, which we will cover in Weeks 8-9.
+-   [Factors, coding and contrasts](https://stefanocoretta.github.io/post/contrasts/): blog post on factors in linear models. It also discusses interactions, which we will cover in Weeks 8-9.
 :::
 
 ### Week 6: Catch-up Week
@@ -315,8 +314,6 @@ There will be no classes.
 :::
 
 ### Week 7: Binary outcomes
-
-
 
 ::: {.callout-important collapse="true"}
 #### Learning Objectives
@@ -357,7 +354,7 @@ There will be no classes.
 
 ### Week 8: Multiple predictors and interactions
 
-::: {.callout-warning}
+::: callout-warning
 #### Summative 1: Week 8 (Thu 9 November at noon)
 
 **Due on Thursday 9 November at noon**
@@ -365,7 +362,6 @@ There will be no classes.
 The first summative contains a series of guided exercises that cover things done in Weeks 1 to 7.
 
 You can find the instructions and data for the first summative here: <https://github.com/uoelel/qml-s1/>.
-
 :::
 
 ::: {.callout-important collapse="true"}
@@ -439,8 +435,8 @@ You can find the instructions and data for the first summative here: <https://gi
 
 Please, read the following before coming to class on Wednesday (there will be no lecture on Tuesday).
 
-- [Stroop Effect in Language](https://doi.org/10.1016/B0-08-044854-2/00871-3)
-- [Half a Century of Research on the Stroop Effect: An Integrative Review](http://www.ezproxy.is.ed.ac.uk/login?url=http://ovidsp.ovid.com.ezproxy.is.ed.ac.uk/ovidweb.cgi?T=JS&CSC=Y&NEWS=N&PAGE=fulltext&AN=00006823-199103000-00001&D=ovft), pp 163--165 plus one extra section of your choice.
+-   [Stroop Effect in Language](https://doi.org/10.1016/B0-08-044854-2/00871-3)
+-   [Half a Century of Research on the Stroop Effect: An Integrative Review](http://www.ezproxy.is.ed.ac.uk/login?url=http://ovidsp.ovid.com.ezproxy.is.ed.ac.uk/ovidweb.cgi?T=JS&CSC=Y&NEWS=N&PAGE=fulltext&AN=00006823-199103000-00001&D=ovft), pp 163--165 plus one extra section of your choice.
 :::
 
 ::: {.callout-tip collapse="false"}

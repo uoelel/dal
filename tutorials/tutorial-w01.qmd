@@ -31,150 +31,50 @@ The R community is a **very inclusive community** and it's easy to find help. Th
 
 Moreover, R is **open source and free**!
 
-## R vs RStudio
+## The R console 
 
-Beginners usually have trouble understanding the difference between R and RStudio.
-
-Let's use a car analogy.
-
-What makes the car go is the **engine** and you can control the engine through the **dashboard**.
-
-You can think of R as an engine and RStudio as the dashboard.
-
-![](../img/R_vs_RStudio_1.png)
-
-::: {.callout-tip icon="false"}
+::: {.callout-tip}
 ### R
 
 -   R is a **programming language**.
 
 -   We use programming languages to **interact** with computers.
 
--   You run **commands** written in a **console** and the related task is **executed**.
+-   You run **commands** written in a **console** and the task related to the command is **executed**.
 :::
 
-::: {.callout-tip icon="false"}
-### RStudio
+We will begin our R journey with some basics concepts from computer science.
+The box above introduces you to three important concepts:
 
--   RStudio is an Integrated Development Environment or **IDE**.
+- **Programming languages**.
+- **Executing commands**.
+- **Console**.
 
--   It helps you using R more **efficiently**.
+R comes with its own console. **Open now the R Console.**
 
--   It has a **graphical user interface** or GUI.
-:::
+It should look like the following (there will be some aesthetic differences since you are using Windows).
 
-The next section will give you a tour of RStudio.
+![](../img/r-console.png)
 
-## RStudio
+The Console is an interactive interface that allows you to input commands and execute them.
 
-When you open RStudio, you can see the window is divided into 3 panels:
+You know you can enter a command because the **prompt** (`>`) is displayed, and next to it you can see the text cursor (`|`) flashing.
 
--   Blue (left): the **Console**.
+Try writing the following command (you will learn more about R commands below):
 
--   Green (top-right): the **Environment tab**.
-
--   Purple (bottom-right): the **Files tab**.
-
-![](/img/rstudio-1-2.png)
-
-The **Console** is where R commands can be executed. Think of this as the interface to R.
-
-The **Environment tab** lists the objects created with R, while in the **Files tab** you can navigate folders on your computer to get to files and open them in the file Editor.
-
-### RStudio projects
-
-RStudio is an IDE (see above) which allows you to work efficiently with R, all in one place.
-
-**Note** that files and data live in folders on your computer, outside of RStudio: do not think of RStudio as an app where you can save files in.
-
-All the files that you see in the Files tab are files on your computer and you can access them from the Finder or File Explorer as you would with any other file.
-
-In principle, you can open RStudio and then navigate to any folder or file on your computer.
-
-However, there is a more efficient way of working with RStudio: **RStudio Projects**.
-
-::: callout-tip
-#### RStudio Projects
-
-An **RStudio Project** is a folder on your computer that has an `.Rproj` file.
-:::
-
-You can create as many RStudio Projects as you wish, and I recommend to create one per project (your dissertation, a research project, a course, etc...).
-
-We will create an RStudio Project for this course (meaning, you will create a folder for the course which will be the RStudio Project). You will have to use this project/folder throughout the semester.
-
-To create a new RStudio Project, click on the button that looks like a transparent light blue box with a plus, in the top-left corner of RStudio. A window like the one below will pop up.
-
-![](../img/rstudio-3.png)
-
-Click on `New Directory` then `New Project`.
-
-![](../img/rstudio-4.png)
-
-Now, this will create a new folder (aka directory) on your computer and will make that an RStudio Project (meaning, it will add a file with the `.Rproj` extension to the folder; the name of the file will be the name of the project/folder).
-
-Give a name to your new project, something like the name of the course and year (e.g. `qml-2023`).
-
-Then you need to specify where to create this new folder/Project. Click on `Browse…` and navigate to the folder you want to create the new folder/Project in.
-
-When done, click on `Create Project`. RStudio will automatically open your new project.
-
-![](../img/rstudio-5.png)
-
-::: callout-warning
-#### Important
-
-When working through these tutorials, always make sure you are in the course RStudio Project you just created.
-
-You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light blue cube icon.
-
-If you see `Project (none)` in the top-right corner, that means your **are not** in an RStudio Project.
-
-To make sure you are in the RStudio project, go to the project folder in File Explorer or Finder and double click on the `.Rproj` file.
-:::
-
-There are several ways of opening an RStudio Project:
-
--   You can go to the RStudio Project folder in Finder or File Explorer and double click on the `.Rproj` file.
-
--   You can click on `File > Open Project` in the RStudio menu.
-
--   You can click on the project name in the top-right corner of RStudio, which will bring up a list of projects. Click on the desired project to open it.
-
-### A few important settings
-
-Before moving on, there are a few important settings that you need to change.
-
-![](../img/rstudio-6.png)
-
-1.  Open the RStudio preferences (`Tools > Global options...`).
-
-2.  Un-tick `Restore .RData into workspace at startup`.
-
-    -   This mean that every time you start RStudio you are working with a clean Environment. Not restoring the workspace ensures that the code you write is fully reproducible.
-
-3.  Select `Never` in `Save workspace to .RData on exit`.
-
-    -   Since we are not restoring the workspace at startup, we don't need to save it. Remember that as long as you save the code, you will not lose any of your work! You will learn how to save code from next week.
-
-4.  Click `OK` to confirm the changes.
-
-::: callout-note
-#### Quiz 1
-
-```{r}
-#| label: quiz-1
-#| results: asis
-#| echo: false
-
-cat("**True or false?**", "\n\n")
-cat("a. RStudio executes the code.", torf(FALSE), "\n\n")
-cat("b. R is a programming language.", torf(TRUE), "\n\n")
-cat("c. An IDE is necessary to run R.", torf(FALSE), "\n\n")
-cat("d. RStudio projects are folders with an `.Rproj` file.", torf(TRUE), "\n\n")
-cat("f. The project name is shown in the top-right corner of RStudio.", torf(TRUE))
+```r
+cat("Hello!")
 ```
-:::
+
+To **execute** the command (aka **run** the command), press `ENTER/RETURN` on your keyboard.
+
+The command `cat("Hello!")` returns (aka outputs) in the console the text given between double quotes: `Hello`.
+
+Congratulations, you have run your first R command! This command involved a **function** (more on functions below): the `cat()` function (no feline involvement...).
+
+So there are different types of R commands that you can use. In the following sections you will learn about the basic types of R commands and what they can be used for.
+
+You will learn more and more commands throughout the course. You don't have to memorise them all at once: focus on understanding what they can be useful for and if you don't remember the details, you can always check them!
 
 ## R basics
 
@@ -182,13 +82,13 @@ In this part of the tutorial you will learn the very basics of R.
 
 If you have prior experience with programming, you should find all this familiar. If not, not to worry! Make sure you understand the concept highlighted in the green boxes and practice the related skills.
 
-For this tutorial, you will just run code directly in the R Console in RStudio, i.e. you will type code in the Console and press `ENTER` to run it.
+For this tutorial, you will just run code directly in the R Console, i.e. you will type code in the Console and press `ENTER/RETURN` (`ENTER` from now on) to run it.
 
-In future tutorials, you will learn how to save your code in a script file, so that you can keep track of which code you have run and make your work reproducible.
+In future tutorials, you will learn how to save your code in a script file, so that you can keep track of what you have run and make your work **reproducible**.
 
 ### R as a calculator
 
-Write this code `1 + 2` in the `Console`, then press `ENTER/RETURN` to run the code.
+Write this line of code `1 + 2` in the `Console`, then press `ENTER` to run it.
 
 Fantastic! You should see that the answer of the addition has been printed in the `Console`, like this:
 
@@ -198,7 +98,13 @@ Fantastic! You should see that the answer of the addition has been printed in th
 
 (Never mind the `[1]` part for now).
 
-Now, try some more operations (write each of the following in the Console and press `ENTER`). Feel free to add your own operations to the mix!
+::: callout-tip
+#### Arithmentic operations
+
+You can run arithmetic operations using **maths operators**: the most common are `+, -, *, /` for addition, subtraction, multiplication and division.
+:::
+
+Now, try some more operations (write one line and press `ENTER`, then write the following line and so on...). Feel free to add your own operations to the mix!
 
 ```{r}
 #| label: operations
@@ -227,9 +133,9 @@ You can also chain multiple operations.
 #| results: asis
 #| echo: false
 
-cat("**Are the following pairs of operations equivalent?**", "\n\n")
-cat("a. `3 * 2 / 4` = `3 * (2 / 4)`", torf(TRUE), "\n\n")
-cat("b. `10 * 2 + 5 * 0.2` = `(10 * 2 + 5) * 0.2`", torf(FALSE), "\n\n")
+cat("**Are the following statements true of false?**", "\n\n")
+cat("a. `3 * 2 / 4` returns the same result as `3 * (2 / 4)`", torf(TRUE), "\n\n")
+cat("b. `10 * 2 + 5 * 0.2` returns the same result as `(10 * 2 + 5) * 0.2`", torf(FALSE), "\n\n")
 ```
 :::
 
@@ -267,7 +173,7 @@ Let's assign the value `156` to the variable `my_num`.
 my_num <- 156
 ```
 
-Now, check the list of variables in the `Environment` tab of the top-right panel of RStudio. You should see the `my_num` variable and its value there.
+<!-- Now, check the list of variables in the `Environment` tab of the top-right panel of RStudio. You should see the `my_num` variable and its value there. -->
 
 Now, you can just call the variable back when you need it! Write the following in the Console and press `ENTER`.
 
@@ -277,7 +183,9 @@ Now, you can just call the variable back when you need it! Write the following i
 my_num
 ```
 
-A variable like `my_num` is also called a **numeric vector**: i.e. a vector that contains a number (hence numeric).
+You should see the value of `my_num` being printed in the console.
+
+A variable like `my_num` is called a **numeric vector**: i.e. a vector that contains a number (hence numeric).
 
 ::: callout-tip
 #### Vector
@@ -297,7 +205,7 @@ expenses <- 500
 income - expenses
 ```
 
-See? You can use operations with variables too!
+See? You can use math operators with variables too!
 
 And you can also go all the way with variables.
 
@@ -307,7 +215,7 @@ And you can also go all the way with variables.
 savings <- income - expenses
 ```
 
-And check the value...
+Now check the value of `savings`...
 
 ```{r}
 #| label: variables-3
@@ -324,14 +232,16 @@ The following are all numeric vectors.
 ```{r}
 #| label: numeric
 
-one_i <- 6
+a <- 6
 # Vector with 2 values
-two_i <- c(6, 8)
+b <- c(6, 8)
 # Vector with 3 values
-three_i <- c(6, 8, 42)
+c <- c(6, 8, 42)
 ```
 
-Check the list of variables in the `Environment` tab. You will see now that before the values of `two_i` and `three_i` you get the vector type `num` for numeric. (If the vector has only one value, you don't see the type in the `Enviroment` list but it is still of a specific type).
+<!-- Check the list of variables in the `Environment` tab. You will see now that before the values of `two_i` and `three_i` you get the vector type `num` for numeric. (If the vector has only one value, you don't see the type in the `Enviroment` list but it is still of a specific type). -->
+
+You can check the type of vector (called class in R) with the `class()` function: for example, `class(a)` should return `"numeric"`.
 
 ::: callout-tip
 #### Numeric vector
@@ -344,10 +254,10 @@ Note that the following are the same:
 ```{r}
 #| label: numeric-2
 
-one_i <- 6
-one_i
-one_ii <- c(6)
-one_ii
+a <- 6
+a
+d <- c(6)
+d
 ```
 
 Another important aspect of variables is that they are... **variable**! Meaning that once you assign a value to one variable, you can overwrite the value by assigning a new one to the same variable.
@@ -359,6 +269,8 @@ my_num <- 88
 my_num <- 63
 my_num
 ```
+
+What if you want to know which variables you have created so far? Easy: use the `ls()` function. Just write `ls()` in the console and press `ENTER`: a list of existing variables will be returned.
 
 ::: callout-note
 #### Quiz 3
@@ -379,6 +291,8 @@ cat("c. A numeric vector can only hold numeric values.", torf(TRUE), "\n\n")
 
 > R cannot function without... functions.
 
+We have encoutered a few functions: `cat()`, `c()`, `class()` and `ls()`.
+
 ::: callout-tip
 #### Function
 
@@ -387,10 +301,10 @@ A **function** usually runs an operation on one or more specified **arguments**.
 
 A function in R has the form `function()` where:
 
--   `function` is the name of the function, like `sum`.
+-   `function` is the name of the function, like `cat`.
 -   `()` are round parentheses, inside of which you write arguments, separated by commas.
 
-Let's see an example:
+Let's see an example with the function `sum()` (can you guess what it does?):
 
 ```{r}
 #| label: sum
@@ -398,7 +312,7 @@ Let's see an example:
 sum(3, 5)
 ```
 
-The `sum()` function sums the number listed as arguments. Above, the arguments are `3` and `5`.
+The `sum()` function sums the numbers listed as arguments. Above, the arguments are `3` and `5`.
 
 And of course arguments can be vectors!
 
@@ -411,6 +325,26 @@ sum(my_nums)
 mean(my_nums)
 ```
 
+Some functions work without specifying an argument, like `ls()`.
+
+You can also nest functions one inside the other: the output of the "lowest" function is used as the argument of the function above. Try and untangle the following.
+
+```{r}
+y <- 10
+u <- 6
+i <- 7
+o <- 2
+
+cat(mean(c(sum(y, u), sum(i, o))))
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+![](../img/nested-functions.png)
+
+:::
+
 ::: callout-note
 #### Quiz 4
 
@@ -420,16 +354,10 @@ mean(my_nums)
 #| echo: false
 
 cat("**True or false?**", "\n\n")
-cat("a. Functions can take other functions as arguments.", torf(TRUE), "\n\n")
+cat("a. You can use functions within functions.", torf(TRUE), "\n\n")
 cat("b. All function arguments must be specified.", torf(FALSE), "\n\n")
 cat("c. All functions need at least one argument.", torf(FALSE), "\n\n")
 ```
-:::
-
-::: {.callout-tip collapse="true"}
-#### Hint
-
-The `Sys.Date()` function and other functions like it don't take any arguments.
 :::
 
 ::: {.callout-important collapse="true"}

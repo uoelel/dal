@@ -31,9 +31,9 @@ The R community is a **very inclusive community** and it's easy to find help. Th
 
 Moreover, R is **open source and free**!
 
-## The R console 
+## The R console
 
-::: {.callout-tip}
+::: callout-tip
 ### R
 
 -   R is a **programming language**.
@@ -43,12 +43,11 @@ Moreover, R is **open source and free**!
 -   You run **commands** written in a **console** and the task related to the command is **executed**.
 :::
 
-We will begin our R journey with some basics concepts from computer science.
-The box above introduces you to three important concepts:
+We will begin our R journey with some basics concepts from computer science. The box above introduces you to three important concepts:
 
-- **Programming languages**.
-- **Executing commands**.
-- **Console**.
+-   **Programming languages**.
+-   **Executing commands**.
+-   **Console**.
 
 R comes with its own console. **Open now the R Console.**
 
@@ -62,7 +61,7 @@ You know you can enter a command because the **prompt** (`>`) is displayed, and 
 
 Try writing the following command (you will learn more about R commands below):
 
-```r
+``` r
 cat("Hello!")
 ```
 
@@ -342,7 +341,6 @@ cat(mean(c(sum(y, u), sum(i, o))))
 #### Hint
 
 ![](../img/nested-functions.png)
-
 :::
 
 ::: callout-note

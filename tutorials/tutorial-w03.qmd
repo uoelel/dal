@@ -1,5 +1,5 @@
 ---
-title: "QML tutorial - Week 3"
+title: "DAL tutorial - Week 3"
 editor: visual
 execute:
   freeze: auto
@@ -19,189 +19,13 @@ library(tidyverse)
 library(webexercises)
 ```
 
-## Rmarkdown
+## Some computer basics
 
-Last week, you learnt how to use R scripts to save your code.
-
-Keeping track of the code you use for data analysis is a very important aspect of research project managing: not only the code is there if you need to rerun it later, but it allows your data analysis to be **reproducible** (i.e., it can be reproduced by you or other people in such a way that starting with the same data and code you get to the same results).
-
-::: callout-tip
-#### Reproducible research
-
-Research is **reproducible** when the same data and same code return the same results.
-:::
-
-R scripts are great for writing code, and you can even document the code (add explanations or notes) with comments (i.e. lines that start with `#`).
-
-But for longer text or complex data analysis reports, R scripts can be a bit cumbersome.
-
-A solution to this is using Rmarkdown files (they have the `.Rmd` extension).
-
-### Code... and text!
-
-Rmarkdown is a file format that allows you to mix code and formatted text in the same file.
-
-This means that you can write **dynamic reports** using Rmd files: dynamic reports are just like analysis reports (i.e. they include formatted text, plots, tables, code output, code, etc...) but they are **dynamic** in the sense that if, for example, data or code changes, you can just rerun the report Rmd file and all code output (plots, tables, etc...) is updated accordingly!
-
-You can watch this short video for a quick tour.
-
-{{< video https://vimeo.com/178485416 >}}
-
-::: callout-tip
-#### Dynamic reports in R Markdown
-
-**R Markdown** is a file type with extension `.Rmd` in which you can write formatted text and code together.
-
-R Markdown can be used to generate **dynamic reports**: these are files that are generated automatically from the R Markdown source, ensuring data and results in the report are always up to date.
-:::
-
-### Formatting text
-
-R comments in R scripts cannot be formatted (for example, you can't make bold or italic texts).
-
-Text in Rmd files can be fully formatted using a simple but powerful **mark-up language** called [markdown](https://www.markdownguide.org).
-
-You don't have to learn markdown all in one go, so I encourage you to just learn it bit by bit, in your time. You can look at the the [Markdown Guide]() for an in-depth intro and/or dive in the [Markdown Tutorial](https://www.markdowntutorial.com) for a hands-on approach.
-
-A few quick pointers (you can test them in the [Markdown Live Preview](https://markdownlivepreview.com)):
-
--   Text can be made italics by enclosing it between single stars: `*this text is in italics*`.
-
--   You can make text bold with two stars: `**this text is bold!**`.
-
--   Headings are created with `#`: `# This is a level-1 heading`. `## This is a level-2 heading`.
-
-::: callout-tip
-#### Mark-up, Markdown
-
-A **mark-up language** is a text-formatting system consisting of symbols or keywords that control the structure, formatting or relationships of textual elements. The most common mark-up languages are HTML, XML and TeX.
-
-**Markdown** is a simple yet powerful mark-up language.
-:::
-
-### Create an Rmd file
-
-::: callout-warning
-#### Important
-
-When working through these tutorials, always **make sure you are in the course RStudio Project** you just created.
-
-You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
-
-If you see `Project (none)` in the top-right corner, that means **you are not** in an RStudio Project.
-
-To make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
-:::
-
-To create a new Rmd file, just click on the `New file` button, then `R Markdown...`. (If you are asked to install/update packages, do so.)
-
-![](/img/new-rmd.png)
-
-A window will open. Add a title of your choice and your name, then click `OK`.
-
-![](/img/new-rmd-window.png)
-
-A new Rmd file will be created and will open in the File Editor panel in RStudio.
-
-**Note** that creating an Rmd file does not automatically saves it on your computer. To do so, either use the keyboard short-cut `CMD+S`/`CTRL+S` or click on the floppy disk icon in the menu below the file tab.
-
-![](/img/save-rmd.png)
-
-Save the file inside the `code/` folder with the following name: `tutorial-w03.Rmd`.
-
-Remember that all the files of your RStudio project don't live inside RStudio but on your computer. So you can always access them from the Finder or File Explorer!
-
-### Parts of an Rmd file
-
-An Rmd file usually has three main parts:
-
--   The preamble (green).
-
--   Code chunks (orange).
-
--   Text (blue).
-
-![](/img/rmd-parts.png)
-
-Each Rmd file has to start with a preamble, but you can include as many code chunks and as much text as you wish, in any order.
-
-::: callout-tip
-#### R Markdown: Preamble
-
-The **preamble** of an `.Rmd` file contains a list of `key: value` pairs, used to specify settings or document info like the `title` and `author`.
-
-Preambles start and end with three dashes `---`.
-:::
-
-::: callout-tip
-#### R Markdown: Code chunks
-
-**Code chunks** start and end with three back-ticks ```` ``` ```` and they contain code.
-
-Settings can be specified between curly brackets `{}` on the first ```` ``` ```` line: for example `{r chunk-name, eval=FALSE}`. `r` indicates that the code is R code.
-:::
-
-### Render Rmd files to HTML
-
-You can render an Rmd file into a nicely formatted HTML file.
-
-To render an Rmd file, just click on the **Knit** button and an HTML file will be created and saved in the same location of the Rmd file.
-
-![](/img/knit.png)
-
-It will also be shown in the Viewer pane (like in the picture below) or in a new window (you can set this option in the RStudio preferences \> R Markdown \> Basics \> Show output preview in...).
-
-![](/img/rendered.png)
-
-Rendering Rmd files is not restricted to HTML, but also PDFs and even Word documents!
-
-This is very handy when you are writing an analysis report you need to share with others.
-
-::: callout-tip
-#### R Markdown: Rendering
-
-Rmd files can be **rendered** into other formats, like HTML, PDF and Word documents.
-:::
-
-### How to run code
-
-The first code chunk in an Rmd file is a special one: it's called `setup` and it's where you attach all the packages needed for running the code in the file. (You can find the name of a code chunk---or define one yourself!---in the first line of a code block: ```` ```{r chunk-name} ````). The first code chunk of an Rmd file should always be named `setup`.
-
-The `setup` code chunk also has special code from the knitr package. The knitr package is what allows you to run R code from Rmd files.
-
-The line `knitr::opts_chunk$set(echo = TRUE)` sets the option `echo` to `TRUE`. The `echo` option let's you decide whether you want the R code printed (echoed) in the rendered Rmd file. When `echo = TRUE` the code is printed, when `echo = FALSE` the code is not printed.
-
-Now go ahead and add `library(tidyverse)` in the line below the `knitr::opts_chunk` line.
-
-::: callout-note
-#### Running code
-
-To run the code of a code chunk you can use different approaches:
-
--   Click on the green arrow to the right of the code chunk to run the entire code chunk.
-
--   Alternatively, place the text cursor inside the code chunk and press `CMD/CTRL + SHIFT + ENTER`.
-
--   You can also run line by line as you do in an R script by placing the text cursor on the line you want to run and press `CMD/CTRL + ENTER`.
-:::
-
-Now delete everything after the `setup` code chunk and write a new level-2 heading after the chunk with the name "Plotting basics". (Remember to leave an empty line between the chunk and the heading.)
-
-![](/img/rmd-setup.png)
-
-You will use this Rmd file to write text and code for this tutorial. To insert a new code chunk, you can click on the `Insert a new code chunk` button and then select `R`, or you can press `OPT/ALT + CMD/CTRL + I`.
-
-![](/img/rmd-new-chunk.png)
-
-A new R code chunk will be inserted at the text cursor position.
-
-## Some basics
-
-In the tutorial last week you've been playing around with R and variables.
+In the tutorial last week you've been playing around with R, RStudio and R scripts.
 
 **But what if you want to import data in R?**
 
-Easy! You can use the `read_*()` functions to read your files into R. But before we dive in, let's first talk about some computer basics. (You can skip this section if it's too basic for you)
+Easy! You can use the `read_*()` functions to read your files into R. But before we dive in, let's first talk about some computer basics. (You can skip this section if it's too basic for you.)
 
 ### Files, folder and file extensions
 
@@ -313,90 +137,85 @@ The next sections will teach you how to import data in R!
 #| echo: false
 
 opts_1 <- c(
-   "`Downloads/courses/qml/data/`",
-   answer = "`/Users/smruti/Downloads/data.csv/files/`",
+   "`Downloads/courses/dal/data/`",
+   answer = "`/Users/smruti/Downloads/data/files/`",
    "`sascha/Documents/files_pdf/paper.pdf`"
 )
 
-cat("Which of the following paths is an impossible path?", longmcq(opts_1))
+cat("Which of the following is an absolute paths?", longmcq(opts_1))
 ```
 :::
 
-### Write code
+## Data types
 
-Now, let's start writing code in the script!
+### Tabular data
 
-Generally, you start the script with calls to `library()` to load all the packages you need for the script.
+::: callout-tip
+#### Tabular data
 
-Now we only need one package, tidyverse, but in most cases you will need more than one! The best practice is to attach all of packages first, in the top of your script. Please, get in the habit of doing this from now, so that you can keep your scripts tidy and pretty!
+Tabular data is data that has a form of a table: i.e. values structured in columns and rows.
+:::
 
-Go ahead, write the following code in the top of the `tutorial-w02.R` script.
+Most of the data we will be using in this course will be tabular and the files will be in the `.csv` format.
 
-```{r}
-#| label: read-shallow
-#| message: false
-library(tidyverse)
+The **comma separated values format** (`.csv`) is the best format to save data in because it is basically a plain text file, it's quick to parse, and can be opened and edited with any software (plus, it's not a proprietary format).
 
-shallow <- read_csv("./data/shallow.csv")
+This is what a `.csv` file looks like when you open it in a text editor (showing only the first few lines).
+
+``` txt
+Group,ID,List,Target,ACC,RT,logRT,Critical_Filler,Word_Nonword,Relation_type,Branching
+L1,L1_01,A,banoshment,1,423,6.0474,Filler,Nonword,Phonological,NA
+L1,L1_01,A,unawareness,1,603,6.4019,Critical,Word,Unrelated,Left
+L1,L1_01,A,unholiness,1,739,6.6053,Critical,Word,Constituent,Left
+L1,L1_01,A,bictimize,1,510,6.2344,Filler,Nonword,Phonological,NA
 ```
 
-Wait, what is that `"./data/shallow.csv"`? That's a **relative path**. We briefly mentioned relative paths above, but let's understand the details now.
+The file contains tabular data (data that is structured as columns and rows, like a spreadsheet).
 
-::: callout-warning
-Please, don't include `install.packages()` in your R scripts!
+To separate the values of each column, a `.csv` file uses a comma `,` (hence the name "comma separated values") to separate the values in every row.
 
-Remember, you only have to install a package once, and you can just type it in the Console.
+The first line of the file indicates the names of the columns of the table:
 
-But **DO** include `library()` in your scripts.
-:::
+``` txt
+Group,ID,List,Target,ACC,RT,logRT,Critical_Filler,Word_Nonword,Relation_type,Branching
+```
 
-### Relative paths
+There are 11 columns. The rest of the rows is the data, i.e. the values of each column separated by commas.
 
-::: callout-tip
-#### Relative path
+``` txt
+L1,L1_01,A,banoshment,1,423,6.0474,Filler,Nonword,Phonological,NA
+L1,L1_01,A,unawareness,1,603,6.4019,Critical,Word,Unrelated,Left
+L1,L1_01,A,unholiness,1,739,6.6053,Critical,Word,Constituent,Left
+L1,L1_01,A,bictimize,1,510,6.2344,Filler,Nonword,Phonological,NA
+```
 
-A **relative path** is a file path that is relative to a folder, which is represented by `./`
-:::
+This might look a bit confusing, but you will see later that, after importing this type of file, you can view it as a nice spreadsheet (as you would in Excel).
 
-When you are using R scripts in RStudio projects, the `./` folder paths are relative to is the project folder! This is true whichever the name of the folder/project and whichever it's location on your computer.
+Another common type of tabular data file is **spreadsheets**, like spreadsheets created by Microsoft Excel or Apple Numbers. These are all proprietary formats that require you to have the software that were created with if you want to modify them.
 
-For example, if your project it's called `awesome_proj` and it's in `Downloads/stuff/`, then if you write `./data/results.csv` you really mean `Downloads/stuff/awesome_proj/data/results.csv`!
+Portability and openness are important aspects of conducting ethical research, so that using open and non-proprietary file types makes your research more accessible and doesn't privilege those who have access to specific software (remember, R is free!).
 
-**How does R know the path is relative to the project folder?**
+There are also variations of the comma separated values type, like **tab separated values** files (`.tsv`, which uses tab characters instead of commas) and **fixed-width** files (usually `.txt`, where columns are separated by as many white spaces as needed so that the columns align).
 
-That is because when working with RStudio projects, all relative paths are relative to the project folder (i.e. the folder with the `.Rproj` file)!
+### Non-tabular data
 
-The folder which relative paths are relative to is called the **working directory** (directory is just another way of saying folder).
+Of course, R can import also data that is not tabular, like map data and complex hierarchical data.
 
-::: callout-tip
-#### Working directory
+We will dip our toes in map data at the end of course, but virtually all of the data we will use will be tabular, just because that's the format you need to do data visualisation and analyses.
 
-The **working directory** is the folder which relative paths are relative to.
+### `.rds` files
 
-When using RStudio projects, the working directory is the project folder.
-:::
+R has a special way of saving data: `.rds` files.
 
-The code `read_csv("./data/shallow.csv")` above will work because you are using an RStudio project and inside the project folder there is a folder called `data/` and in it there's the `shallow.csv` file.
+`.rds` files allow you to save an R object to a file on your computer, so that you can read that file in when you need it.
 
-So from now on I encourage you to use RStudio projects, R scripts and relative paths always!
+A common use for `.rds` files is to save tabular data that you have processed so that it can be readily used in many different scripts or even by other people.
 
-The benefit of doing so is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!
+In the following sections you will learn how to import (aka read) three types of data: `.csv`, Excel and `.rds` files.
 
-::: {.callout-note collapse="true"}
-#### Get the working directory
+## Import `.csv` files
 
-You can get the current working directory with the `getwd()` command.
-
-Run it now in the Console! Is the returned path the project folder path?
-
-If not, it might be that you are not working from the RStudio project. Check the top-right corner of RStudio: is the project name in there or do you see `Project (none)?`
-
-If it's the latter, you are not in an RStudio project, but you are running R from somewhere else (meaning, the working directory is somewhere else).
-:::
-
-## The data
-
-For this tutorial, we will use the data from this paper: Song et al. 2020. *Second language users exhibit shallow morphological processing*. DOI: [10.1017/S0272263120000170](https://doi.org/10.1017/S0272263120000170).
+Let's start with data from this paper: Song et al. 2020. *Second language users exhibit shallow morphological processing*. DOI: [10.1017/S0272263120000170](https://doi.org/10.1017/S0272263120000170).
 
 The study consisted of a lexical decision task in which participants where first shown a prime, followed by a target word for which they had to indicate whether it was a real word or a nonce word.
 
@@ -408,26 +227,19 @@ The prime word belonged to one of three possible groups (`Relation_type` in the 
 
 -   `NonConstituent`: *kindness*.
 
-The expectations are that
+<!-- The expectations are that -->
 
-1.  Lexical decisions for native English participants should be facilitated in the `Constituent` condition, but not in the `Unrelated` and `NonConstituent` conditions.
-2.  Lexical decisions for non-native English participants should be facilitated both in the `Constituent` and `NonCostituent` condition, but not in the `Unrelated` condition.
+<!-- 1.  Lexical decisions for native English participants should be facilitated in the `Constituent` condition, but not in the `Unrelated` and `NonConstituent` conditions. -->
 
-We can interpret "facilitated lexical decisions" as higher accuracy and shorter reaction times.
+<!-- 2.  Lexical decisions for non-native English participants should be facilitated both in the `Constituent` and `NonCostituent` condition, but not in the `Unrelated` condition. -->
 
-In section 2-4 of this tutorial you will learn about:
-
--   The data file format (a `.csv file`).
-
--   How to read data with the `read_csv()` function from the tidyverse packages and what packages are.
-
--   How to view the imported data.
+<!-- We can interpret "facilitated lexical decisions" as higher accuracy and shorter reaction times. -->
 
 ### Download the data file
 
 Please, follow these instructions carefully.
 
-1.  Download the file with the data by right-clicking on the following link and download the file: [shallow.csv](../data/shallow.csv). (Note that tutorial files are also linked in the [Course content](../content.qmd) page)
+1.  Download the file with the data by right-clicking on the following link and download the file: [song2020.csv](../data/song2020.csv). (Note that tutorial files are also linked in the [Course content](../content.qmd) page)
 
 2.  Create a folder called `data/` (the slash is there just to remind you that it's a folder, but you don't have to include it in the name) in the RStudio project of the course.
 
@@ -447,7 +259,7 @@ Please, follow these instructions carefully.
 
     4.  In Finder or File Explorer, navigate to the RStudio project folder, then the `data/` folder, and paste the file in there.
 
-The rest of the tutorial will assume that you have created a folder called `data/` in the RStudio project folder and that `shallow.csv` is in that folder.
+The rest of the tutorial will assume that you have created a folder called `data/` in the Quarto project folder and that the files you download are in that folder.
 
 I recommend you to start being very organised with your files from now, whether it's for this course or your dissertation or else. I also suggest to avoid overly nested structures (for example, avoid having one folder for each week for this course. Rather, save all data files in the `data/` folder).
 
@@ -473,87 +285,111 @@ The `data/` folder could further contain `raw/` for raw data (data that should n
 I usually also have a separate folder called `figs/` or `img/` where I save plots. Of course which folders you will have it's ultimately up to you and needs will vary depending on the project and field!
 :::
 
-### About `shallow.csv`
-
-`shallow.csv` is a `.csv` file. It looks like this (the following is just an excerpt from the file, specifically the first 5 lines):
-
-``` txt
-Group,ID,List,Target,ACC,RT,logRT,Critical_Filler,Word_Nonword,Relation_type,Branching
-L1,L1_01,A,banoshment,1,423,6.0474,Filler,Nonword,Phonological,NA
-L1,L1_01,A,unawareness,1,603,6.4019,Critical,Word,Unrelated,Left
-L1,L1_01,A,unholiness,1,739,6.6053,Critical,Word,Constituent,Left
-L1,L1_01,A,bictimize,1,510,6.2344,Filler,Nonword,Phonological,NA
-```
-
-A `.csv` file is basically a format to save tabular data (i.e. data that looks like a table). To separate each column, a `.csv` file uses a comma `,` (hence the name "comma separated values").
-
-The first line of the file indicates the names of the columns of the table:
-
-``` txt
-Group,ID,List,Target,ACC,RT,logRT,Critical_Filler,Word_Nonword,Relation_type,Branching
-```
-
-There are 11 columns.
-
-Then, the rest of the file contains the other rows of the table, with values for each of the 11 columns. Of course, separated by commas.
-
-``` txt
-L1,L1_01,A,banoshment,1,423,6.0474,Filler,Nonword,Phonological,NA
-L1,L1_01,A,unawareness,1,603,6.4019,Critical,Word,Unrelated,Left
-L1,L1_01,A,unholiness,1,739,6.6053,Critical,Word,Constituent,Left
-L1,L1_01,A,bictimize,1,510,6.2344,Filler,Nonword,Phonological,NA
-```
-
-The `shallow.csv` file should be placed in the `data/` folder of the course RStudio project.
-
-Now, let's import the data!
+### The tidyverse packages
 
 Importing `.csv` files is very easy. You can use the `read_csv()` function from a collection of R packages known as the [tidyverse](https://www.tidyverse.org).
 
-
-
-## Import and view data
-
-### Import the data
-
 To import data in R we will use the `read_csv()` function from the [readr](https://readr.tidyverse.org) package, one of the tidyverse packages.
 
-The `read_csv()` function only requires you to specify the file path as a string (remember, strings are quoted between `" "`, for example `"year_data.txt"`).
+Installing the tidyverse packages is easy: you just need to install the tidyverse package and that will take care of installing the most important packages in the collection (called the ["core" tidyverse packages](https://www.tidyverse.org/packages/)).
 
-On my computer, the file path of `shallow.csv` is `/Users/ste/qml/data/shallow.csv`, but on your computer the file path will be different, of course.
+Go ahead and install the tidyverse from the Packages tab.[^1]
 
-Also, note that it is not enough to use the `read_csv()` function. You also must assign the output of the `read_csv()` function (i.e. the data we are reading) to a variable, using the assignment arrow `<-`.
+[^1]: Lab PCs should already have the tidyverse packages installed.
 
-And since the `read_csv()` is a function from the tidyverse, you first need to attach the tidyverse packages with `library(tidyverse)` (remember, you need to attach packages **only once** per session).
+### `read_csv()`
 
-This will attach a set of the tidyverse packages that are commonly used in most data analysis applications, including readr. Of course, you can also attach the individual packages directly: `library(readr)`. If you use `library(tidyverse)` there is no need to attach individual tidyverse packages.
+The `read_csv()` function from the readr package only requires you to specify the file path as a string (remember, strings are quoted between `" "`, for example `"year_data.txt"`). On my computer, the file path of `song2020.csv` is `/Users/ste/dal/data/song2020.csv`, but on your computer the file path will be different, of course.
 
-So, putting all together, here's the code. **Remember to change the file path to match the path of the file on your computer**. Run the code in the Console to read the data.
+Also, note that it is not enough to use the `read_csv()` function. You also must assign the output of the `read_csv()` function (i.e. the data we are reading) to a variable, using the assignment arrow `<-`, just like we were assigning values to variables in the previous weeks.
+
+And since the `read_csv()` is a function from the tidyverse, you first need to attach the tidyverse packages with `library(tidyverse)` (remember, you need to attach packages **only once** per session). This will attach the core tidyverse packages, including readr. Of course, you can also attach the individual packages directly: `library(readr)`. If you use `library(tidyverse)` there is no need to attach individual tidyverse packages.
+
+Before reading the data, create a new R script named `tutorial_w03.R` and save it in the `code/` folder of your Quarto project.
+
+Generally, you start the script with calls to `library()` to load all the packages you need for the script.
+
+Now we only need one package, tidyverse, but in most cases you will need more than one! The best practice is to attach all of packages first, in the top of your script. Please, get in the habit of doing this from now, so that you can keep your scripts tidy and pretty!
+
+::: callout-warning
+Please, don't include `install.packages()` in your R scripts!
+
+Remember, you only have to install a package once, and you can just type it in the Console.
+
+But **DO** include `library()` in your scripts.
+:::
+
+At the top of `tutorial_w03.R`, write the following lines of code. Then run the code.
 
 ```{r}
-#| label: read-example
-#| eval: false
+#| label: read-song2020
+
 library(tidyverse)
 
-# CHANGE THE FILE PATH TO MATCH THE PATH ON YOUR COMPUTER
-shallow <- read_csv("/Users/ste/qml/data/shallow.csv")
+song2020 <- read_csv("./data/song2020.csv")
 ```
 
-Fantastic!
+If you look at the `Environment` tab, you will see `song2020` under `Data`.
+
+But wait, what is that `"./data/song2020.csv"`? That's a **relative path**. We briefly mentioned relative paths above, but let's understand the details now. You will be able to view the data soon.
+
+### Relative paths
+
+::: callout-tip
+#### Relative path
+
+A **relative path** is a file path that is relative to a folder, which is represented by `./`
+:::
+
+When you are using R scripts in Quarto projects, the `./` folder paths are relative to is the project folder! This is true whichever the name of the folder/project and whichever it's location on your computer.
+
+For example, if your project it's called `awesome_proj` and it's in `Downloads/stuff/`, then if you write `./data/results.csv` you really mean `Downloads/stuff/awesome_proj/data/results.csv`!
+
+**How does R know the path is relative to the project folder?**
+
+That is because when working with Quarto projects, all relative paths are relative to the project folder (i.e. the folder with the `.Rproj` file)!
+
+The folder which relative paths are relative to is called the **working directory** (directory is just another way of saying folder).
+
+::: callout-tip
+#### Working directory
+
+The **working directory** is the folder which relative paths are relative to.
+
+When using RStudio projects, the working directory is the project folder.
+:::
+
+The code `read_csv("./data/song2020.csv")` above will work because you are using an RStudio project and inside the project folder there is a folder called `data/` and in it there's the `song2020.csv` file.
+
+So from now on I encourage you to use Quarto projects, R scripts and relative paths always!
+
+The benefit of doing so is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!
+
+::: {.callout-tip collapse="true"}
+#### Get the working directory
+
+You can get the current working directory with the `getwd()` command.
+
+Run it now in the Console! Is the returned path the project folder path?
+
+If not, it might be that you are not working from a Quarto project. Check the top-right corner of RStudio: is the project name in there or do you see `Project (none)?`
+
+If it's the latter, you are not in a Quarto project, but you are running R from somewhere else (meaning, the working directory is somewhere else). If so, close RStudio and open the project.
+:::
 
 ### View the data
 
-Now we can view the data.
+Now we can finally view the data.
 
-The easiest way is to click on the name of the data listed in the **Environment** tab, in the top-right panel of RStudio.
+The easiest way is to click on the name of the data listed in the `Environment` tab, in the top-right panel of RStudio.
 
 You will see a nicely formatted table, as you would in a programme like Excel.
 
-Data tables in R (i.e. spreadsheet-like data) are called **data frames** or **tibbles**.[^1]
+Data tables in R (i.e. tabular, spread-sheet like data) are called **data frames** or **tibbles**.[^2]
 
-[^1]: A **tibble** is a special data frame. We will learn more about tibbles in the following weeks.
+[^2]: A **tibble** is a special data frame. We will learn more about tibbles in the following weeks.
 
-The `shallow` data frame contains 11 columns (called variables in the `Environment` tab). The 11 columns are the following:
+The `song2020` data frame contains 11 columns (called variables in the `Environment` tab). The 11 columns are the following:
 
 -   `Group`: `L1` vs `L2` speakers of English.
 -   `ID`: Subject unique ID.
@@ -585,31 +421,11 @@ cat("How many rows does `shallow` have?", longmcq(opts_3))
 ```
 :::
 
-Great stuff! See how easy it was to import data?
+## Import Excel sheets
 
-::: callout-tip
-## Data formats
+## Import `.rds` files
 
-Most of the data we will be using in this course will be in the `.csv` format.
 
-**The comma separated values format (`.csv`) is the best format to save data in** because it is basically a plain text file, it's quick to parse, and can be opened and edited with any software (plus, it's not a proprietary format).
-:::
-
-However, you can easily import other file types as long as they are tabular or rectangular (i.e. spreadsheet-like), like Excel files.
-
-::: {.callout-note collapse="true"}
-#### How to import other file types
-
-Sometimes though you might have to read other file types, for example Excel spreadsheets.
-
-It's easy to read other file type using the other `read_*()` functions:
-
--   For Excel files (i.e. files with a `.xls` or `.xlsx` extension), you need to attach the [readxl](https://readxl.tidyverse.org) package with `library(readxl)` and use the `read_excel()` function.
-
--   Use `read_tsv()` from the readr package (installed with the tidyverse) to read tab separated values files (these have either the `.txt` or `.tsv` extensions.
-
--   The flexible `read_delim()` function allows you to read a wide variety of delimited files.
-:::
 
 ::: {.callout-note collapse="true"}
 #### Practice 1
@@ -622,3 +438,7 @@ Download the following files into the data folder. Read them in R, making sure y
 
 -   Go to <https://datashare.ed.ac.uk/handle/10283/4006> and download the file `conflict_data_.xlsx`. Read both sheets ("conflict_data2" and "demographics"). Any issues?
 :::
+
+
+
+

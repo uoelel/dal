@@ -56,7 +56,7 @@ Data from *A Cross-Cultural Analysis of Early Prelinguistic Gesture Development 
 gestures <- read_csv("https://raw.githubusercontent.com/stefanocoretta/infant-gestures/master/data/gestures.csv") %>%
   mutate(id = as.numeric(as.factor(paste(dyad, task, gesture))))
 
-write_csv(gestures, "data/gestures.csv")
+write_csv(gestures, "data/cameron2020-gestures.csv")
 ```
 
 ## Politeness

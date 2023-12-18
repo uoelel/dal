@@ -1,0 +1,82 @@
+---
+title: "Data Analysis for LEL"
+subtitle: "Week 1"
+author: "Stefano Coretta"
+institute: University of Edinburgh
+format:
+  mono-light-revealjs:
+    css: custom.css
+---
+
+## 
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/6580429ec14f7ffea5b0d714" width="100%">
+
+</iframe>
+
+## Course info
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+-   The main course website <https://uoelel.github.io/qml/>.
+
+-   Course announcements are sent via Learn.
+
+-   **ASK FOR HELP**: It is OK not to be OK, and remember that you are not alone.
+
+    -   Go to the PPLS UG or PG Hub (on SharePoint Online) \> Support for students \> Wellbeing and Health.
+    -   Come to my office hours (booking link on the course website homepage).
+
+-   Assessment:
+
+    -   **Formative assessments**: Two formative assessments.
+    -   **Summative assessments**: Two summative assessments (50-50).
+    -   Info on the course website.
+:::
+
+## Course rationale
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+-   **DAL (Data Analysis for LEL)** is a new course designed for undergraduate students.
+
+-   The main learning objective of this course is to allow you to **conduct basic data reports** which can be applied to linguistic questions and data, for example as part of your dissertation.
+
+-   We will focus on **modern techniques** of data handling and quantitative analysis.
+:::
+
+. . .
+
+::: {.bg-washed-yellow .b--orange .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+-   This is **not a programming course**. (For that, see the [Advanced R](https://adv-r.hadley.nz) book).
+
+-   There will be little maths.
+
+-   The course covers the basics, but you will very likely have to learn something extra for your dissertation.
+
+-   We will not cover inferential statistics (including significance testing).
+:::
+
+## Research methods
+
+![](/img/res-methods.png){fig-align="center"}
+
+## Research process
+
+![](/img/res-process.png){fig-align="center"}
+
+## Research process
+
+![](/img/res-process-data-ana.png){fig-align="center"}
+
+## Data analysis
+
+![](/img/data-quant-qual.png){fig-align="center"}
+
+## Data analysis
+
+![](/img/data-quant.png){fig-align="center"}
+
+## {background-color=var(--inverse)}
+
+> The numbers have no way of speaking for themselves. We speak for them. We imbue them with meaning.
+
+---Nate Silver, *The Signal and the Noise*

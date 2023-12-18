@@ -1,9 +1,0 @@
----
-title: "Data Analysis for LEL"
-author: "Stefano Coretta"
-format: mono-light-revealjs
----
-
-## Test
-
-Yo mama.

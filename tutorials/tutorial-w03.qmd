@@ -1,13 +1,10 @@
 ---
 title: "DAL tutorial - Week 3"
 editor: visual
-execute:
-  freeze: auto
 format: 
   html:
     css: [webex.css]
     include-after-body: [webex.js]
-    embed-resources: true 
 ---
 
 ```{r}

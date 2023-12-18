@@ -1,13 +1,10 @@
 ---
 title: "QML tutorial - Week 2"
 editor: visual
-execute: 
-  freeze: auto
 format: 
   html:
     css: [webex.css]
     include-after-body: [webex.js]
-    embed-resources: true 
 ---
 
 ```{r}
@@ -284,7 +281,7 @@ Click on `R Script`. A new empty R script will be created and will open in the F
 Note that creating an R script does not automatically saves it on your computer. To do so, either use the keyboard short-cut `CMD+S`/`CTRL+S` or click on the floppy disk icon in the menu below the file tab.
 :::
 
-![](/img/%20save-button.png)
+![](/img/save-button.png){fig-align="center" width="500"}
 
 Save the file inside the `code/` folder with the following name: `tutorial-w02.R`.
 

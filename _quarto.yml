@@ -6,12 +6,11 @@ project:
     - "*.qmd"
     - "!data/"
   resources:
-    - "slides/"
     - "img/"
     - "data/"
 
 website:
-  title: "QML"
+  title: "DAL"
   navbar:
     background: dark
     left:

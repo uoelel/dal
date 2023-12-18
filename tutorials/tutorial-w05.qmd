@@ -2,13 +2,11 @@
 title: "QML tutorial - Week 3"
 editor: visual
 execute:
-  freeze: auto
   eval: false
 format: 
   html:
     css: [webex.css]
     include-after-body: [webex.js]
-    embed-resources: true 
 ---
 
 ```{r}
@@ -549,4 +547,3 @@ That's all for this week!
 :::
 
 Next week, we will start learning about statistical modelling and while doing that you will also learn how to create density and violin plots and how to customise legends, titles and labels!
-

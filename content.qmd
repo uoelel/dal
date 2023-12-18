@@ -1,7 +1,7 @@
 ## Schedule overview
 
 | Week  | Lecture                              | Lab                      |     |                                        |     |     |
-|-------|------------|---------------|------------|------------|------|------|
+|-------|--------------------------------------|--------------------------|-----|----------------------------------------|-----|-----|
 | 1     | Quantitative methods and uncertainty | R basics                 |     | [Tutorial](tutorials/tutorial-w01.qmd) |     |     |
 | 2     |                                      | RStudio + R scripts      |     | [Tutorial](tutorials/tutorial-w02.qmd) |     |     |
 | 3     |                                      | Read data                |     | [Tutorial](tutorials/tutorial-w03.qmd) |     |     |

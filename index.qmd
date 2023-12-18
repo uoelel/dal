@@ -1,8 +1,8 @@
 ---
-title: "Quantitative Methods for LEL"
+title: "Data Analysis for LEL"
 ---
 
-Welcome to the main site of the course *Quantitative Methods for Linguistics and English Language* (Semester 1).
+Welcome to the main site of the course *Data Analysis for Linguistics and English Language* (Semester 2).
 
 This website is your go-to place throughout the semester for any info related to the course.
 
@@ -17,16 +17,12 @@ We will cover the following **topics**:
 -   Data preparation.
 -   Data summaries.
 -   Principles of **data visualisation**.
--   Statistical modelling with **linear models**.
--   Statistical inference using **Bayesian inference** (posterior probability distributions and credible intervals) and frequentist inference (*p*-values and confidence intervals).
 
 At completion of the course you will have gained the following **skills**:
 
 -   Import common data formats, tidy and transform data.
 -   Choosing and reporting appropriate summary measures.
 -   Using compelling visualisations to communicate a specific message about patterns in the data.
--   Master linear models for different types of data (continuous measures and binary outcomes).
--   Using Bayesian inference to answer research questions and avoid common interpretation pitfalls of frequentist techniques.
 
 Examples from different branches of linguistics will be used to provide you with hands-on experience in quantitative data analysis and Open Research practices.
 :::

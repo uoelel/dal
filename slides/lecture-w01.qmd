@@ -3,7 +3,9 @@ title: "Data Analysis for LEL"
 subtitle: "Week 1"
 author: "Stefano Coretta"
 institute: University of Edinburgh
-format: mono-light-revealjs
+format:
+  mono-light-revealjs:
+    theme: [default, custom.scss]
 ---
 
 ## 
@@ -73,7 +75,7 @@ format: mono-light-revealjs
 
 ![](/img/data-quant.png){fig-align="center"}
 
-## {background-color=var(--inverse)}
+##  {background-color="var(--inverse)"}
 
 > The numbers have no way of speaking for themselves. We speak for them. We imbue them with meaning.
 

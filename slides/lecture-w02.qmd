@@ -1,0 +1,10 @@
+---
+title: "Data Analysis for LEL"
+subtitle: "Week 2"
+author: "Stefano Coretta"
+institute: University of Edinburgh
+format:
+  mono-light-revealjs:
+    theme: [default, custom.scss]
+---
+

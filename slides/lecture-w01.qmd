@@ -71,12 +71,82 @@ format:
 
 ![](/img/data-quant-qual.png){fig-align="center"}
 
+## What is the purpose of data analysis? {background-color="var(--inverse)"}
+
+-   Discuss in small groups.
+
+-   Write your group answers on Wooclap.
+
+## 
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/65957e41528489bc54183c2d" width="100%">
+
+</iframe>
+
 ## Data analysis
 
 ![](/img/data-quant.png){fig-align="center"}
 
-##  {background-color="var(--inverse)"}
+## Data analysis {background-color="var(--inverse)"}
 
 > The numbers have no way of speaking for themselves. We speak for them. We imbue them with meaning.
 
 ---Nate Silver, *The Signal and the Noise*
+
+## Uncertainty and variability
+
+![](/img/pliny.jpg){fig-align="center" width="700" height="315"}
+
+## Can you guess what this is?
+
+![](/img/uncertainty.png){fig-align="center" width="700" height="350"}
+
+## *Statistics* as a tool to deal with *uncertainty* and *variability*
+
+::: {.bg-washed-green .b--dark-green .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+Statistics is the **science** concerned with developing and studying methods for collecting, analyzing, interpreting and presenting empirical data. (From [UCI Department of Statistics](https://www.stat.uci.edu/what-is-statistics/))
+:::
+
+. . .
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+Statistics is the **technology** of extracting information, illumination and understanding from data, often in the face of uncertainty. (From the [British Academy](https://www.thebritishacademy.ac.uk/blog/what-is-statistics/))
+:::
+
+. . .
+
+::: {.bg-washed-yellow .b--gold .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+Statistics is a **mathematical and conceptual** discipline that focuses on the relation between data and hypotheses. (From the [Standford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/statistics/))
+:::
+
+. . .
+
+::: {.bg-washed-red .b--dark-red .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+Statistics as the **art** of applying the science of scientific methods. (From [ORI Results](https://www.oriresults.com/articles/blog-posts/the-art-of-statistics/), [Nature](https://www.nature.com/articles/d41586-019-00898-0))
+:::
+
+## Statistics as an art and as a science {background-color="var(--inverse)"}
+
+<br>
+
+[Statistic is both a science and an art]{.f2}
+
+[It is a ***science*** in that its methods are basically systematic and have general application and an ***art*** in that their successful application depends, to a considerable degree, on the skill and special experience of the statistician, and on his knowledge of the field of application.]{.f4}
+
+---L. H. C. Tippett
+
+## Statistics is not infallible
+
+::: {.columns}
+
+::: {.column width="50%" .f2}
+But...
+
+*all that glisters is not gold*
+:::
+
+::: {.column width="50%"}
+![](/img/gollum-statistician.png){width="500"}
+:::
+
+:::

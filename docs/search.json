@@ -112,97 +112,6 @@
     "text": "4 Summary\nYou made it! You completed this week’s tutorial.\nHere’s a summary of what you learnt.\n\n\n\n\n\n\n\nR is a programming language while RStudio is an IDE.\nRStudio projects are folders with an .Rproj file (you can see the name of the project you are currently in in the top-right corner of RStudio).\nYou can perform mathematical operations with +, -, *, /.\nYou can store values in variables.\nA typical object to be stored in a variable is a vector: there are different type of vectors, like numeric, character and logical.\nFunctions are used to perform an operation on its arguments: sum() sums it’s arguments, mean() calculates the mean and cat() prints the arguments.\n\n\n\n\n\n\n\n\n\n\nExtra: Programming in R\n\n\n\n\n\nIf you are interested in learning about programming in R, I recommend you go through Chapters 26-28 of the R4DS book and the Advanced R book.\nNote that these topics are not covered in the course, nor will be assessed."
   },
   {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "Set-up instructions",
-    "section": "",
-    "text": "Please, follow these instructions to get ready before the first workshop. It will take up to an hour to set everything up and you might encounter errors, so please do this asap."
-  },
-  {
-    "objectID": "setup.html#r-and-rstudio",
-    "href": "setup.html#r-and-rstudio",
-    "title": "Set-up instructions",
-    "section": "1 R and RStudio",
-    "text": "1 R and RStudio\nBefore installing the necessary software, make sure you have installed or updated the following software.\n\nThe latest version of R (https://cloud.r-project.org).\nThe latest version of RStudio (https://www.rstudio.com/products/rstudio/download/#download).\nIdeally, your operating system is up-to-date."
-  },
-  {
-    "objectID": "setup.html#r-packages",
-    "href": "setup.html#r-packages",
-    "title": "Set-up instructions",
-    "section": "2 R packages",
-    "text": "2 R packages\n\n\n\n\n\n\nImportant\n\n\n\nIf you have previously installed the C++ toolkit, CmdStan and/or cmdstanr, or if you have recently updated your OS, please follow these instructions to reinstall them.\n\n\nNow you will need to install a few packages and extra software.\nHere is an overview of what you will install:\n\nC++ toolchain.\nR packages: tidyverse, remotes, cmdstanr, brms.\nCmdStan (including Stan).\n\n\n2.1 Install the C++ toolchain\nSome of the software (CmdStan) used in the workshops require a working C++ toolchain for compilation.\nYou can find information on how to set up the C++ toolchain in Section 1.2.1 of the CmdStan User’s Guide.\nMake sure to follow the instructions for your operating system.\n\n\n2.2 Install the R packages\nAfter you have installed the C++ toolchain, you need to install the following R packages. Run the following in the Console.\ninstall.packages(\"remotes\")\nremotes::install_github(\"stan-dev/cmdstanr\")\ninstall.packages(c(\"brms\"))\ninstall.packages(c(\"tidybayes\", \"extraDistr\"))\nThe cmdstanr package is an interface between R and CmdStan (see below), while brms is the package you will use to run Bayesian linear models (think of it as the Bayesian equivalent of lme4).\nIt will take several minutes to install the packages, depending on your system and configuration.\nIf at any point you get asked about installing extra packages or software or update existing packages or software, please do so. In all cases, carefully read the message in the Console or in a pop-up window: they always tell you what to do or the options you have.\n\n\n2.3 Install CmdStan\nNow that you have installed the R packages, you need to install CmdStan.\nCmdStan is a shell interface to the programming language Stan.\nStan is what runs the Bayesian models, but you don’t have to know Stan, because you will use the R packages to run the models (those packages will communicate with Stan in your stead).\nTo install CmdStan, run the following command in the R console:\ncmdstanr::install_cmdstan(cores = parallel::detectCores(), overwrite = TRUE)\nIt will take several minutes and you will see a lot of text flashing in the Console.\n\n\n2.4 Check your installation\nRun the following in the RStudio Console.\nlibrary(cmdstanr)\nfile &lt;- file.path(cmdstan_path(), \"examples\", \"bernoulli\", \"bernoulli.stan\")\nmod &lt;- cmdstan_model(file, force_recompile = TRUE)\ndata_list &lt;- list(N = 10, y = c(0,1,0,0,0,0,0,0,0,1))\nfit &lt;- mod$sample(\n  data = data_list, \n  seed = 123, \n  chains = 4, \n  parallel_chains = 4,\n  refresh = 500 # print update every 500 iters\n)\nIf everything goes well you should see Compiling Stan program… and then Running MCMC with 4 parallel chains… followed by information on chains and iterations."
-  },
-  {
-    "objectID": "setup.html#troubleshoot",
-    "href": "setup.html#troubleshoot",
-    "title": "Set-up instructions",
-    "section": "3 Troubleshoot",
-    "text": "3 Troubleshoot\nIf you have issues with any of these steps, please get in touch on Piazza. I won’t have time to help you during the workshop."
-  },
-  {
-    "objectID": "content.html",
-    "href": "content.html",
-    "title": "DAL",
-    "section": "",
-    "text": "Week\nLecture\nLab\n\n\n\n\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\n\nTutorial\n\n\n\n\n2\n\nRStudio + R scripts\n\nTutorial\n\n\n\n\n3\n\nRead data\n\nTutorial\n\n\n\n\n4\n\nQuarto + Plotting basics\n\nTutorial\n\n\n\n\n5\n\nData wrangling\n\n\n\n\n\n\n- FL\nNo classes\n\n\n\n\n\n\n\n6\n\nCount data\n\n\n\n\n\n\n7\n\nContinuous data\n\n\n\n\n\n\n8\n\nTime series\n\n\n\n\n\n\n9\n\nLikert scales\n\n\n\n\n\n\n12"
-  },
-  {
-    "objectID": "content.html#schedule-overview",
-    "href": "content.html#schedule-overview",
-    "title": "DAL",
-    "section": "",
-    "text": "Week\nLecture\nLab\n\n\n\n\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\n\nTutorial\n\n\n\n\n2\n\nRStudio + R scripts\n\nTutorial\n\n\n\n\n3\n\nRead data\n\nTutorial\n\n\n\n\n4\n\nQuarto + Plotting basics\n\nTutorial\n\n\n\n\n5\n\nData wrangling\n\n\n\n\n\n\n- FL\nNo classes\n\n\n\n\n\n\n\n6\n\nCount data\n\n\n\n\n\n\n7\n\nContinuous data\n\n\n\n\n\n\n8\n\nTime series\n\n\n\n\n\n\n9\n\nLikert scales\n\n\n\n\n\n\n12"
-  },
-  {
-    "objectID": "content.html#weekly-schedule",
-    "href": "content.html#weekly-schedule",
-    "title": "DAL",
-    "section": "2 Weekly schedule",
-    "text": "2 Weekly schedule\nTBA"
-  },
-  {
-    "objectID": "assessments.html",
-    "href": "assessments.html",
-    "title": "DAL",
-    "section": "",
-    "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
-  },
-  {
-    "objectID": "assessments.html#assessment-overview",
-    "href": "assessments.html#assessment-overview",
-    "title": "DAL",
-    "section": "",
-    "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
-  },
-  {
-    "objectID": "assessments.html#feedback-and-marking",
-    "href": "assessments.html#feedback-and-marking",
-    "title": "DAL",
-    "section": "2 Feedback and marking",
-    "text": "2 Feedback and marking\nYou will receive individual feedback for the summative assessments, as comments on the submitted file in Turnitin.\nThe comments will be categorised according the the Feedback Categorisation Rubric used for this course, which you can see here. The rubric is based on the learning outcomes of the course. For each criterion in the rubric there are three possible outcomes: insufficient, developing, proficient. This should help you identify areas of strength and those that can be improved.\nNote that the Feedback Categorisation Form is not used to calculate a numeric mark. Marking will follow the PPLS MSc Common Marking Scheme, which you can find here (login required).\nMore specifically, we will use a “step marking” procedure, where, within each mark band, you can get a 2, 5 or 8 (for example, 62, 65 or 68). We will not use other numbers within the scale. These are the criteria for getting 2, 5, or 8:\n\n2: The criteria for the mark band have been achieved, but there might be minor issues.\n5: The criteria for the mark band have been achieved fully.\n8: The criteria for the mark band have been achieved fully and in a particularly remarkable way, but not in such a way to grant a higher mark band.\n\nFinally, please note that marking does not follow a point-based system, i.e. different exercises are not assigned a specific amount of points you can obtain and we will instead adopt an “impression-based” marking system, based on the descriptors of the PPLS MSC Common Marking Scheme."
-  },
-  {
-    "objectID": "assessments.html#formative-assessments",
-    "href": "assessments.html#formative-assessments",
-    "title": "DAL",
-    "section": "3 Formative assessments",
-    "text": "3 Formative assessments\n\n\n\n\n\n\nFormative 1: Week 5 (Thu 19 October at noon)\n\n\n\nData summary and visualisation\nYou can find the instructions and data for the first formative here: https://github.com/uoelel/qml-f1/.\n\n\n\n\n\n\n\n\nFormative 2: Week 10 (Thu 23 November at noon)\n\n\n\nStatistical modelling\nYou can find the instructions and data for the second formative here: https://github.com/uoelel/qml-f2/."
-  },
-  {
-    "objectID": "assessments.html#summative-assessments",
-    "href": "assessments.html#summative-assessments",
-    "title": "DAL",
-    "section": "4 Summative assessments",
-    "text": "4 Summative assessments\n\n\n\n\n\n\nSummative 1: Week 8 (Thu 9 November at noon)\n\n\n\nDue on Thursday 9 November at noon\nThe first summative contains a series of guided exercises that cover things done in Weeks 1 to 7.\nYou can find the instructions and data for the first summative here: https://github.com/uoelel/qml-s1/.\n\n\n\n\n\n\n\n\nSummative 2: Week 12 (Thu 7 December at noon)\n\n\n\nDue on Thursday 7 December at noon\nIn the second summative assessment, you will:\n\nSelect a dataset from a list and its associated research questions.\nAnalyse the data using one linear model.\nWrite a report about the data, the model, and your findings."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Analysis for LEL",
-    "section": "",
-    "text": "Welcome to the main site of the course Data Analysis for Linguistics and English Language (Semester 2).\nThis website is your go-to place throughout the semester for any info related to the course.\n\n\n\n\n\n\nCourse description\n\n\n\nThis course is an introduction to quantitative data analysis (including data wrangling, visualisation and modelling) as commonly employed in linguistics, using the R software.\nWe will cover the following topics:\n\nThe basics of quantitative data analysis.\nData preparation.\nData summaries.\nPrinciples of data visualisation.\n\nAt completion of the course you will have gained the following skills:\n\nImport common data formats, tidy and transform data.\nChoosing and reporting appropriate summary measures.\nUsing compelling visualisations to communicate a specific message about patterns in the data.\n\nExamples from different branches of linguistics will be used to provide you with hands-on experience in quantitative data analysis and Open Research practices.\n\n\n\n\n\n\n\n\nCourse rationale\n\n\n\nThis course is designed to help you develop the necessary skills for conducting and interpreting analyses of data as commonly employed in linguistics.\nThe content and objectives of the course are in response to recent advances in our understanding of the theory behind research methods.\nRecent meta-scientific research has identified three important aspects of research: the reproducibility, replicability and generalisability.\n\nA result is reproducible when the same analysis steps performed on the same dataset consistently produces the same answer.\nA result is replicable when the same analysis performed on different datasets produces qualitatively similar answers.\nA result is generalisable when a different analysis workflow performed on different data sets produces qualitatively similar answers.\n\nSee Definitions for a more detailed explanation.\nHowever, based on surveys from different disciplines, we are currently facing the three research crises (reproducibility, replicability and generalisability crises) by which most results are neither reproducible, nor replicable, nor generalisable (Munafò et al. 2017, Simmons et al. 2011, Ioannidis 2005, Yarkoni 2022).\nThe Open Research movement (also known as Open Science or Open Scholarship, Crüwell et al. 2019) was developed with the aim of improving our understanding of these crises and with the objective of providing researchers with guidelines and tools to produce reproducible, replicable and generalisable research.\nThe statistical philosophy adopted in the course is that of the New Statistics (Cumming 2014, Kruschke and Liddell 2018. The main goal of the New Statistics is to shift the attention from statistical significance to estimation with quantification of uncertainty.\n\n\n\n\n\n\n\n\nAsk for help\n\n\n\nIf at any point during the course you don’t feel comfortable with any aspect of the course, you are unsure about anything that has been covered in class or in your own time, you are struggling to keep up with the course workload, you are experiencing mental of physical distress due to a pre-existing or new illness, medical condition or disability, or you find yourself unable to access basic needs like food or housing, please do get in touch with me and/or the PPLS support (go to the PPLS UG or MSc Hub on SharePoint &gt; Support for students &gt; Health & Wellbeing).\nWe are humans first and the rapidly-changing new world we are living in now can put us under pressure. What is most important to me is that you are first and foremost healthy and able to participate to the course, and that you succeed and get the most out of the course.\nIt is OK not to be OK, and remember that you are not alone. Other people, teachers and students, might be struggling right now or have struggled before and might have gone through what you are going through now. Remember that support exists for you, so please do reach out. If you see somebody close to you struggling, please let them know about the available support network and encourage them to reach out.\n\n\n\n\n\n\n\n\nContacts\n\n\n\nYou can reach me (Stefano) at s.coretta@ed.ac.uk or on Teams.\nIf you want to book office hours with me or the tutors, you can do so here: https://bit.ly/33BH84L. Location depends on whom you are seeing and which day, so check the confirmation email for that info!"
-  },
-  {
     "objectID": "slides/lecture-w01.html#course-info",
     "href": "slides/lecture-w01.html#course-info",
     "title": "Data Analysis for LEL",
@@ -245,6 +154,13 @@
     "text": "Data analysis"
   },
   {
+    "objectID": "slides/lecture-w01.html#what-is-the-purpose-of-data-analysis",
+    "href": "slides/lecture-w01.html#what-is-the-purpose-of-data-analysis",
+    "title": "Data Analysis for LEL",
+    "section": "What is the purpose of data analysis?",
+    "text": "What is the purpose of data analysis?\n\nDiscuss in small groups.\nWrite your group answers on Wooclap."
+  },
+  {
     "objectID": "slides/lecture-w01.html#data-analysis-1",
     "href": "slides/lecture-w01.html#data-analysis-1",
     "title": "Data Analysis for LEL",
@@ -252,11 +168,137 @@
     "text": "Data analysis"
   },
   {
-    "objectID": "slides/lecture-w01.html#section-1",
-    "href": "slides/lecture-w01.html#section-1",
+    "objectID": "slides/lecture-w01.html#data-analysis-2",
+    "href": "slides/lecture-w01.html#data-analysis-2",
+    "title": "Data Analysis for LEL",
+    "section": "Data analysis",
+    "text": "Data analysis\n\nThe numbers have no way of speaking for themselves. We speak for them. We imbue them with meaning.\n\n—Nate Silver, The Signal and the Noise"
+  },
+  {
+    "objectID": "slides/lecture-w01.html#uncertainty-and-variability",
+    "href": "slides/lecture-w01.html#uncertainty-and-variability",
+    "title": "Data Analysis for LEL",
+    "section": "Uncertainty and variability",
+    "text": "Uncertainty and variability"
+  },
+  {
+    "objectID": "slides/lecture-w01.html#can-you-guess-what-this-is",
+    "href": "slides/lecture-w01.html#can-you-guess-what-this-is",
+    "title": "Data Analysis for LEL",
+    "section": "Can you guess what this is?",
+    "text": "Can you guess what this is?"
+  },
+  {
+    "objectID": "slides/lecture-w01.html#statistics-as-a-tool-to-deal-with-uncertainty-and-variability",
+    "href": "slides/lecture-w01.html#statistics-as-a-tool-to-deal-with-uncertainty-and-variability",
+    "title": "Data Analysis for LEL",
+    "section": "Statistics as a tool to deal with uncertainty and variability",
+    "text": "Statistics as a tool to deal with uncertainty and variability\n\nStatistics is the science concerned with developing and studying methods for collecting, analyzing, interpreting and presenting empirical data. (From UCI Department of Statistics)\n\n\n\nStatistics is the technology of extracting information, illumination and understanding from data, often in the face of uncertainty. (From the British Academy)\n\n\n\n\nStatistics is a mathematical and conceptual discipline that focuses on the relation between data and hypotheses. (From the Standford Encyclopedia of Philosophy)\n\n\n\n\nStatistics as the art of applying the science of scientific methods. (From ORI Results, Nature)"
+  },
+  {
+    "objectID": "slides/lecture-w01.html#statistics-as-an-art-and-as-a-science",
+    "href": "slides/lecture-w01.html#statistics-as-an-art-and-as-a-science",
+    "title": "Data Analysis for LEL",
+    "section": "Statistics as an art and as a science",
+    "text": "Statistics as an art and as a science\n\nStatistic is both a science and an art\nIt is a science in that its methods are basically systematic and have general application and an art in that their successful application depends, to a considerable degree, on the skill and special experience of the statistician, and on his knowledge of the field of application.\n—L. H. C. Tippett"
+  },
+  {
+    "objectID": "slides/lecture-w01.html#statistics-is-not-infallible",
+    "href": "slides/lecture-w01.html#statistics-is-not-infallible",
+    "title": "Data Analysis for LEL",
+    "section": "Statistics is not infallible",
+    "text": "Statistics is not infallible\n\n\nBut…\nall that glisters is not gold"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Data Analysis for LEL",
     "section": "",
-    "text": "The numbers have no way of speaking for themselves. We speak for them. We imbue them with meaning.\n\n—Nate Silver, The Signal and the Noise"
+    "text": "Welcome to the main site of the course Data Analysis for Linguistics and English Language (Semester 2).\nThis website is your go-to place throughout the semester for any info related to the course.\n\n\n\n\n\n\nCourse description\n\n\n\nThis course is an introduction to quantitative data analysis (including data wrangling, visualisation and modelling) as commonly employed in linguistics, using the R software.\nWe will cover the following topics:\n\nThe basics of quantitative data analysis.\nData preparation.\nData summaries.\nPrinciples of data visualisation.\n\nAt completion of the course you will have gained the following skills:\n\nImport common data formats, tidy and transform data.\nChoosing and reporting appropriate summary measures.\nUsing compelling visualisations to communicate a specific message about patterns in the data.\n\nExamples from different branches of linguistics will be used to provide you with hands-on experience in quantitative data analysis and Open Research practices.\n\n\n\n\n\n\n\n\nCourse rationale\n\n\n\nThis course is designed to help you develop the necessary skills for conducting and interpreting analyses of data as commonly employed in linguistics.\nThe content and objectives of the course are in response to recent advances in our understanding of the theory behind research methods.\nRecent meta-scientific research has identified three important aspects of research: the reproducibility, replicability and generalisability.\n\nA result is reproducible when the same analysis steps performed on the same dataset consistently produces the same answer.\nA result is replicable when the same analysis performed on different datasets produces qualitatively similar answers.\nA result is generalisable when a different analysis workflow performed on different data sets produces qualitatively similar answers.\n\nSee Definitions for a more detailed explanation.\nHowever, based on surveys from different disciplines, we are currently facing the three research crises (reproducibility, replicability and generalisability crises) by which most results are neither reproducible, nor replicable, nor generalisable (Munafò et al. 2017, Simmons et al. 2011, Ioannidis 2005, Yarkoni 2022).\nThe Open Research movement (also known as Open Science or Open Scholarship, Crüwell et al. 2019) was developed with the aim of improving our understanding of these crises and with the objective of providing researchers with guidelines and tools to produce reproducible, replicable and generalisable research.\nThe statistical philosophy adopted in the course is that of the New Statistics (Cumming 2014, Kruschke and Liddell 2018. The main goal of the New Statistics is to shift the attention from statistical significance to estimation with quantification of uncertainty.\n\n\n\n\n\n\n\n\nAsk for help\n\n\n\nIf at any point during the course you don’t feel comfortable with any aspect of the course, you are unsure about anything that has been covered in class or in your own time, you are struggling to keep up with the course workload, you are experiencing mental of physical distress due to a pre-existing or new illness, medical condition or disability, or you find yourself unable to access basic needs like food or housing, please do get in touch with me and/or the PPLS support (go to the PPLS UG or MSc Hub on SharePoint &gt; Support for students &gt; Health & Wellbeing).\nWe are humans first and the rapidly-changing new world we are living in now can put us under pressure. What is most important to me is that you are first and foremost healthy and able to participate to the course, and that you succeed and get the most out of the course.\nIt is OK not to be OK, and remember that you are not alone. Other people, teachers and students, might be struggling right now or have struggled before and might have gone through what you are going through now. Remember that support exists for you, so please do reach out. If you see somebody close to you struggling, please let them know about the available support network and encourage them to reach out.\n\n\n\n\n\n\n\n\nContacts\n\n\n\nYou can reach me (Stefano) at s.coretta@ed.ac.uk or on Teams.\nIf you want to book office hours with me or the tutors, you can do so here: https://bit.ly/33BH84L. Location depends on whom you are seeing and which day, so check the confirmation email for that info!"
+  },
+  {
+    "objectID": "assessments.html",
+    "href": "assessments.html",
+    "title": "DAL",
+    "section": "",
+    "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
+  },
+  {
+    "objectID": "assessments.html#assessment-overview",
+    "href": "assessments.html#assessment-overview",
+    "title": "DAL",
+    "section": "",
+    "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
+  },
+  {
+    "objectID": "assessments.html#feedback-and-marking",
+    "href": "assessments.html#feedback-and-marking",
+    "title": "DAL",
+    "section": "2 Feedback and marking",
+    "text": "2 Feedback and marking\nYou will receive individual feedback for the summative assessments, as comments on the submitted file in Turnitin.\nThe comments will be categorised according the the Feedback Categorisation Rubric used for this course, which you can see here. The rubric is based on the learning outcomes of the course. For each criterion in the rubric there are three possible outcomes: insufficient, developing, proficient. This should help you identify areas of strength and those that can be improved.\nNote that the Feedback Categorisation Form is not used to calculate a numeric mark. Marking will follow the PPLS MSc Common Marking Scheme, which you can find here (login required).\nMore specifically, we will use a “step marking” procedure, where, within each mark band, you can get a 2, 5 or 8 (for example, 62, 65 or 68). We will not use other numbers within the scale. These are the criteria for getting 2, 5, or 8:\n\n2: The criteria for the mark band have been achieved, but there might be minor issues.\n5: The criteria for the mark band have been achieved fully.\n8: The criteria for the mark band have been achieved fully and in a particularly remarkable way, but not in such a way to grant a higher mark band.\n\nFinally, please note that marking does not follow a point-based system, i.e. different exercises are not assigned a specific amount of points you can obtain and we will instead adopt an “impression-based” marking system, based on the descriptors of the PPLS MSC Common Marking Scheme."
+  },
+  {
+    "objectID": "assessments.html#formative-assessments",
+    "href": "assessments.html#formative-assessments",
+    "title": "DAL",
+    "section": "3 Formative assessments",
+    "text": "3 Formative assessments\n\n\n\n\n\n\nFormative 1: Week 5 (Thu 19 October at noon)\n\n\n\nData summary and visualisation\nYou can find the instructions and data for the first formative here: https://github.com/uoelel/qml-f1/.\n\n\n\n\n\n\n\n\nFormative 2: Week 10 (Thu 23 November at noon)\n\n\n\nStatistical modelling\nYou can find the instructions and data for the second formative here: https://github.com/uoelel/qml-f2/."
+  },
+  {
+    "objectID": "assessments.html#summative-assessments",
+    "href": "assessments.html#summative-assessments",
+    "title": "DAL",
+    "section": "4 Summative assessments",
+    "text": "4 Summative assessments\n\n\n\n\n\n\nSummative 1: Week 8 (Thu 9 November at noon)\n\n\n\nDue on Thursday 9 November at noon\nThe first summative contains a series of guided exercises that cover things done in Weeks 1 to 7.\nYou can find the instructions and data for the first summative here: https://github.com/uoelel/qml-s1/.\n\n\n\n\n\n\n\n\nSummative 2: Week 12 (Thu 7 December at noon)\n\n\n\nDue on Thursday 7 December at noon\nIn the second summative assessment, you will:\n\nSelect a dataset from a list and its associated research questions.\nAnalyse the data using one linear model.\nWrite a report about the data, the model, and your findings."
+  },
+  {
+    "objectID": "content.html",
+    "href": "content.html",
+    "title": "DAL",
+    "section": "",
+    "text": "Week\nLecture\nLab\n\n\n\n\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\nLecture\nTutorial\n\n\n\n\n2\nData analysis process\nRStudio + R scripts\n\nTutorial\n\n\n\n\n3\nFile management\nRead data\n\nTutorial\n\n\n\n\n4\nData viz\nQuarto + Plotting basics\n\nTutorial\n\n\n\n\n5\nTidy data\nData wrangling\n\n\n\n\n\n\n- FL\nNo classes\n\n\n\n\n\n\n\n6\n\nCount data\n\n\n\n\n\n\n7\n\nContinuous data\n\n\n\n\n\n\n8\n\nTime series\n\n\n\n\n\n\n9\n\nLikert scales\n\n\n\n\n\n\n12"
+  },
+  {
+    "objectID": "content.html#schedule-overview",
+    "href": "content.html#schedule-overview",
+    "title": "DAL",
+    "section": "",
+    "text": "Week\nLecture\nLab\n\n\n\n\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\nLecture\nTutorial\n\n\n\n\n2\nData analysis process\nRStudio + R scripts\n\nTutorial\n\n\n\n\n3\nFile management\nRead data\n\nTutorial\n\n\n\n\n4\nData viz\nQuarto + Plotting basics\n\nTutorial\n\n\n\n\n5\nTidy data\nData wrangling\n\n\n\n\n\n\n- FL\nNo classes\n\n\n\n\n\n\n\n6\n\nCount data\n\n\n\n\n\n\n7\n\nContinuous data\n\n\n\n\n\n\n8\n\nTime series\n\n\n\n\n\n\n9\n\nLikert scales\n\n\n\n\n\n\n12"
+  },
+  {
+    "objectID": "content.html#weekly-schedule",
+    "href": "content.html#weekly-schedule",
+    "title": "DAL",
+    "section": "2 Weekly schedule",
+    "text": "2 Weekly schedule\nTBA"
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Set-up instructions",
+    "section": "",
+    "text": "Please, follow these instructions to get ready before the first workshop. It will take up to an hour to set everything up and you might encounter errors, so please do this asap."
+  },
+  {
+    "objectID": "setup.html#r-and-rstudio",
+    "href": "setup.html#r-and-rstudio",
+    "title": "Set-up instructions",
+    "section": "1 R and RStudio",
+    "text": "1 R and RStudio\nBefore installing the necessary software, make sure you have installed or updated the following software.\n\nThe latest version of R (https://cloud.r-project.org).\nThe latest version of RStudio (https://www.rstudio.com/products/rstudio/download/#download).\nIdeally, your operating system is up-to-date."
+  },
+  {
+    "objectID": "setup.html#r-packages",
+    "href": "setup.html#r-packages",
+    "title": "Set-up instructions",
+    "section": "2 R packages",
+    "text": "2 R packages\n\n\n\n\n\n\nImportant\n\n\n\nIf you have previously installed the C++ toolkit, CmdStan and/or cmdstanr, or if you have recently updated your OS, please follow these instructions to reinstall them.\n\n\nNow you will need to install a few packages and extra software.\nHere is an overview of what you will install:\n\nC++ toolchain.\nR packages: tidyverse, remotes, cmdstanr, brms.\nCmdStan (including Stan).\n\n\n2.1 Install the C++ toolchain\nSome of the software (CmdStan) used in the workshops require a working C++ toolchain for compilation.\nYou can find information on how to set up the C++ toolchain in Section 1.2.1 of the CmdStan User’s Guide.\nMake sure to follow the instructions for your operating system.\n\n\n2.2 Install the R packages\nAfter you have installed the C++ toolchain, you need to install the following R packages. Run the following in the Console.\ninstall.packages(\"remotes\")\nremotes::install_github(\"stan-dev/cmdstanr\")\ninstall.packages(c(\"brms\"))\ninstall.packages(c(\"tidybayes\", \"extraDistr\"))\nThe cmdstanr package is an interface between R and CmdStan (see below), while brms is the package you will use to run Bayesian linear models (think of it as the Bayesian equivalent of lme4).\nIt will take several minutes to install the packages, depending on your system and configuration.\nIf at any point you get asked about installing extra packages or software or update existing packages or software, please do so. In all cases, carefully read the message in the Console or in a pop-up window: they always tell you what to do or the options you have.\n\n\n2.3 Install CmdStan\nNow that you have installed the R packages, you need to install CmdStan.\nCmdStan is a shell interface to the programming language Stan.\nStan is what runs the Bayesian models, but you don’t have to know Stan, because you will use the R packages to run the models (those packages will communicate with Stan in your stead).\nTo install CmdStan, run the following command in the R console:\ncmdstanr::install_cmdstan(cores = parallel::detectCores(), overwrite = TRUE)\nIt will take several minutes and you will see a lot of text flashing in the Console.\n\n\n2.4 Check your installation\nRun the following in the RStudio Console.\nlibrary(cmdstanr)\nfile &lt;- file.path(cmdstan_path(), \"examples\", \"bernoulli\", \"bernoulli.stan\")\nmod &lt;- cmdstan_model(file, force_recompile = TRUE)\ndata_list &lt;- list(N = 10, y = c(0,1,0,0,0,0,0,0,0,1))\nfit &lt;- mod$sample(\n  data = data_list, \n  seed = 123, \n  chains = 4, \n  parallel_chains = 4,\n  refresh = 500 # print update every 500 iters\n)\nIf everything goes well you should see Compiling Stan program… and then Running MCMC with 4 parallel chains… followed by information on chains and iterations."
+  },
+  {
+    "objectID": "setup.html#troubleshoot",
+    "href": "setup.html#troubleshoot",
+    "title": "Set-up instructions",
+    "section": "3 Troubleshoot",
+    "text": "3 Troubleshoot\nIf you have issues with any of these steps, please get in touch on Piazza. I won’t have time to help you during the workshop."
   },
   {
     "objectID": "tutorials/tutorial-w02.html",

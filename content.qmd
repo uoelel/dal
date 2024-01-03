@@ -1,18 +1,18 @@
 ## Schedule overview
 
-| Week  | Lecture                              | Lab                      |     |                                        |     |     |
-|-------|--------------------------------------|--------------------------|-----|----------------------------------------|-----|-----|
-| 1     | Quantitative methods and uncertainty | R basics                 |     | [Tutorial](tutorials/tutorial-w01.qmd) |     |     |
-| 2     |                                      | RStudio + R scripts      |     | [Tutorial](tutorials/tutorial-w02.qmd) |     |     |
-| 3     |                                      | Read data                |     | [Tutorial](tutorials/tutorial-w03.qmd) |     |     |
-| 4     |                                      | Quarto + Plotting basics |     | [Tutorial](tutorials/tutorial-w04.qmd) |     |     |
-| 5     |                                      | Data wrangling           |     |                                        |     |     |
-| \- FL | *No classes*                         |                          |     |                                        |     |     |
-| 6     |                                      | Count data               |     |                                        |     |     |
-| 7     |                                      | Continuous data          |     |                                        |     |     |
-| 8     |                                      | Time series              |     |                                        |     |     |
-| 9     |                                      | Likert scales            |     |                                        |     |     |
-| 12    |                                      |                          |     |                                        |     |     |
+| Week  | Lecture                              | Lab                      |                                   |                                        |     |     |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| 1     | Quantitative methods and uncertainty | R basics                 | [Lecture](slides/lecture-w01.qmd) | [Tutorial](tutorials/tutorial-w01.qmd) |     |     |
+| 2     | Data analysis process                | RStudio + R scripts      |                                   | [Tutorial](tutorials/tutorial-w02.qmd) |     |     |
+| 3     | File management                      | Read data                |                                   | [Tutorial](tutorials/tutorial-w03.qmd) |     |     |
+| 4     | Data viz                             | Quarto + Plotting basics |                                   | [Tutorial](tutorials/tutorial-w04.qmd) |     |     |
+| 5     | Tidy data                            | Data wrangling           |                                   |                                        |     |     |
+| \- FL | *No classes*                         |                          |                                   |                                        |     |     |
+| 6     |                                      | Count data               |                                   |                                        |     |     |
+| 7     |                                      | Continuous data          |                                   |                                        |     |     |
+| 8     |                                      | Time series              |                                   |                                        |     |     |
+| 9     |                                      | Likert scales            |                                   |                                        |     |     |
+| 12    |                                      |                          |                                   |                                        |     |     |
 
 ## Weekly schedule
 

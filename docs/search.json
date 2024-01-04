@@ -112,6 +112,174 @@
     "text": "4 Summary\nYou made it! You completed this week’s tutorial.\nHere’s a summary of what you learnt.\n\n\n\n\n\n\n\nR is a programming language while RStudio is an IDE.\nRStudio projects are folders with an .Rproj file (you can see the name of the project you are currently in in the top-right corner of RStudio).\nYou can perform mathematical operations with +, -, *, /.\nYou can store values in variables.\nA typical object to be stored in a variable is a vector: there are different type of vectors, like numeric, character and logical.\nFunctions are used to perform an operation on its arguments: sum() sums it’s arguments, mean() calculates the mean and cat() prints the arguments.\n\n\n\n\n\n\n\n\n\n\nExtra: Programming in R\n\n\n\n\n\nIf you are interested in learning about programming in R, I recommend you go through Chapters 26-28 of the R4DS book and the Advanced R book.\nNote that these topics are not covered in the course, nor will be assessed."
   },
   {
+    "objectID": "slides/lecture-w02.html#research-process",
+    "href": "slides/lecture-w02.html#research-process",
+    "title": "Data Analysis for LEL",
+    "section": "Research process",
+    "text": "Research process"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#research-rationale",
+    "href": "slides/lecture-w02.html#research-rationale",
+    "title": "Data Analysis for LEL",
+    "section": "Research rationale",
+    "text": "Research rationale"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#research-cycle",
+    "href": "slides/lecture-w02.html#research-cycle",
+    "title": "Data Analysis for LEL",
+    "section": "Research cycle",
+    "text": "Research cycle"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#research-cycle-the-dangers",
+    "href": "slides/lecture-w02.html#research-cycle-the-dangers",
+    "title": "Data Analysis for LEL",
+    "section": "Research cycle: the dangers",
+    "text": "Research cycle: the dangers"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#replication-in-linguistics",
+    "href": "slides/lecture-w02.html#replication-in-linguistics",
+    "title": "Data Analysis for LEL",
+    "section": "Replication in linguistics",
+    "text": "Replication in linguistics\n\n[O]nly 1 in 1,250 experimental linguistic articles contains an independent direct replication.\n\n\nThe observed smaller number of citations of replication studies compared to corresponding initial studies is also in line with the lack of perceived value of replication studies reported in other fields.\n\n—Korback and Roettger 2023"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#statistical-power-in-linguistics",
+    "href": "slides/lecture-w02.html#statistical-power-in-linguistics",
+    "title": "Data Analysis for LEL",
+    "section": "Statistical power in linguistics",
+    "text": "Statistical power in linguistics\n\nAn opportunistic review of seven papers from the November 2017 issue of this journal containing statistical analyses of acoustic speech production data found the number of participants to range from 11 to 39.\n\n—Kirby and Sonderegger 2018\n\nIn group differences research, the median sample sizes (n = 18 and n = 14 for case and control groups, respectively) were insufficient for detecting large, medium, or small effect sizes.\n\n—Gaeta and Brydges 2020\n\n[O]f the 1004 studies reviewed by Lehtonen et al. (2018) 878 had sample sizes smaller than 50 participants per group (i.e., 87%) and 987 had sample sizes smaller than 100 (98%).\n\n—Brysbaert 2020"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research",
+    "href": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research",
+    "title": "Data Analysis for LEL",
+    "section": "Case study: participant number in prosody research",
+    "text": "Case study: participant number in prosody research\nThe dataset contains data from 113 studies, published between 1955 and 2017 (the bulk of studies is within the range 1990-2017 though). The median number of speakers per study is 5. (An estimate of number of speakers per study in phonetics, Coretta 2019)."
+  },
+  {
+    "objectID": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research-1",
+    "href": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research-1",
+    "title": "Data Analysis for LEL",
+    "section": "Case study: participant number in prosody research",
+    "text": "Case study: participant number in prosody research"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#reproducibility-in-linguistics",
+    "href": "slides/lecture-w02.html#reproducibility-in-linguistics",
+    "title": "Data Analysis for LEL",
+    "section": "Reproducibility in linguistics",
+    "text": "Reproducibility in linguistics\n\n35% of the articles were published open access and the rates of sharing materials, data, and protocols were below 10%. None of the articles reported preregistrations, 1% reported replications, and 10% had conflict of interest statements. These rates have not increased noticeably between 2008/2009 and 2018/2019.\n\n—Bochynska et al. 2023"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#activity",
+    "href": "slides/lecture-w02.html#activity",
+    "title": "Data Analysis for LEL",
+    "section": "Activity",
+    "text": "Activity\n\nSearch for a paper you are interested in or that you have recently read.\nFill in the following spreadsheet with info on the paper you picked.\n\nSpreadsheet."
+  },
+  {
+    "objectID": "slides/lecture-w02.html#open-scholarship-practices",
+    "href": "slides/lecture-w02.html#open-scholarship-practices",
+    "title": "Data Analysis for LEL",
+    "section": "Open Scholarship practices",
+    "text": "Open Scholarship practices\n\n\nPre-registration and Registered Reports.\nShare the Research Compendium (data, materials, code, etc).\nEnsure your study is reproducible.\nThink about sample size.\n\n\n\n\n\nBe open, go Open!"
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Set-up instructions",
+    "section": "",
+    "text": "Please, follow these instructions to get ready before the first workshop. It will take up to an hour to set everything up and you might encounter errors, so please do this asap."
+  },
+  {
+    "objectID": "setup.html#r-and-rstudio",
+    "href": "setup.html#r-and-rstudio",
+    "title": "Set-up instructions",
+    "section": "1 R and RStudio",
+    "text": "1 R and RStudio\nBefore installing the necessary software, make sure you have installed or updated the following software.\n\nThe latest version of R (https://cloud.r-project.org).\nThe latest version of RStudio (https://www.rstudio.com/products/rstudio/download/#download).\nIdeally, your operating system is up-to-date."
+  },
+  {
+    "objectID": "setup.html#r-packages",
+    "href": "setup.html#r-packages",
+    "title": "Set-up instructions",
+    "section": "2 R packages",
+    "text": "2 R packages\n\n\n\n\n\n\nImportant\n\n\n\nIf you have previously installed the C++ toolkit, CmdStan and/or cmdstanr, or if you have recently updated your OS, please follow these instructions to reinstall them.\n\n\nNow you will need to install a few packages and extra software.\nHere is an overview of what you will install:\n\nC++ toolchain.\nR packages: tidyverse, remotes, cmdstanr, brms.\nCmdStan (including Stan).\n\n\n2.1 Install the C++ toolchain\nSome of the software (CmdStan) used in the workshops require a working C++ toolchain for compilation.\nYou can find information on how to set up the C++ toolchain in Section 1.2.1 of the CmdStan User’s Guide.\nMake sure to follow the instructions for your operating system.\n\n\n2.2 Install the R packages\nAfter you have installed the C++ toolchain, you need to install the following R packages. Run the following in the Console.\ninstall.packages(\"remotes\")\nremotes::install_github(\"stan-dev/cmdstanr\")\ninstall.packages(c(\"brms\"))\ninstall.packages(c(\"tidybayes\", \"extraDistr\"))\nThe cmdstanr package is an interface between R and CmdStan (see below), while brms is the package you will use to run Bayesian linear models (think of it as the Bayesian equivalent of lme4).\nIt will take several minutes to install the packages, depending on your system and configuration.\nIf at any point you get asked about installing extra packages or software or update existing packages or software, please do so. In all cases, carefully read the message in the Console or in a pop-up window: they always tell you what to do or the options you have.\n\n\n2.3 Install CmdStan\nNow that you have installed the R packages, you need to install CmdStan.\nCmdStan is a shell interface to the programming language Stan.\nStan is what runs the Bayesian models, but you don’t have to know Stan, because you will use the R packages to run the models (those packages will communicate with Stan in your stead).\nTo install CmdStan, run the following command in the R console:\ncmdstanr::install_cmdstan(cores = parallel::detectCores(), overwrite = TRUE)\nIt will take several minutes and you will see a lot of text flashing in the Console.\n\n\n2.4 Check your installation\nRun the following in the RStudio Console.\nlibrary(cmdstanr)\nfile &lt;- file.path(cmdstan_path(), \"examples\", \"bernoulli\", \"bernoulli.stan\")\nmod &lt;- cmdstan_model(file, force_recompile = TRUE)\ndata_list &lt;- list(N = 10, y = c(0,1,0,0,0,0,0,0,0,1))\nfit &lt;- mod$sample(\n  data = data_list, \n  seed = 123, \n  chains = 4, \n  parallel_chains = 4,\n  refresh = 500 # print update every 500 iters\n)\nIf everything goes well you should see Compiling Stan program… and then Running MCMC with 4 parallel chains… followed by information on chains and iterations."
+  },
+  {
+    "objectID": "setup.html#troubleshoot",
+    "href": "setup.html#troubleshoot",
+    "title": "Set-up instructions",
+    "section": "3 Troubleshoot",
+    "text": "3 Troubleshoot\nIf you have issues with any of these steps, please get in touch on Piazza. I won’t have time to help you during the workshop."
+  },
+  {
+    "objectID": "content.html",
+    "href": "content.html",
+    "title": "DAL",
+    "section": "",
+    "text": "Week\nLecture\nLab\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\n\n\n2\nResearch process\nRStudio + R scripts\n\n\n3\nFile management\nRead data\n\n\n4\nData viz\nQuarto + Plotting basics\n\n\n5\nTidy data\nData wrangling\n\n\nFL\nNo classes\n\n\n\n6\n\nCount data\n\n\n7\n\nContinuous data\n\n\n8\n\nTime series\n\n\n9\n\nLikert scales\n\n\n12"
+  },
+  {
+    "objectID": "content.html#schedule-overview",
+    "href": "content.html#schedule-overview",
+    "title": "DAL",
+    "section": "",
+    "text": "Week\nLecture\nLab\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\n\n\n2\nResearch process\nRStudio + R scripts\n\n\n3\nFile management\nRead data\n\n\n4\nData viz\nQuarto + Plotting basics\n\n\n5\nTidy data\nData wrangling\n\n\nFL\nNo classes\n\n\n\n6\n\nCount data\n\n\n7\n\nContinuous data\n\n\n8\n\nTime series\n\n\n9\n\nLikert scales\n\n\n12"
+  },
+  {
+    "objectID": "content.html#weekly-schedule",
+    "href": "content.html#weekly-schedule",
+    "title": "DAL",
+    "section": "2 Weekly schedule",
+    "text": "2 Weekly schedule\nTBA"
+  },
+  {
+    "objectID": "assessments.html",
+    "href": "assessments.html",
+    "title": "DAL",
+    "section": "",
+    "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
+  },
+  {
+    "objectID": "assessments.html#assessment-overview",
+    "href": "assessments.html#assessment-overview",
+    "title": "DAL",
+    "section": "",
+    "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
+  },
+  {
+    "objectID": "assessments.html#feedback-and-marking",
+    "href": "assessments.html#feedback-and-marking",
+    "title": "DAL",
+    "section": "2 Feedback and marking",
+    "text": "2 Feedback and marking\nYou will receive individual feedback for the summative assessments, as comments on the submitted file in Turnitin.\nThe comments will be categorised according the the Feedback Categorisation Rubric used for this course, which you can see here. The rubric is based on the learning outcomes of the course. For each criterion in the rubric there are three possible outcomes: insufficient, developing, proficient. This should help you identify areas of strength and those that can be improved.\nNote that the Feedback Categorisation Form is not used to calculate a numeric mark. Marking will follow the PPLS MSc Common Marking Scheme, which you can find here (login required).\nMore specifically, we will use a “step marking” procedure, where, within each mark band, you can get a 2, 5 or 8 (for example, 62, 65 or 68). We will not use other numbers within the scale. These are the criteria for getting 2, 5, or 8:\n\n2: The criteria for the mark band have been achieved, but there might be minor issues.\n5: The criteria for the mark band have been achieved fully.\n8: The criteria for the mark band have been achieved fully and in a particularly remarkable way, but not in such a way to grant a higher mark band.\n\nFinally, please note that marking does not follow a point-based system, i.e. different exercises are not assigned a specific amount of points you can obtain and we will instead adopt an “impression-based” marking system, based on the descriptors of the PPLS MSC Common Marking Scheme."
+  },
+  {
+    "objectID": "assessments.html#formative-assessments",
+    "href": "assessments.html#formative-assessments",
+    "title": "DAL",
+    "section": "3 Formative assessments",
+    "text": "3 Formative assessments\n\n\n\n\n\n\nFormative 1: Week 5 (Thu 19 October at noon)\n\n\n\nData summary and visualisation\nYou can find the instructions and data for the first formative here: https://github.com/uoelel/qml-f1/.\n\n\n\n\n\n\n\n\nFormative 2: Week 10 (Thu 23 November at noon)\n\n\n\nStatistical modelling\nYou can find the instructions and data for the second formative here: https://github.com/uoelel/qml-f2/."
+  },
+  {
+    "objectID": "assessments.html#summative-assessments",
+    "href": "assessments.html#summative-assessments",
+    "title": "DAL",
+    "section": "4 Summative assessments",
+    "text": "4 Summative assessments\n\n\n\n\n\n\nSummative 1: Week 8 (Thu 9 November at noon)\n\n\n\nDue on Thursday 9 November at noon\nThe first summative contains a series of guided exercises that cover things done in Weeks 1 to 7.\nYou can find the instructions and data for the first summative here: https://github.com/uoelel/qml-s1/.\n\n\n\n\n\n\n\n\nSummative 2: Week 12 (Thu 7 December at noon)\n\n\n\nDue on Thursday 7 December at noon\nIn the second summative assessment, you will:\n\nSelect a dataset from a list and its associated research questions.\nAnalyse the data using one linear model.\nWrite a report about the data, the model, and your findings."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Analysis for LEL",
+    "section": "",
+    "text": "Welcome to the main site of the course Data Analysis for Linguistics and English Language (Semester 2).\nThis website is your go-to place throughout the semester for any info related to the course.\n\n\n\n\n\n\nCourse description\n\n\n\nThis course is an introduction to quantitative data analysis (including data wrangling, visualisation and modelling) as commonly employed in linguistics, using the R software.\nWe will cover the following topics:\n\nThe basics of quantitative data analysis.\nData preparation.\nData summaries.\nPrinciples of data visualisation.\n\nAt completion of the course you will have gained the following skills:\n\nImport common data formats, tidy and transform data.\nChoosing and reporting appropriate summary measures.\nUsing compelling visualisations to communicate a specific message about patterns in the data.\n\nExamples from different branches of linguistics will be used to provide you with hands-on experience in quantitative data analysis and Open Research practices.\n\n\n\n\n\n\n\n\nCourse rationale\n\n\n\nThis course is designed to help you develop the necessary skills for conducting and interpreting analyses of data as commonly employed in linguistics.\nThe content and objectives of the course are in response to recent advances in our understanding of the theory behind research methods.\nRecent meta-scientific research has identified three important aspects of research: the reproducibility, replicability and generalisability.\n\nA result is reproducible when the same analysis steps performed on the same dataset consistently produces the same answer.\nA result is replicable when the same analysis performed on different datasets produces qualitatively similar answers.\nA result is generalisable when a different analysis workflow performed on different data sets produces qualitatively similar answers.\n\nSee Definitions for a more detailed explanation.\nHowever, based on surveys from different disciplines, we are currently facing the three research crises (reproducibility, replicability and generalisability crises) by which most results are neither reproducible, nor replicable, nor generalisable (Munafò et al. 2017, Simmons et al. 2011, Ioannidis 2005, Yarkoni 2022).\nThe Open Research movement (also known as Open Science or Open Scholarship, Crüwell et al. 2019) was developed with the aim of improving our understanding of these crises and with the objective of providing researchers with guidelines and tools to produce reproducible, replicable and generalisable research.\nThe statistical philosophy adopted in the course is that of the New Statistics (Cumming 2014, Kruschke and Liddell 2018. The main goal of the New Statistics is to shift the attention from statistical significance to estimation with quantification of uncertainty.\n\n\n\n\n\n\n\n\nAsk for help\n\n\n\nIf at any point during the course you don’t feel comfortable with any aspect of the course, you are unsure about anything that has been covered in class or in your own time, you are struggling to keep up with the course workload, you are experiencing mental of physical distress due to a pre-existing or new illness, medical condition or disability, or you find yourself unable to access basic needs like food or housing, please do get in touch with me and/or the PPLS support (go to the PPLS UG or MSc Hub on SharePoint &gt; Support for students &gt; Health & Wellbeing).\nWe are humans first and the rapidly-changing new world we are living in now can put us under pressure. What is most important to me is that you are first and foremost healthy and able to participate to the course, and that you succeed and get the most out of the course.\nIt is OK not to be OK, and remember that you are not alone. Other people, teachers and students, might be struggling right now or have struggled before and might have gone through what you are going through now. Remember that support exists for you, so please do reach out. If you see somebody close to you struggling, please let them know about the available support network and encourage them to reach out.\n\n\n\n\n\n\n\n\nContacts\n\n\n\nYou can reach me (Stefano) at s.coretta@ed.ac.uk or on Teams.\nIf you want to book office hours with me or the tutors, you can do so here: https://bit.ly/33BH84L. Location depends on whom you are seeing and which day, so check the confirmation email for that info!"
+  },
+  {
     "objectID": "slides/lecture-w01.html#course-info",
     "href": "slides/lecture-w01.html#course-info",
     "title": "Data Analysis for LEL",
@@ -210,172 +378,53 @@
     "text": "Statistics is not infallible\n\n\nBut…\nall that glisters is not gold"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Analysis for LEL",
-    "section": "",
-    "text": "Welcome to the main site of the course Data Analysis for Linguistics and English Language (Semester 2).\nThis website is your go-to place throughout the semester for any info related to the course.\n\n\n\n\n\n\nCourse description\n\n\n\nThis course is an introduction to quantitative data analysis (including data wrangling, visualisation and modelling) as commonly employed in linguistics, using the R software.\nWe will cover the following topics:\n\nThe basics of quantitative data analysis.\nData preparation.\nData summaries.\nPrinciples of data visualisation.\n\nAt completion of the course you will have gained the following skills:\n\nImport common data formats, tidy and transform data.\nChoosing and reporting appropriate summary measures.\nUsing compelling visualisations to communicate a specific message about patterns in the data.\n\nExamples from different branches of linguistics will be used to provide you with hands-on experience in quantitative data analysis and Open Research practices.\n\n\n\n\n\n\n\n\nCourse rationale\n\n\n\nThis course is designed to help you develop the necessary skills for conducting and interpreting analyses of data as commonly employed in linguistics.\nThe content and objectives of the course are in response to recent advances in our understanding of the theory behind research methods.\nRecent meta-scientific research has identified three important aspects of research: the reproducibility, replicability and generalisability.\n\nA result is reproducible when the same analysis steps performed on the same dataset consistently produces the same answer.\nA result is replicable when the same analysis performed on different datasets produces qualitatively similar answers.\nA result is generalisable when a different analysis workflow performed on different data sets produces qualitatively similar answers.\n\nSee Definitions for a more detailed explanation.\nHowever, based on surveys from different disciplines, we are currently facing the three research crises (reproducibility, replicability and generalisability crises) by which most results are neither reproducible, nor replicable, nor generalisable (Munafò et al. 2017, Simmons et al. 2011, Ioannidis 2005, Yarkoni 2022).\nThe Open Research movement (also known as Open Science or Open Scholarship, Crüwell et al. 2019) was developed with the aim of improving our understanding of these crises and with the objective of providing researchers with guidelines and tools to produce reproducible, replicable and generalisable research.\nThe statistical philosophy adopted in the course is that of the New Statistics (Cumming 2014, Kruschke and Liddell 2018. The main goal of the New Statistics is to shift the attention from statistical significance to estimation with quantification of uncertainty.\n\n\n\n\n\n\n\n\nAsk for help\n\n\n\nIf at any point during the course you don’t feel comfortable with any aspect of the course, you are unsure about anything that has been covered in class or in your own time, you are struggling to keep up with the course workload, you are experiencing mental of physical distress due to a pre-existing or new illness, medical condition or disability, or you find yourself unable to access basic needs like food or housing, please do get in touch with me and/or the PPLS support (go to the PPLS UG or MSc Hub on SharePoint &gt; Support for students &gt; Health & Wellbeing).\nWe are humans first and the rapidly-changing new world we are living in now can put us under pressure. What is most important to me is that you are first and foremost healthy and able to participate to the course, and that you succeed and get the most out of the course.\nIt is OK not to be OK, and remember that you are not alone. Other people, teachers and students, might be struggling right now or have struggled before and might have gone through what you are going through now. Remember that support exists for you, so please do reach out. If you see somebody close to you struggling, please let them know about the available support network and encourage them to reach out.\n\n\n\n\n\n\n\n\nContacts\n\n\n\nYou can reach me (Stefano) at s.coretta@ed.ac.uk or on Teams.\nIf you want to book office hours with me or the tutors, you can do so here: https://bit.ly/33BH84L. Location depends on whom you are seeing and which day, so check the confirmation email for that info!"
+    "objectID": "slides/lecture-w03.html#research-project-management",
+    "href": "slides/lecture-w03.html#research-project-management",
+    "title": "Data Analysis for LEL - Week 3",
+    "section": "Research project management",
+    "text": "Research project management"
   },
   {
-    "objectID": "assessments.html",
-    "href": "assessments.html",
-    "title": "DAL",
-    "section": "",
-    "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
+    "objectID": "slides/lecture-w03.html#data-management-plan-dmp",
+    "href": "slides/lecture-w03.html#data-management-plan-dmp",
+    "title": "Data Analysis for LEL - Week 3",
+    "section": "Data Management Plan (DMP)",
+    "text": "Data Management Plan (DMP)\n\nA Data Management Plan (DMP) covers data types and volume, capture, storage, integrity, confidentiality, retention and destruction, sharing and deposit.\n\nUoE Research Data Management policy.\nUoE DMP online."
   },
   {
-    "objectID": "assessments.html#assessment-overview",
-    "href": "assessments.html#assessment-overview",
-    "title": "DAL",
-    "section": "",
-    "text": "This course will be assessed on the basis of a set of online tests, 2 formative assessments and 2 summative assessments.\nFormative assessments are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.\nYou will have to submit two summative assessments. They will weight 50% and 50% of the final mark.\nSee below for details."
+    "objectID": "slides/lecture-w03.html#research-compendium",
+    "href": "slides/lecture-w03.html#research-compendium",
+    "title": "Data Analysis for LEL - Week 3",
+    "section": "Research Compendium",
+    "text": "Research Compendium\n\nA research compendium accompanies, enhances, or is a scientific publication providing data, code, and documentation for reproducing a scientific workflow.\n\n—Research Compendium\n\n\nA research compendium is a collection of all digital parts of a research project including data, code, texts (protocols, reports, questionnaires, meta data). The collection is created in such a way that reproducing all results is straightforward.\n\n—The Turing Way: Research Compendia"
   },
   {
-    "objectID": "assessments.html#feedback-and-marking",
-    "href": "assessments.html#feedback-and-marking",
-    "title": "DAL",
-    "section": "2 Feedback and marking",
-    "text": "2 Feedback and marking\nYou will receive individual feedback for the summative assessments, as comments on the submitted file in Turnitin.\nThe comments will be categorised according the the Feedback Categorisation Rubric used for this course, which you can see here. The rubric is based on the learning outcomes of the course. For each criterion in the rubric there are three possible outcomes: insufficient, developing, proficient. This should help you identify areas of strength and those that can be improved.\nNote that the Feedback Categorisation Form is not used to calculate a numeric mark. Marking will follow the PPLS MSc Common Marking Scheme, which you can find here (login required).\nMore specifically, we will use a “step marking” procedure, where, within each mark band, you can get a 2, 5 or 8 (for example, 62, 65 or 68). We will not use other numbers within the scale. These are the criteria for getting 2, 5, or 8:\n\n2: The criteria for the mark band have been achieved, but there might be minor issues.\n5: The criteria for the mark band have been achieved fully.\n8: The criteria for the mark band have been achieved fully and in a particularly remarkable way, but not in such a way to grant a higher mark band.\n\nFinally, please note that marking does not follow a point-based system, i.e. different exercises are not assigned a specific amount of points you can obtain and we will instead adopt an “impression-based” marking system, based on the descriptors of the PPLS MSC Common Marking Scheme."
+    "objectID": "slides/lecture-w03.html#organise-files",
+    "href": "slides/lecture-w03.html#organise-files",
+    "title": "Data Analysis for LEL - Week 3",
+    "section": "Organise files",
+    "text": "Organise files\n\n\nCreate one folder and make that the folder for your dissertation project.\nIn that folder, create folders for data/ and for scripts/ (and plots/, dissertation/, etc).\n\n\n\n\n\nIn data/ have a raw/ and derived/ folder:\n\nRaw data (data that, if lost, it is very unfortunate; for example, experiment data, data which was manually annotated, etc) should be saved in data/raw/.\nDerived data (data that is derived with scripts) should be saved in data/derived/."
   },
   {
-    "objectID": "assessments.html#formative-assessments",
-    "href": "assessments.html#formative-assessments",
-    "title": "DAL",
-    "section": "3 Formative assessments",
-    "text": "3 Formative assessments\n\n\n\n\n\n\nFormative 1: Week 5 (Thu 19 October at noon)\n\n\n\nData summary and visualisation\nYou can find the instructions and data for the first formative here: https://github.com/uoelel/qml-f1/.\n\n\n\n\n\n\n\n\nFormative 2: Week 10 (Thu 23 November at noon)\n\n\n\nStatistical modelling\nYou can find the instructions and data for the second formative here: https://github.com/uoelel/qml-f2/."
+    "objectID": "slides/lecture-w03.html#organise-files-example",
+    "href": "slides/lecture-w03.html#organise-files-example",
+    "title": "Data Analysis for LEL - Week 3",
+    "section": "Organise files: example",
+    "text": "Organise files: example"
   },
   {
-    "objectID": "assessments.html#summative-assessments",
-    "href": "assessments.html#summative-assessments",
-    "title": "DAL",
-    "section": "4 Summative assessments",
-    "text": "4 Summative assessments\n\n\n\n\n\n\nSummative 1: Week 8 (Thu 9 November at noon)\n\n\n\nDue on Thursday 9 November at noon\nThe first summative contains a series of guided exercises that cover things done in Weeks 1 to 7.\nYou can find the instructions and data for the first summative here: https://github.com/uoelel/qml-s1/.\n\n\n\n\n\n\n\n\nSummative 2: Week 12 (Thu 7 December at noon)\n\n\n\nDue on Thursday 7 December at noon\nIn the second summative assessment, you will:\n\nSelect a dataset from a list and its associated research questions.\nAnalyse the data using one linear model.\nWrite a report about the data, the model, and your findings."
+    "objectID": "slides/lecture-w03.html#back-up",
+    "href": "slides/lecture-w03.html#back-up",
+    "title": "Data Analysis for LEL - Week 3",
+    "section": "Back up",
+    "text": "Back up\n\nMake sure you have a backup system in place.\n\n\n\n\nSave copies of the entire folder in an external hard drive.\nSaving copies of the entire folder in an online storage service (iCloud Drive, One Drive, DropBox, Google Drive, …).\n\nBut if you are working on that copy via syncing, make sure you have a second independent place you back up to, like a hard drive.\n\nUsing a versioning system like git."
   },
   {
-    "objectID": "content.html",
-    "href": "content.html",
-    "title": "DAL",
-    "section": "",
-    "text": "Week\nLecture\nLab\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\n\n\n2\nResearch process\nRStudio + R scripts\n\n\n3\nFile management\nRead data\n\n\n4\nData viz\nQuarto + Plotting basics\n\n\n5\nTidy data\nData wrangling\n\n\nFL\nNo classes\n\n\n\n6\n\nCount data\n\n\n7\n\nContinuous data\n\n\n8\n\nTime series\n\n\n9\n\nLikert scales\n\n\n12"
-  },
-  {
-    "objectID": "content.html#schedule-overview",
-    "href": "content.html#schedule-overview",
-    "title": "DAL",
-    "section": "",
-    "text": "Week\nLecture\nLab\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\n\n\n2\nResearch process\nRStudio + R scripts\n\n\n3\nFile management\nRead data\n\n\n4\nData viz\nQuarto + Plotting basics\n\n\n5\nTidy data\nData wrangling\n\n\nFL\nNo classes\n\n\n\n6\n\nCount data\n\n\n7\n\nContinuous data\n\n\n8\n\nTime series\n\n\n9\n\nLikert scales\n\n\n12"
-  },
-  {
-    "objectID": "content.html#weekly-schedule",
-    "href": "content.html#weekly-schedule",
-    "title": "DAL",
-    "section": "2 Weekly schedule",
-    "text": "2 Weekly schedule\nTBA"
-  },
-  {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "Set-up instructions",
-    "section": "",
-    "text": "Please, follow these instructions to get ready before the first workshop. It will take up to an hour to set everything up and you might encounter errors, so please do this asap."
-  },
-  {
-    "objectID": "setup.html#r-and-rstudio",
-    "href": "setup.html#r-and-rstudio",
-    "title": "Set-up instructions",
-    "section": "1 R and RStudio",
-    "text": "1 R and RStudio\nBefore installing the necessary software, make sure you have installed or updated the following software.\n\nThe latest version of R (https://cloud.r-project.org).\nThe latest version of RStudio (https://www.rstudio.com/products/rstudio/download/#download).\nIdeally, your operating system is up-to-date."
-  },
-  {
-    "objectID": "setup.html#r-packages",
-    "href": "setup.html#r-packages",
-    "title": "Set-up instructions",
-    "section": "2 R packages",
-    "text": "2 R packages\n\n\n\n\n\n\nImportant\n\n\n\nIf you have previously installed the C++ toolkit, CmdStan and/or cmdstanr, or if you have recently updated your OS, please follow these instructions to reinstall them.\n\n\nNow you will need to install a few packages and extra software.\nHere is an overview of what you will install:\n\nC++ toolchain.\nR packages: tidyverse, remotes, cmdstanr, brms.\nCmdStan (including Stan).\n\n\n2.1 Install the C++ toolchain\nSome of the software (CmdStan) used in the workshops require a working C++ toolchain for compilation.\nYou can find information on how to set up the C++ toolchain in Section 1.2.1 of the CmdStan User’s Guide.\nMake sure to follow the instructions for your operating system.\n\n\n2.2 Install the R packages\nAfter you have installed the C++ toolchain, you need to install the following R packages. Run the following in the Console.\ninstall.packages(\"remotes\")\nremotes::install_github(\"stan-dev/cmdstanr\")\ninstall.packages(c(\"brms\"))\ninstall.packages(c(\"tidybayes\", \"extraDistr\"))\nThe cmdstanr package is an interface between R and CmdStan (see below), while brms is the package you will use to run Bayesian linear models (think of it as the Bayesian equivalent of lme4).\nIt will take several minutes to install the packages, depending on your system and configuration.\nIf at any point you get asked about installing extra packages or software or update existing packages or software, please do so. In all cases, carefully read the message in the Console or in a pop-up window: they always tell you what to do or the options you have.\n\n\n2.3 Install CmdStan\nNow that you have installed the R packages, you need to install CmdStan.\nCmdStan is a shell interface to the programming language Stan.\nStan is what runs the Bayesian models, but you don’t have to know Stan, because you will use the R packages to run the models (those packages will communicate with Stan in your stead).\nTo install CmdStan, run the following command in the R console:\ncmdstanr::install_cmdstan(cores = parallel::detectCores(), overwrite = TRUE)\nIt will take several minutes and you will see a lot of text flashing in the Console.\n\n\n2.4 Check your installation\nRun the following in the RStudio Console.\nlibrary(cmdstanr)\nfile &lt;- file.path(cmdstan_path(), \"examples\", \"bernoulli\", \"bernoulli.stan\")\nmod &lt;- cmdstan_model(file, force_recompile = TRUE)\ndata_list &lt;- list(N = 10, y = c(0,1,0,0,0,0,0,0,0,1))\nfit &lt;- mod$sample(\n  data = data_list, \n  seed = 123, \n  chains = 4, \n  parallel_chains = 4,\n  refresh = 500 # print update every 500 iters\n)\nIf everything goes well you should see Compiling Stan program… and then Running MCMC with 4 parallel chains… followed by information on chains and iterations."
-  },
-  {
-    "objectID": "setup.html#troubleshoot",
-    "href": "setup.html#troubleshoot",
-    "title": "Set-up instructions",
-    "section": "3 Troubleshoot",
-    "text": "3 Troubleshoot\nIf you have issues with any of these steps, please get in touch on Piazza. I won’t have time to help you during the workshop."
-  },
-  {
-    "objectID": "slides/lecture-w02.html#research-process",
-    "href": "slides/lecture-w02.html#research-process",
-    "title": "Data Analysis for LEL",
-    "section": "Research process",
-    "text": "Research process"
-  },
-  {
-    "objectID": "slides/lecture-w02.html#research-rationale",
-    "href": "slides/lecture-w02.html#research-rationale",
-    "title": "Data Analysis for LEL",
-    "section": "Research rationale",
-    "text": "Research rationale"
-  },
-  {
-    "objectID": "slides/lecture-w02.html#research-cycle",
-    "href": "slides/lecture-w02.html#research-cycle",
-    "title": "Data Analysis for LEL",
-    "section": "Research cycle",
-    "text": "Research cycle"
-  },
-  {
-    "objectID": "slides/lecture-w02.html#research-cycle-the-dangers",
-    "href": "slides/lecture-w02.html#research-cycle-the-dangers",
-    "title": "Data Analysis for LEL",
-    "section": "Research cycle: the dangers",
-    "text": "Research cycle: the dangers"
-  },
-  {
-    "objectID": "slides/lecture-w02.html#replication-in-linguistics",
-    "href": "slides/lecture-w02.html#replication-in-linguistics",
-    "title": "Data Analysis for LEL",
-    "section": "Replication in linguistics",
-    "text": "Replication in linguistics\n\n[O]nly 1 in 1,250 experimental linguistic articles contains an independent direct replication.\n\n\nThe observed smaller number of citations of replication studies compared to corresponding initial studies is also in line with the lack of perceived value of replication studies reported in other fields.\n\n—Korback and Roettger 2023"
-  },
-  {
-    "objectID": "slides/lecture-w02.html#statistical-power-in-linguistics",
-    "href": "slides/lecture-w02.html#statistical-power-in-linguistics",
-    "title": "Data Analysis for LEL",
-    "section": "Statistical power in linguistics",
-    "text": "Statistical power in linguistics\n\nAn opportunistic review of seven papers from the November 2017 issue of this journal containing statistical analyses of acoustic speech production data found the number of participants to range from 11 to 39.\n\n—Kirby and Sonderegger 2018\n\nIn group differences research, the median sample sizes (n = 18 and n = 14 for case and control groups, respectively) were insufficient for detecting large, medium, or small effect sizes.\n\n—Gaeta and Brydges 2020\n\n[O]f the 1004 studies reviewed by Lehtonen et al. (2018) 878 had sample sizes smaller than 50 participants per group (i.e., 87%) and 987 had sample sizes smaller than 100 (98%).\n\n—Brysbaert 2020"
-  },
-  {
-    "objectID": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research",
-    "href": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research",
-    "title": "Data Analysis for LEL",
-    "section": "Case study: participant number in prosody research",
-    "text": "Case study: participant number in prosody research\nThe dataset contains data from 113 studies, published between 1955 and 2017 (the bulk of studies is within the range 1990-2017 though). The median number of speakers per study is 5. (An estimate of number of speakers per study in phonetics, Coretta 2019)."
-  },
-  {
-    "objectID": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research-1",
-    "href": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research-1",
-    "title": "Data Analysis for LEL",
-    "section": "Case study: participant number in prosody research",
-    "text": "Case study: participant number in prosody research"
-  },
-  {
-    "objectID": "slides/lecture-w02.html#reproducibility-in-linguistics",
-    "href": "slides/lecture-w02.html#reproducibility-in-linguistics",
-    "title": "Data Analysis for LEL",
-    "section": "Reproducibility in linguistics",
-    "text": "Reproducibility in linguistics\n\n35% of the articles were published open access and the rates of sharing materials, data, and protocols were below 10%. None of the articles reported preregistrations, 1% reported replications, and 10% had conflict of interest statements. These rates have not increased noticeably between 2008/2009 and 2018/2019.\n\n—Bochynska et al. 2023"
-  },
-  {
-    "objectID": "slides/lecture-w02.html#activity",
-    "href": "slides/lecture-w02.html#activity",
-    "title": "Data Analysis for LEL",
-    "section": "Activity",
-    "text": "Activity\n\nSearch for a paper you are interested in or that you have recently read.\nFill in the following spreadsheet with info on the paper you picked.\n\nSpreadsheet."
-  },
-  {
-    "objectID": "slides/lecture-w02.html#open-scholarship-practices",
-    "href": "slides/lecture-w02.html#open-scholarship-practices",
-    "title": "Data Analysis for LEL",
-    "section": "Open Scholarship practices",
-    "text": "Open Scholarship practices\n\n\nPre-registration and Registered Reports.\nShare the Research Compendium (data, materials, code, etc).\nEnsure your study is reproducible.\nThink about sample size.\n\n\n\n\n\nBe open, go Open!"
+    "objectID": "slides/lecture-w03.html#research-projects-are-dynamic",
+    "href": "slides/lecture-w03.html#research-projects-are-dynamic",
+    "title": "Data Analysis for LEL - Week 3",
+    "section": "Research projects are dynamic",
+    "text": "Research projects are dynamic\n\n\nBe prepared to change how files and folders are organised after you start.\nProjects evolve over time and sometimes you need to clean things up.\n\n\n\n\n\nUse a good system to mark versions in your files. Two simple systems:\n\nUse full DATE in the file name\n\ndissertation-2022-11-21.\ndissertation-2023-03-01.\n\nUse version number\n\nInspired by Semantic versioning from programming but can be helpful with research files too!\ndissertation-v1.0.\ndissertation-v1.1.\ndissertation-v2.0."
   },
   {
     "objectID": "tutorials/tutorial-w02.html",

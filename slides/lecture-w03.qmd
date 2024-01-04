@@ -1,0 +1,103 @@
+---
+title: "Data Analysis for LEL - Week 3"
+subtitle: "File management"
+author: "Stefano Coretta"
+institute: University of Edinburgh
+format:
+  mono-light-revealjs:
+    theme: [default, custom.scss]
+---
+
+## Research project management
+
+![](/img/project-management.png){fig-align="center"}
+
+## Data Management Plan (DMP)
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+A **Data Management Plan** (DMP) covers data types and volume, capture, storage, integrity, confidentiality, retention and destruction, sharing and deposit.
+
+-   [UoE Research Data Management policy](https://www.ed.ac.uk/information-services/about/policies-and-regulations/research-data-policy).
+-   [UoE DMP online](https://dmponline.ed.ac.uk).
+:::
+
+. . .
+
+<br>
+
+![](/img/dmp-example.png){fig-align="center" width="500"}
+
+## Research Compendium
+
+> A **research compendium** accompanies, enhances, or is a scientific publication providing data, code, and documentation for reproducing a scientific workflow.
+
+---[Research Compendium](https://research-compendium.science)
+
+. . .
+
+> A **research compendium** is a collection of all digital parts of a research project including data, code, texts (protocols, reports, questionnaires, meta data). The collection is created in such a way that reproducing all results is straightforward.
+
+---[The Turing Way: Research Compendia](https://the-turing-way.netlify.app/reproducible-research/compendia.html)
+
+## Organise files
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+-   Create one folder and make that the folder for your dissertation project.
+
+-   In that folder, create folders for `data/` and for `scripts/` (and `plots/`, `dissertation/`, etc).
+:::
+
+. . .
+
+::: {.bg-washed-green .b--dark-green .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+-   In `data/` have a `raw/` and `derived/` folder:
+
+    -   Raw data (data that, if lost, it is very unfortunate; for example, experiment data, data which was manually annotated, etc) should be saved in `data/raw/`.
+
+    -   Derived data (data that is derived with scripts) should be saved in `data/derived/`.
+:::
+
+## Organise files: example
+
+![](/img/organise-files.png){fig-align="center"}
+
+## Back up
+
+::: {.bg-washed-red .b--dark-red .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+**Make sure you have a backup system in place.**
+:::
+
+. . .
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+-   Save copies of the entire folder in an external hard drive.
+
+-   Saving copies of the entire folder in an online storage service (iCloud Drive, One Drive, DropBox, Google Drive, ...).
+
+    -   But if you are working on that copy via syncing, make sure you have a second independent place you back up to, like a hard drive.
+
+-   Using a versioning system like [git](https://www.atlassian.com/git).
+:::
+
+## Research projects are dynamic
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+-   Be prepared to change how files and folders are organised after you start.
+
+-   Projects evolve over time and sometimes you need to clean things up.
+:::
+
+. . .
+
+::: {.bg-washed-green .b--dark-green .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+-   Use a **good** system to mark versions in your files. Two simple systems:
+
+    -   Use full DATE in the file name
+        -   `dissertation-2022-11-21`.
+        -   `dissertation-2023-03-01`.
+    -   Use version number
+        -   Inspired by [Semantic versioning](https://www.geeksforgeeks.org/introduction-semantic-versioning/) from programming but can be helpful with research files too!
+        -   `dissertation-v1.0`.
+        -   `dissertation-v1.1`.
+        -   `dissertation-v2.0`.
+:::

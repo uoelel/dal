@@ -256,14 +256,14 @@
     "href": "content.html",
     "title": "DAL",
     "section": "",
-    "text": "Week\nLecture\nLab\n\n\n\n\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\nLecture\nTutorial\n\n\n\n\n2\nData analysis process\nRStudio + R scripts\n\nTutorial\n\n\n\n\n3\nFile management\nRead data\n\nTutorial\n\n\n\n\n4\nData viz\nQuarto + Plotting basics\n\nTutorial\n\n\n\n\n5\nTidy data\nData wrangling\n\n\n\n\n\n\n- FL\nNo classes\n\n\n\n\n\n\n\n6\n\nCount data\n\n\n\n\n\n\n7\n\nContinuous data\n\n\n\n\n\n\n8\n\nTime series\n\n\n\n\n\n\n9\n\nLikert scales\n\n\n\n\n\n\n12"
+    "text": "Week\nLecture\nLab\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\n\n\n2\nResearch process\nRStudio + R scripts\n\n\n3\nFile management\nRead data\n\n\n4\nData viz\nQuarto + Plotting basics\n\n\n5\nTidy data\nData wrangling\n\n\nFL\nNo classes\n\n\n\n6\n\nCount data\n\n\n7\n\nContinuous data\n\n\n8\n\nTime series\n\n\n9\n\nLikert scales\n\n\n12"
   },
   {
     "objectID": "content.html#schedule-overview",
     "href": "content.html#schedule-overview",
     "title": "DAL",
     "section": "",
-    "text": "Week\nLecture\nLab\n\n\n\n\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\nLecture\nTutorial\n\n\n\n\n2\nData analysis process\nRStudio + R scripts\n\nTutorial\n\n\n\n\n3\nFile management\nRead data\n\nTutorial\n\n\n\n\n4\nData viz\nQuarto + Plotting basics\n\nTutorial\n\n\n\n\n5\nTidy data\nData wrangling\n\n\n\n\n\n\n- FL\nNo classes\n\n\n\n\n\n\n\n6\n\nCount data\n\n\n\n\n\n\n7\n\nContinuous data\n\n\n\n\n\n\n8\n\nTime series\n\n\n\n\n\n\n9\n\nLikert scales\n\n\n\n\n\n\n12"
+    "text": "Week\nLecture\nLab\n\n\n\n\n1\nQuantitative methods and uncertainty\nR basics\n\n\n2\nResearch process\nRStudio + R scripts\n\n\n3\nFile management\nRead data\n\n\n4\nData viz\nQuarto + Plotting basics\n\n\n5\nTidy data\nData wrangling\n\n\nFL\nNo classes\n\n\n\n6\n\nCount data\n\n\n7\n\nContinuous data\n\n\n8\n\nTime series\n\n\n9\n\nLikert scales\n\n\n12"
   },
   {
     "objectID": "content.html#weekly-schedule",
@@ -299,6 +299,83 @@
     "title": "Set-up instructions",
     "section": "3 Troubleshoot",
     "text": "3 Troubleshoot\nIf you have issues with any of these steps, please get in touch on Piazza. I won’t have time to help you during the workshop."
+  },
+  {
+    "objectID": "slides/lecture-w02.html#research-process",
+    "href": "slides/lecture-w02.html#research-process",
+    "title": "Data Analysis for LEL",
+    "section": "Research process",
+    "text": "Research process"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#research-rationale",
+    "href": "slides/lecture-w02.html#research-rationale",
+    "title": "Data Analysis for LEL",
+    "section": "Research rationale",
+    "text": "Research rationale"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#research-cycle",
+    "href": "slides/lecture-w02.html#research-cycle",
+    "title": "Data Analysis for LEL",
+    "section": "Research cycle",
+    "text": "Research cycle"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#research-cycle-the-dangers",
+    "href": "slides/lecture-w02.html#research-cycle-the-dangers",
+    "title": "Data Analysis for LEL",
+    "section": "Research cycle: the dangers",
+    "text": "Research cycle: the dangers"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#replication-in-linguistics",
+    "href": "slides/lecture-w02.html#replication-in-linguistics",
+    "title": "Data Analysis for LEL",
+    "section": "Replication in linguistics",
+    "text": "Replication in linguistics\n\n[O]nly 1 in 1,250 experimental linguistic articles contains an independent direct replication.\n\n\nThe observed smaller number of citations of replication studies compared to corresponding initial studies is also in line with the lack of perceived value of replication studies reported in other fields.\n\n—Korback and Roettger 2023"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#statistical-power-in-linguistics",
+    "href": "slides/lecture-w02.html#statistical-power-in-linguistics",
+    "title": "Data Analysis for LEL",
+    "section": "Statistical power in linguistics",
+    "text": "Statistical power in linguistics\n\nAn opportunistic review of seven papers from the November 2017 issue of this journal containing statistical analyses of acoustic speech production data found the number of participants to range from 11 to 39.\n\n—Kirby and Sonderegger 2018\n\nIn group differences research, the median sample sizes (n = 18 and n = 14 for case and control groups, respectively) were insufficient for detecting large, medium, or small effect sizes.\n\n—Gaeta and Brydges 2020\n\n[O]f the 1004 studies reviewed by Lehtonen et al. (2018) 878 had sample sizes smaller than 50 participants per group (i.e., 87%) and 987 had sample sizes smaller than 100 (98%).\n\n—Brysbaert 2020"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research",
+    "href": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research",
+    "title": "Data Analysis for LEL",
+    "section": "Case study: participant number in prosody research",
+    "text": "Case study: participant number in prosody research\nThe dataset contains data from 113 studies, published between 1955 and 2017 (the bulk of studies is within the range 1990-2017 though). The median number of speakers per study is 5. (An estimate of number of speakers per study in phonetics, Coretta 2019)."
+  },
+  {
+    "objectID": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research-1",
+    "href": "slides/lecture-w02.html#case-study-participant-number-in-prosody-research-1",
+    "title": "Data Analysis for LEL",
+    "section": "Case study: participant number in prosody research",
+    "text": "Case study: participant number in prosody research"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#reproducibility-in-linguistics",
+    "href": "slides/lecture-w02.html#reproducibility-in-linguistics",
+    "title": "Data Analysis for LEL",
+    "section": "Reproducibility in linguistics",
+    "text": "Reproducibility in linguistics\n\n35% of the articles were published open access and the rates of sharing materials, data, and protocols were below 10%. None of the articles reported preregistrations, 1% reported replications, and 10% had conflict of interest statements. These rates have not increased noticeably between 2008/2009 and 2018/2019.\n\n—Bochynska et al. 2023"
+  },
+  {
+    "objectID": "slides/lecture-w02.html#activity",
+    "href": "slides/lecture-w02.html#activity",
+    "title": "Data Analysis for LEL",
+    "section": "Activity",
+    "text": "Activity\n\nSearch for a paper you are interested in or that you have recently read.\nFill in the following spreadsheet with info on the paper you picked.\n\nSpreadsheet."
+  },
+  {
+    "objectID": "slides/lecture-w02.html#open-scholarship-practices",
+    "href": "slides/lecture-w02.html#open-scholarship-practices",
+    "title": "Data Analysis for LEL",
+    "section": "Open Scholarship practices",
+    "text": "Open Scholarship practices\n\n\nPre-registration and Registered Reports.\nShare the Research Compendium (data, materials, code, etc).\nEnsure your study is reproducible.\nThink about sample size.\n\n\n\n\n\nBe open, go Open!"
   },
   {
     "objectID": "tutorials/tutorial-w02.html",

@@ -9,6 +9,9 @@ project:
     - "img/"
     - "data/"
 
+execute:
+  freeze: auto
+
 website:
   title: "DAL"
   navbar:

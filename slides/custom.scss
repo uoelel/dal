@@ -1,2 +1,3 @@
 /*-- scss:defaults --*/
 $base-color: #136f63;
+$white-color: sass-color.scale($base-color, $lightness: +95%); // style-white_color

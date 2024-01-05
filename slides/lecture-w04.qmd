@@ -1,0 +1,172 @@
+---
+title: "Data Analysis for LEL - Week 4"
+subtitle: "Data viz"
+author: "Stefano Coretta"
+institute: University of Edinburgh
+format:
+  mono-light-revealjs:
+    theme: [default, custom.scss]
+execute: 
+  echo: false
+knitr:
+  opts_chunk: 
+    fig-align: center
+    fig-width: 7
+---
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+theme_set(theme_light())
+```
+
+```{r}
+#| label: read-data
+
+glot_status <- readRDS("data/glot_status.rds")
+formants <- read_csv("data/formants.csv")
+coretta2021_albvot <- read_csv("data/coretta2021-alb-vot.csv") %>%
+  mutate(vot = (voi_onset - release) * 1000)
+cameron2020_gestures <- read_csv("data/cameron2020-gestures.csv")
+
+formants <- formants %>%
+  mutate(
+    time = time / 9
+  ) %>%
+  pivot_longer(f1:f2, names_to = "formant") %>%
+  mutate(
+    id = paste(file, formant, sep = "_")
+  )
+```
+
+## Good data visualisation
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+Alberto Cairo has identified four common features of good data visualisation ([Spiegelhalter 2019](https://www.penguin.co.uk/books/294857/the-art-of-statistics-by-spiegelhalter-david/9780241258767):64--66):
+
+1.  It contains **reliable information**.
+
+2.  The design has been chosen so that relevant **patterns become noticeable**.
+
+3.  It is presented in an **attractive** manner, but appearance should not get in the way of **honesty, clarity and depth**.
+
+4.  When appropriate, it is organized in a way that **enables some exploration**.
+:::
+
+## Endangerment status
+
+```{r}
+#| label: glot-status
+#| echo: true
+
+glot_status
+```
+
+## Information is (not) reliable
+
+```{r}
+#| label: status-bar-1
+
+glot_status %>%
+  # filter(status != "extinct") %>%
+  ggplot(aes(Macroarea, fill = status)) +
+  geom_bar() +
+  scale_fill_brewer(type = "seq", palette = "BuPu") +
+  labs(
+    title = "Number of endangered languages by macroarea and status",
+    caption = "Stacked bar-chart"
+  )
+```
+
+## Information is reliable
+
+```{r}
+#| label: status-bar-2
+
+glot_status %>%
+  filter(status != "extinct") %>%
+  ggplot(aes(Macroarea, fill = status)) +
+  geom_bar() +
+  scale_fill_brewer(type = "seq", palette = "BuPu") +
+  labs(
+    title = "Number of endangered languages by macroarea and status",
+    caption = "Stacked bar-chart"
+  )
+```
+
+## Patterns are (not) noticeable
+
+```{r}
+#| label: alb-vot-1
+
+coretta2021_albvot %>%
+  filter(consonant %in% c("p", "t", "k", "b", "d", "ɡ")) %>%
+  ggplot(aes(vot, consonant)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "Albanian Voice Onset Time"
+  )
+  
+```
+
+## Patterns are noticeable
+
+```{r}
+#| label: alb-vot-2
+
+coretta2021_albvot %>%
+  filter(consonant %in% c("p", "t", "k", "b", "d", "\u261")) %>%
+  mutate(consonant = factor(consonant, levels = rev(c("p", "t", "k", "b", "d", "\u261")))) %>%
+  ggplot(aes(consonant, vot, colour = speaker)) +
+  geom_line(aes(group = interaction(speaker, consonant)), position = position_dodge(width = 0.5)) +
+  geom_point(size = 1.5, alpha = 0.9, position = position_dodge(width = 0.5), aes(group = speaker)) +
+  geom_hline(aes(yintercept = 0)) +
+  scale_y_continuous(breaks = seq(-200, 200, by = 50)) +
+  coord_flip() +
+  labs(
+    ttile = "Albanian Voice Onset Time",
+    y = "Voice Onset Time (ms)", x = "Consonant",
+    caption = "Time 0 corresponds to the plosive release."
+  )
+  
+```
+
+## Aesthetics (should not) get in the way
+
+![](/img/Speaking-the-world.jpg){fig-align="center"} 
+
+[[Image source](https://flowingdata.com/2013/07/15/open-thread-what-is-wrong-with-these-charts/). See more examples on [Ugly Charts](https://flowingdata.com/category/visualization/ugly-visualization/).]{.f5}
+
+## Enables exploration
+
+```{r}
+#| label: gest-line
+
+cameron2020_gestures %>%
+  filter(months %in% c(10, 12)) %>%
+  drop_na(count) %>%
+  ggplot(aes(as.factor(months), count, colour = background)) +
+  geom_line(aes(group = id), alpha = 0.5) +
+  geom_point(alpha = 0.25) +
+  facet_grid(background ~ gesture) +
+  scale_color_brewer(type = "qual") +
+  labs(
+    title = "Infant gesture counts at 10 and 12 mo",
+    x = "Months old", y = "Gesture count"
+  )
+```
+
+## Practical tips
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+1. Show raw data (e.g. individual observations, participants, items...).
+
+1. Separate data in different panels as needed.
+
+1. Use simple but informative labels for axes, panels, etc...
+
+1. Use colour as a visual aid, not just for aesthetics.
+
+1. Reuse labels, colours, shapes throughout different plots to indicate the same thing.
+:::

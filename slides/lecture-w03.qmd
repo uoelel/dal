@@ -90,14 +90,36 @@ A **Data Management Plan** (DMP) covers data types and volume, capture, storage,
 . . .
 
 ::: {.bg-washed-green .b--dark-green .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
--   Use a **good** system to mark versions in your files. Two simple systems:
+-   Use a good system to **mark versions** in your files. Two simple systems:
 
     -   Use full DATE in the file name
         -   `dissertation-2022-11-21`.
         -   `dissertation-2023-03-01`.
-    -   Use version number
+    -   Or use version number
         -   Inspired by [Semantic versioning](https://www.geeksforgeeks.org/introduction-semantic-versioning/) from programming but can be helpful with research files too!
         -   `dissertation-v1.0`.
         -   `dissertation-v1.1`.
         -   `dissertation-v2.0`.
 :::
+
+## File naming don'ts
+
+![](/img/folder-4.png){fig-align="center"}
+
+## Licensing
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+A **license** gives someone official permission to reuse something while protecting the intellectual property of the original creator.
+:::
+
+::: {.bg-washed-green .b--dark-green .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+**Use open licenses** to ensure the data/code can be used by other researchers.
+
+The [Creative Commons licenses](https://creativecommons.org/share-your-work/) are now common in research.
+:::
+
+## Activity {background-color="var(--inverse)"}
+
+-   Reorganise one of your project folders (for example your dissertation folder).
+
+-   OR read online materials on "research project management" (use your favourite search engine to search "research project management")

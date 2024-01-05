@@ -424,7 +424,28 @@
     "href": "slides/lecture-w03.html#research-projects-are-dynamic",
     "title": "Data Analysis for LEL - Week 3",
     "section": "Research projects are dynamic",
-    "text": "Research projects are dynamic\n\n\nBe prepared to change how files and folders are organised after you start.\nProjects evolve over time and sometimes you need to clean things up.\n\n\n\n\n\nUse a good system to mark versions in your files. Two simple systems:\n\nUse full DATE in the file name\n\ndissertation-2022-11-21.\ndissertation-2023-03-01.\n\nUse version number\n\nInspired by Semantic versioning from programming but can be helpful with research files too!\ndissertation-v1.0.\ndissertation-v1.1.\ndissertation-v2.0."
+    "text": "Research projects are dynamic\n\n\nBe prepared to change how files and folders are organised after you start.\nProjects evolve over time and sometimes you need to clean things up.\n\n\n\n\n\nUse a good system to mark versions in your files. Two simple systems:\n\nUse full DATE in the file name\n\ndissertation-2022-11-21.\ndissertation-2023-03-01.\n\nOr use version number\n\nInspired by Semantic versioning from programming but can be helpful with research files too!\ndissertation-v1.0.\ndissertation-v1.1.\ndissertation-v2.0."
+  },
+  {
+    "objectID": "slides/lecture-w03.html#file-naming-donts",
+    "href": "slides/lecture-w03.html#file-naming-donts",
+    "title": "Data Analysis for LEL - Week 3",
+    "section": "File naming don’ts",
+    "text": "File naming don’ts"
+  },
+  {
+    "objectID": "slides/lecture-w03.html#licensing",
+    "href": "slides/lecture-w03.html#licensing",
+    "title": "Data Analysis for LEL - Week 3",
+    "section": "Licensing",
+    "text": "Licensing\n\nA license gives someone official permission to reuse something while protecting the intellectual property of the original creator.\n\n\nUse open licenses to ensure the data/code can be used by other researchers.\nThe Creative Commons licenses are now common in research."
+  },
+  {
+    "objectID": "slides/lecture-w03.html#activity",
+    "href": "slides/lecture-w03.html#activity",
+    "title": "Data Analysis for LEL - Week 3",
+    "section": "Activity",
+    "text": "Activity\n\nReorganise one of your project folders (for example your dissertation folder).\nOR read online materials on “research project management” (use your favourite search engine to search “research project management”)"
   },
   {
     "objectID": "tutorials/tutorial-w02.html",

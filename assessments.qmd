@@ -2,11 +2,11 @@
 
 This course will be assessed on the basis of a set of online tests, **2 formative assessments** and **2 summative assessments**.
 
-**Formative assessments** are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment. See below for info.
+**Formative assessments** are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment.
 
 You will have to submit **two summative assessments**. They will weight 50% and 50% of the final mark.
 
-See below for details.
+See below for details (**DETAILS TO BE ADDED**).
 
 ## Feedback and marking
 
@@ -24,45 +24,47 @@ More specifically, we will use a "step marking" procedure, where, within each ma
 
 Finally, please note that marking does not follow a point-based system, i.e. different exercises are not assigned a specific amount of points you can obtain and we will instead adopt an "impression-based" marking system, based on the descriptors of the PPLS MSC Common Marking Scheme.
 
-## Formative assessments
+<!-- ## Formative assessments -->
 
-::: {.callout-warning}
-## Formative 1: Week 5 (Thu 19 October at noon)
+<!-- ::: {.callout-warning} -->
+<!-- ## Formative 1: Week 5 (Thu 19 October at noon) -->
 
-**Data summary and visualisation**
+<!-- **Data summary and visualisation** -->
 
-You can find the instructions and data for the first formative here: <https://github.com/uoelel/qml-f1/>.
-:::
+<!-- You can find the instructions and data for the first formative here: <https://github.com/uoelel/qml-f1/>. -->
+<!-- ::: -->
 
-::: {.callout-warning}
-## Formative 2: Week 10 (Thu 23 November at noon)
+<!-- ::: {.callout-warning} -->
+<!-- ## Formative 2: Week 10 (Thu 23 November at noon) -->
 
-**Statistical modelling**
+<!-- **Statistical modelling** -->
 
-You can find the instructions and data for the second formative here: <https://github.com/uoelel/qml-f2/>.
-:::
+<!-- You can find the instructions and data for the second formative here: <https://github.com/uoelel/qml-f2/>. -->
+<!-- ::: -->
 
 ## Summative assessments
 
 ::: {.callout-tip}
-## Summative 1: Week 8 (Thu 9 November at noon)
+## Summative 1: Week 10 (Thu 28 March at noon)
 
-**Due on Thursday 9 November at noon**
+**Due on Thursday 28 March at noon**
 
-The first summative contains a series of guided exercises that cover things done in Weeks 1 to 7.
+The first summative contains 4 guided exercises that cover things done in Weeks 1 to 7.
 
-You can find the instructions and data for the first summative here: <https://github.com/uoelel/qml-s1/>.
+<!-- You can find the instructions and data for the first summative here: <https://github.com/uoelel/dal-s1/>. -->
 
 :::
 
 ::: {.callout-tip}
-## Summative 2: Week 12 (Thu 7 December at noon)
+## Summative 2: Thu 25 Apr at noon
 
-**Due on Thursday 7 December at noon**
+**Due on Thursday 25 April at noon**
 
-In the second summative assessment, you will:
+For the second summative assessment you will have to find a data set from published research and write a short data analysis report on the chosen data.
 
--   Select a dataset from a list and its associated research questions.
--   Analyse the data using one linear model.
--   Write a report about the data, the model, and your findings.
+The report should include:
+
+-   A brief explanation of the study the data comes from (remember to include proper attribution by citing relevant publications).
+-   A general description of the data frame (number and types of columns, number of observations, summary measures).
+-   Plots that illustrate patterns in the data (at least 5). Each plot should be accompanied by a caption and a textual description.
 :::

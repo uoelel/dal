@@ -49,17 +49,16 @@ $code-block-font-size: 0.9rem !default; // style-code_font_size
 
 // colors
 // base-color is the "primary" color of the theme
-$base-color: #23395b !default; // style-base_color
-$lighter-color: lighten-color($base-color, 0.9) !default; // style-white_color
-$darker-color: darken-color($base-color, 0.3) !default; // style-black_color
-$text-muted: rgba($base-color, 0.5) !default; // apply_alpha()
+$base-color: #cbf7ed !default; // style-base_color
+$lighter-color: lighten-color($base-color, 0.8) !default; // style-white_color
+$darker-color: darken-color($base-color, 0.85) !default; // style-black_color
 // body-color is the text color
-$body-color: $darker-color !default; // style-text_color
+$body-color: $lighter-color !default; // style-text_color
 $presentation-heading-color: $base-color !default; // style-header_color
 // body-bg is the slide background color
-$body-bg: $lighter-color !default; // style-background_color
+$body-bg: $darker-color !default; // style-background_color
 $link-color: #924238 !default; // style-link_color
-$dark-bg-text-color: $lighter-color !default; // style-inverse_background_color
+$dark-bg-text-color: $base-color !default; // style-inverse_background_color
 
 /*-- scss:rules --*/
 
@@ -77,11 +76,8 @@ $dark-bg-text-color: $lighter-color !default; // style-inverse_background_color
   margin-bottom: 32px;
 }
 
-.reveal blockquote {
-  color: $body-color;
-}
-
 // make text of blockquote white if in slide with dark background
-section.has-dark-background blockquote {
-  color: $lighter-color;
+.reveal blockquote {
+  color: $darker-color;
+  border-left: .25rem solid $darker-color;
 }

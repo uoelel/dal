@@ -49,16 +49,16 @@ $code-block-font-size: 0.9rem !default; // style-code_font_size
 
 // colors
 // base-color is the "primary" color of the theme
-$base-color: #23395b !default; // style-base_color
-$lighter-color: lighten-color($base-color, 0.9) !default; // style-white_color
-$darker-color: darken-color($base-color, 0.3) !default; // style-black_color
+$base-color: #43418A !default; // style-base_color
+$lighter-color: #FFFFFF !default; // style-white_color
+$darker-color: #272822 !default; // style-black_color
 $text-muted: rgba($base-color, 0.5) !default; // apply_alpha()
 // body-color is the text color
 $body-color: $darker-color !default; // style-text_color
 $presentation-heading-color: $base-color !default; // style-header_color
 // body-bg is the slide background color
 $body-bg: $lighter-color !default; // style-background_color
-$link-color: #924238 !default; // style-link_color
+$link-color: $base-color !default; // style-link_color
 $dark-bg-text-color: $lighter-color !default; // style-inverse_background_color
 
 /*-- scss:rules --*/

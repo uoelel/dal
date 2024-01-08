@@ -49,7 +49,7 @@ Finally, please note that marking does not follow a point-based system, i.e. dif
 
 **Due on Thursday 28 March at noon**
 
-The first summative contains 4 guided exercises that cover things done in Weeks 1 to 7.
+The first summative contains 2 guided exercises that cover things done in Weeks 1 to 7.
 
 <!-- You can find the instructions and data for the first summative here: <https://github.com/uoelel/dal-s1/>. -->
 
@@ -60,9 +60,11 @@ The first summative contains 4 guided exercises that cover things done in Weeks 
 
 **Due on Thursday 25 April at noon**
 
-For the second summative assessment you will have to find a data set from published research and write a short data analysis report on the chosen data.
+For the second summative assessment you will have to find a data set from published research of your choice and write a short data analysis report on the chosen data.
 
-The report should include:
+**You must submit to Turnitin for approval a brief description of the data set including a link to the relevant publication, by Monday 25th April.**
+
+**The summative assessment report due on 25 April should include:**
 
 -   A brief explanation of the study the data comes from (remember to include proper attribution by citing relevant publications).
 -   A general description of the data frame (number and types of columns, number of observations, summary measures).

@@ -1,7 +1,7 @@
 ## Schedule overview
 
 | Week | Lecture                                                        | Lab                                                    |
-|--------|---------------------------------|-------------------------|
+|------------------|-------------------------------|------------------------|
 | 1    | [Quantitative methods and uncertainty](slides/lecture-w01.qmd) | [R basics](tutorials/tutorial-w01.qmd)                 |
 | 2    | [Research process](slides/lecture-w02.qmd)                     | [RStudio + R scripts](tutorials/tutorial-w02.qmd)      |
 | 3    | [File management](slides/lecture-w03.qmd)                      | [Read data](tutorials/tutorial-w03.qmd)                |
@@ -16,4 +16,62 @@
 
 ## Weekly schedule
 
-TBA
+### Week 1: Quantitative methods and uncertainty
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   What is quantitative data analysis?
+-   Is statistics a science, an art, or both?
+-   How do uncertainty and variability affect data analysis?
+
+**Skills**
+
+-   Think critically about statistics, uncertainty and variability.
+-   Use R to perform simple calculations.
+-   Master the basics of the programming language R.
+:::
+
+::: {.callout-note collapse="false"}
+#### Homework
+
+**Course website**
+
+-   Carefully read the [homepage](https://uoelel.github.io/qml/).
+
+-   Familiarise yourself with this *Course content* page (note that the materials will be updated throughout the course).
+
+**Intake form**
+
+-   **You must complete the intake form before coming to the Tuesday lecture.**
+-   The link to the form can be found on the Learn website.
+
+**OPTIONAL: Install R, RStudio and Quarto**
+
+-   The labs will take place in the PPLS computer lab which will have all the necessary software (hopefully...).
+-   If instead you wish to use your own laptop, you are welcome to do so provided you take care of installing everything and fix issues that might arise. We won't be able to help you with the installation process.
+-   Please, follow the instructions in the [Setup](setup.qmd) page.
+:::
+
+::: {.callout-tip collapse="false"}
+#### Readings
+
+**ALL READINGS ARE OPTIONAL.** The textbook can be used to revise what done in class and you can pick and choose any of the other readings based on your interests.
+
+**Textbook**
+
+This course will be loosely based on the following online textbook. Note that the order of the contents of the course will not closely follow that of this book, but specific chapter will be noted on this page in each week
+
+-   [R for Data Science](https://r4ds.hadley.nz) (**R4DS**).
+
+**Other**
+
+-   [Ellis and Levy 2008](https://www.informingscience.org/Publications/438?Source=%2FJournals%2FInformingSciJ%2FArticles%3FVolume%3D11-2008). Framework of Problem-Based Research: A Guide for Novice Researchers on the Development of a Research-Worthy Problem.
+-   [Methods as theory](https://stefanocoretta.github.io/post/methods-as-theory/).
+-   [Vasishth and Gelman 2021](https://doi.org/10.1515/ling-2019-0051). How to embrace variation and accept uncertainty in linguistic and psycholinguistic data analysis.
+-   Molnar 2022. Modeling Mindsets: The many cultures of learning from data.
+-   [Darwin Holmes 2020](https://doi.org/10.34293/education.v8i4.3232). Researcher Positionality - A Consideration of Its Influence and Place in Qualitative Research - A New Researcher Guide
+-   [Jafar 2018](https://doi.org/10.1136/emermed-2017-207158). What is positionality and should it be expressed in quantitative studies?
+:::

@@ -1,7 +1,7 @@
 ## Schedule overview
 
 | Week | Lecture                                                        | Lab                                                    |
-|------------------|-------------------------------|------------------------|
+|------------------|------------------------------|------------------------|
 | 1    | [Quantitative methods and uncertainty](slides/lecture-w01.qmd) | [R basics](tutorials/tutorial-w01.qmd)                 |
 | 2    | [Research process](slides/lecture-w02.qmd)                     | [RStudio + R scripts](tutorials/tutorial-w02.qmd)      |
 | 3    | [File management](slides/lecture-w03.qmd)                      | [Read data](tutorials/tutorial-w03.qmd)                |
@@ -16,7 +16,7 @@
 
 ## Weekly schedule
 
-### Week 1: Quantitative methods and uncertainty
+### Week 1
 
 ::: {.callout-important collapse="false"}
 #### Learning Objectives

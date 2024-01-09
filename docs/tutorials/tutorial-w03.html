@@ -329,8 +329,8 @@ Quiz 1
 </div>
 <div class="callout-body-container callout-body">
 Which of the following is an absolute paths?
-<div id="radio_WNKGEHLCPE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WNKGEHLCPE" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_WNKGEHLCPE" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_WNKGEHLCPE" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
+<div id="radio_VLQJFNMGBV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VLQJFNMGBV" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_VLQJFNMGBV" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_VLQJFNMGBV" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
 </div>
 </div>
 </div>
@@ -406,7 +406,7 @@ Tabular data
 <h3 data-number="3.1" class="anchored" data-anchor-id="download-the-data-file"><span class="header-section-number">3.1</span> Download the data file</h3>
 <p>Please, follow these instructions carefully.</p>
 <ol type="1">
-<li><p>Download the file with the data by right-clicking on the following link and download the file: <a href="../data/song2020-shallow.csv">song2020-shallow.csv</a>. (Note that tutorial files are also linked in the <a href="../content.html">Course content</a> page)</p></li>
+<li><p>Download the file with the data by right-clicking on the following link and download the file: <a href="../data/song2020/shallow.csv">song2020/shallow.csv</a>. (Note that tutorial files are also linked in the <a href="../content.html">Course content</a> page)</p></li>
 <li><p>Create a folder called <code>data/</code> (the slash is there just to remind you that it’s a folder, but you don’t have to include it in the name) in the RStudio project of the course.</p>
 <ol type="1">
 <li><p>To create a folder, go to the Files tab of the bottom-right panel in RStudio.</p></li>
@@ -459,7 +459,7 @@ Organising your files
 </section>
 <section id="read_csv" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="read_csv"><span class="header-section-number">3.3</span> <code>read_csv()</code></h3>
-<p>The <code>read_csv()</code> function from the readr package only requires you to specify the file path as a string (remember, strings are quoted between <code>" "</code>, for example <code>"year_data.txt"</code>). On my computer, the file path of <code>song2020-shallow.csv</code> is <code>/Users/ste/dal/data/song2020-shallow.csv</code>, but on your computer the file path will be different, of course.</p>
+<p>The <code>read_csv()</code> function from the readr package only requires you to specify the file path as a string (remember, strings are quoted between <code>" "</code>, for example <code>"year_data.txt"</code>). On my computer, the file path of <code>song2020/shallow.csv</code> is <code>/Users/ste/dal/data/song2020/shallow.csv</code>, but on your computer the file path will be different, of course.</p>
 <p>Also, note that it is not enough to use the <code>read_csv()</code> function. You also must assign the output of the <code>read_csv()</code> function (i.e.&nbsp;the data we are reading) to a variable, using the assignment arrow <code>&lt;-</code>, just like we were assigning values to variables in the previous weeks.</p>
 <p>And since the <code>read_csv()</code> is a function from the tidyverse, you first need to attach the tidyverse packages with <code>library(tidyverse)</code> (remember, you need to attach packages <strong>only once</strong> per session). This will attach the core tidyverse packages, including readr. Of course, you can also attach the individual packages directly: <code>library(readr)</code>. If you use <code>library(tidyverse)</code> there is no need to attach individual tidyverse packages.</p>
 <p>Before reading the data, create a new R script named <code>tutorial_w03.R</code> and save it in the <code>code/</code> folder of your Quarto project.</p>
@@ -484,7 +484,7 @@ Warning
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>song2020 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/song2020-shallow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>song2020 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/song2020/shallow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 6500 Columns: 11
 ── Column specification ────────────────────────────────────────────────────────
@@ -497,7 +497,7 @@ dbl (3): ACC, RT, logRT
 </div>
 </div>
 <p>If you look at the <code>Environment</code> tab, you will see <code>song2020</code> under <code>Data</code>.</p>
-<p>But wait, what is that <code>"./data/song2020-shallow.csv"</code>? That’s a <strong>relative path</strong>. We briefly mentioned relative paths above, but let’s understand the details now. You will be able to view the data soon.</p>
+<p>But wait, what is that <code>"./data/song2020/shallow.csv"</code>? That’s a <strong>relative path</strong>. We briefly mentioned relative paths above, but let’s understand the details now. You will be able to view the data soon.</p>
 </section>
 <section id="relative-paths" class="level3" data-number="3.4">
 <h3 data-number="3.4" class="anchored" data-anchor-id="relative-paths"><span class="header-section-number">3.4</span> Relative paths</h3>
@@ -533,7 +533,7 @@ Working directory
 <p>When using RStudio projects, the working directory is the project folder.</p>
 </div>
 </div>
-<p>The code <code>read_csv("./data/song2020-shallow.csv")</code> above will work because you are using an RStudio project and inside the project folder there is a folder called <code>data/</code> and in it there’s the <code>song2020-shallow.csv</code> file.</p>
+<p>The code <code>read_csv("./data/song2020/shallow.csv")</code> above will work because you are using an RStudio project and inside the project folder there is a folder called <code>data/</code> and in it there’s the <code>song2020/shallow.csv</code> file.</p>
 <p>So from now on I encourage you to use Quarto projects, R scripts and relative paths always!</p>
 <p>The benefit of doing so is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -587,8 +587,8 @@ Quiz 3
 </div>
 <div class="callout-body-container callout-body">
 How many rows does <code>shallow</code> have?
-<div id="radio_QHENEGILMR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QHENEGILMR" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_QHENEGILMR" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_QHENEGILMR" value="answer"> <span>6500</span></label>
+<div id="radio_FAMGGKDHCM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FAMGGKDHCM" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_FAMGGKDHCM" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_FAMGGKDHCM" value="answer"> <span>6500</span></label>
 </div>
 </div>
 </div>
@@ -602,17 +602,17 @@ How many rows does <code>shallow</code> have?
 </div>
 <p>Then we can use the <code>read_excel()</code> function, but first you should download the Excel file we will read.</p>
 <ol type="1">
-<li><p>Download the file with the data by right-clicking on the following link and download the file: <a href="../data/los2023-relatives.xlsx">los2023-relatives.xlsx</a>. (Note that tutorial files are also linked in the <a href="../content.html">Course content</a> page)</p></li>
+<li><p>Download the file with the data by right-clicking on the following link and download the file: <a href="../data/los2023/relatives.xlsx">los2023/relatives.xlsx</a>. (Note that tutorial files are also linked in the <a href="../content.html">Course content</a> page)</p></li>
 <li><p>Move the file to the <code>data/</code> folder of the Quarto project.</p></li>
 </ol>
 <p>Now let’s read the file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>los2023 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023-relatives.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>los2023 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023/relatives.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you can view the tibble <code>los2023</code>.</p>
 <p>Note that if the Excel file has more than one sheet, you can specify the sheet number when reading the file (the default is <code>sheet = 1</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>los2023_2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023-relatives.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>los2023_2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023/relatives.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The second sheet in <code>los2023.xlx</code> contains the description of the columns in the first sheet.</p>
 </section>
@@ -622,14 +622,14 @@ How many rows does <code>shallow</code> have?
 <p>Usually, each <code>.rds</code> file contains one R object, like one tibble.</p>
 <p>You can read <code>.rds</code> files with the <code>readRDS()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>glot_status <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./data/glot_status.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>glot_status <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./data/coretta2022/glot_status.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As always, you need to assign the output of the function to a variable, here <code>glot_status</code>.</p>
 <p>View the <code>glot_status</code> tibble now.</p>
 <p>It is also very easy to save a tibble to an <code>.rds</code> file with the <code>saveRDS()</code> function.</p>
 <p>For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(song2020, <span class="st">"./data/song2020.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(song2020, <span class="st">"./data/song2020/song2020.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The first argument is the name of the tibble object and the second argument is the file path to save the object to.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">

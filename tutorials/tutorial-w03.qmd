@@ -236,7 +236,7 @@ The prime word belonged to one of three possible groups (`Relation_type` in the 
 
 Please, follow these instructions carefully.
 
-1.  Download the file with the data by right-clicking on the following link and download the file: [song2020-shallow.csv](../data/song2020-shallow.csv). (Note that tutorial files are also linked in the [Course content](../content.qmd) page)
+1.  Download the file with the data by right-clicking on the following link and download the file: [song2020/shallow.csv](../data/song2020/shallow.csv). (Note that tutorial files are also linked in the [Course content](../content.qmd) page)
 
 2.  Create a folder called `data/` (the slash is there just to remind you that it's a folder, but you don't have to include it in the name) in the RStudio project of the course.
 
@@ -296,7 +296,7 @@ Go ahead and install the tidyverse from the Packages tab.[^1]
 
 ### `read_csv()`
 
-The `read_csv()` function from the readr package only requires you to specify the file path as a string (remember, strings are quoted between `" "`, for example `"year_data.txt"`). On my computer, the file path of `song2020-shallow.csv` is `/Users/ste/dal/data/song2020-shallow.csv`, but on your computer the file path will be different, of course.
+The `read_csv()` function from the readr package only requires you to specify the file path as a string (remember, strings are quoted between `" "`, for example `"year_data.txt"`). On my computer, the file path of `song2020/shallow.csv` is `/Users/ste/dal/data/song2020/shallow.csv`, but on your computer the file path will be different, of course.
 
 Also, note that it is not enough to use the `read_csv()` function. You also must assign the output of the `read_csv()` function (i.e. the data we are reading) to a variable, using the assignment arrow `<-`, just like we were assigning values to variables in the previous weeks.
 
@@ -323,12 +323,12 @@ At the top of `tutorial_w03.R`, write the following lines of code. Then run the 
 
 library(tidyverse)
 
-song2020 <- read_csv("./data/song2020-shallow.csv")
+song2020 <- read_csv("./data/song2020/shallow.csv")
 ```
 
 If you look at the `Environment` tab, you will see `song2020` under `Data`.
 
-But wait, what is that `"./data/song2020-shallow.csv"`? That's a **relative path**. We briefly mentioned relative paths above, but let's understand the details now. You will be able to view the data soon.
+But wait, what is that `"./data/song2020/shallow.csv"`? That's a **relative path**. We briefly mentioned relative paths above, but let's understand the details now. You will be able to view the data soon.
 
 ### Relative paths
 
@@ -356,7 +356,7 @@ The **working directory** is the folder which relative paths are relative to.
 When using RStudio projects, the working directory is the project folder.
 :::
 
-The code `read_csv("./data/song2020-shallow.csv")` above will work because you are using an RStudio project and inside the project folder there is a folder called `data/` and in it there's the `song2020-shallow.csv` file.
+The code `read_csv("./data/song2020/shallow.csv")` above will work because you are using an RStudio project and inside the project folder there is a folder called `data/` and in it there's the `song2020/shallow.csv` file.
 
 So from now on I encourage you to use Quarto projects, R scripts and relative paths always!
 
@@ -431,7 +431,7 @@ library(readxl)
 
 Then we can use the `read_excel()` function, but first you should download the Excel file we will read.
 
-1.  Download the file with the data by right-clicking on the following link and download the file: [los2023-relatives.xlsx](../data/los2023-relatives.xlsx). (Note that tutorial files are also linked in the [Course content](../content.qmd) page)
+1.  Download the file with the data by right-clicking on the following link and download the file: [los2023/relatives.xlsx](../data/los2023/relatives.xlsx). (Note that tutorial files are also linked in the [Course content](../content.qmd) page)
 
 2.  Move the file to the `data/` folder of the Quarto project.
 
@@ -440,7 +440,7 @@ Now let's read the file.
 ```{r}
 #| label: los2023
 
-los2023 <- read_excel("./data/los2023-relatives.xlsx")
+los2023 <- read_excel("./data/los2023/relatives.xlsx")
 
 ```
 
@@ -451,7 +451,7 @@ Note that if the Excel file has more than one sheet, you can specify the sheet n
 ```{r}
 #| label: los2023-2
 
-los2023_2 <- read_excel("./data/los2023-relatives.xlsx", sheet = 2)
+los2023_2 <- read_excel("./data/los2023/relatives.xlsx", sheet = 2)
 ```
 
 The second sheet in `los2023.xlx` contains the description of the columns in the first sheet.
@@ -467,7 +467,7 @@ You can read `.rds` files with the `readRDS()` function.
 ```{r}
 #| label: glot-status
 
-glot_status <- readRDS("./data/glot_status.rds")
+glot_status <- readRDS("./data/coretta2022/glot_status.rds")
 ```
 
 As always, you need to assign the output of the function to a variable, here `glot_status`.
@@ -482,7 +482,7 @@ For example:
 #| label: save-rds
 #| eval: false
 
-saveRDS(song2020, "./data/song2020.rds")
+saveRDS(song2020, "./data/song2020/song2020.rds")
 ```
 
 The first argument is the name of the tibble object and the second argument is the file path to save the object to.

@@ -326,7 +326,7 @@ Finally, **create a new code chunk, add the following line of code and then run 
 #| label: polite
 #| message: false
 
-polite <- read_csv("data/polite.csv")
+polite <- read_csv("data/winter2020/polite.csv")
 
 ```
 
@@ -559,7 +559,7 @@ To read an `.rds` file you need the `readRDS()` function.
 ```{r}
 #| label: glot-status
 
-glot_status <- readRDS("data/glot_status.rds")
+glot_status <- readRDS("data/coretta2022/glot_status.rds")
 
 ```
 

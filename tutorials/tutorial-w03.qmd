@@ -482,19 +482,21 @@ For example:
 #| label: save-rds
 #| eval: false
 
-saveRDS(song2020, "./data/song2020/song2020.rds")
+saveRDS(song2020, "./data/song2020/shallow.rds")
 ```
 
 The first argument is the name of the tibble object and the second argument is the file path to save the object to.
 
+## Practice
+
 ::: {.callout-note collapse="true"}
 #### Practice 1
 
-Download the following files into the data folder. Read them in R, making sure you use the right `read_*()` function.
+Download the following files and move them into the data folder. Read them in R, making sure you use the right `read_*()` function.
 
--   [takete_maluma.txt](../data/takete_maluma.txt) (a tab separated file)
+-   [koppensteiner2016/takete_maluma.txt](../data/koppensteiner2016/takete_maluma.txt) (a tab separated file)
 
--   [Relatives.xlsx](../data/Relatives.xlsx)
+-   [pankratz2021/si.csv](../data/pankratz2021/si.csv)
 
 -   Go to <https://datashare.ed.ac.uk/handle/10283/4006> and download the file `conflict_data_.xlsx`. Read both sheets ("conflict_data2" and "demographics"). Any issues?
 :::

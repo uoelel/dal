@@ -25,11 +25,11 @@ theme_set(theme_light())
 ```{r}
 #| label: read-data
 
-glot_status <- readRDS("data/glot_status.rds")
-formants <- read_csv("data/formants.csv")
-coretta2021_albvot <- read_csv("data/coretta2021-alb-vot.csv") %>%
+glot_status <- readRDS("data/coretta2022/glot_status.rds")
+formants <- read_csv("data/coretta2018/formants.csv")
+albvot <- read_csv("data/coretta2021/alb-vot.csv") %>%
   mutate(vot = (voi_onset - release) * 1000)
-cameron2020_gestures <- read_csv("data/cameron2020-gestures.csv")
+gestures <- read_csv("data/cameron2020/gestures.csv")
 
 formants <- formants %>%
   mutate(
@@ -101,7 +101,7 @@ glot_status %>%
 ```{r}
 #| label: alb-vot-1
 
-coretta2021_albvot %>%
+albvot %>%
   filter(consonant %in% c("p", "t", "k", "b", "d", "ɡ")) %>%
   ggplot(aes(vot, consonant)) +
   geom_bar(stat = "identity") +
@@ -116,7 +116,7 @@ coretta2021_albvot %>%
 ```{r}
 #| label: alb-vot-2
 
-coretta2021_albvot %>%
+albvot %>%
   filter(consonant %in% c("p", "t", "k", "b", "d", "\u261")) %>%
   mutate(consonant = factor(consonant, levels = rev(c("p", "t", "k", "b", "d", "\u261")))) %>%
   ggplot(aes(consonant, vot, colour = speaker)) +
@@ -144,7 +144,7 @@ coretta2021_albvot %>%
 ```{r}
 #| label: gest-line
 
-cameron2020_gestures %>%
+gestures %>%
   filter(months %in% c(10, 12)) %>%
   drop_na(count) %>%
   ggplot(aes(as.factor(months), count, colour = background)) +

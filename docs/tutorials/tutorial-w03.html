@@ -168,6 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#import-excel-sheets" id="toc-import-excel-sheets" class="nav-link" data-scroll-target="#import-excel-sheets"><span class="header-section-number">4</span> Import Excel sheets</a></li>
   <li><a href="#import-.rds-files" id="toc-import-.rds-files" class="nav-link" data-scroll-target="#import-.rds-files"><span class="header-section-number">5</span> Import <code>.rds</code> files</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">6</span> Practice</a></li>
   </ul>
 </nav>
     </div>
@@ -329,8 +330,8 @@ Quiz 1
 </div>
 <div class="callout-body-container callout-body">
 Which of the following is an absolute paths?
-<div id="radio_VLQJFNMGBV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VLQJFNMGBV" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_VLQJFNMGBV" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_VLQJFNMGBV" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
+<div id="radio_SAAWNNNJRZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SAAWNNNJRZ" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_SAAWNNNJRZ" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_SAAWNNNJRZ" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
 </div>
 </div>
 </div>
@@ -587,8 +588,8 @@ Quiz 3
 </div>
 <div class="callout-body-container callout-body">
 How many rows does <code>shallow</code> have?
-<div id="radio_FAMGGKDHCM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FAMGGKDHCM" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_FAMGGKDHCM" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_FAMGGKDHCM" value="answer"> <span>6500</span></label>
+<div id="radio_VMNBCTWDNA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VMNBCTWDNA" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_VMNBCTWDNA" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_VMNBCTWDNA" value="answer"> <span>6500</span></label>
 </div>
 </div>
 </div>
@@ -629,9 +630,12 @@ How many rows does <code>shallow</code> have?
 <p>It is also very easy to save a tibble to an <code>.rds</code> file with the <code>saveRDS()</code> function.</p>
 <p>For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(song2020, <span class="st">"./data/song2020/song2020.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(song2020, <span class="st">"./data/song2020/shallow.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The first argument is the name of the tibble object and the second argument is the file path to save the object to.</p>
+</section>
+<section id="practice" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="practice"><span class="header-section-number">6</span> Practice</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -644,10 +648,10 @@ Practice 1
 </div>
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Download the following files into the data folder. Read them in R, making sure you use the right <code>read_*()</code> function.</p>
+<p>Download the following files and move them into the data folder. Read them in R, making sure you use the right <code>read_*()</code> function.</p>
 <ul>
-<li><p><a href="../data/takete_maluma.txt">takete_maluma.txt</a> (a tab separated file)</p></li>
-<li><p><a href="../data/Relatives.xlsx">Relatives.xlsx</a></p></li>
+<li><p><a href="../data/koppensteiner2016/takete_maluma.txt">koppensteiner2016/takete_maluma.txt</a> (a tab separated file)</p></li>
+<li><p><a href="../data/pankratz2021/si.csv">pankratz2021/si.csv</a></p></li>
 <li><p>Go to <a href="https://datashare.ed.ac.uk/handle/10283/4006" class="uri">https://datashare.ed.ac.uk/handle/10283/4006</a> and download the file <code>conflict_data_.xlsx</code>. Read both sheets (“conflict_data2” and “demographics”). Any issues?</p></li>
 </ul>
 </div>

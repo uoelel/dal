@@ -128,3 +128,15 @@ mald_1_1 <- dat %>%
 
 saveRDS(mald_1_1, "data/tucker2019/mald_1_1.rds")
 ```
+
+## Sluckin 2022
+
+```{r}
+#| label: everywhere-loc
+
+everywhere_loc <- read_csv("https://osf.io/download/vaujp/?view_only=edba6a2255044ce6af6a519b85c9e65f") %>%
+  select(-(Simple:Pass))
+
+dir.create("./data/sluckin2022/")
+write_csv(everywhere_loc, file = "./data/sluckin2022/everywhere-loc.csv")
+```

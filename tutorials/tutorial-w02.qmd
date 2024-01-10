@@ -1,5 +1,6 @@
 ---
 title: "QML tutorial - Week 2"
+subtitle: "RStudio and R scripts"
 editor: visual
 format: 
   html:
@@ -510,15 +511,19 @@ You made it! You completed this week's tutorial.
 Here's a summary of what you learnt.
 
 ::: {.callout-note appearance="minimal"}
-`library()` attaches R packages.
+-   R is a programming language while RStudio is an IDE.
 
-`read_csv()` reads `.csv` files in R.
+-   **Quarto projects** are folders with an `.Rproj` file (you can see the name of the project you are currently in in the top-right corner of RStudio).
 
-`summarise()` allows you to calculate measures of central tendency and dispersion (with `mean()`, `median()`, `min()` and `max()`).
+-   **R scripts** contain R code and help you keep track of the code you run.
 
-`count()` lets you count the number of occurrences of levels in a categorical variable.
+-   **R packages** provide R with extra functionalities. The **R library** is a folder with all the installed packages.
 
-`group_by()` allows you to group a tibble according to one or more variables.
+-   `.libPaths()` returns the path(s) to the R library.
 
-The pipe `%>%` can be used to chain multiple functions.
+-   `library()` attaches R packages (i.e. makes the package's functions available for use).
+
+-   You can inspect the documentation of any function by running `?function` in the Console (where `function` is the function's name, e.g. `?paste`).
+
+-   You can write text **comments** in R scripts by starting a line with `#`.
 :::

@@ -147,23 +147,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rmarkdown" id="toc-rmarkdown" class="nav-link active" data-scroll-target="#rmarkdown"><span class="header-section-number">1</span> Rmarkdown</a>
+  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link active" data-scroll-target="#data-transformation"><span class="header-section-number">1</span> Data transformation</a>
   <ul class="collapse">
-  <li><a href="#code-and-text" id="toc-code-and-text" class="nav-link" data-scroll-target="#code-and-text"><span class="header-section-number">1.1</span> Code… and text!</a></li>
-  <li><a href="#formatting-text" id="toc-formatting-text" class="nav-link" data-scroll-target="#formatting-text"><span class="header-section-number">1.2</span> Formatting text</a></li>
-  <li><a href="#create-an-rmd-file" id="toc-create-an-rmd-file" class="nav-link" data-scroll-target="#create-an-rmd-file"><span class="header-section-number">1.3</span> Create an Rmd file</a></li>
-  <li><a href="#parts-of-an-rmd-file" id="toc-parts-of-an-rmd-file" class="nav-link" data-scroll-target="#parts-of-an-rmd-file"><span class="header-section-number">1.4</span> Parts of an Rmd file</a></li>
-  <li><a href="#render-rmd-files-to-html" id="toc-render-rmd-files-to-html" class="nav-link" data-scroll-target="#render-rmd-files-to-html"><span class="header-section-number">1.5</span> Render Rmd files to HTML</a></li>
-  <li><a href="#how-to-run-code" id="toc-how-to-run-code" class="nav-link" data-scroll-target="#how-to-run-code"><span class="header-section-number">1.6</span> How to run code</a></li>
+  <li><a href="#summary-measures" id="toc-summary-measures" class="nav-link" data-scroll-target="#summary-measures"><span class="header-section-number">1.1</span> Summary measures</a></li>
+  <li><a href="#count-occurrences" id="toc-count-occurrences" class="nav-link" data-scroll-target="#count-occurrences"><span class="header-section-number">1.2</span> Count occurrences</a></li>
+  <li><a href="#grouping-data" id="toc-grouping-data" class="nav-link" data-scroll-target="#grouping-data"><span class="header-section-number">1.3</span> Grouping data</a></li>
+  <li><a href="#what-the-pipe" id="toc-what-the-pipe" class="nav-link" data-scroll-target="#what-the-pipe"><span class="header-section-number">1.4</span> What the pipe?!</a></li>
   </ul></li>
-  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation"><span class="header-section-number">2</span> Data transformation</a>
-  <ul class="collapse">
-  <li><a href="#summary-measures" id="toc-summary-measures" class="nav-link" data-scroll-target="#summary-measures"><span class="header-section-number">2.1</span> Summary measures</a></li>
-  <li><a href="#count-occurrences" id="toc-count-occurrences" class="nav-link" data-scroll-target="#count-occurrences"><span class="header-section-number">2.2</span> Count occurrences</a></li>
-  <li><a href="#grouping-data" id="toc-grouping-data" class="nav-link" data-scroll-target="#grouping-data"><span class="header-section-number">2.3</span> Grouping data</a></li>
-  <li><a href="#what-the-pipe" id="toc-what-the-pipe" class="nav-link" data-scroll-target="#what-the-pipe"><span class="header-section-number">2.4</span> What the pipe?!</a></li>
-  </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">3</span> Summary</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -173,6 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">DAL tutorial - Week 5</h1>
+<p class="subtitle lead">Data transformation</p>
 </div>
 
 
@@ -187,201 +179,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="rmarkdown" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="rmarkdown"><span class="header-section-number">1</span> Rmarkdown</h2>
-<p>Last week, you learnt how to use R scripts to save your code.</p>
-<p>Keeping track of the code you use for data analysis is a very important aspect of research project managing: not only the code is there if you need to rerun it later, but it allows your data analysis to be <strong>reproducible</strong> (i.e., it can be reproduced by you or other people in such a way that starting with the same data and code you get to the same results).</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Reproducible research
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Research is <strong>reproducible</strong> when the same data and same code return the same results.</p>
-</div>
-</div>
-<p>R scripts are great for writing code, and you can even document the code (add explanations or notes) with comments (i.e.&nbsp;lines that start with <code>#</code>).</p>
-<p>But for longer text or complex data analysis reports, R scripts can be a bit cumbersome.</p>
-<p>A solution to this is using Rmarkdown files (they have the <code>.Rmd</code> extension).</p>
-<section id="code-and-text" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="code-and-text"><span class="header-section-number">1.1</span> Code… and text!</h3>
-<p>Rmarkdown is a file format that allows you to mix code and formatted text in the same file.</p>
-<p>This means that you can write <strong>dynamic reports</strong> using Rmd files: dynamic reports are just like analysis reports (i.e.&nbsp;they include formatted text, plots, tables, code output, code, etc…) but they are <strong>dynamic</strong> in the sense that if, for example, data or code changes, you can just rerun the report Rmd file and all code output (plots, tables, etc…) is updated accordingly!</p>
-<p>You can watch this short video for a quick tour.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://player.vimeo.com/video/178485416" frameborder="0" allow="autoplay; title=" "="" fullscreen;="" picture-in-picture"="" allowfullscreen=""></iframe></div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Dynamic reports in R Markdown
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>R Markdown</strong> is a file type with extension <code>.Rmd</code> in which you can write formatted text and code together.</p>
-<p>R Markdown can be used to generate <strong>dynamic reports</strong>: these are files that are generated automatically from the R Markdown source, ensuring data and results in the report are always up to date.</p>
-</div>
-</div>
-</section>
-<section id="formatting-text" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="formatting-text"><span class="header-section-number">1.2</span> Formatting text</h3>
-<p>R comments in R scripts cannot be formatted (for example, you can’t make bold or italic texts).</p>
-<p>Text in Rmd files can be fully formatted using a simple but powerful <strong>mark-up language</strong> called <a href="https://www.markdownguide.org">markdown</a>.</p>
-<p>You don’t have to learn markdown all in one go, so I encourage you to just learn it bit by bit, in your time. You can look at the the <a href="">Markdown Guide</a> for an in-depth intro and/or dive in the <a href="https://www.markdowntutorial.com">Markdown Tutorial</a> for a hands-on approach.</p>
-<p>A few quick pointers (you can test them in the <a href="https://markdownlivepreview.com">Markdown Live Preview</a>):</p>
-<ul>
-<li><p>Text can be made italics by enclosing it between single stars: <code>*this text is in italics*</code>.</p></li>
-<li><p>You can make text bold with two stars: <code>**this text is bold!**</code>.</p></li>
-<li><p>Headings are created with <code>#</code>: <code># This is a level-1 heading</code>. <code>## This is a level-2 heading</code>.</p></li>
-</ul>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Mark-up, Markdown
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A <strong>mark-up language</strong> is a text-formatting system consisting of symbols or keywords that control the structure, formatting or relationships of textual elements. The most common mark-up languages are HTML, XML and TeX.</p>
-<p><strong>Markdown</strong> is a simple yet powerful mark-up language.</p>
-</div>
-</div>
-</section>
-<section id="create-an-rmd-file" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="create-an-rmd-file"><span class="header-section-number">1.3</span> Create an Rmd file</h3>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>When working through these tutorials, always <strong>make sure you are in the course RStudio Project</strong> you just created.</p>
-<p>You know you are in an RStudio Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.</p>
-<p>If you see <code>Project (none)</code> in the top-right corner, that means <strong>you are not</strong> in an RStudio Project.</p>
-<p>To make sure you are in the RStudio project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the <code>.Rproj</code> file.</p>
-</div>
-</div>
-<p>To create a new Rmd file, just click on the <code>New file</code> button, then <code>R Markdown...</code>. (If you are asked to install/update packages, do so.)</p>
-<p><img src="../img/new-rmd.png" class="img-fluid"></p>
-<p>A window will open. Add a title of your choice and your name, then click <code>OK</code>.</p>
-<p><img src="../img/new-rmd-window.png" class="img-fluid"></p>
-<p>A new Rmd file will be created and will open in the File Editor panel in RStudio.</p>
-<p><strong>Note</strong> that creating an Rmd file does not automatically saves it on your computer. To do so, either use the keyboard short-cut <code>CMD+S</code>/<code>CTRL+S</code> or click on the floppy disk icon in the menu below the file tab.</p>
-<p><img src="../img/save-rmd.png" class="img-fluid"></p>
-<p>Save the file inside the <code>code/</code> folder with the following name: <code>tutorial-w03.Rmd</code>.</p>
-<p>Remember that all the files of your RStudio project don’t live inside RStudio but on your computer. So you can always access them from the Finder or File Explorer!</p>
-</section>
-<section id="parts-of-an-rmd-file" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="parts-of-an-rmd-file"><span class="header-section-number">1.4</span> Parts of an Rmd file</h3>
-<p>An Rmd file usually has three main parts:</p>
-<ul>
-<li><p>The preamble (green).</p></li>
-<li><p>Code chunks (orange).</p></li>
-<li><p>Text (blue).</p></li>
-</ul>
-<p><img src="../img/rmd-parts.png" class="img-fluid"></p>
-<p>Each Rmd file has to start with a preamble, but you can include as many code chunks and as much text as you wish, in any order.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-R Markdown: Preamble
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <strong>preamble</strong> of an <code>.Rmd</code> file contains a list of <code>key: value</code> pairs, used to specify settings or document info like the <code>title</code> and <code>author</code>.</p>
-<p>Preambles start and end with three dashes <code>---</code>.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-R Markdown: Code chunks
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Code chunks</strong> start and end with three back-ticks <code>```</code> and they contain code.</p>
-<p>Settings can be specified between curly brackets <code>{}</code> on the first <code>```</code> line: for example <code>{r chunk-name, eval=FALSE}</code>. <code>r</code> indicates that the code is R code.</p>
-</div>
-</div>
-</section>
-<section id="render-rmd-files-to-html" class="level3" data-number="1.5">
-<h3 data-number="1.5" class="anchored" data-anchor-id="render-rmd-files-to-html"><span class="header-section-number">1.5</span> Render Rmd files to HTML</h3>
-<p>You can render an Rmd file into a nicely formatted HTML file.</p>
-<p>To render an Rmd file, just click on the <strong>Knit</strong> button and an HTML file will be created and saved in the same location of the Rmd file.</p>
-<p><img src="../img/knit.png" class="img-fluid"></p>
-<p>It will also be shown in the Viewer pane (like in the picture below) or in a new window (you can set this option in the RStudio preferences &gt; R Markdown &gt; Basics &gt; Show output preview in…).</p>
-<p><img src="../img/rendered.png" class="img-fluid"></p>
-<p>Rendering Rmd files is not restricted to HTML, but also PDFs and even Word documents!</p>
-<p>This is very handy when you are writing an analysis report you need to share with others.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-R Markdown: Rendering
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Rmd files can be <strong>rendered</strong> into other formats, like HTML, PDF and Word documents.</p>
-</div>
-</div>
-</section>
-<section id="how-to-run-code" class="level3" data-number="1.6">
-<h3 data-number="1.6" class="anchored" data-anchor-id="how-to-run-code"><span class="header-section-number">1.6</span> How to run code</h3>
-<p>The first code chunk in an Rmd file is a special one: it’s called <code>setup</code> and it’s where you attach all the packages needed for running the code in the file. (You can find the name of a code chunk—or define one yourself!—in the first line of a code block: <code>```{r chunk-name}</code>). The first code chunk of an Rmd file should always be named <code>setup</code>.</p>
-<p>The <code>setup</code> code chunk also has special code from the knitr package. The knitr package is what allows you to run R code from Rmd files.</p>
-<p>The line <code>knitr::opts_chunk$set(echo = TRUE)</code> sets the option <code>echo</code> to <code>TRUE</code>. The <code>echo</code> option let’s you decide whether you want the R code printed (echoed) in the rendered Rmd file. When <code>echo = TRUE</code> the code is printed, when <code>echo = FALSE</code> the code is not printed.</p>
-<p>Now go ahead and add <code>library(tidyverse)</code> in the line below the <code>knitr::opts_chunk</code> line.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Running code
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To run the code of a code chunk you can use different approaches:</p>
-<ul>
-<li><p>Click on the green arrow to the right of the code chunk to run the entire code chunk.</p></li>
-<li><p>Alternatively, place the text cursor inside the code chunk and press <code>CMD/CTRL + SHIFT + ENTER</code>.</p></li>
-<li><p>You can also run line by line as you do in an R script by placing the text cursor on the line you want to run and press <code>CMD/CTRL + ENTER</code>.</p></li>
-</ul>
-</div>
-</div>
-<p>Now delete everything after the <code>setup</code> code chunk and write a new level-2 heading after the chunk with the name “Plotting basics”. (Remember to leave an empty line between the chunk and the heading.)</p>
-<p><img src="../img/rmd-setup.png" class="img-fluid"></p>
-<p>You will use this Rmd file to write text and code for this tutorial. To insert a new code chunk, you can click on the <code>Insert a new code chunk</code> button and then select <code>R</code>, or you can press <code>OPT/ALT + CMD/CTRL + I</code>.</p>
-<p><img src="../img/rmd-new-chunk.png" class="img-fluid"></p>
-<p>A new R code chunk will be inserted at the text cursor position.</p>
-</section>
-</section>
-<section id="data-transformation" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="data-transformation"><span class="header-section-number">2</span> Data transformation</h2>
+<section id="data-transformation" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data-transformation"><span class="header-section-number">1</span> Data transformation</h2>
 <p><strong>Data transformation</strong> is a fundamental aspect of data analysis.</p>
 <p>After the data you need to use is imported into R, you will have to filter rows, create new columns, or join data frames, among many other transformation operations.</p>
 <p>In this tutorial we will learn how to obtain summary measures and how to count occurrences using the <code>summarise()</code> and <code>count()</code> functions.</p>
-<section id="summary-measures" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="summary-measures"><span class="header-section-number">2.1</span> Summary measures</h3>
+<section id="summary-measures" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="summary-measures"><span class="header-section-number">1.1</span> Summary measures</h3>
 <p>During the lecture, we have learnt two types of measures.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -444,7 +248,7 @@ Quiz 5
 </div>
 <div class="callout-body-container callout-body">
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -453,7 +257,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Check the documentation of <code>?mean</code>.</p>
 </div>
@@ -464,8 +268,8 @@ Hint
 <p>Note that R has a <code>mode()</code> function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!</p>
 <p>Keep reading to learn how to count occurrences.</p>
 </section>
-<section id="count-occurrences" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="count-occurrences"><span class="header-section-number">2.2</span> Count occurrences</h3>
+<section id="count-occurrences" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="count-occurrences"><span class="header-section-number">1.2</span> Count occurrences</h3>
 <p>We can use the <code>count()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> tidyverse package to count the number of occurrences for each value of a specific column. Let’s count how many trials are correct, i.e.&nbsp;let’s count occurrences in the <code>ACC</code> column.</p>
 <p>Accuracy has been coded with <code>0</code> for incorrect and <code>1</code> for correct. We will see how this is not an ideal, although very common way, of coding binary variables. For now let’s keep it as is.</p>
 <p>The function <code>count()</code> takes the name of tibble and the name of column you want to count values in.</p>
@@ -479,7 +283,7 @@ Hint
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(shallow, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -488,7 +292,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In <code>count()</code>, include the names of the two columns you want to get counts of, separated by commas.</p>
 </div>
@@ -496,8 +300,8 @@ Hint
 </div>
 <p>Are there differences in accuracy between the L1 and L2 group?</p>
 </section>
-<section id="grouping-data" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="grouping-data"><span class="header-section-number">2.3</span> Grouping data</h3>
+<section id="grouping-data" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="grouping-data"><span class="header-section-number">1.3</span> Grouping data</h3>
 <p>Sometimes you might want to get summary measures for one variable depending on different values of another variable.</p>
 <p>You can use the <code>group_by()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> tidyverse package, together with <code>summarise()</code> to achieve that. Let’s see how it works.</p>
 <div class="cell">
@@ -515,8 +319,8 @@ Hint
 <p>Here we are grouping <code>shallow</code> by <code>Group</code>.</p>
 <p>If you are baffled by that <code>%&gt;%</code>, keep on reading.</p>
 </section>
-<section id="what-the-pipe" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="what-the-pipe"><span class="header-section-number">2.4</span> What the pipe?!</h3>
+<section id="what-the-pipe" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="what-the-pipe"><span class="header-section-number">1.4</span> What the pipe?!</h3>
 <p>Wait, what is that thing, <code>%&gt;%</code>?</p>
 <p>It’s called a <strong>pipe</strong>. Think of a pipe as a teleporter.</p>
 <p>In the code above we are chaining two functions together using the pipe opeartor <code>%&gt;%</code>. The output of the first function (<code>group_by()</code>) is “teleported” into the second function <code>summarise()</code>.</p>
@@ -554,7 +358,7 @@ Quiz 6
 </div>
 <div class="callout-body-container callout-body">
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -563,7 +367,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For 6b., check the documentation of <code>?summarise</code>.</p>
 </div>
@@ -572,7 +376,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -581,7 +385,7 @@ Practice 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>Go to <a href="https://github.com/stefanocoretta/infant-gestures" class="uri">https://github.com/stefanocoretta/infant-gestures</a> and download the <code>gestures.csv</code> file in the <code>data/</code> folder. This is data from the paper [A Cross-Cultural Analysis of Early Prelinguistic Gesture Development and Its Relationship to Language Development](https://doi.org/10.1111/cdev.13406).</p></li>
@@ -596,7 +400,7 @@ Practice 2
 <li><p>Write a short paragraph where you report the measures. You can right this as comments in your R script. For examples, see above.</p></li>
 </ul>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -605,7 +409,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>To calculate the total number of gestures by children, you need the <code>sum()</code> function.</p></li>
@@ -615,7 +419,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -624,12 +428,12 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Have you tried doing the exercise and couldn’t work it out?</p>
 <p>The you can check the code solution here…</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -638,7 +442,7 @@ Code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>gestures <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -677,8 +481,8 @@ Code
 </div>
 </section>
 </section>
-<section id="summary" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="summary"><span class="header-section-number">3</span> Summary</h2>
+<section id="summary" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="summary"><span class="header-section-number">2</span> Summary</h2>
 <p>That’s all for this week!</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">

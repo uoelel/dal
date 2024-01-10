@@ -1,5 +1,6 @@
 ---
 title: "QML tutorial - Week 4"
+subtitle: "Quarto and Plotting basics"
 editor: visual
 format: 
   html:
@@ -31,7 +32,7 @@ Last week, you learnt how to use R scripts to save your code.
 Keeping track of the code you use for data analysis is a very important aspect of research project managing: not only the code is there if you need to rerun it later, but it allows your data analysis to be **reproducible** (i.e., it can be reproduced by you or other people in such a way that starting with the same data and code you get to the same results).
 
 ::: callout-tip
-#### Reproducible research
+### Reproducible research
 
 Research is **reproducible** when the same data and same code return the same results.
 :::
@@ -41,6 +42,34 @@ R scripts are great for writing code, and you can even document the code (add ex
 But for longer text or complex data analysis reports, R scripts can be a bit cumbersome.
 
 A solution to this is using Quarto files (they have the `.qmd` extension).
+
+::: callout-note
+#### Quiz 1
+
+```{r}
+#| label: quiz-1
+#| results: asis
+#| echo: false
+
+opts_1 <- c(
+  "a. When the results do not match the researcher's expectations.",
+  answer = "b. When the the same data and code as in the original study do not produce the published results.",
+  "c. When research conducted by a different research team with new data does not produce the results as published in the original study. "
+)
+
+cat("**When is research not reproducible?", longmcq(opts_1))
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Research is **reproducible** when you can produce the same results using the original data and code/methods.
+
+Research is **replicable** when you can produce the same results using new data and the original code/methods.
+
+See <https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html#table-of-definitions-for-reproducibility>.
+:::
+:::
 
 ### Code... and text!
 
@@ -150,9 +179,9 @@ However, when running code from a Quarto file, the code is run as if the working
 
 This isn't an issue if the Quarto file is directly in the project folder, but in our case our Quarto files live in the `code/` folder within the project folder (and it is good practice to do so!).
 
-We can instruct R to •always\* run code from the project folder (i.e. the working directory is the project folder). This is when the `_quarto.yml` file comes into play.
+We can instruct R to *always* run code from the project folder (i.e. the working directory is the project folder). This is when the `_quarto.yml` file comes into play.
 
-Open the `_quarto.yml` file in RStudio (you can simply click on the file in the `Files` tab and that will open the file in the RStudio editor. Add the line `execute-dir: project` under the title. Note that indentation should be respected, so the line you write should align with `title:`, not with `project:`.
+Open the `_quarto.yml` file in RStudio (you can simply click on the file in the `Files` tab and that will open the file in the RStudio editor). Add the line `execute-dir: project` under the title. Note that indentation should be respected, so the line you write should align with `title:`, not with `project:`.
 
 ``` yaml
 project:
@@ -312,7 +341,6 @@ In this tutorial we will use the following columns:
 
 -   `H1H2`: difference between H2 and H1 (second and first harmonic). A higher H1-H2 difference indicates greater breathiness.
 
-
 ### A basic plot
 
 These are the minimum constituents of a ggplot2 plot.
@@ -329,7 +357,7 @@ You can specify the data and mapping with the `data` and `mapping` arguments of 
 
 Note that the `mapping` argument is always specified with `aes()`: `mapping = aes(…)`.
 
-In the following bare plot, we are just mapping  `background` to the *x*-axis `count_tot` the *y*-axis, from the `gestures_tot` data frame.
+In the following bare plot, we are just mapping `background` to the *x*-axis `count_tot` the *y*-axis, from the `gestures_tot` data frame.
 
 **Create a new code chunk, copy the following code and run it.** From this point on I will assume you'll create a new code chunk and run the code yourself, without explicit instructions.
 
@@ -467,6 +495,41 @@ But this `aes(y = b, x = a)` is the same as `aes(a, b)`.
 :::
 :::
 
+### What the pipe?!
+
+The code of the latest plot can also be written this way.
+
+```{r}
+#| label: plot-pipe
+#| eval: false
+
+polite |>
+  ggplot(aes(f0mn, H1H2)) +
+    geom_point()
+```
+
+Wait, what is that thing, `|>`?
+
+It's called a **pipe**. Think of a pipe as a teleporter.
+
+The pipe `|>` teleports the data `polite` into the following function as the first argument. So `polite |> ggplot()` is equivalent to `ggplot(polite)`.
+
+For now it might not make much sense using the pipe, but you will learn next week how to chain many functions one after the other using the pipe, at which point its usefulness will be more obvious.
+
+As a sneak-peak, you will be able to filter the data before plotting it, like so:
+
+
+```{r}
+#| label: filter-plot-pipe
+
+polite |>
+  # include only rows where f0mn < 300
+  filter(f0mn < 300) |>
+  ggplot(aes(f0mn, H1H2)) +
+    geom_point()
+```
+
+
 ## Render your Quarto file!
 
 Now that you have done all of this hard work, why don't you try and render the Quarto file you've been working on to an HTML file?
@@ -500,4 +563,3 @@ That's all for this week!
 
 -   **Scatter plots** are created with `geom_point()` and can be used with two numeric variables.
 :::
-

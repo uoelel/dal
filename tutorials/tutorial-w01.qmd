@@ -1,5 +1,6 @@
 ---
 title: "QML tutorial - Week 1"
+subtitle: "R basics"
 editor: visual
 format: 
   html:
@@ -541,8 +542,6 @@ Here's a summary of what you learnt.
 
 ::: {.callout-note appearance="minimal"}
 -   **R** is a programming language while **RStudio** is an IDE.
-
--   **RStudio projects** are folders with an `.Rproj` file (you can see the name of the project you are currently in in the top-right corner of RStudio).
 
 -   You can perform mathematical operations with `+, -, *, /.`
 

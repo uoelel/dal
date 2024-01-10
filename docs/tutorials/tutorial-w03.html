@@ -158,17 +158,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#non-tabular-data" id="toc-non-tabular-data" class="nav-link" data-scroll-target="#non-tabular-data"><span class="header-section-number">2.2</span> Non-tabular data</a></li>
   <li><a href="#rds-files" id="toc-rds-files" class="nav-link" data-scroll-target="#rds-files"><span class="header-section-number">2.3</span> <code>.rds</code> files</a></li>
   </ul></li>
-  <li><a href="#import-.csv-files" id="toc-import-.csv-files" class="nav-link" data-scroll-target="#import-.csv-files"><span class="header-section-number">3</span> Import <code>.csv</code> files</a>
+  <li><a href="#download-the-data-files" id="toc-download-the-data-files" class="nav-link" data-scroll-target="#download-the-data-files"><span class="header-section-number">3</span> Download the data files</a></li>
+  <li><a href="#import-.csv-files" id="toc-import-.csv-files" class="nav-link" data-scroll-target="#import-.csv-files"><span class="header-section-number">4</span> Import <code>.csv</code> files</a>
   <ul class="collapse">
-  <li><a href="#download-the-data-file" id="toc-download-the-data-file" class="nav-link" data-scroll-target="#download-the-data-file"><span class="header-section-number">3.1</span> Download the data file</a></li>
-  <li><a href="#the-tidyverse-packages" id="toc-the-tidyverse-packages" class="nav-link" data-scroll-target="#the-tidyverse-packages"><span class="header-section-number">3.2</span> The tidyverse packages</a></li>
-  <li><a href="#read_csv" id="toc-read_csv" class="nav-link" data-scroll-target="#read_csv"><span class="header-section-number">3.3</span> <code>read_csv()</code></a></li>
-  <li><a href="#relative-paths" id="toc-relative-paths" class="nav-link" data-scroll-target="#relative-paths"><span class="header-section-number">3.4</span> Relative paths</a></li>
-  <li><a href="#view-the-data" id="toc-view-the-data" class="nav-link" data-scroll-target="#view-the-data"><span class="header-section-number">3.5</span> View the data</a></li>
+  <li><a href="#the-tidyverse-packages" id="toc-the-tidyverse-packages" class="nav-link" data-scroll-target="#the-tidyverse-packages"><span class="header-section-number">4.1</span> The tidyverse packages</a></li>
+  <li><a href="#read_csv" id="toc-read_csv" class="nav-link" data-scroll-target="#read_csv"><span class="header-section-number">4.2</span> <code>read_csv()</code></a></li>
+  <li><a href="#relative-paths" id="toc-relative-paths" class="nav-link" data-scroll-target="#relative-paths"><span class="header-section-number">4.3</span> Relative paths</a></li>
+  <li><a href="#view-the-data" id="toc-view-the-data" class="nav-link" data-scroll-target="#view-the-data"><span class="header-section-number">4.4</span> View the data</a></li>
   </ul></li>
-  <li><a href="#import-excel-sheets" id="toc-import-excel-sheets" class="nav-link" data-scroll-target="#import-excel-sheets"><span class="header-section-number">4</span> Import Excel sheets</a></li>
-  <li><a href="#import-.rds-files" id="toc-import-.rds-files" class="nav-link" data-scroll-target="#import-.rds-files"><span class="header-section-number">5</span> Import <code>.rds</code> files</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">6</span> Practice</a></li>
+  <li><a href="#import-excel-sheets" id="toc-import-excel-sheets" class="nav-link" data-scroll-target="#import-excel-sheets"><span class="header-section-number">5</span> Import Excel sheets</a></li>
+  <li><a href="#import-.rds-files" id="toc-import-.rds-files" class="nav-link" data-scroll-target="#import-.rds-files"><span class="header-section-number">6</span> Import <code>.rds</code> files</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">7</span> Practice</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">8</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -178,6 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">DAL tutorial - Week 3</h1>
+<p class="subtitle lead">Read data</p>
 </div>
 
 
@@ -330,8 +332,8 @@ Quiz 1
 </div>
 <div class="callout-body-container callout-body">
 Which of the following is an absolute paths?
-<div id="radio_SAAWNNNJRZ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SAAWNNNJRZ" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_SAAWNNNJRZ" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_SAAWNNNJRZ" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
+<div id="radio_PSCLCKDWXP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PSCLCKDWXP" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_PSCLCKDWXP" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_PSCLCKDWXP" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
 </div>
 </div>
 </div>
@@ -389,41 +391,36 @@ Tabular data
 <p>In the following sections you will learn how to import (aka read) three types of data: <code>.csv</code>, Excel and <code>.rds</code> files.</p>
 </section>
 </section>
-<section id="import-.csv-files" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="import-.csv-files"><span class="header-section-number">3</span> Import <code>.csv</code> files</h2>
-<p>Let’s start with data from this paper: Song et al.&nbsp;2020. <em>Second language users exhibit shallow morphological processing</em>. DOI: <a href="https://doi.org/10.1017/S0272263120000170">10.1017/S0272263120000170</a>.</p>
-<p>The study consisted of a lexical decision task in which participants where first shown a prime, followed by a target word for which they had to indicate whether it was a real word or a nonce word.</p>
-<p>The prime word belonged to one of three possible groups (<code>Relation_type</code> in the data) each of which refers to the morphological relation of the prime and the target word:</p>
-<ul>
-<li><p><code>Unrelated</code>: for example, <em>prolong</em> (assuming <em>unkindness</em> as target, [[un-kind]-ness]).</p></li>
-<li><p><code>Constituent</code>: <em>unkind</em>.</p></li>
-<li><p><code>NonConstituent</code>: <em>kindness</em>.</p></li>
-</ul>
-<!-- The expectations are that -->
-<!-- 1.  Lexical decisions for native English participants should be facilitated in the `Constituent` condition, but not in the `Unrelated` and `NonConstituent` conditions. -->
-<!-- 2.  Lexical decisions for non-native English participants should be facilitated both in the `Constituent` and `NonCostituent` condition, but not in the `Unrelated` condition. -->
-<!-- We can interpret "facilitated lexical decisions" as higher accuracy and shorter reaction times. -->
-<section id="download-the-data-file" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="download-the-data-file"><span class="header-section-number">3.1</span> Download the data file</h3>
-<p>Please, follow these instructions carefully.</p>
+<section id="download-the-data-files" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="download-the-data-files"><span class="header-section-number">3</span> Download the data files</h2>
+<p>Throughout the course we will be using data files that come from linguistic research. You should download now the data files according to the following instructions</p>
+<p><strong>Please, follow these instructions carefully.</strong></p>
 <ol type="1">
-<li><p>Download the file with the data by right-clicking on the following link and download the file: <a href="../data/song2020/shallow.csv">song2020/shallow.csv</a>. (Note that tutorial files are also linked in the <a href="../content.html">Course content</a> page)</p></li>
-<li><p>Create a folder called <code>data/</code> (the slash is there just to remind you that it’s a folder, but you don’t have to include it in the name) in the RStudio project of the course.</p>
+<li><p>Download the zip archive with all the data by right-clicking on the following link and download the file: <a href="../data/data.zip">data.zip</a>.</p></li>
+<li><p>Unzip the zip file to extract the contents. (If you don’t know how to do this, ask one of the tutors to help you!)</p></li>
+<li><p>Create a folder called <code>data/</code> (the slash is there just to remind you that it’s a folder, but you don’t have to include it in the name) in the Quarto project you are using for the course.</p>
 <ol type="1">
 <li><p>To create a folder, go to the Files tab of the bottom-right panel in RStudio.</p></li>
 <li><p>Make sure you are viewing the project’s main folder.</p></li>
 <li><p>Click on the <code>New Folder</code> button, enter “data” in the text box and click <code>OK</code></p></li>
 </ol></li>
-<li><p>Move the downloaded file into the <code>data/</code> folder.</p>
+<li><p>Move the contents of the <code>data.zip</code> archive into the <code>data/</code> folder.</p>
 <ol type="1">
 <li><p>Open a Finder or File Explorer window.</p></li>
-<li><p>Navigate to the folder where you have saved the downloaded file (it will very likely be the <code>Downloads/</code> folder).</p></li>
-<li><p>Copy the file.</p></li>
-<li><p>In Finder or File Explorer, navigate to the RStudio project folder, then the <code>data/</code> folder, and paste the file in there.</p></li>
+<li><p>Navigate to the folder where you have extracted the zip file (it will very likely be the <code>Downloads/</code> folder).</p></li>
+<li><p>Copy the contents of the zip file.</p></li>
+<li><p>In Finder or File Explorer, navigate to the Quarto project folder, then the <code>data/</code> folder, and paste the contents in there. (You can also drag and drop if you prefer.)</p></li>
 </ol></li>
 </ol>
-<p>The rest of the tutorial will assume that you have created a folder called <code>data/</code> in the Quarto project folder and that the files you download are in that folder.</p>
-<p>I recommend you to start being very organised with your files from now, whether it’s for this course or your dissertation or else. I also suggest to avoid overly nested structures (for example, avoid having one folder for each week for this course. Rather, save all data files in the <code>data/</code> folder).</p>
+<p>The rest of the tutorial will assume that you have created a folder called <code>data/</code> in the Quarto project folder and that the files you downloaded are in that folder. The data folder should like something like this:</p>
+<pre><code>data/
+└── cameron2020/
+    └── gestures.csv
+└── coretta2018/
+    └── formants.csv
+    └── token-measures.csv
+└── ...</code></pre>
+<p>I recommend that you start being very organised with your files in other projects from now on, whether it’s for this course or your dissertation or else. I also suggest to avoid overly nested structures (for example, avoid having one folder for each week for this course. Rather, save all data files in the <code>data/</code> folder).</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -451,15 +448,25 @@ Organising your files
 </div>
 </div>
 </section>
-<section id="the-tidyverse-packages" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="the-tidyverse-packages"><span class="header-section-number">3.2</span> The tidyverse packages</h3>
+<section id="import-.csv-files" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="import-.csv-files"><span class="header-section-number">4</span> Import <code>.csv</code> files</h2>
+<p>Let’s start with data from this paper: Song et al.&nbsp;2020. <em>Second language users exhibit shallow morphological processing</em>. DOI: <a href="https://doi.org/10.1017/S0272263120000170">10.1017/S0272263120000170</a>.</p>
+<p>The study consisted of a lexical decision task in which participants where first shown a prime, followed by a target word for which they had to indicate whether it was a real word or a nonce word.</p>
+<p>The prime word belonged to one of three possible groups (<code>Relation_type</code> in the data) each of which refers to the morphological relation of the prime and the target word:</p>
+<ul>
+<li><p><code>Unrelated</code>: for example, <em>prolong</em> (assuming <em>unkindness</em> as target, [[un-kind]-ness]).</p></li>
+<li><p><code>Constituent</code>: <em>unkind</em>.</p></li>
+<li><p><code>NonConstituent</code>: <em>kindness</em>.</p></li>
+</ul>
+<section id="the-tidyverse-packages" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="the-tidyverse-packages"><span class="header-section-number">4.1</span> The tidyverse packages</h3>
 <p>Importing <code>.csv</code> files is very easy. You can use the <code>read_csv()</code> function from a collection of R packages known as the <a href="https://www.tidyverse.org">tidyverse</a>.</p>
 <p>To import data in R we will use the <code>read_csv()</code> function from the <a href="https://readr.tidyverse.org">readr</a> package, one of the tidyverse packages.</p>
 <p>Installing the tidyverse packages is easy: you just need to install the tidyverse package and that will take care of installing the most important packages in the collection (called the <a href="https://www.tidyverse.org/packages/">“core” tidyverse packages</a>).</p>
 <p>Go ahead and install the tidyverse from the Packages tab.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
-<section id="read_csv" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="read_csv"><span class="header-section-number">3.3</span> <code>read_csv()</code></h3>
+<section id="read_csv" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="read_csv"><span class="header-section-number">4.2</span> <code>read_csv()</code></h3>
 <p>The <code>read_csv()</code> function from the readr package only requires you to specify the file path as a string (remember, strings are quoted between <code>" "</code>, for example <code>"year_data.txt"</code>). On my computer, the file path of <code>song2020/shallow.csv</code> is <code>/Users/ste/dal/data/song2020/shallow.csv</code>, but on your computer the file path will be different, of course.</p>
 <p>Also, note that it is not enough to use the <code>read_csv()</code> function. You also must assign the output of the <code>read_csv()</code> function (i.e.&nbsp;the data we are reading) to a variable, using the assignment arrow <code>&lt;-</code>, just like we were assigning values to variables in the previous weeks.</p>
 <p>And since the <code>read_csv()</code> is a function from the tidyverse, you first need to attach the tidyverse packages with <code>library(tidyverse)</code> (remember, you need to attach packages <strong>only once</strong> per session). This will attach the core tidyverse packages, including readr. Of course, you can also attach the individual packages directly: <code>library(readr)</code>. If you use <code>library(tidyverse)</code> there is no need to attach individual tidyverse packages.</p>
@@ -483,9 +490,9 @@ Warning
 </div>
 <p>At the top of <code>tutorial_w03.R</code>, write the following lines of code. Then run the code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>song2020 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/song2020/shallow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>song2020 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/song2020/shallow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 6500 Columns: 11
 ── Column specification ────────────────────────────────────────────────────────
@@ -500,8 +507,8 @@ dbl (3): ACC, RT, logRT
 <p>If you look at the <code>Environment</code> tab, you will see <code>song2020</code> under <code>Data</code>.</p>
 <p>But wait, what is that <code>"./data/song2020/shallow.csv"</code>? That’s a <strong>relative path</strong>. We briefly mentioned relative paths above, but let’s understand the details now. You will be able to view the data soon.</p>
 </section>
-<section id="relative-paths" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="relative-paths"><span class="header-section-number">3.4</span> Relative paths</h3>
+<section id="relative-paths" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="relative-paths"><span class="header-section-number">4.3</span> Relative paths</h3>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -557,8 +564,8 @@ Get the working directory
 </div>
 </div>
 </section>
-<section id="view-the-data" class="level3" data-number="3.5">
-<h3 data-number="3.5" class="anchored" data-anchor-id="view-the-data"><span class="header-section-number">3.5</span> View the data</h3>
+<section id="view-the-data" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="view-the-data"><span class="header-section-number">4.4</span> View the data</h3>
 <p>Now we can finally view the data.</p>
 <p>The easiest way is to click on the name of the data listed in the <code>Environment</code> tab, in the top-right panel of RStudio.</p>
 <p>You will see a nicely formatted table, as you would in a programme like Excel.</p>
@@ -588,54 +595,49 @@ Quiz 3
 </div>
 <div class="callout-body-container callout-body">
 How many rows does <code>shallow</code> have?
-<div id="radio_VMNBCTWDNA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VMNBCTWDNA" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_VMNBCTWDNA" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_VMNBCTWDNA" value="answer"> <span>6500</span></label>
+<div id="radio_GCBBGFXJAL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GCBBGFXJAL" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_GCBBGFXJAL" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_GCBBGFXJAL" value="answer"> <span>6500</span></label>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="import-excel-sheets" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="import-excel-sheets"><span class="header-section-number">4</span> Import Excel sheets</h2>
+<section id="import-excel-sheets" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="import-excel-sheets"><span class="header-section-number">5</span> Import Excel sheets</h2>
 <p>To read an Excel file we need first to attach the <a href="https://readxl.tidyverse.org/index.html">readxl</a> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then we can use the <code>read_excel()</code> function, but first you should download the Excel file we will read.</p>
-<ol type="1">
-<li><p>Download the file with the data by right-clicking on the following link and download the file: <a href="../data/los2023/relatives.xlsx">los2023/relatives.xlsx</a>. (Note that tutorial files are also linked in the <a href="../content.html">Course content</a> page)</p></li>
-<li><p>Move the file to the <code>data/</code> folder of the Quarto project.</p></li>
-</ol>
-<p>Now let’s read the file.</p>
+<p>Then we can use the <code>read_excel()</code> function. Let’s read the file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>los2023 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023/relatives.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>los2023 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023/relatives.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you can view the tibble <code>los2023</code>.</p>
 <p>Note that if the Excel file has more than one sheet, you can specify the sheet number when reading the file (the default is <code>sheet = 1</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>los2023_2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023/relatives.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>los2023_2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023/relatives.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The second sheet in <code>los2023.xlx</code> contains the description of the columns in the first sheet.</p>
 </section>
-<section id="import-.rds-files" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="import-.rds-files"><span class="header-section-number">5</span> Import <code>.rds</code> files</h2>
+<section id="import-.rds-files" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="import-.rds-files"><span class="header-section-number">6</span> Import <code>.rds</code> files</h2>
 <p>Another useful type of data files is a file type specifically designed for r: <code>.rds</code> files.</p>
 <p>Usually, each <code>.rds</code> file contains one R object, like one tibble.</p>
 <p>You can read <code>.rds</code> files with the <code>readRDS()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>glot_status <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./data/coretta2022/glot_status.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>glot_status <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./data/coretta2022/glot_status.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As always, you need to assign the output of the function to a variable, here <code>glot_status</code>.</p>
 <p>View the <code>glot_status</code> tibble now.</p>
 <p>It is also very easy to save a tibble to an <code>.rds</code> file with the <code>saveRDS()</code> function.</p>
 <p>For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(song2020, <span class="st">"./data/song2020/shallow.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(song2020, <span class="st">"./data/song2020/shallow.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The first argument is the name of the tibble object and the second argument is the file path to save the object to.</p>
 </section>
-<section id="practice" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="practice"><span class="header-section-number">6</span> Practice</h2>
+<section id="practice" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="practice"><span class="header-section-number">7</span> Practice</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -648,11 +650,28 @@ Practice 1
 </div>
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Download the following files and move them into the data folder. Read them in R, making sure you use the right <code>read_*()</code> function.</p>
+<p>Read the following files in R, making sure you use the right <code>read_*()</code> function.</p>
 <ul>
 <li><p><a href="../data/koppensteiner2016/takete_maluma.txt">koppensteiner2016/takete_maluma.txt</a> (a tab separated file)</p></li>
 <li><p><a href="../data/pankratz2021/si.csv">pankratz2021/si.csv</a></p></li>
 <li><p>Go to <a href="https://datashare.ed.ac.uk/handle/10283/4006" class="uri">https://datashare.ed.ac.uk/handle/10283/4006</a> and download the file <code>conflict_data_.xlsx</code>. Read both sheets (“conflict_data2” and “demographics”). Any issues?</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="summary" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="summary"><span class="header-section-number">8</span> Summary</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li><p>You have learnt about <strong>directories</strong>, file <strong>extensions</strong> and file <strong>paths</strong>.</p></li>
+<li><p>You can import tabular data in R with the <code>read_*()</code> functions from the tidyverse package readr.</p></li>
+<li><p>You can view data in RStudio as spreadsheets.</p></li>
 </ul>
 </div>
 </div>

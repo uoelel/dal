@@ -177,6 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">QML tutorial - Week 2</h1>
+<p class="subtitle lead">RStudio and R scripts</p>
 </div>
 
 
@@ -742,12 +743,16 @@ Quiz 4
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><code>library()</code> attaches R packages.</p>
-<p><code>read_csv()</code> reads <code>.csv</code> files in R.</p>
-<p><code>summarise()</code> allows you to calculate measures of central tendency and dispersion (with <code>mean()</code>, <code>median()</code>, <code>min()</code> and <code>max()</code>).</p>
-<p><code>count()</code> lets you count the number of occurrences of levels in a categorical variable.</p>
-<p><code>group_by()</code> allows you to group a tibble according to one or more variables.</p>
-<p>The pipe <code>%&gt;%</code> can be used to chain multiple functions.</p>
+<ul>
+<li><p>R is a programming language while RStudio is an IDE.</p></li>
+<li><p><strong>Quarto projects</strong> are folders with an <code>.Rproj</code> file (you can see the name of the project you are currently in in the top-right corner of RStudio).</p></li>
+<li><p><strong>R scripts</strong> contain R code and help you keep track of the code you run.</p></li>
+<li><p><strong>R packages</strong> provide R with extra functionalities. The <strong>R library</strong> is a folder with all the installed packages.</p></li>
+<li><p><code>.libPaths()</code> returns the path(s) to the R library.</p></li>
+<li><p><code>library()</code> attaches R packages (i.e.&nbsp;makes the package’s functions available for use).</p></li>
+<li><p>You can inspect the documentation of any function by running <code>?function</code> in the Console (where <code>function</code> is the function’s name, e.g.&nbsp;<code>?paste</code>).</p></li>
+<li><p>You can write text <strong>comments</strong> in R scripts by starting a line with <code>#</code>.</p></li>
+</ul>
 </div>
 </div>
 </div>

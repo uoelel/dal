@@ -1,5 +1,6 @@
 ---
 title: "DAL tutorial - Week 3"
+subtitle: "Read data"
 editor: visual
 format: 
   html:
@@ -210,35 +211,17 @@ A common use for `.rds` files is to save tabular data that you have processed so
 
 In the following sections you will learn how to import (aka read) three types of data: `.csv`, Excel and `.rds` files.
 
-## Import `.csv` files
+## Download the data files
 
-Let's start with data from this paper: Song et al. 2020. *Second language users exhibit shallow morphological processing*. DOI: [10.1017/S0272263120000170](https://doi.org/10.1017/S0272263120000170).
+Throughout the course we will be using data files that come from linguistic research. You should download now the data files according to the following instructions
 
-The study consisted of a lexical decision task in which participants where first shown a prime, followed by a target word for which they had to indicate whether it was a real word or a nonce word.
+**Please, follow these instructions carefully.**
 
-The prime word belonged to one of three possible groups (`Relation_type` in the data) each of which refers to the morphological relation of the prime and the target word:
+1.  Download the zip archive with all the data by right-clicking on the following link and download the file: [data.zip](../data/data.zip).
 
--   `Unrelated`: for example, *prolong* (assuming *unkindness* as target, \[\[un-kind\]-ness\]).
+2.  Unzip the zip file to extract the contents. (If you don't know how to do this, ask one of the tutors to help you!)
 
--   `Constituent`: *unkind*.
-
--   `NonConstituent`: *kindness*.
-
-<!-- The expectations are that -->
-
-<!-- 1.  Lexical decisions for native English participants should be facilitated in the `Constituent` condition, but not in the `Unrelated` and `NonConstituent` conditions. -->
-
-<!-- 2.  Lexical decisions for non-native English participants should be facilitated both in the `Constituent` and `NonCostituent` condition, but not in the `Unrelated` condition. -->
-
-<!-- We can interpret "facilitated lexical decisions" as higher accuracy and shorter reaction times. -->
-
-### Download the data file
-
-Please, follow these instructions carefully.
-
-1.  Download the file with the data by right-clicking on the following link and download the file: [song2020/shallow.csv](../data/song2020/shallow.csv). (Note that tutorial files are also linked in the [Course content](../content.qmd) page)
-
-2.  Create a folder called `data/` (the slash is there just to remind you that it's a folder, but you don't have to include it in the name) in the RStudio project of the course.
+3.  Create a folder called `data/` (the slash is there just to remind you that it's a folder, but you don't have to include it in the name) in the Quarto project you are using for the course.
 
     1.  To create a folder, go to the Files tab of the bottom-right panel in RStudio.
 
@@ -246,19 +229,29 @@ Please, follow these instructions carefully.
 
     3.  Click on the `New Folder` button, enter "data" in the text box and click `OK`
 
-3.  Move the downloaded file into the `data/` folder.
+4.  Move the contents of the `data.zip` archive into the `data/` folder.
 
     1.  Open a Finder or File Explorer window.
 
-    2.  Navigate to the folder where you have saved the downloaded file (it will very likely be the `Downloads/` folder).
+    2.  Navigate to the folder where you have extracted the zip file (it will very likely be the `Downloads/` folder).
 
-    3.  Copy the file.
+    3.  Copy the contents of the zip file.
 
-    4.  In Finder or File Explorer, navigate to the RStudio project folder, then the `data/` folder, and paste the file in there.
+    4.  In Finder or File Explorer, navigate to the Quarto project folder, then the `data/` folder, and paste the contents in there. (You can also drag and drop if you prefer.)
 
-The rest of the tutorial will assume that you have created a folder called `data/` in the Quarto project folder and that the files you download are in that folder.
+The rest of the tutorial will assume that you have created a folder called `data/` in the Quarto project folder and that the files you downloaded are in that folder. The data folder should like something like this:
 
-I recommend you to start being very organised with your files from now, whether it's for this course or your dissertation or else. I also suggest to avoid overly nested structures (for example, avoid having one folder for each week for this course. Rather, save all data files in the `data/` folder).
+```         
+data/
+└── cameron2020/
+    └── gestures.csv
+└── coretta2018/
+    └── formants.csv
+    └── token-measures.csv
+└── ...
+```
+
+I recommend that you start being very organised with your files in other projects from now on, whether it's for this course or your dissertation or else. I also suggest to avoid overly nested structures (for example, avoid having one folder for each week for this course. Rather, save all data files in the `data/` folder).
 
 ::: {.callout-note collapse="true"}
 #### Organising your files
@@ -281,6 +274,20 @@ The `data/` folder could further contain `raw/` for raw data (data that should n
 
 I usually also have a separate folder called `figs/` or `img/` where I save plots. Of course which folders you will have it's ultimately up to you and needs will vary depending on the project and field!
 :::
+
+## Import `.csv` files
+
+Let's start with data from this paper: Song et al. 2020. *Second language users exhibit shallow morphological processing*. DOI: [10.1017/S0272263120000170](https://doi.org/10.1017/S0272263120000170).
+
+The study consisted of a lexical decision task in which participants where first shown a prime, followed by a target word for which they had to indicate whether it was a real word or a nonce word.
+
+The prime word belonged to one of three possible groups (`Relation_type` in the data) each of which refers to the morphological relation of the prime and the target word:
+
+-   `Unrelated`: for example, *prolong* (assuming *unkindness* as target, \[\[un-kind\]-ness\]).
+
+-   `Constituent`: *unkind*.
+
+-   `NonConstituent`: *kindness*.
 
 ### The tidyverse packages
 
@@ -429,13 +436,7 @@ library(readxl)
 
 ```
 
-Then we can use the `read_excel()` function, but first you should download the Excel file we will read.
-
-1.  Download the file with the data by right-clicking on the following link and download the file: [los2023/relatives.xlsx](../data/los2023/relatives.xlsx). (Note that tutorial files are also linked in the [Course content](../content.qmd) page)
-
-2.  Move the file to the `data/` folder of the Quarto project.
-
-Now let's read the file.
+Then we can use the `read_excel()` function. Let's read the file.
 
 ```{r}
 #| label: los2023
@@ -492,11 +493,21 @@ The first argument is the name of the tibble object and the second argument is t
 ::: {.callout-note collapse="true"}
 #### Practice 1
 
-Download the following files and move them into the data folder. Read them in R, making sure you use the right `read_*()` function.
+Read the following files in R, making sure you use the right `read_*()` function.
 
 -   [koppensteiner2016/takete_maluma.txt](../data/koppensteiner2016/takete_maluma.txt) (a tab separated file)
 
 -   [pankratz2021/si.csv](../data/pankratz2021/si.csv)
 
 -   Go to <https://datashare.ed.ac.uk/handle/10283/4006> and download the file `conflict_data_.xlsx`. Read both sheets ("conflict_data2" and "demographics"). Any issues?
+:::
+
+## Summary
+
+::: {.callout-note appearance="minimal"}
+-   You have learnt about **directories**, file **extensions** and file **paths**.
+
+-   You can import tabular data in R with the `read_*()` functions from the tidyverse package readr.
+
+-   You can view data in RStudio as spreadsheets.
 :::

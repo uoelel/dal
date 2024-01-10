@@ -2,8 +2,6 @@
 title: "DAL tutorial - Week 5"
 subtitle: "Data transformation"
 editor: visual
-execute:
-  eval: false
 format: 
   html:
     css: [webex.css]
@@ -25,350 +23,244 @@ library(webexercises)
 
 After the data you need to use is imported into R, you will have to filter rows, create new columns, or join data frames, among many other transformation operations.
 
-In this tutorial we will learn how to obtain summary measures and how to count occurrences using the `summarise()` and `count()` functions.
+In this tutorial we will learn how to `filter()` the data and `mutate()` or create new columns. In Week 6 (after Flexible Learning week) you will learn how to obtain summary measures and how to count occurrences using the `summarise()`, `group_by()` and `count()` functions.
 
-### Summary measures
+## Filter
 
-During the lecture, we have learnt two types of measures.
+Filtering data based on specific criteria couldn't be easier with `filter()`, from the dplyr package (one of the tidyverse core packages),
+
+Let's work with the `coretta2022/glot_status` data frame. It's an `.rds` file, so you need to use the `readRDS()` function. Go ahead and read the data into `glot_status`.
+
+```{r}
+#| label: glot-status
+#| echo: false
+
+glot_status <- readRDS("data/coretta2022/glot_status.rds")
+```
+
+```{r}
+#| label: glot-status-2
+
+glot_status
+```
+
+Before we can move on onto filtering data, we first need to learn about *logical operators*.
+
+### Logical operators
+
+There are four main logical operators:
+
+-   `x == y`: `x` equals `y`.
+
+-   `x != y`: `x` is not equal to `y`.
+
+-   `x > y`: `x` is greater than `y`.
+
+-   `x < y`: `x` is smaller than `y`.
+
+Logical operators return `TRUE` or `FALSE` depending on whether the statement they convey is true or false. Remember, `TRUE` and `FALSE` are logical values.
+
+Try these out in the Console:
+
+```{r}
+#| label: logic
+
+# This will return FALSE
+1 == 2
+
+# FALSE
+"apples" == "oranges"
+
+# TRUE
+10 > 5
+
+# FALSE
+10 > 15
+
+# TRUE
+3 < 4
+
+```
 
 ::: callout-tip
-#### Summary measures
+#### Logical operators
 
-**Measures of central tendency** (mean, median, mode) indicate the typical or central value of a sample.
+**Logical operators** are symbols that compare two objects and return either `TRUE` or `FALSE`.
 
-**Measures of dispersion** (min-max, range, standard deviation) indicate the dispersion of the sample values around the central tendency value.
+The most common logical operators are `==`, `!=`, `>`, and `<`.
 :::
 
-When you work with data, you always want to get summary measures for most of the variables in the data.
-
-Data reports usually include summary measures. It is also important to understand which summary measure is appropriate for which type of variable.
-
-We have covered this in the lecture, so we won't go over it again here. Instead, you will learn how to obtain summary measures using the `summarise()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package.
-
-`summarise()` takes at least two arguments:
-
--   The data frame to summarise.
-
--   One or more summary functions.
-
-For example, let's get the mean the reaction time column `RT`. Easy!
-
-```{r}
-#| label: mean
-
-summarise(shallow, RT_mean = mean(RT))
-
-```
-
-Great! The mean reaction times of the entire sample is 867 ms.
-
-What if we want also the standard deviation? Easy!
-
-```{r}
-#| label: sd
-
-summarise(shallow, RT_mean = mean(RT), RT_sd = sd(RT))
-
-```
-
-```{r}
-#| label: comments-2
-
-# This is a comment. Let's add 6 + 3.
-6 + 3
-```
-
-Now we know that reaction times are on average 867 ms long and have a standard deviation of about 293 ms (rounded to the nearest integer).
-
-Let's go all the way and also get the minimum and maximum RT values.
-
-```{r}
-#| label: minmax
-
-summarise(
-  shallow,
-  RT_mean = mean(RT), RT_sd = sd(RT),
-  RT_min = min(RT), RT_max = max(RT)
-)
-
-```
-
-Fab! When writing a data report, you could write something like this.
-
-> Reaction times are on average 867 ms long (SD = 293 ms), with values ranging from 0 to 1994 ms.
-
-We will learn more about standard deviations from Week 4 on, but for now just think of this as a relative measure of how dispersed the data are around the mean: the higher the SD, the greater the dispersion around the mean, i.e. the greater the variability in the data.
-
-When required, you can use the `median()` function to calculate the median, instead of the `mean()`. Go ahead and calculate the median reaction times in the data. Is it similar to the mean?
-
 ::: callout-note
-#### Quiz 5
+#### Quiz 2
 
 ```{r}
-#| label: quiz-5
+#| label: quiz-2
 #| results: asis
 #| echo: false
 
-opts_5a <- c(
-   "It changes `NA`s to `FALSE`.",
-   "It converts `NA`s to `0`s.",
-   answer = "It removes `NA`s before taking the mean."
+opts_2a <- c(
+  "`3 > 1`",
+  answer = '`"a" = "a"`',
+  '`"b" != "b"`',
+  "`19 < 2`"
 )
 
-cat("a. What does the `na.rm` argument of `mean()` do?", longmcq(opts_5a))
+cat("a. Which of the following does not contain a logical operator?", longmcq(opts_2a))
 
-opts_5b <- c(
-   answer = "`NA`.",
-   "`0`.",
-   "`10.66`."
+opts_2b <- c(
+  "`3 > c(1, 5)`",
+  answer = '`c("a", "b") != c("a")`',
+  '`"apple" != "apple"`'
 )
 
-cat("b. Which is the mean of `c(4, 23, NA, 5)` when `na.rm` has the default value?", longmcq(opts_5b))
+cat("b. Which of the following returns `c(FALSE, TRUE)`?", longmcq(opts_2b))
 ```
 
 ::: {.callout-tip collapse="true"}
 #### Hint
 
-Check the documentation of `?mean`.
-:::
-:::
+**2a.**
 
-Note that R has a `mode()` function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!
+Check for errors in the logical operators.
 
-Keep reading to learn how to count occurrences.
+**2b.**
 
-### Count occurrences
-
-We can use the `count()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package to count the number of occurrences for each value of a specific column. Let's count how many trials are correct, i.e. let's count occurrences in the `ACC` column.
-
-Accuracy has been coded with `0` for incorrect and `1` for correct. We will see how this is not an ideal, although very common way, of coding binary variables. For now let's keep it as is.
-
-The function `count()` takes the name of tibble and the name of column you want to count values in.
-
-```{r count-corr, eval=FALSE}
-#| label: count-corr
-
-count(shallow, ACC)
-
-```
-
-How many *correct* responses are there in the `shallow` tibble?
-
-Note that you can add **multiple column names, separated by commas**, to get counts for the combinations of values of each column.
-
-Try to get counts of the combination of `ACC` and `Group` (`L1` vs `L2` participants). Replace `...` with the right code.
-
-```{r count-corr-group, eval=FALSE}
-count(shallow, ...)
-```
-
-::: {.callout-tip collapse="true"}
-#### Hint
-
-In `count()`, include the names of the two columns you want to get counts of, separated by commas.
+Run them in the console to see the output.
 :::
 
-Are there differences in accuracy between the L1 and L2 group?
-
-### Grouping data
-
-Sometimes you might want to get summary measures for one variable depending on different values of another variable.
-
-You can use the `group_by()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package, together with `summarise()` to achieve that. Let's see how it works.
-
-```{r}
-#| label: group
-
-group_by(shallow, Group) %>%
-  summarise(
-    RT_mean = mean(RT),
-    RT_sd = sd(RT)
-  )
-
-```
-
-The `group_by()` function takes at least two arguments:
-
--   The name of the tibble to group.
-
--   The name of the columns to group the tibble by, separated by commas.
-
-Here we are grouping `shallow` by `Group`.
-
-If you are baffled by that `%>%`, keep on reading.
-
-### What the pipe?!
-
-Wait, what is that thing, `%>%`?
-
-It's called a **pipe**. Think of a pipe as a teleporter.
-
-In the code above we are chaining two functions together using the pipe opeartor `%>%`. The output of the first function (`group_by()`) is "teleported" into the second function `summarise()`.
-
-The pipe `%>%` teleports the output of the preceding function as the first argument of the following function. The output of `group_by` is a (grouped) tibble, and `summarise()` needs a tibble as its first argument.
-
-That's why the code above works!
-
-In fact, you can even use a pipe for the tibble of `group_by()`, like so:
-
-```{r}
-#| label: pipe
-
-shallow %>%
-  group_by(Group) %>%
-    summarise(
-      RT_mean = mean(RT),
-      RT_sd = sd(RT)
-    )
-
-```
-
-You see that the output of the code is the same here as it is above.
-
-For comparison, this is what the code would look like without the pipe.
-
-```{r}
-#| label: no-pipe
-
-grouped_shallow <- group_by(shallow, Group)
-
-summarise(
-  grouped_shallow,
-  RT_mean = mean(RT),
-  RT_sd = sd(RT)
-)
-
-```
-
-Don't worry too much if the concept of the pipe is not clear yet. It should become clearer later.
-
-::: callout-note
-#### Quiz 6
-
-```{r}
-#| label: quiz-6
-#| results: asis
-#| echo: false
-
-opts_6a <- c(
-   "`count(shallow, Target)`.",
-   answer = "`shallow %>% distinct(Target) %>% count()`.",
-   "`shallow %>% count(Target)`."
-)
-
-cat("a. Which of the following returns the number of words in `shallow`?", longmcq(opts_6a))
-
-cat("b. The output of `summarise()` always drops the grouping.", torf(FALSE))
-```
-
-::: {.callout-tip collapse="true"}
-#### Hint
-
-For 6b., check the documentation of `?summarise`.
-:::
-:::
-
-::: {.callout-note collapse="true"}
-#### Practice 2
-
--   Go to <https://github.com/stefanocoretta/infant-gestures> and download the `gestures.csv` file in the `data/` folder. This is data from the paper \[A Cross-Cultural Analysis of Early Prelinguistic Gesture Development and Its Relationship to Language Development\](https://doi.org/10.1111/cdev.13406).
-
--   Read the file in R.
-
--   Calculate the following:
-
-    -   Measure of central tendency and dispersion for the `count` column (it contains the number of gestures performed by each child in different tasks).
-
-    -   Measure of central tendency and dispersion for the `count`column grouped by `month` (the child's age).
-
-    -   Total number of gestures by children (`dyad`).
-
-    -   Number of children by `background`.
-
--   Write a short paragraph where you report the measures. You can right this as comments in your R script. For examples, see above.
-
-::: {.callout-tip collapse="true"}
-#### Hint
-
--   To calculate the total number of gestures by children, you need the `sum()` function.
-
--   To calculate the number of children by background, you need the `distinct()` function.
-:::
 
 ::: {.callout-warning collapse="true"}
-#### Solution
+#### Explanation
 
-Have you tried doing the exercise and couldn't work it out?
+**2a.**
 
-The you can check the code solution here...
+The logical operator `==` has TWO equal signs. A single equal sign `=` is an alternative way of writing the assignment operator `<-`, so that `a = 1` and `a <- 1` are equivalent.
 
-::: {.callout-important collapse="true"}
-#### Code
+**2b.**
 
-``` r
-gestures %>%
-  summarise(
-    count_med = median(count, na.rm = TRUE),
-    count_min = min(count, na.rm = TRUE),
-    count_max = max(count, na.rm = TRUE),
-    count_range = count_max - count_min
-  )
+Logical operators are "vectorised" (you will learn more about this below), i.e they are applied sequentially to all elements in pairs. If the number of elements on one side does not match than of the other side of the operator, the elements on the side that has the smaller number of elements will be recycled.
+:::
 
-gestures %>%
-  group_by(months) %>%
-  summarise(
-    count_med = median(count, na.rm = TRUE),
-    count_min = min(count, na.rm = TRUE),
-    count_max = max(count, na.rm = TRUE),
-    count_range = count_max - count_min
-  )
+:::
 
-gestures %>%
-  group_by(dyad) %>%
-  summarise(
-    count_tot = sum(count)
-  )
+Now let's see how these work with `filter()`!
 
-gestures %>%
-  distinct(background, dyad) %>%
-  count(background)
+### The `filter()` function
+
+Filtering in R with the tidyverse is straightforward. You can use the `filter()` function.
+
+`filter()` takes one or more statements with logical operators.
+
+Let's try this out. The following code filters the `status` column so that only the `extinct` status is included in the new data frame `extinct`.
+
+You'll notice we are using the pipe `|>` to transfer the data into the `filter()` function; the output of the filter function is assigned `<-` to `extinct`. The flow might seem a bit counter-intuitive but you will get used to think like this when writing R code soon enough!
+
+```{r}
+#| label: extinct
+
+extinct <- glot_status |>
+  filter(status == "extinct")
+
+extinct
 ```
+
+Neat! What if we want to include *all statuses except* `extinct`? Easy, we use the non-equal operator `!=`.
+
+```{r}
+#| label: not-extinct
+
+not_extinct <- glot_status |>
+  filter(status != "extinct")
+
+not_extinct
+```
+
+And if we want only non-extinct languages from `South America`? We can include multiple statements separated by a comma!
+
+```{r}
+#| label: south-america
+
+south_america <- glot_status |>
+  filter(status != "extinct", Macroarea == "South America")
+
+south_america
+```
+
+Combining statements like this will give you only those rows where both conditions apply. You can add as many statements as you need.
+
+Now try to filter the data so that you include only `not_endangered` languages from all macro-areas except `Eurasia`. This time, don't save the output to a new data frame. What happens? Where is the output shown?
+
+```{r}
+#| label: glot-ex
+#| eval: false
+
+glot_status |>
+  filter(...)
+```
+
+This is all great, but what if we want to include more than one status or macro-area?
+
+To do that we need another operator: `%in%`.
+
+### The `%in%` operator
+
+::: callout-tip
+#### `%in%`
+
+The `%in%` operator is a special logical operator that returns `TRUE` if the value to the left of the operator is one of the values in the vector to its right, and `FALSE` if not.
 :::
-:::
-:::
 
-## Summary
+Try these in the Console:
 
-That's all for this week!
+```{r}
+#| label: in
 
-::: {.callout-note appearance="minimal"}
-**R Markdown**
+# TRUE
+5 %in% c(1, 2, 5, 7)
 
--   **R Markdown** can be used to create dynamic and reproducible reports.
+# FALSE
+"apples" %in% c("oranges", "bananas")
+```
 
--   **Mark-up languages** are text-formatting systems that specify text formatting and structure using symbols or keywords. Markdown is the mark-up language R Markdown is based on.
+But `%in%` is even more powerful because the value on the left does not have to be a single value, but it can also be a vector! We say `%in%` is *vectorised* because it can work with vectors (most functions and operators in R are vectorised).
 
--   The main parts of an `.Rmd` file are the preamble, text and code chunks.
+```{r}
+#| label: in-vct
 
-**Plotting**
+# TRUE, TRUE
+c(1, 5) %in% c(4, 1, 7, 5, 8)
 
--   **ggplot2** is a plotting package from the tidyverse.
+stocked <- c("durian", "bananas", "grapes")
+needed <- c("durian", "apples")
 
-    -   To create a basic plot, you use the `ggplot()` function and specify `data` and `mapping`.
+# TRUE, FALSE
+needed %in% stocked
 
-    -   The `aes()` function allows you to specify aesthetics (like axes, colours, ...) in the `mapping` argument.
+```
 
-    -   Geometries map data values onto shapes in the plot. All geometry functions are of the type `geom_*()`.
+Try to understand what is going on in the code above before moving on.
 
--   **Scatter plots** are created with `geom_point()` and can be used with two numeric variables.
+### Now filter the data
 
--   **Bar charts** are created with `geom_bar()` and can be used to show the counts of different levels of a categorical variable.
+Now we can filter `glot_status` to include only the macro-areas of the Global South and only languages that are either "threatened", "shifting", "moribund" or "nearly_extinct". I have started the code for you, you just need to write the line for filtering `status`.
 
--   **Stacked bar charts** are created by specifying the `fill` aesthetic and can be used to show counts grouped by a second categorical variable.
+```{r}
+#| label: global-south
+#| eval: false
 
--   **Stacked bar charts showing proportions** can be created with the argument `position = "fill"` in `geom_bar()`.
+global_south <- glot_status %>%
+  filter(
+    Macroarea %in% c("Africa", "Australia", "Papunesia", "South America"),
+    ...
+  )
+```
 
--   **Faceting** allows you to split the plot in different panels, based on other variables in the data. Faceting is achieved with `facet_grid()`.
-:::
+This should not look too alien! The first statement, `consonant %in% c("p", "t", "k")` looks at the `consonant` column and, for each row, it returns `TRUE` if the current row value is in `c("p", "t", "k")`, and `FALSE` if not.
 
-Next week, we will start learning about statistical modelling and while doing that you will also learn how to create density and violin plots and how to customise legends, titles and labels!
+
+## Bar charts
+
+
+
+
+## Mutate

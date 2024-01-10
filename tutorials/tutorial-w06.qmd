@@ -1,0 +1,357 @@
+---
+title: "DAL tutorial - Week 6"
+subtitle: "Data transformation II"
+editor: visual
+execute:
+  eval: false
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+---
+
+## Summary measures
+
+During the lecture, we have learnt two types of measures.
+
+::: callout-tip
+#### Summary measures
+
+**Measures of central tendency** (mean, median, mode) indicate the typical or central value of a sample.
+
+**Measures of dispersion** (min-max, range, standard deviation) indicate the dispersion of the sample values around the central tendency value.
+:::
+
+When you work with data, you always want to get summary measures for most of the variables in the data.
+
+Data reports usually include summary measures. It is also important to understand which summary measure is appropriate for which type of variable.
+
+We have covered this in the lecture, so we won't go over it again here. Instead, you will learn how to obtain summary measures using the `summarise()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package.
+
+`summarise()` takes at least two arguments:
+
+-   The data frame to summarise.
+
+-   One or more summary functions.
+
+For example, let's get the mean the reaction time column `RT`. Easy!
+
+```{r}
+#| label: mean
+
+summarise(shallow, RT_mean = mean(RT))
+
+```
+
+Great! The mean reaction times of the entire sample is 867 ms.
+
+What if we want also the standard deviation? Easy!
+
+```{r}
+#| label: sd
+
+summarise(shallow, RT_mean = mean(RT), RT_sd = sd(RT))
+
+```
+
+```{r}
+#| label: comments-2
+
+# This is a comment. Let's add 6 + 3.
+6 + 3
+```
+
+Now we know that reaction times are on average 867 ms long and have a standard deviation of about 293 ms (rounded to the nearest integer).
+
+Let's go all the way and also get the minimum and maximum RT values.
+
+```{r}
+#| label: minmax
+
+summarise(
+  shallow,
+  RT_mean = mean(RT), RT_sd = sd(RT),
+  RT_min = min(RT), RT_max = max(RT)
+)
+
+```
+
+Fab! When writing a data report, you could write something like this.
+
+> Reaction times are on average 867 ms long (SD = 293 ms), with values ranging from 0 to 1994 ms.
+
+We will learn more about standard deviations from Week 4 on, but for now just think of this as a relative measure of how dispersed the data are around the mean: the higher the SD, the greater the dispersion around the mean, i.e. the greater the variability in the data.
+
+When required, you can use the `median()` function to calculate the median, instead of the `mean()`. Go ahead and calculate the median reaction times in the data. Is it similar to the mean?
+
+::: callout-note
+#### Quiz 5
+
+```{r}
+#| label: quiz-5
+#| results: asis
+#| echo: false
+
+opts_5a <- c(
+   "It changes `NA`s to `FALSE`.",
+   "It converts `NA`s to `0`s.",
+   answer = "It removes `NA`s before taking the mean."
+)
+
+cat("a. What does the `na.rm` argument of `mean()` do?", longmcq(opts_5a))
+
+opts_5b <- c(
+   answer = "`NA`.",
+   "`0`.",
+   "`10.66`."
+)
+
+cat("b. Which is the mean of `c(4, 23, NA, 5)` when `na.rm` has the default value?", longmcq(opts_5b))
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Check the documentation of `?mean`.
+:::
+:::
+
+Note that R has a `mode()` function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!
+
+Keep reading to learn how to count occurrences.
+
+### Count occurrences
+
+We can use the `count()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package to count the number of occurrences for each value of a specific column. Let's count how many trials are correct, i.e. let's count occurrences in the `ACC` column.
+
+Accuracy has been coded with `0` for incorrect and `1` for correct. We will see how this is not an ideal, although very common way, of coding binary variables. For now let's keep it as is.
+
+The function `count()` takes the name of tibble and the name of column you want to count values in.
+
+```{r count-corr, eval=FALSE}
+#| label: count-corr
+
+count(shallow, ACC)
+
+```
+
+How many *correct* responses are there in the `shallow` tibble?
+
+Note that you can add **multiple column names, separated by commas**, to get counts for the combinations of values of each column.
+
+Try to get counts of the combination of `ACC` and `Group` (`L1` vs `L2` participants). Replace `...` with the right code.
+
+```{r count-corr-group, eval=FALSE}
+count(shallow, ...)
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+In `count()`, include the names of the two columns you want to get counts of, separated by commas.
+:::
+
+Are there differences in accuracy between the L1 and L2 group?
+
+### Grouping data
+
+Sometimes you might want to get summary measures for one variable depending on different values of another variable.
+
+You can use the `group_by()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package, together with `summarise()` to achieve that. Let's see how it works.
+
+```{r}
+#| label: group
+
+group_by(shallow, Group) %>%
+  summarise(
+    RT_mean = mean(RT),
+    RT_sd = sd(RT)
+  )
+
+```
+
+The `group_by()` function takes at least two arguments:
+
+-   The name of the tibble to group.
+
+-   The name of the columns to group the tibble by, separated by commas.
+
+Here we are grouping `shallow` by `Group`.
+
+If you are baffled by that `%>%`, keep on reading.
+
+### What the pipe?!
+
+Wait, what is that thing, `%>%`?
+
+It's called a **pipe**. Think of a pipe as a teleporter.
+
+In the code above we are chaining two functions together using the pipe opeartor `%>%`. The output of the first function (`group_by()`) is "teleported" into the second function `summarise()`.
+
+The pipe `%>%` teleports the output of the preceding function as the first argument of the following function. The output of `group_by` is a (grouped) tibble, and `summarise()` needs a tibble as its first argument.
+
+That's why the code above works!
+
+In fact, you can even use a pipe for the tibble of `group_by()`, like so:
+
+```{r}
+#| label: pipe
+
+shallow %>%
+  group_by(Group) %>%
+    summarise(
+      RT_mean = mean(RT),
+      RT_sd = sd(RT)
+    )
+
+```
+
+You see that the output of the code is the same here as it is above.
+
+For comparison, this is what the code would look like without the pipe.
+
+```{r}
+#| label: no-pipe
+
+grouped_shallow <- group_by(shallow, Group)
+
+summarise(
+  grouped_shallow,
+  RT_mean = mean(RT),
+  RT_sd = sd(RT)
+)
+
+```
+
+Don't worry too much if the concept of the pipe is not clear yet. It should become clearer later.
+
+::: callout-note
+#### Quiz 6
+
+```{r}
+#| label: quiz-6
+#| results: asis
+#| echo: false
+
+opts_6a <- c(
+   "`count(shallow, Target)`.",
+   answer = "`shallow %>% distinct(Target) %>% count()`.",
+   "`shallow %>% count(Target)`."
+)
+
+cat("a. Which of the following returns the number of words in `shallow`?", longmcq(opts_6a))
+
+cat("b. The output of `summarise()` always drops the grouping.", torf(FALSE))
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+For 6b., check the documentation of `?summarise`.
+:::
+:::
+
+::: {.callout-note collapse="true"}
+#### Practice 2
+
+-   Go to <https://github.com/stefanocoretta/infant-gestures> and download the `gestures.csv` file in the `data/` folder. This is data from the paper \[A Cross-Cultural Analysis of Early Prelinguistic Gesture Development and Its Relationship to Language Development\](https://doi.org/10.1111/cdev.13406).
+
+-   Read the file in R.
+
+-   Calculate the following:
+
+    -   Measure of central tendency and dispersion for the `count` column (it contains the number of gestures performed by each child in different tasks).
+
+    -   Measure of central tendency and dispersion for the `count`column grouped by `month` (the child's age).
+
+    -   Total number of gestures by children (`dyad`).
+
+    -   Number of children by `background`.
+
+-   Write a short paragraph where you report the measures. You can right this as comments in your R script. For examples, see above.
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+-   To calculate the total number of gestures by children, you need the `sum()` function.
+
+-   To calculate the number of children by background, you need the `distinct()` function.
+:::
+
+::: {.callout-warning collapse="true"}
+#### Solution
+
+Have you tried doing the exercise and couldn't work it out?
+
+The you can check the code solution here...
+
+::: {.callout-important collapse="true"}
+#### Code
+
+``` r
+gestures %>%
+  summarise(
+    count_med = median(count, na.rm = TRUE),
+    count_min = min(count, na.rm = TRUE),
+    count_max = max(count, na.rm = TRUE),
+    count_range = count_max - count_min
+  )
+
+gestures %>%
+  group_by(months) %>%
+  summarise(
+    count_med = median(count, na.rm = TRUE),
+    count_min = min(count, na.rm = TRUE),
+    count_max = max(count, na.rm = TRUE),
+    count_range = count_max - count_min
+  )
+
+gestures %>%
+  group_by(dyad) %>%
+  summarise(
+    count_tot = sum(count)
+  )
+
+gestures %>%
+  distinct(background, dyad) %>%
+  count(background)
+```
+:::
+:::
+:::
+
+## Summary
+
+That's all for this week!
+
+::: {.callout-note appearance="minimal"}
+**R Markdown**
+
+-   **R Markdown** can be used to create dynamic and reproducible reports.
+
+-   **Mark-up languages** are text-formatting systems that specify text formatting and structure using symbols or keywords. Markdown is the mark-up language R Markdown is based on.
+
+-   The main parts of an `.Rmd` file are the preamble, text and code chunks.
+
+**Plotting**
+
+-   **ggplot2** is a plotting package from the tidyverse.
+
+    -   To create a basic plot, you use the `ggplot()` function and specify `data` and `mapping`.
+
+    -   The `aes()` function allows you to specify aesthetics (like axes, colours, ...) in the `mapping` argument.
+
+    -   Geometries map data values onto shapes in the plot. All geometry functions are of the type `geom_*()`.
+
+-   **Scatter plots** are created with `geom_point()` and can be used with two numeric variables.
+
+-   **Bar charts** are created with `geom_bar()` and can be used to show the counts of different levels of a categorical variable.
+
+-   **Stacked bar charts** are created by specifying the `fill` aesthetic and can be used to show counts grouped by a second categorical variable.
+
+-   **Stacked bar charts showing proportions** can be created with the argument `position = "fill"` in `geom_bar()`.
+
+-   **Faceting** allows you to split the plot in different panels, based on other variables in the data. Faceting is achieved with `facet_grid()`.
+:::
+
+Next week, we will start learning about statistical modelling and while doing that you will also learn how to create density and violin plots and how to customise legends, titles and labels!

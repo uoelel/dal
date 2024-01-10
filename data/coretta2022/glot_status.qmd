@@ -1,0 +1,8 @@
+---
+title: "Glottolog 4.6 data: Agglomerated Endangerment Status"
+author: "Stefano Coretta, Harald Hammarström, Robert Forkel, Martin Haspelmath, Sebastian Bank"
+year: 2022
+doi: "10.1017/S0025100322000044"
+url: "https://osf.io/vry3h/"
+---
+

@@ -4,7 +4,7 @@ project:
   execute-dir: project
   render:
     - "*.qmd"
-    - "!data/"
+    - "!data/prep-data.qmd"
   resources:
     - "img/"
     - "data/"

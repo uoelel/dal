@@ -8,7 +8,7 @@
 | 4    | [Data viz](slides/lecture-w04.qmd)                             | [Quarto + Plotting basics](tutorials/tutorial-w04.qmd) |
 | 5    | [Statistical variables](slides/lecture-w05.qmd)                | [Data transformation I](tutorials/tutorial-w05.qmd)    |
 | FL   | *No classes*                                                   |                                                        |
-| 6    | Data summaries                                                 | Data transformation II                                 |
+| 6    | [Data summaries](slides/lecture-w06.qmd)                       | Data transformation II                                 |
 | 7    | Tidy data                                                      | Data tidying                                           |
 | 8    | TBD                                                            | Time series                                            |
 | 9    | TBD                                                            | Likert scales                                          |

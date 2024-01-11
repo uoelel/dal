@@ -2,11 +2,19 @@
   {
     "listing": "/data.html",
     "items": [
+      "/data/sluckin2022/everywhere-loc.html",
       "/data/cameron2020/gestures.html",
       "/data/coretta2018/token-measures.html",
       "/data/coretta2021/alb-vot.html",
       "/data/coretta2018/formants.html",
-      "/data/coretta2022/glot_status.html"
+      "/data/coretta2022/glot_status.html",
+      "/data/tucker2019/mald_1_1.html",
+      "/data/song2020/shallow.html",
+      "/data/koppensteiner2016/takete_maluma.html",
+      "/data/winter2020/polite.html",
+      "/data/winter2016/senses_valence.html",
+      "/data/pankratz2021/si.html",
+      "/data/los2023/relatives.html"
     ]
   }
 ]

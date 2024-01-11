@@ -1,0 +1,8 @@
+---
+title: "Second language users exhibit shallow morphological processing"
+author: "Song, Y., Do, Y., Thompson, A., Waegemaekers, E., & Lee, J."
+year: 2020
+doi: "10.1017/S0272263120000170"
+url: "https://osf.io/sa37y/"
+---
+

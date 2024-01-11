@@ -1,0 +1,8 @@
+---
+title: "The role of relevance for scalar diversity"
+author: "Elizabeth Pankratz and Bob van Tiel"
+year: 2021
+doi: "10.1017/langcog.2021.13"
+url: "https://osf.io/t3b4u/"
+---
+

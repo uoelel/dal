@@ -27,7 +27,7 @@ In this tutorial we will learn how to `filter()` the data and `mutate()` or crea
 
 ## Filter
 
-Filtering data based on specific criteria couldn't be easier with `filter()`, from the dplyr package (one of the tidyverse core packages),
+Filtering data based on specific criteria couldn't be easier with `filter()`, from the [dplyr](https://dplyr.tidyverse.org) package (one of the tidyverse core packages),
 
 Let's work with the `coretta2022/glot_status` data frame. It's an `.rds` file, so you need to use the `readRDS()` function. Go ahead and read the data into `glot_status`.
 
@@ -334,11 +334,105 @@ You could write a description of the plot that goes like this:
 
 What if we want to show the number of languages by endangerment status within each of the macro-areas that make up the Global South? Easy! You can make a stacked bar chart, but we will get to that after we first learn about `mutate()`.
 
-
-
 ## Mutate
 
+To change existing columns or create new columns, we can use the `mutate()` function from the [dplyr](https://dplyr.tidyverse.org) package.
 
+To learn how to use `mutate()`, we will re-create the `status` column (let's call it `Status` this time) from the `Code_ID` column in `glot_status`.
+
+The `Code_ID` column contains the status of each language in the form `aes-STATUS` where `STATUS` is one of `not_endangered`, `threatened`, `shifting`, `moribund`, `nearly_extinct` and `extinct`.
+
+```{r}
+#| label: codes
+#| echo: false
+
+unique(glot_status$Code_ID)
+```
+
+We want to create a new column called `Status` which has only the `STATUS` label (without the `aes-` part). To remove `aes-` from the `Code_ID` column we can use the `str_remove()` function from the [stringr](https://stringr.tidyverse.org) package. Check the documentation of `?str_remove` to learn which arguments it uses.
+
+```{r}
+#| label: Status
+
+glot_status <- glot_status |>
+  mutate(
+    Status = str_remove(Code_ID, "aes-")
+  )
+```
+
+If you check `glot_status` now you will find that a new column, `Status`, has been added. This column is a character column (`chr`).
+
+Let's reproduce the bar chart from above but with all the data from `glot_status`, using now the `Status` column.
+
+```{r}
+#| label: status-bar-2
+
+glot_status |>
+  ggplot(aes(x = Status)) +
+  geom_bar()
+```
+
+But something is not quite right... The order of the levels of `Status` does not match the order that makes sense (from least to most endangered)! Why?
+
+This is because `status` (the pre-existing column) is a **factor** column, rather than a simple character column. What is a factor vector/column?
+
+::: callout-tip
+#### Factor vector
+
+A **factor vector** (or column) is a vector that contains a list of values (called *levels*) from a closed set.
+
+The levels of a factor are ordered alphabetically by default.
+:::
+
+A vector/column can be mutated into a factor column with the `as.factor()` function. In the following code, we change the existing column `Status`, in other words we overwrite it (this happens automatically, because the `Status` column already exists, so it is replaced).
+
+```{r}
+#| label: as-factor
+
+glot_status <- glot_status |>
+  mutate(
+    Status = as.factor(Status)
+  )
+
+# read below for an expanation of the dollar disgn $ syntax
+levels(glot_status$Status)
+
+```
+
+The `levels()` functions returns the levels of a factor column in the order they are stored in the factor: by default the order is alphabetical. But wait, what is that `$` in `glot_status$Status`?
+
+The dollar sign `$` a base R way of extracting a single column (in this case `Status`) from a data frame (`glot_status`).
+
+::: callout-tip
+#### The dollar sign \`\$\`
+
+You can use the dollar sign `$` to extract a single column from a data frame as a vector.
+:::
+
+What if we want the levels of `Status` to be ordered in a more logical manner: `not_endangered`, `threatened`, `shifting`, `moribund`, `nearly_extinct` and `extinct`? Easy! We can use the `factor()` function instead of `as.factor()` and specify the levels and their order.
+
+```{r}
+#| label: factor
+
+glot_status <- glot_status |>
+  mutate(
+    Status = factor(Status, levels = c("not_endangered", "threatened", "shifting", "moribund", "nearly_extinct", "extinct"))
+  )
+
+levels(glot_status$Status)
+```
+
+You see that now the order of the levels returned by `levels()` is the one we specified.
+
+Transforming character columns to vector columns is helpful to specify a particular order of the levels which can then be used when plotting.
+
+```{r}
+#| label: status-bar-3
+
+glot_status |>
+  ggplot(aes(x = Status)) +
+  geom_bar()
+```
 
 ## Stacked bar charts
 
@@ -386,7 +480,7 @@ global_south |>
 
 A write-up example:
 
-> Figure 3 shows the number of languages by geographic macroarea, subdivided by endangerment status. Africa, Eurasia and Papunesia have substantially more languages than the other areas.
+> Figure 3 shows the number of languages by geographic macro-area, subdivided by endangerment status. Africa, Eurasia and Papunesia have substantially more languages than the other areas.
 
 ::: callout-note
 #### Quiz 4
@@ -400,7 +494,7 @@ gestures |>
 ```
 :::
 
-In the plot above it is difficult to assess whether different macroareas have different proportions of endangerment. This is because the overall number of languages per area differs between areas.
+In the plot above it is difficult to assess whether different macro-areas have different proportions of endangerment. This is because the overall number of languages per area differs between areas.
 
 A solution to this is to plot **proportions** instead of raw counts.
 
@@ -421,4 +515,4 @@ The plot now shows proportions of languages by endangerment status for each area
 
 With this plot it is easier to see that different areas have different proportions of endangerment. In writing:
 
-> Figure 4 shows proportions of languages by endangerment status for each macroarea. Australia, South and North America have a substantially higher proportion of extinct languages than the other areas. These areas also have a higher proportion of near extinct languages. On the other hand, Africa has the greatest proportion of non-endangered languages followed by Papunesia and Eurasia, while North and South America are among the areas with the lower proportion, together with Australia which has the lowest.
+> Figure 4 shows proportions of languages by endangerment status for each macro-area. Australia, South and North America have a substantially higher proportion of extinct languages than the other areas. These areas also have a higher proportion of near extinct languages. On the other hand, Africa has the greatest proportion of non-endangered languages followed by Papunesia and Eurasia, while North and South America are among the areas with the lower proportion, together with Australia which has the lowest.

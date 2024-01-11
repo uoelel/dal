@@ -473,6 +473,14 @@ glot_status <- readRDS("./data/coretta2022/glot_status.rds")
 
 As always, you need to assign the output of the function to a variable, here `glot_status`.
 
+::: callout-tip
+#### Rds files
+
+`.Rds` files are a type of R file which can store any R object and save it on disk.
+
+R objects can be saved to an `.Rds` file with the `saveRDS()` function and they can be read with the `readRDS()` function.
+:::
+
 View the `glot_status` tibble now.
 
 It is also very easy to save a tibble to an `.rds` file with the `saveRDS()` function.

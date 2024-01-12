@@ -7,6 +7,8 @@ format:
   mono-light-revealjs:
     theme: [default, custom.scss]
     history: false
+filters:
+  - tachyonsextra
 ---
 
 ## 

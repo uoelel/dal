@@ -6,3 +6,32 @@ doi: "10.7939/r3-kh0r-r116"
 url: "https://osf.io/sa37y/"
 ---
 
+## Description
+
+`Subject`
+
+:   Subject unique identifier.
+
+`Item`
+
+:   Word.
+
+`IsWord`
+
+:   Whether it is a real word or a nonce word.
+
+`PhonLev`
+
+:   Mean phoneme-level Levenshtein distance.
+
+`RT`
+
+:   Reaction times (ms).
+
+`ACC`
+
+:   Accuracy of lexical decision.
+
+`RT_log`
+
+:   Logged reaction times.

@@ -94,6 +94,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../assessments.html" rel="" target="">
  <span class="menu-text">Assessment</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../data.html" rel="" target="">
+ <span class="menu-text">Data</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -106,7 +110,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">1</span> Description</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -142,8 +152,53 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="description" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="description"><span class="header-section-number">1</span> Description</h2>
+<dl>
+<dt><code>Group</code></dt>
+<dd>
+<p>Participant group (<code>L1</code>, <code>L2</code>).</p>
+</dd>
+<dt><code>ID</code></dt>
+<dd>
+<p>Subject unique identifier.</p>
+</dd>
+<dt><code>List</code></dt>
+<dd>
+<p>Word list.</p>
+</dd>
+<dt><code>Target</code></dt>
+<dd>
+<p>Target word.</p>
+</dd>
+<dt><code>RT</code></dt>
+<dd>
+<p>Reaction time (ms).</p>
+</dd>
+<dt><code>RT_log</code></dt>
+<dd>
+<p>Logged reaction time.</p>
+</dd>
+<dt><code>Critical_Filler</code></dt>
+<dd>
+<p>Whether the trial is a <code>critical</code> or a <code>filler</code> trial.</p>
+</dd>
+<dt><code>Word_Nonword</code></dt>
+<dd>
+<p>Whether the word is a real <code>word</code> or a nonce word (only <code>word</code> is present in the data).</p>
+</dd>
+<dt><code>Relation_type</code></dt>
+<dd>
+<p>Whether the relation type is <code>Unrelated</code>, <code>Constituent</code>, or <code>NonConstituent</code>.</p>
+</dd>
+<dt><code>Branching</code></dt>
+<dd>
+<p>Whether the trial word is <code>Left</code>-branching or <code>Right</code>-branching.</p>
+</dd>
+</dl>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

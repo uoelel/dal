@@ -94,6 +94,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../assessments.html" rel="" target="">
  <span class="menu-text">Assessment</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../data.html" rel="" target="">
+ <span class="menu-text">Data</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -106,7 +110,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">1</span> Description</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -142,8 +152,117 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="description" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="description"><span class="header-section-number">1</span> Description</h2>
+<dl>
+<dt><code>subject</code></dt>
+<dd>
+<p>Subject unique identifier (categorical).</p>
+</dd>
+<dt><code>gender</code></dt>
+<dd>
+<p>Gender of subject (categorical).</p>
+</dd>
+<dt><code>birthplace</code></dt>
+<dd>
+<p>Birth place of subject (categorical).</p>
+</dd>
+<dt><code>musicstudent</code></dt>
+<dd>
+<p>Does the subject have music training? (binary: yes, no)</p>
+</dd>
+<dt><code>scenario</code></dt>
+<dd>
+<p>Unique identifier of different items.</p>
+</dd>
+<dt><code>task</code></dt>
+<dd>
+<p>Task type (categorical: <code>not</code> = mailbox task vs <code>dct</code> = discourse completion task). In the mailbox task people left a note on somebody’s mailbox, while in the discourse completion task they were prompted to role-play the start of a conversation.</p>
+</dd>
+<dt><code>attitude</code></dt>
+<dd>
+<p>Attitude (binary: <code>pol</code> polite vs <code>inf</code> informal).</p>
+</dd>
+<dt><code>total_duration</code></dt>
+<dd>
+<p>Total duration of utterances in seconds (numeric).</p>
+</dd>
+<dt><code>articulation_rate</code></dt>
+<dd>
+<p>Number of syllables per second (numeric).</p>
+</dd>
+<dt><code>f0mn</code></dt>
+<dd>
+<p>Mean fundamental frequency (f0) (numeric).</p>
+</dd>
+<dt><code>f0sd</code></dt>
+<dd>
+<p>Stadard deviation of fundamental frequency (numeric).</p>
+</dd>
+<dt><code>f0range</code></dt>
+<dd>
+<p>Minimum and maximum fundamental frequency (numeric).</p>
+</dd>
+<dt><code>inmn</code></dt>
+<dd>
+<p>Mean intensity (numeric).</p>
+</dd>
+<dt><code>insd</code></dt>
+<dd>
+<p>Standard deviation of intensity (numeric).</p>
+</dd>
+<dt><code>inrange</code></dt>
+<dd>
+<p>Minimum and maximum fundamental frequency (numeric).</p>
+</dd>
+<dt><code>shimmer</code></dt>
+<dd>
+<p>Local shimmer (likewise normalized amplitude difference of consecutive periods) (numeric).</p>
+</dd>
+<dt><code>jitter</code></dt>
+<dd>
+<p>Local jitter (bsolute period-to-period difference divided by the average period) (numeric).</p>
+</dd>
+<dt><code>HNRmn</code></dt>
+<dd>
+<p>Mean Harmonics-to-Noise Ratio (numeric).</p>
+</dd>
+<dt><code>H1H2</code></dt>
+<dd>
+<p>Difference between first and second harmonic (H1-H2) (numeric).</p>
+</dd>
+<dt><code>breath_count</code></dt>
+<dd>
+<p>Number of audible breath intakes (count).</p>
+</dd>
+<dt><code>filler_count</code></dt>
+<dd>
+<p>Number of oral fillers like “oh/ah” (count).</p>
+</dd>
+<dt><code>hiss_count</code></dt>
+<dd>
+<p>Number of noisy breath intakes (count).</p>
+</dd>
+<dt><code>nasal_count</code></dt>
+<dd>
+<p>Number of nasal fillers like “mh/nh” (count).</p>
+</dd>
+<dt><code>sil_count</code></dt>
+<dd>
+<p>Number of silent pauses (count).</p>
+</dd>
+<dt><code>ya_count</code></dt>
+<dd>
+<p>Number of occurences of interjection “ya” (informal) (count).</p>
+</dd>
+<dt><code>yey_count</code></dt>
+<dd>
+<p>Number of occurences of interjection “yey” (polite) (count).</p>
+</dd>
+</dl>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

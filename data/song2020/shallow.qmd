@@ -6,3 +6,44 @@ doi: "10.1017/S0272263120000170"
 url: "https://osf.io/sa37y/"
 ---
 
+## Description
+
+`Group`
+
+:   Participant group (`L1`, `L2`).
+
+`ID`
+
+:   Subject unique identifier.
+
+`List`
+
+:   Word list.
+
+`Target`
+
+:   Target word.
+
+`RT`
+
+:   Reaction time (ms).
+
+`RT_log`
+
+:   Logged reaction time.
+
+`Critical_Filler`
+
+:   Whether the trial is a `critical` or a `filler` trial.
+
+`Word_Nonword`
+
+:   Whether the word is a real `word` or a nonce word (only `word` is present in the data).
+
+`Relation_type`
+
+:   Whether the relation type is `Unrelated`, `Constituent`, or `NonConstituent`.
+
+`Branching`
+
+:   Whether the trial word is `Left`-branching or `Right`-branching.

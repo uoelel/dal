@@ -6,3 +6,24 @@ doi: "10.1371/journal.pone.0150610"
 url: "https://figshare.com/articles/dataset/Shaking_i_Takete_i_and_Flowing_i_Maluma_i_Non_Sense_Words_Are_Associated_with_Motion_Patterns/3096868"
 ---
 
+## Description
+
+`Tak_Mal_Stim`
+
+:   The nature of the stimulus (`Takete` vs `Maluma`),
+
+`Answer`
+
+:   Accuracy of response (`CORRECT` vs `INCORRECT`). Whether the participant has correctly identified the stimulus nature.
+
+`Corr_1_Wrong_0`
+
+:   Same as `Answer` but coded with `0` and `1`.
+
+`Rater`
+
+:   ID of the participant.
+
+`Female_0`
+
+:   Participant's gender (female = `0`, male = `1`).

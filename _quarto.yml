@@ -23,6 +23,8 @@ website:
         text: Course content
       - href: assessments.qmd
         text: Assessment
+      - href: data.qmd
+        text: Data
 
 format:
   html:

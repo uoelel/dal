@@ -149,11 +149,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#summary-measures" id="toc-summary-measures" class="nav-link active" data-scroll-target="#summary-measures"><span class="header-section-number">1</span> Summary measures</a>
   <ul class="collapse">
-  <li><a href="#count-occurrences" id="toc-count-occurrences" class="nav-link" data-scroll-target="#count-occurrences"><span class="header-section-number">1.1</span> Count occurrences</a></li>
-  <li><a href="#grouping-data" id="toc-grouping-data" class="nav-link" data-scroll-target="#grouping-data"><span class="header-section-number">1.2</span> Grouping data</a></li>
-  <li><a href="#what-the-pipe" id="toc-what-the-pipe" class="nav-link" data-scroll-target="#what-the-pipe"><span class="header-section-number">1.3</span> What the pipe?!</a></li>
+  <li><a href="#nas" id="toc-nas" class="nav-link" data-scroll-target="#nas"><span class="header-section-number">1.1</span> <code>NA</code>s</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2</span> Summary</a></li>
+  <li><a href="#density-plots" id="toc-density-plots" class="nav-link" data-scroll-target="#density-plots"><span class="header-section-number">2</span> Density plots</a>
+  <ul class="collapse">
+  <li><a href="#make-things-cosy-with-a-rug" id="toc-make-things-cosy-with-a-rug" class="nav-link" data-scroll-target="#make-things-cosy-with-a-rug"><span class="header-section-number">2.1</span> Make things cosy with a rug</a></li>
+  </ul></li>
+  <li><a href="#count-occurrences" id="toc-count-occurrences" class="nav-link" data-scroll-target="#count-occurrences"><span class="header-section-number">3</span> Count occurrences</a></li>
+  <li><a href="#grouping-data" id="toc-grouping-data" class="nav-link" data-scroll-target="#grouping-data"><span class="header-section-number">4</span> Grouping data</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">5</span> Practice</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -203,41 +208,76 @@ Summary measures
 <li><p>The data frame to summarise.</p></li>
 <li><p>One or more summary functions.</p></li>
 </ul>
-<p>For example, let’s get the mean the reaction time column <code>RT</code>. Easy!</p>
+<p>For example, let’s get the mean the reaction time column <code>RT</code>. Easy! (First attach the tidyverse and read the <code>song2020/shallow.csv</code> file into a variable called <code>shallow</code>.)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(shallow, <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Great! The mean reaction times of the entire sample is 867 ms.</p>
-<p>What if we want also the standard deviation? Easy!</p>
+<p>Great! The mean reaction times of the entire sample is 867.3592 ms.</p>
+<p>You can round numbers with the <code>round()</code> function. For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(shallow, <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT), <span class="at">RT_sd =</span> <span class="fu">sd</span>(RT))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>num <span class="ot">&lt;-</span> <span class="fl">867.3592</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(num)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(num, <span class="dv">1</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(num, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>The second argument sets the number of decimals to round to (by default, it is <code>0</code>, so the number is rounded to the nearest integer).</p>
+<p>Let’s recalculate the mean by rounding it this time.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment. Let's add 6 + 3.</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(shallow, <span class="at">RT_mean =</span> <span class="fu">round</span>(<span class="fu">mean</span>(RT)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What if we want also the standard deviation? Easy: we use the <code>sd()</code> function. (Round the mean and SD with the <code>round()</code> function in your code).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># round the mean and SD</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(shallow, <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT), <span class="at">RT_sd =</span> <span class="fu">sd</span>(RT))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we know that reaction times are on average 867 ms long and have a standard deviation of about 293 ms (rounded to the nearest integer).</p>
-<p>Let’s go all the way and also get the minimum and maximum RT values.</p>
+<p>Let’s go all the way and also get the minimum and maximum RT values with the <code>min()</code> and <code>max()</code> functions (round all the summary measures).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  shallow,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT), <span class="at">RT_sd =</span> <span class="fu">sd</span>(RT),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">RT_min =</span> <span class="fu">min</span>(RT), <span class="at">RT_max =</span> <span class="fu">max</span>(RT)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  shallow,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT), <span class="at">RT_sd =</span> <span class="fu">sd</span>(RT),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">RT_min =</span> ..., <span class="at">RT_max =</span> ...</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Fab! When writing a data report, you could write something like this.</p>
 <blockquote class="blockquote">
 <p>Reaction times are on average 867 ms long (SD = 293 ms), with values ranging from 0 to 1994 ms.</p>
 </blockquote>
-<p>We will learn more about standard deviations from Week 4 on, but for now just think of this as a relative measure of how dispersed the data are around the mean: the higher the SD, the greater the dispersion around the mean, i.e.&nbsp;the greater the variability in the data.</p>
+<p>We won’t go into the details of what standard deviations are, but you can just think of them as a relative measure of how dispersed the data are around the mean: the higher the SD, the greater the dispersion around the mean, i.e.&nbsp;the greater the variability in the data.</p>
 <p>When required, you can use the <code>median()</code> function to calculate the median, instead of the <code>mean()</code>. Go ahead and calculate the median reaction times in the data. Is it similar to the mean?</p>
+<section id="nas" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="nas"><span class="header-section-number">1.1</span> <code>NA</code>s</h3>
+<p>Most base R functions behave unexpectedly if the vector they are used on contain <code>NA</code> values.</p>
+<p><code>NA</code> is a special object in R, that indicates that a value is <strong>N</strong>ot <strong>A</strong>vailable, meaning that that observation does not have a value.</p>
+<p>For example, in the following numeric vector, there are 5 objects:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Four are numbers and one is <code>NA</code>.</p>
+<p>If you calculate the mean of <code>a</code> with <code>mean()</code> something strange happens.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The functions returns <code>NA</code>.</p>
+<p>This is because by default when just one value in the vector is <code>NA</code> then operations on the vector will return <code>NA</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(a)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(a)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you want to discard the <code>NA</code> values when operating on a vector that contains them, you have to set the <code>na.rm</code> (for “<code>NA</code> remove”) argument to <code>TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(a, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(a, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(a, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quiz 5
+Quiz 1
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -260,23 +300,80 @@ Hint
 </div>
 </div>
 <p>Note that R has a <code>mode()</code> function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!</p>
-<p>Keep reading to learn how to count occurrences.</p>
-<section id="count-occurrences" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="count-occurrences"><span class="header-section-number">1.1</span> Count occurrences</h3>
-<p>We can use the <code>count()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> tidyverse package to count the number of occurrences for each value of a specific column. Let’s count how many trials are correct, i.e.&nbsp;let’s count occurrences in the <code>ACC</code> column.</p>
-<p>Accuracy has been coded with <code>0</code> for incorrect and <code>1</code> for correct. We will see how this is not an ideal, although very common way, of coding binary variables. For now let’s keep it as is.</p>
-<p>The function <code>count()</code> takes the name of tibble and the name of column you want to count values in.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(shallow, ACC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>How many <em>correct</em> responses are there in the <code>shallow</code> tibble?</p>
-<p>Note that you can add <strong>multiple column names, separated by commas</strong>, to get counts for the combinations of values of each column.</p>
-<p>Try to get counts of the combination of <code>ACC</code> and <code>Group</code> (<code>L1</code> vs <code>L2</code> participants). Replace <code>...</code> with the right code.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(shallow, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>You will learn how to count occurrences below. But first, let’s see what density plots are!</p>
+</section>
+</section>
+<section id="density-plots" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="density-plots"><span class="header-section-number">2</span> Density plots</h2>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Density plots
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Density plots</strong> show the distribution (i.e.&nbsp;the “probability density”) of the values of a continuous variable.</p>
+<p>They are created with <code>geom_density()</code>.</p>
+</div>
+</div>
+<p>Reaction times is a numeric continuous variable so density plots are appropriate.</p>
+<p>To plot the probability density of a continuous variable, you can use the <code>density</code> geometry.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> RT)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The black solid curve in the plot indicates the <strong>density</strong> of the data (the <em>y</em>-axis) along the values of RT (the <em>x</em>-axis).</p>
+<p>The higher the point of the curve is on the <em>y</em>-axis (i.e.&nbsp;the higher the density), the more data there is at the corresponding <em>x</em>-axis value.</p>
+<p>For example, the highest point in the curve is at around 750 ms (the white vertical line between 500 and 1000 is 750).</p>
+<p>This means that around 750 ms there are many observations.</p>
+<p>On the other hand, if you look at the curve to the left of 500 ms RT and above 1500 ms RT, the height of the points forming the curve are much lower and in some cases they even go to 0 density (<em>y</em>-axis).</p>
+<p>Note that to create a density plot, you only need to specify the <code>x</code>-axis. The <code>y</code>-axis is the probability density, which is automatically calculated (a bit like counts in bar charts, remember?).</p>
+<section id="make-things-cosy-with-a-rug" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="make-things-cosy-with-a-rug"><span class="header-section-number">2.1</span> Make things cosy with a rug</h3>
+<p>The density line shows you a smoothed representation of the data distribution over RT values, but you might also want to see the raw data represented on the <em>x</em>sxis.</p>
+<p>You can do so by adding the <code>rug</code> geometry. Go ahead and add a rug…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(RT)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should get the following:</p>
+<p>Nice huh? You can also change the opacity of the ticks of the rug to have a better sense of how many ticks there are at certain values on the <em>x</em>-axis.</p>
+<p>Opacity of geometries can be adjusted with the <code>alpha</code> argument: 0 means completely transparent and 1 means completely opaque.</p>
+<p>Let’s set the alpha of the rug geometry to 0.1.</p>
+<p>Can you see how the blackest parts of the rug correspond to the higher parts of the density curve?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rug
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Raw data can be shown with a <strong>rug</strong>, i.e.&nbsp;ticks on the axes that mark where the data is.</p>
+<p>You can add a rug with <code>geom_rug()</code>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quiz 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What can you notice about the distribution of RT values?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -285,24 +382,93 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Is the distribution symmetric around the highest density point?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Keep reading to learn how to count occurrences.</p>
+</section>
+</section>
+<section id="count-occurrences" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="count-occurrences"><span class="header-section-number">3</span> Count occurrences</h2>
+<p>Often, you need to count occurrences in the data frame based on the values of specific columns.</p>
+<p>For example, let’s count the number of correct and incorrect trials in the <code>shallow</code> data frame.</p>
+<p>The column <code>ACC</code> tells us whether a trial is incorrect <code>0</code> or correct <code>1</code>. (We will see how this way of coding binary variables, with <code>0</code>s and <code>1</code>s is not an ideal, although very common way, of coding binary variables. For now let’s keep it as is.)</p>
+<p>We can use the <code>count()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> tidyverse package to count the number of occurrences for each value of a specific column.</p>
+<p>The function <code>count()</code> takes the name of a tibble and the name of the column you want to count values in.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(shallow, ACC)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also write that as</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># shallow |&gt; count(ACC)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>How many <em>correct</em> trials are there in the <code>shallow</code> tibble? And how many <em>incorrect</em> trials?</p>
+<p>Note that you can add <strong>multiple column names, separated by commas</strong>, to get counts for the combinations of values of each column.</p>
+<p>Try to get counts of the combination of <code>ACC</code> and <code>Group</code> (<code>L1</code> vs <code>L2</code> participants). Replace <code>...</code> with the right code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(shallow, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In <code>count()</code>, include the names of the two columns you want to get counts of, separated by commas.</p>
 </div>
 </div>
 </div>
-<p>Are there differences in accuracy between the L1 and L2 group?</p>
+<p>This is the output:</p>
+<p>Are there differences in accuracy between the L1 and L2 group? It’s difficult to say just by looking at those numbers, because the total number of trials for L1 and L2 participants is different.</p>
+<p>There are more L2 trials than L1 trials in the data set.</p>
+<p>When the total number of observations is not the same in the groups we are trying to compare, we can calculate the <strong>proportion</strong> instead of the raw count.</p>
+<p>This should ring a bell. Do you remember <code>position = "fill"</code> in bar charts? This is based on the same reasoning.</p>
+<p>We can calculate the proportion of correct and incorrect trials using a chain of functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_count</span>(Group, <span class="at">name =</span> <span class="st">"tot"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Group, ACC, tot) <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">prop =</span> <span class="fu">round</span>(n <span class="sc">/</span> tot, <span class="dv">2</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To learn what each line does, you can split the chain in multiple steps and inspect each step.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>shallow_tot <span class="ot">&lt;-</span> shallow <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_count</span>(Group, <span class="at">name =</span> <span class="st">"tot"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>shallow_count <span class="ot">&lt;-</span> shallow_tot <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Group, ACC, tot) </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>shallow_prop <span class="ot">&lt;-</span> shallow_count <span class="sc">|&gt;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># round proportion to 2 decimals.</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">prop =</span> <span class="fu">round</span>(n <span class="sc">/</span> tot, <span class="dv">2</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now check <code>shallow_tot</code>, <code>shallow_count</code> and <code>shallow_prop</code>.</p>
+<p>Based on the proportion of correct trials in the L1 and L2 group, are there substantial differences in how the two groups performed? Or are they similar? If not, who was better?</p>
 </section>
-<section id="grouping-data" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="grouping-data"><span class="header-section-number">1.2</span> Grouping data</h3>
-<p>Sometimes you might want to get summary measures for one variable depending on different values of another variable.</p>
+<section id="grouping-data" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="grouping-data"><span class="header-section-number">4</span> Grouping data</h2>
+<p>Sometimes you might want to get summary measures for one column depending on different values of another column.</p>
 <p>You can use the <code>group_by()</code> function from the <a href="https://dplyr.tidyverse.org">dplyr</a> tidyverse package, together with <code>summarise()</code> to achieve that. Let’s see how it works.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(shallow, Group) <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">RT_sd =</span> <span class="fu">sd</span>(RT)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(shallow, Group) <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">RT_mean =</span> <span class="fu">round</span>(<span class="fu">mean</span>(RT)),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">RT_sd =</span> <span class="fu">round</span>(<span class="fu">sd</span>(RT))</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>group_by()</code> function takes at least two arguments:</p>
 <ul>
@@ -310,99 +476,63 @@ Hint
 <li><p>The name of the columns to group the tibble by, separated by commas.</p></li>
 </ul>
 <p>Here we are grouping <code>shallow</code> by <code>Group</code>.</p>
-<p>If you are baffled by that <code>%&gt;%</code>, keep on reading.</p>
-</section>
-<section id="what-the-pipe" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="what-the-pipe"><span class="header-section-number">1.3</span> What the pipe?!</h3>
-<p>Wait, what is that thing, <code>%&gt;%</code>?</p>
-<p>It’s called a <strong>pipe</strong>. Think of a pipe as a teleporter.</p>
-<p>In the code above we are chaining two functions together using the pipe opeartor <code>%&gt;%</code>. The output of the first function (<code>group_by()</code>) is “teleported” into the second function <code>summarise()</code>.</p>
-<p>The pipe <code>%&gt;%</code> teleports the output of the preceding function as the first argument of the following function. The output of <code>group_by</code> is a (grouped) tibble, and <code>summarise()</code> needs a tibble as its first argument.</p>
-<p>That’s why the code above works!</p>
-<p>In fact, you can even use a pipe for the tibble of <code>group_by()</code>, like so:</p>
+<p>In fact, you can even use a pipe for the tibble of <code>group_by()</code> as we have done for other functions, like so:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">RT_sd =</span> <span class="fu">sd</span>(RT)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>shallow <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">RT_mean =</span> <span class="fu">round</span>(<span class="fu">mean</span>(RT)),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">RT_sd =</span> <span class="fu">round</span>(<span class="fu">sd</span>(RT))</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You see that the output of the code is the same here as it is above.</p>
-<p>For comparison, this is what the code would look like without the pipe.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>grouped_shallow <span class="ot">&lt;-</span> <span class="fu">group_by</span>(shallow, Group)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  grouped_shallow,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">RT_mean =</span> <span class="fu">mean</span>(RT),</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">RT_sd =</span> <span class="fu">sd</span>(RT)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Don’t worry too much if the concept of the pipe is not clear yet. It should become clearer later.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quiz 6
+Quiz 3
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+
+</div>
+</div>
+</section>
+<section id="practice" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="practice"><span class="header-section-number">5</span> Practice</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+Practice 1
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>For 6b., check the documentation of <code>?summarise</code>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<ul>
+<li><p>Read the <code>cameron2020/gestures.csv</code> file in R.</p></li>
+<li><p>Calculate the following:</p>
+<ul>
+<li><p>Measure of central tendency and dispersion for the <code>count</code> column (it contains the number of gestures performed by each child in different tasks).</p></li>
+<li><p>Measure of central tendency and dispersion for the <code>count</code> column grouped by <code>month</code> (the child’s age).</p></li>
+<li><p>Total number of gestures by children (<code>dyad</code>).</p></li>
+<li><p>Number of children by <code>background</code>.</p></li>
+</ul></li>
+<li><p>Write a short paragraph where you report the measures.</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Practice 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li><p>Go to <a href="https://github.com/stefanocoretta/infant-gestures" class="uri">https://github.com/stefanocoretta/infant-gestures</a> and download the <code>gestures.csv</code> file in the <code>data/</code> folder. This is data from the paper [A Cross-Cultural Analysis of Early Prelinguistic Gesture Development and Its Relationship to Language Development](https://doi.org/10.1111/cdev.13406).</p></li>
-<li><p>Read the file in R.</p></li>
-<li><p>Calculate the following:</p>
-<ul>
-<li><p>Measure of central tendency and dispersion for the <code>count</code> column (it contains the number of gestures performed by each child in different tasks).</p></li>
-<li><p>Measure of central tendency and dispersion for the <code>count</code>column grouped by <code>month</code> (the child’s age).</p></li>
-<li><p>Total number of gestures by children (<code>dyad</code>).</p></li>
-<li><p>Number of children by <code>background</code>.</p></li>
-</ul></li>
-<li><p>Write a short paragraph where you report the measures. You can right this as comments in your R script. For examples, see above.</p></li>
-</ul>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
 Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>To calculate the total number of gestures by children, you need the <code>sum()</code> function.</p></li>
@@ -412,7 +542,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -421,12 +551,12 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Have you tried doing the exercise and couldn’t work it out?</p>
 <p>The you can check the code solution here…</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -435,35 +565,34 @@ Code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>gestures <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_med =</span> <span class="fu">median</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_min =</span> <span class="fu">min</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_max =</span> <span class="fu">max</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_range =</span> count_max <span class="sc">-</span> count_min</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>gestures <span class="sc">%&gt;%</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(months) <span class="sc">%&gt;%</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_med =</span> <span class="fu">median</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_min =</span> <span class="fu">min</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_max =</span> <span class="fu">max</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_range =</span> count_max <span class="sc">-</span> count_min</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>gestures <span class="sc">%&gt;%</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dyad) <span class="sc">%&gt;%</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_tot =</span> <span class="fu">sum</span>(count)</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>gestures <span class="sc">%&gt;%</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(background, dyad) <span class="sc">%&gt;%</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(background)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>gestures <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_med =</span> <span class="fu">median</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_min =</span> <span class="fu">min</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_max =</span> <span class="fu">max</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_range =</span> count_max <span class="sc">-</span> count_min</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>gestures <span class="sc">|&gt;</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(months) <span class="sc">|&gt;</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_med =</span> <span class="fu">median</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_min =</span> <span class="fu">min</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_max =</span> <span class="fu">max</span>(count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_range =</span> count_max <span class="sc">-</span> count_min</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>gestures <span class="sc">|&gt;</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dyad) <span class="sc">|&gt;</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_tot =</span> <span class="fu">sum</span>(count)</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>gestures <span class="sc">|&gt;</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(background, dyad) <span class="sc">|&gt;</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(background)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -473,40 +602,28 @@ Code
 </div>
 </div>
 </section>
-</section>
-<section id="summary" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="summary"><span class="header-section-number">2</span> Summary</h2>
-<p>That’s all for this week!</p>
+<section id="summary" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="summary"><span class="header-section-number">6</span> Summary</h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>R Markdown</strong></p>
+<p><strong>Data summaries</strong></p>
 <ul>
-<li><p><strong>R Markdown</strong> can be used to create dynamic and reproducible reports.</p></li>
-<li><p><strong>Mark-up languages</strong> are text-formatting systems that specify text formatting and structure using symbols or keywords. Markdown is the mark-up language R Markdown is based on.</p></li>
-<li><p>The main parts of an <code>.Rmd</code> file are the preamble, text and code chunks.</p></li>
+<li><p><code>summarise()</code> allows you to calculate measures of central tendency and dispersion (with <code>mean()</code>, <code>median()</code>, <code>min()</code> and <code>max()</code>, <code>sd()</code>, …).</p></li>
+<li><p><code>count()</code> lets you count the number of occurrences of levels in a categorical variable.</p></li>
+<li><p><code>group_by()</code> allows you to group a tibble according to one or more variables.</p></li>
 </ul>
 <p><strong>Plotting</strong></p>
 <ul>
-<li><p><strong>ggplot2</strong> is a plotting package from the tidyverse.</p>
-<ul>
-<li><p>To create a basic plot, you use the <code>ggplot()</code> function and specify <code>data</code> and <code>mapping</code>.</p></li>
-<li><p>The <code>aes()</code> function allows you to specify aesthetics (like axes, colours, …) in the <code>mapping</code> argument.</p></li>
-<li><p>Geometries map data values onto shapes in the plot. All geometry functions are of the type <code>geom_*()</code>.</p></li>
-</ul></li>
-<li><p><strong>Scatter plots</strong> are created with <code>geom_point()</code> and can be used with two numeric variables.</p></li>
-<li><p><strong>Bar charts</strong> are created with <code>geom_bar()</code> and can be used to show the counts of different levels of a categorical variable.</p></li>
-<li><p><strong>Stacked bar charts</strong> are created by specifying the <code>fill</code> aesthetic and can be used to show counts grouped by a second categorical variable.</p></li>
-<li><p><strong>Stacked bar charts showing proportions</strong> can be created with the argument <code>position = "fill"</code> in <code>geom_bar()</code>.</p></li>
-<li><p><strong>Faceting</strong> allows you to split the plot in different panels, based on other variables in the data. Faceting is achieved with <code>facet_grid()</code>.</p></li>
+<li><p><code>geom_density()</code> creates density plots of continuous variables.</p></li>
+<li><p><code>geom_rug()</code> adds raw data as ticks on the <em>x</em>-axis of density plots.</p></li>
 </ul>
 </div>
 </div>
 </div>
-<p>Next week, we will start learning about statistical modelling and while doing that you will also learn how to create density and violin plots and how to customise legends, titles and labels!</p>
 
 
 </section>

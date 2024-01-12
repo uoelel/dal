@@ -12,6 +12,13 @@ format:
 
 ## Summary measures
 
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+```
+
 During the lecture, we have learnt two types of measures.
 
 ::: callout-tip
@@ -34,7 +41,15 @@ We have covered this in the lecture, so we won't go over it again here. Instead,
 
 -   One or more summary functions.
 
-For example, let's get the mean the reaction time column `RT`. Easy!
+For example, let's get the mean the reaction time column `RT`. Easy! (First attach the tidyverse and read the `song2020/shallow.csv` file into a variable called `shallow`.)
+
+```{r}
+#| label: shallow
+#| echo: false
+#| message: false
+
+shallow <- read_csv("data/song2020/shallow.csv")
+```
 
 ```{r}
 #| label: mean
@@ -43,35 +58,51 @@ summarise(shallow, RT_mean = mean(RT))
 
 ```
 
-Great! The mean reaction times of the entire sample is 867 ms.
+Great! The mean reaction times of the entire sample is 867.3592 ms.
 
-What if we want also the standard deviation? Easy!
+You can round numbers with the `round()` function. For example:
+
+```{r}
+#| label: round
+
+num <- 867.3592
+round(num)
+round(num, 1)
+round(num, 2)
+
+```
+
+The second argument sets the number of decimals to round to (by default, it is `0`, so the number is rounded to the nearest integer).
+
+Let's recalculate the mean by rounding it this time.
+
+```{r}
+#| label: mean-2
+
+summarise(shallow, RT_mean = round(mean(RT)))
+```
+
+What if we want also the standard deviation? Easy: we use the `sd()` function. (Round the mean and SD with the `round()` function in your code).
 
 ```{r}
 #| label: sd
 
+# round the mean and SD
 summarise(shallow, RT_mean = mean(RT), RT_sd = sd(RT))
 
 ```
 
-```{r}
-#| label: comments-2
-
-# This is a comment. Let's add 6 + 3.
-6 + 3
-```
-
 Now we know that reaction times are on average 867 ms long and have a standard deviation of about 293 ms (rounded to the nearest integer).
 
-Let's go all the way and also get the minimum and maximum RT values.
+Let's go all the way and also get the minimum and maximum RT values with the `min()` and `max()` functions (round all the summary measures).
 
 ```{r}
-#| label: minmax
+#| label: minmax-ex
 
 summarise(
   shallow,
   RT_mean = mean(RT), RT_sd = sd(RT),
-  RT_min = min(RT), RT_max = max(RT)
+  RT_min = ..., RT_max = ...
 )
 
 ```
@@ -80,33 +111,71 @@ Fab! When writing a data report, you could write something like this.
 
 > Reaction times are on average 867 ms long (SD = 293 ms), with values ranging from 0 to 1994 ms.
 
-We will learn more about standard deviations from Week 4 on, but for now just think of this as a relative measure of how dispersed the data are around the mean: the higher the SD, the greater the dispersion around the mean, i.e. the greater the variability in the data.
+We won't go into the details of what standard deviations are, but you can just think of them as a relative measure of how dispersed the data are around the mean: the higher the SD, the greater the dispersion around the mean, i.e. the greater the variability in the data.
 
 When required, you can use the `median()` function to calculate the median, instead of the `mean()`. Go ahead and calculate the median reaction times in the data. Is it similar to the mean?
 
-::: callout-note
-#### Quiz 5
+### `NA`s
+
+Most base R functions behave unexpectedly if the vector they are used on contain `NA` values.
+
+`NA` is a special object in R, that indicates that a value is **N**ot **A**vailable, meaning that that observation does not have a value.
+
+For example, in the following numeric vector, there are 5 objects:
 
 ```{r}
-#| label: quiz-5
+a <- c(3, 5, 3, NA, 4)
+```
+
+Four are numbers and one is `NA`.
+
+If you calculate the mean of `a` with `mean()` something strange happens.
+
+```{r}
+mean(a)
+```
+
+The functions returns `NA`.
+
+This is because by default when just one value in the vector is `NA` then operations on the vector will return `NA`.
+
+```{r}
+mean(a)
+sum(a)
+sd(a)
+```
+
+If you want to discard the `NA` values when operating on a vector that contains them, you have to set the `na.rm` (for "`NA` remove") argument to `TRUE`.
+
+```{r}
+mean(a, na.rm = TRUE)
+sum(a, na.rm = TRUE)
+sd(a, na.rm = TRUE)
+```
+
+::: callout-note
+#### Quiz 1
+
+```{r}
+#| label: quiz-1
 #| results: asis
 #| echo: false
 
-opts_5a <- c(
+opts_1a <- c(
    "It changes `NA`s to `FALSE`.",
    "It converts `NA`s to `0`s.",
    answer = "It removes `NA`s before taking the mean."
 )
 
-cat("a. What does the `na.rm` argument of `mean()` do?", longmcq(opts_5a))
+cat("a. What does the `na.rm` argument of `mean()` do?", longmcq(opts_1a))
 
-opts_5b <- c(
+opts_1b <- c(
    answer = "`NA`.",
    "`0`.",
    "`10.66`."
 )
 
-cat("b. Which is the mean of `c(4, 23, NA, 5)` when `na.rm` has the default value?", longmcq(opts_5b))
+cat("b. Which is the mean of `c(4, 23, NA, 5)` when `na.rm` has the default value?", longmcq(opts_1b))
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -118,30 +187,142 @@ Check the documentation of `?mean`.
 
 Note that R has a `mode()` function, but alas this is not the statistical mode. To get the mode of a categorical variable you can just count the occurrences of the values of that variable and the value that occurs the most is the mode!
 
+You will learn how to count occurrences below. But first, let's see what density plots are!
+
+## Density plots
+
+::: callout-tip
+#### Density plots
+
+**Density plots** show the distribution (i.e. the "probability density") of the values of a continuous variable.
+
+They are created with `geom_density()`.
+:::
+
+Reaction times is a numeric continuous variable so density plots are appropriate.
+
+To plot the probability density of a continuous variable, you can use the `density` geometry.
+
+```{r}
+#| label: rt-dens
+
+shallow |>
+  ggplot(aes(x = RT)) +
+  geom_density()
+```
+
+The black solid curve in the plot indicates the **density** of the data (the *y*-axis) along the values of RT (the *x*-axis).
+
+The higher the point of the curve is on the *y*-axis (i.e. the higher the density), the more data there is at the corresponding *x*-axis value.
+
+For example, the highest point in the curve is at around 750 ms (the white vertical line between 500 and 1000 is 750).
+
+This means that around 750 ms there are many observations.
+
+On the other hand, if you look at the curve to the left of 500 ms RT and above 1500 ms RT, the height of the points forming the curve are much lower and in some cases they even go to 0 density (*y*-axis).
+
+Note that to create a density plot, you only need to specify the `x`-axis. The `y`-axis is the probability density, which is automatically calculated (a bit like counts in bar charts, remember?).
+
+### Make things cosy with a rug
+
+The density line shows you a smoothed representation of the data distribution over RT values, but you might also want to see the raw data represented on the *x*sxis.
+
+You can do so by adding the `rug` geometry. Go ahead and add a rug...
+
+```{r}
+#| label: rt-dens-rug-ex
+#| eval: false
+
+shallow |>
+  ggplot(aes(RT)) +
+  geom_density() +
+  ...
+```
+
+You should get the following:
+
+```{r}
+#| label: rt-dens-rug
+#| echo: false
+
+shallow |>
+  ggplot(aes(RT)) +
+  geom_density() +
+  geom_rug()
+```
+
+Nice huh? You can also change the opacity of the ticks of the rug to have a better sense of how many ticks there are at certain values on the *x*-axis.
+
+Opacity of geometries can be adjusted with the `alpha` argument: 0 means completely transparent and 1 means completely opaque.
+
+Let's set the alpha of the rug geometry to 0.1.
+
+```{r}
+#| label: rt-dens-rug-2
+#| echo: false
+
+shallow |>
+  ggplot(aes(RT)) +
+  geom_density() +
+  geom_rug(alpha = 0.1)
+```
+
+Can you see how the blackest parts of the rug correspond to the higher parts of the density curve?
+
+::: callout-tip
+#### Rug
+
+Raw data can be shown with a **rug**, i.e. ticks on the axes that mark where the data is.
+
+You can add a rug with `geom_rug()`.
+:::
+
+::: callout-note
+#### Quiz 2
+
+What can you notice about the distribution of RT values?
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+Is the distribution symmetric around the highest density point?
+:::
+:::
+
 Keep reading to learn how to count occurrences.
 
-### Count occurrences
+## Count occurrences
 
-We can use the `count()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package to count the number of occurrences for each value of a specific column. Let's count how many trials are correct, i.e. let's count occurrences in the `ACC` column.
+Often, you need to count occurrences in the data frame based on the values of specific columns.
 
-Accuracy has been coded with `0` for incorrect and `1` for correct. We will see how this is not an ideal, although very common way, of coding binary variables. For now let's keep it as is.
+For example, let's count the number of correct and incorrect trials in the `shallow` data frame.
 
-The function `count()` takes the name of tibble and the name of column you want to count values in.
+The column `ACC` tells us whether a trial is incorrect `0` or correct `1`. (We will see how this way of coding binary variables, with `0`s and `1`s is not an ideal, although very common way, of coding binary variables. For now let's keep it as is.)
 
-```{r count-corr, eval=FALSE}
+We can use the `count()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package to count the number of occurrences for each value of a specific column.
+
+The function `count()` takes the name of a tibble and the name of the column you want to count values in.
+
+```{r}
 #| label: count-corr
 
 count(shallow, ACC)
 
+# You can also write that as
+# shallow |> count(ACC)
+
 ```
 
-How many *correct* responses are there in the `shallow` tibble?
+How many *correct* trials are there in the `shallow` tibble? And how many *incorrect* trials?
 
 Note that you can add **multiple column names, separated by commas**, to get counts for the combinations of values of each column.
 
 Try to get counts of the combination of `ACC` and `Group` (`L1` vs `L2` participants). Replace `...` with the right code.
 
-```{r count-corr-group, eval=FALSE}
+```{r}
+#| label: count-acc-group-ex
+#| eval: false
+
 count(shallow, ...)
 ```
 
@@ -151,21 +332,79 @@ count(shallow, ...)
 In `count()`, include the names of the two columns you want to get counts of, separated by commas.
 :::
 
-Are there differences in accuracy between the L1 and L2 group?
+This is the output:
 
-### Grouping data
+```{r}
+#| label: count-acc-group
+#| echo: false
 
-Sometimes you might want to get summary measures for one variable depending on different values of another variable.
+count(shallow, ACC, Group)
+```
+
+Are there differences in accuracy between the L1 and L2 group? It's difficult to say just by looking at those numbers, because the total number of trials for L1 and L2 participants is different.
+
+```{r}
+#| label: count-group
+#| echo: false
+
+count(shallow, Group)
+```
+
+There are more L2 trials than L1 trials in the data set.
+
+When the total number of observations is not the same in the groups we are trying to compare, we can calculate the **proportion** instead of the raw count.
+
+This should ring a bell. Do you remember `position = "fill"` in bar charts? This is based on the same reasoning.
+
+We can calculate the proportion of correct and incorrect trials using a chain of functions.
+
+```{r}
+#| label: count-prop
+
+shallow |>
+  add_count(Group, name = "tot") |>
+  count(Group, ACC, tot) |>
+  mutate(
+    prop = round(n / tot, 2)
+  )
+
+```
+
+To learn what each line does, you can split the chain in multiple steps and inspect each step.
+
+```{r}
+#| label: count-prop-split
+
+shallow_tot <- shallow |>
+  add_count(Group, name = "tot")
+
+shallow_count <- shallow_tot |>
+  count(Group, ACC, tot) 
+
+shallow_prop <- shallow_count |>
+  mutate(
+    # round proportion to 2 decimals.
+    prop = round(n / tot, 2)
+  )
+```
+
+Now check `shallow_tot`, `shallow_count` and `shallow_prop`.
+
+Based on the proportion of correct trials in the L1 and L2 group, are there substantial differences in how the two groups performed? Or are they similar? If not, who was better?
+
+## Grouping data
+
+Sometimes you might want to get summary measures for one column depending on different values of another column.
 
 You can use the `group_by()` function from the [dplyr](https://dplyr.tidyverse.org) tidyverse package, together with `summarise()` to achieve that. Let's see how it works.
 
 ```{r}
 #| label: group
 
-group_by(shallow, Group) %>%
+group_by(shallow, Group) |>
   summarise(
-    RT_mean = mean(RT),
-    RT_sd = sd(RT)
+    RT_mean = round(mean(RT)),
+    RT_sd = round(sd(RT))
   )
 
 ```
@@ -178,97 +417,56 @@ The `group_by()` function takes at least two arguments:
 
 Here we are grouping `shallow` by `Group`.
 
-If you are baffled by that `%>%`, keep on reading.
-
-### What the pipe?!
-
-Wait, what is that thing, `%>%`?
-
-It's called a **pipe**. Think of a pipe as a teleporter.
-
-In the code above we are chaining two functions together using the pipe opeartor `%>%`. The output of the first function (`group_by()`) is "teleported" into the second function `summarise()`.
-
-The pipe `%>%` teleports the output of the preceding function as the first argument of the following function. The output of `group_by` is a (grouped) tibble, and `summarise()` needs a tibble as its first argument.
-
-That's why the code above works!
-
-In fact, you can even use a pipe for the tibble of `group_by()`, like so:
+In fact, you can even use a pipe for the tibble of `group_by()` as we have done for other functions, like so:
 
 ```{r}
 #| label: pipe
 
-shallow %>%
-  group_by(Group) %>%
+shallow |>
+  group_by(Group) |>
     summarise(
-      RT_mean = mean(RT),
-      RT_sd = sd(RT)
+      RT_mean = round(mean(RT)),
+      RT_sd = round(sd(RT))
     )
 
 ```
 
-You see that the output of the code is the same here as it is above.
-
-For comparison, this is what the code would look like without the pipe.
-
-```{r}
-#| label: no-pipe
-
-grouped_shallow <- group_by(shallow, Group)
-
-summarise(
-  grouped_shallow,
-  RT_mean = mean(RT),
-  RT_sd = sd(RT)
-)
-
-```
-
-Don't worry too much if the concept of the pipe is not clear yet. It should become clearer later.
-
 ::: callout-note
-#### Quiz 6
+#### Quiz 3
 
 ```{r}
-#| label: quiz-6
+#| label: quiz-3
 #| results: asis
 #| echo: false
 
-opts_6a <- c(
+opts_3a <- c(
    "`count(shallow, Target)`.",
-   answer = "`shallow %>% distinct(Target) %>% count()`.",
-   "`shallow %>% count(Target)`."
+   answer = "`shallow |> distinct(Target) |> count()`.",
+   "`shallow |> count(Target)`."
 )
 
-cat("a. Which of the following returns the number of words in `shallow`?", longmcq(opts_6a))
-
-cat("b. The output of `summarise()` always drops the grouping.", torf(FALSE))
+cat("Which of the following returns the number of words in `shallow`?", longmcq(opts_3a))
 ```
-
-::: {.callout-tip collapse="true"}
-#### Hint
-
-For 6b., check the documentation of `?summarise`.
-:::
 :::
 
-::: {.callout-note collapse="true"}
-#### Practice 2
+## Practice
 
--   Go to <https://github.com/stefanocoretta/infant-gestures> and download the `gestures.csv` file in the `data/` folder. This is data from the paper \[A Cross-Cultural Analysis of Early Prelinguistic Gesture Development and Its Relationship to Language Development\](https://doi.org/10.1111/cdev.13406).
+::: {.callout-note}
+#### Practice 1
 
--   Read the file in R.
+-   Read the `cameron2020/gestures.csv` file in R.
 
 -   Calculate the following:
 
     -   Measure of central tendency and dispersion for the `count` column (it contains the number of gestures performed by each child in different tasks).
 
-    -   Measure of central tendency and dispersion for the `count`column grouped by `month` (the child's age).
+    -   Measure of central tendency and dispersion for the `count` column grouped by `month` (the child's age).
 
     -   Total number of gestures by children (`dyad`).
 
     -   Number of children by `background`.
 
--   Write a short paragraph where you report the measures. You can right this as comments in your R script. For examples, see above.
+-   Write a short paragraph where you report the measures.
 
 ::: {.callout-tip collapse="true"}
 #### Hint
@@ -289,7 +487,7 @@ The you can check the code solution here...
 #### Code
 
 ``` r
-gestures %>%
+gestures |>
   summarise(
     count_med = median(count, na.rm = TRUE),
     count_min = min(count, na.rm = TRUE),
@@ -297,8 +495,8 @@ gestures %>%
     count_range = count_max - count_min
   )
 
-gestures %>%
-  group_by(months) %>%
+gestures |>
+  group_by(months) |>
   summarise(
     count_med = median(count, na.rm = TRUE),
     count_min = min(count, na.rm = TRUE),
@@ -306,14 +504,14 @@ gestures %>%
     count_range = count_max - count_min
   )
 
-gestures %>%
-  group_by(dyad) %>%
+gestures |>
+  group_by(dyad) |>
   summarise(
     count_tot = sum(count)
   )
 
-gestures %>%
-  distinct(background, dyad) %>%
+gestures |>
+  distinct(background, dyad) |>
   count(background)
 ```
 :::
@@ -322,36 +520,22 @@ gestures %>%
 
 ## Summary
 
-That's all for this week!
-
 ::: {.callout-note appearance="minimal"}
-**R Markdown**
 
--   **R Markdown** can be used to create dynamic and reproducible reports.
+**Data summaries**
 
--   **Mark-up languages** are text-formatting systems that specify text formatting and structure using symbols or keywords. Markdown is the mark-up language R Markdown is based on.
+- `summarise()` allows you to calculate measures of central tendency and dispersion (with `mean()`, `median()`, `min()` and `max()`, `sd()`, ...).
 
--   The main parts of an `.Rmd` file are the preamble, text and code chunks.
+- `count()` lets you count the number of occurrences of levels in a categorical variable.
+
+- `group_by()` allows you to group a tibble according to one or more variables.
 
 **Plotting**
 
--   **ggplot2** is a plotting package from the tidyverse.
+- `geom_density()` creates density plots of continuous variables.
 
-    -   To create a basic plot, you use the `ggplot()` function and specify `data` and `mapping`.
+- `geom_rug()` adds raw data as ticks on the *x*-axis of density plots.
 
-    -   The `aes()` function allows you to specify aesthetics (like axes, colours, ...) in the `mapping` argument.
 
-    -   Geometries map data values onto shapes in the plot. All geometry functions are of the type `geom_*()`.
-
--   **Scatter plots** are created with `geom_point()` and can be used with two numeric variables.
-
--   **Bar charts** are created with `geom_bar()` and can be used to show the counts of different levels of a categorical variable.
-
--   **Stacked bar charts** are created by specifying the `fill` aesthetic and can be used to show counts grouped by a second categorical variable.
-
--   **Stacked bar charts showing proportions** can be created with the argument `position = "fill"` in `geom_bar()`.
-
--   **Faceting** allows you to split the plot in different panels, based on other variables in the data. Faceting is achieved with `facet_grid()`.
 :::
 
-Next week, we will start learning about statistical modelling and while doing that you will also learn how to create density and violin plots and how to customise legends, titles and labels!

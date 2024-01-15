@@ -16,14 +16,6 @@ knitr:
     fig-width: 7
 ---
 
-## 
-
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/650da2afee00ec87f4ba2bb2" width="100%"></iframe>
-
-## 
-
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/650e9f61e6ae38eac56ba5cc" width="100%"></iframe>
-
 
 ## Sample $y$
 
@@ -159,7 +151,7 @@ Think of ways to operationalise the following:
 
 ## Operationalisation
 
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/SQQFXB/questions/65019850638677cbb76578e0" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/6580429f7ebd9b76bfdf4bca" width="100%"></iframe>
 
 ## Summary
 

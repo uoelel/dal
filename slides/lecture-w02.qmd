@@ -10,6 +10,14 @@ format:
 filters: [tachyonsextra]
 ---
 
+## 
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/6580429e8341262024a4cdc9" width="100%"></iframe>
+
+## 
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/6580429e7ebd9b76bfdf4b78" width="100%"></iframe>
+
 ## Research process
 
 ![](/img/res-process-cycle.png){fig-align="center"}

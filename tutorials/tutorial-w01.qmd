@@ -238,7 +238,11 @@ c <- c(6, 8, 42)
 
 <!-- Check the list of variables in the `Environment` tab. You will see now that before the values of `two_i` and `three_i` you get the vector type `num` for numeric. (If the vector has only one value, you don't see the type in the `Enviroment` list but it is still of a specific type). -->
 
-You can check the type of vector (called class in R) with the `class()` function: for example, `class(a)` should return `"numeric"`.
+You can check the type of vector (called class in R) with the `class()` function: for example, `class(a)` returns `"numeric"`.
+
+```{r}
+class(a)
+```
 
 ::: callout-tip
 #### Numeric vector
@@ -288,7 +292,7 @@ cat("c. A numeric vector can only hold numeric values.", torf(TRUE), "\n\n")
 
 > R cannot function without... functions.
 
-We have encoutered a few functions: `cat()`, `c()`, `class()` and `ls()`.
+We have encountered a few functions: `cat()`, `c()`, `class()` and `ls()`.
 
 ::: callout-tip
 #### Function
@@ -418,9 +422,13 @@ fruit <- c("apple", "oranges", "bananas")
 fruit
 ```
 
-Check the Environment tab. Character vectors have `chr` before the values.
+Use the `class()` function to check the vector class.
 
-Another type of vector is one that contains either `TRUE` or `FALSE`. Vectors of this type are called **logical vectors** and they are listed as `logi` in the `Environment` tab.
+```{r}
+class(fruit)
+```
+
+Another type of vector is one that contains either `TRUE` or `FALSE`. Vectors of this type are called **logical vectors** and their class is `logical`.
 
 ::: callout-tip
 #### Logical vector
@@ -433,6 +441,7 @@ A **logical vector** is a vector that holds one or more `TRUE` or `FALSE` values
 
 groceries <- c("apple", "flour", "margarine", "sugar")
 in_pantry <- c(TRUE, TRUE, FALSE, TRUE)
+class(in_pantry)
 
 data.frame(groceries, in_pantry)
 ```
@@ -559,3 +568,4 @@ If you are interested in learning about programming in R, I recommend you go thr
 
 Note that these topics are not covered in the course, nor will be assessed.
 :::
+

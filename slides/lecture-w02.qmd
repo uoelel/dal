@@ -1,6 +1,6 @@
 ---
-title: "Data Analysis for LEL"
-subtitle: "Week 2"
+title: "Data Analysis for LEL - Week 2"
+subtitle: "Research process"
 author: "Stefano Coretta"
 institute: University of Edinburgh
 format:

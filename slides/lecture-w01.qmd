@@ -1,6 +1,6 @@
 ---
-title: "Data Analysis for LEL"
-subtitle: "Week 1"
+title: "Data Analysis for LEL - Week 1"
+subtitle: "Quantitative methods and uncertainty"
 author: "Stefano Coretta"
 institute: University of Edinburgh
 format:

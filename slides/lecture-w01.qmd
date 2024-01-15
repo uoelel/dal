@@ -20,7 +20,7 @@ filters:
 ## Course info
 
 ::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
--   The main course website <https://uoelel.github.io/qml/>.
+-   The main course website <https://uoelel.github.io/dal/>.
 
 -   Course announcements are sent via Learn.
 

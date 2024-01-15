@@ -1,18 +1,18 @@
 ## Assessment overview
 
-This course will be assessed on the basis of a set of online tests, **2 formative assessments** and **2 summative assessments**.
+This course will be assessed on the basis of **2 formative assessments** and **2 summative assessments**.
 
-**Formative assessments** are mock assessments that mirror the summative assessments. These will give you a chance to keep on track with the course contents and get interim feedback that will better prepare you for the summative assessment.
+**Formative assessments** are mock assessments that give you the chance for an interim check in with what you have learnt and what you might need to revise. They will not be individually marked, but a model answer will be shared after the deadline. There will be **two formative assessments**.
 
-You will have to submit **two summative assessments**. They will weight 50% and 50% of the final mark.
+You will have to submit **two summative assessments**, each covering all the course content. They will weight 50% and 50% of the final mark.
 
 See below for details (**DETAILS TO BE ADDED**).
 
 ## Feedback and marking
 
-You will receive individual feedback for the summative assessments, as comments on the submitted file in Turnitin.
+The formative assessments will not be individually marked and feedback will consist of a model answer, shared after the formative deadline. You will receive individual feedback for the summative assessments, as comments on the submitted file in Turnitin.
 
-The comments will be categorised according the the Feedback Categorisation Rubric used for this course, which you can see [here](https://uoe-my.sharepoint.com/:x:/g/personal/scoretta_ed_ac_uk/EWXAA_yIFx9Aoj8WF2glt6MBEyHbUr8CUBqR1Tt1sSTwJg?e=ba3tZ7). The rubric is based on the learning outcomes of the course. For each criterion in the rubric there are three possible outcomes: insufficient, developing, proficient. This should help you identify areas of strength and those that can be improved.
+The comments will be categorised according the the Feedback Categorisation Rubric used for this course, which you can see [here](https://uoe-my.sharepoint.com/:x:/g/personal/scoretta_ed_ac_uk/EUCBJX110bREo-JyR1_42egBlT-2xH0XBLjE75kYU4jJJA?e=U99nlT). The rubric is based on the learning outcomes of the course. For each criterion in the rubric there are three possible outcomes: insufficient, developing, proficient. This should help you identify areas of strength and those that can be improved.
 
 Note that the Feedback Categorisation Form is **not used to calculate a numeric mark**. Marking will follow the PPLS MSc Common Marking Scheme, which you can find [here](https://uoe.sharepoint.com/:u:/r/sites/hss/ppls/MScHub/SitePages/Marking-%26-Moderation-Procedure.aspx?csf=1&web=1&e=RyVb39) (login required).
 
@@ -22,25 +22,29 @@ More specifically, we will use a "step marking" procedure, where, within each ma
 - 5: The criteria for the mark band have been achieved fully.
 - 8: The criteria for the mark band have been achieved fully and in a particularly remarkable way, but not in such a way to grant a higher mark band.
 
-Finally, please note that marking does not follow a point-based system, i.e. different exercises are not assigned a specific amount of points you can obtain and we will instead adopt an "impression-based" marking system, based on the descriptors of the PPLS MSC Common Marking Scheme.
+Finally, please note that *marking does not follow a point-based system*, i.e. different exercises are not assigned a specific amount of points you can obtain and we will instead adopt an "impression-based" marking system, based on the descriptors of the PPLS MSC Common Marking Scheme.
 
-<!-- ## Formative assessments -->
+## Formative assessments
 
-<!-- ::: {.callout-warning} -->
-<!-- ## Formative 1: Week 5 (Thu 19 October at noon) -->
+::: {.callout-warning}
+## Formative 1: Week 5 (Thu 19 October at noon)
 
-<!-- **Data summary and visualisation** -->
+**Reading and visualising data**
+
+This formative assessments covers Weeks 1-4.
 
 <!-- You can find the instructions and data for the first formative here: <https://github.com/uoelel/qml-f1/>. -->
-<!-- ::: -->
+:::
 
-<!-- ::: {.callout-warning} -->
-<!-- ## Formative 2: Week 10 (Thu 23 November at noon) -->
+::: {.callout-warning}
+## Formative 2: Week 10 (Thu 7 March at noon)
 
-<!-- **Statistical modelling** -->
+**Data transformation**
+
+This formative assessments covers Weeks 1-6.
 
 <!-- You can find the instructions and data for the second formative here: <https://github.com/uoelel/qml-f2/>. -->
-<!-- ::: -->
+:::
 
 ## Summative assessments
 
@@ -62,9 +66,9 @@ The first summative contains 2 guided exercises that cover things done in Weeks 
 
 For the second summative assessment you will have to find a data set from published research of your choice and write a short data analysis report on the chosen data.
 
-**You must submit to Turnitin for approval a brief description of the data set including a link to the relevant publication, by Monday 25th April.**
+**You must submit to Turnitin for approval a brief description of the data set including a link to the relevant publication, by Monday 25th March.**
 
-**The summative assessment report due on 25 April should include:**
+**The summative assessment report is due on 25 April and should include:**
 
 -   A brief explanation of the study the data comes from (remember to include proper attribution by citing relevant publications).
 -   A general description of the data frame (number and types of columns, number of observations, summary measures).

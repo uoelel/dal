@@ -2,8 +2,6 @@
 title: "DAL tutorial - Week 6"
 subtitle: "Data transformation II"
 editor: visual
-execute:
-  eval: false
 format: 
   html:
     css: [webex.css]
@@ -17,6 +15,7 @@ format:
 #| include: false
 
 library(tidyverse)
+library(webexercises)
 ```
 
 During the lecture, we have learnt two types of measures.
@@ -98,6 +97,7 @@ Let's go all the way and also get the minimum and maximum RT values with the `mi
 
 ```{r}
 #| label: minmax-ex
+#| eval: false
 
 summarise(
   shallow,
@@ -451,7 +451,7 @@ cat("Which of the following returns the number of words in `shallow`?", longmcq(
 
 ## Practice
 
-::: {.callout-note}
+::: callout-note
 #### Practice 1
 
 -   Read the `cameron2020/gestures.csv` file in R.
@@ -521,21 +521,17 @@ gestures |>
 ## Summary
 
 ::: {.callout-note appearance="minimal"}
-
 **Data summaries**
 
-- `summarise()` allows you to calculate measures of central tendency and dispersion (with `mean()`, `median()`, `min()` and `max()`, `sd()`, ...).
+-   `summarise()` allows you to calculate measures of central tendency and dispersion (with `mean()`, `median()`, `min()` and `max()`, `sd()`, ...).
 
-- `count()` lets you count the number of occurrences of levels in a categorical variable.
+-   `count()` lets you count the number of occurrences of levels in a categorical variable.
 
-- `group_by()` allows you to group a tibble according to one or more variables.
+-   `group_by()` allows you to group a tibble according to one or more variables.
 
 **Plotting**
 
-- `geom_density()` creates density plots of continuous variables.
+-   `geom_density()` creates density plots of continuous variables.
 
-- `geom_rug()` adds raw data as ticks on the *x*-axis of density plots.
-
-
+-   `geom_rug()` adds raw data as ticks on the *x*-axis of density plots.
 :::
-

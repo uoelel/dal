@@ -190,7 +190,7 @@ A variable like `my_num` is called a **numeric vector**: i.e. a vector that cont
 A **vector** is an R object that contains one or more values of the same type.
 :::
 
-A vector is a type of variable and a numeric vector is a type of vector. However, it's fine in most cases to use the word variable to mean vector (just note that a variable can also be something else than a vector; you will learn about other R objects from next week).
+A numeric vector is a type of vector. However, it's fine in most cases to use the word variable to mean vector (just note that a variable can also be something else than a vector; you will learn about other R objects from next week).
 
 Let's now try some operations using variables.
 
@@ -282,7 +282,7 @@ What if you want to know which variables you have created so far? Easy: use the 
 #| echo: false
 
 cat("**True or false?**", "\n\n")
-cat("a. A vector is a type of variable.", torf(TRUE), "\n\n")
+cat("a. A vector can be created with the `c()` function.", torf(TRUE), "\n\n")
 cat("b. Not all variables are vectors.", torf(TRUE), "\n\n")
 cat("c. A numeric vector can only hold numeric values.", torf(TRUE), "\n\n")
 ```
@@ -568,4 +568,3 @@ If you are interested in learning about programming in R, I recommend you go thr
 
 Note that these topics are not covered in the course, nor will be assessed.
 :::
-

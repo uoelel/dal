@@ -12,11 +12,23 @@ filters: [tachyonsextra]
 
 ## 
 
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/6580429e8341262024a4cdc9" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/6580429e8341262024a4cdc9" width="100%">
+
+</iframe>
+
+::: notes
+Rate the following from 1 (strongly disagree) to 5 (strongly agree) about your experience with Week 1 of the QML course
+:::
 
 ## 
 
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/6580429e7ebd9b76bfdf4b78" width="100%"></iframe>
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/6580429e7ebd9b76bfdf4b78" width="100%">
+
+</iframe>
+
+::: notes
+List things from Week 1 that you feel still unsure about
+:::
 
 ## Research process
 
@@ -28,9 +40,33 @@ filters: [tachyonsextra]
 
 </iframe>
 
+::: notes
+Which of the following are research hypotheses?
+:::
+
 ## Research rationale
 
 ![](/img/research-topic.png){fig-align="center"}
+
+## Research questions and hypotheses
+
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+**Research question**
+
+- Research questions are **testable questions** whose answers directly address the research problem.
+:::
+
+. . .
+
+::: {.bg-washed-green .b--dark-green .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+**Research hypotheses**
+
+- Research hypotheses are **testable statements** (not questions) about the research problem.
+
+- The hypotheses must be **falsifiable** (there can be in principle an outcome that shows them to be false).
+
+- Hypotheses can never be true nor confirmed. We can only **corroborate** hypothesis, and it's a long term process.
+:::
 
 ## Research cycle
 
@@ -42,11 +78,19 @@ filters: [tachyonsextra]
 
 </iframe>
 
+::: notes
+Which part of a research study do you believe should be beyond the control of the researcher?
+:::
+
 ## 
 
 <iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/6596aefb528489bc5449cd3f" width="100%">
 
 </iframe>
+
+::: notes
+Which part of a research study do you believe is most important for advancing a researcher's career?
+:::
 
 ## Research cycle: the dangers
 
@@ -90,25 +134,24 @@ The dataset contains data from 113 studies, published between 1955 and 2017 (the
 
 ---[Bochynska et al. 2023](https://doi.org/10.5070/G6011239)
 
-
 ## Activity {background-color="var(--inverse)"}
 
-- Search for a paper you are interested in or that you have recently read.
+-   Search for a paper you are interested in or that you have recently read.
 
-- Fill in the following spreadsheet with info on the paper you picked.
+-   Fill in the following spreadsheet with info on the paper you picked.
 
-  - [Spreadsheet](https://uoe-my.sharepoint.com/:x:/g/personal/scoretta_ed_ac_uk/Ed4YqE6FhzJHlB0Nv-shPUkBSIm0xwgG7uvm2PAiTrOkXw?e=BMaA2N>).
+    -   [Spreadsheet](https://uoe-my.sharepoint.com/:x:/g/personal/scoretta_ed_ac_uk/Ed4YqE6FhzJHlB0Nv-shPUkBSIm0xwgG7uvm2PAiTrOkXw?e=BMaA2N%3E).
 
 ## Open Scholarship practices
 
 ::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
-- Pre-registration and Registered Reports.
+-   Pre-registration and Registered Reports.
 
-- Share the Research Compendium (data, materials, code, etc).
+-   Share the Research Compendium (data, materials, code, etc).
 
-- Ensure your study is reproducible.
+-   Ensure your study is reproducible.
 
-- Think about sample size.
+-   Think about sample size.
 :::
 
 . . .

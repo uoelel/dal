@@ -117,3 +117,75 @@ This course will be loosely based on the following online textbook. Note that th
 -   [Study design](https://uoelel.github.io/study-design.html).
 -   [Falsifiability](https://uoelel.github.io/extra/falsifiable.html).
 :::
+
+### Week 3
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   What does file management involve?
+-   What is a research compendium?
+-   What are licenses and how does one choose how to license work?
+
+**Skills**
+
+-   Organising project files and picking licenses.
+-   Read data into R.
+-   Submitting a Data Management Plan.
+:::
+
+### Week 4
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   What are the principles of good data visualisation?
+-   Which are the pitfalls to avoid?
+-   How can showing the raw data make the plot more reliable?
+
+**Skills**
+
+-   Create dynamic reports with Quarto.
+-   Learn about plotting systems.
+-   Basics of plotting with ggplot2.
+:::
+
+### Week 5
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   What is a statistical variable?
+-   Which types of statistical variable are there?
+-   What is "operationalisation"?
+
+**Skills**
+
+-   Filter rows and mutate columns.
+-   Create bar charts.
+-   Separate data in plots using faceting.
+:::
+
+### Week 6
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   What are summary measures?
+-   Which summary measures are appropriate for which type of variable?
+-   How should summary measures be reported?
+
+**Skills**
+
+-   Obtain summary measures in R.
+-   Use grouped data.
+-   Create density plots.
+:::

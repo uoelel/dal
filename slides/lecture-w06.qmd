@@ -43,7 +43,7 @@ There are two types of summary measures.
 
 . . . 
 
-.bg-washed-yellow.b--gold.ba.bw2.br3.shadow-5.ph4.mt2[
+::: {.bg-washed-yellow .b--gold .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
 **Always report a measure of central tendency together with its measure of dispersion!**
 :::
 

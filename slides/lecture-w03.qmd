@@ -10,6 +10,18 @@ format:
 filters: [tachyonsextra]
 ---
 
+## 
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/65a7f78b2f099bddfb16043c" width="100%">
+
+</iframe>
+
+## 
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/65a7f7a868cebc85949f2230" width="100%">
+
+</iframe>
+
 ## Research project management
 
 ![](/img/project-management.png){fig-align="center"}

@@ -25,6 +25,18 @@ In the tutorial last week you've been playing around with R, RStudio and R scrip
 
 Easy! You can use the `read_*()` functions to read your files into R. But before we dive in, let's first talk about some computer basics. (You can skip this section if it's too basic for you.)
 
+::: callout-warning
+#### Enable all extensions
+
+Before moving on, we recommend you enable the option to show all file extensions in the File Explorer/Finder.
+
+Follow the instructions here:
+
+-   Windows: <https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01>
+
+-   macOS (For all files): <https://support.apple.com/en-gb/guide/mac-help/mchlp2304/mac#:~:text=In%20the%20Finder%20on%20your,“Show%20all%20filename%20extensions”.>
+:::
+
 ### Files, folder and file extensions
 
 Files saved on your computer live in a specific place. For example, if you download a file from a browser (like Google Chrome, Safari or Firefox), the file is normally saved in the `Download` folder.

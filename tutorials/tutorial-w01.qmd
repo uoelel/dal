@@ -1,5 +1,5 @@
 ---
-title: "QML tutorial - Week 1"
+title: "DAL tutorial - Week 1"
 subtitle: "R basics"
 editor: visual
 format: 

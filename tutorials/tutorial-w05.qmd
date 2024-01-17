@@ -318,7 +318,8 @@ As mentioned above, the counting for the *y*-axis is done automatically. R looks
 If you did things correctly, you should get the following plot.
 
 ```{r}
-#| label: status-bar
+#| label: fig-status-bar
+#| fig-cap: "Number of languages by endangerment status."
 #| echo: false
 
 global_south |>
@@ -330,7 +331,7 @@ The *x*-axis is now `status` and the *y*-axis corresponds to the number of langu
 
 You could write a description of the plot that goes like this:
 
-> The number of languages in the Global South by endangered status is shown as a bar chart in Figure 1. Among the languages that are endangered, the majority are threatened or shifting.
+> The number of languages in the Global South by endangered status is shown as a bar chart in @fig-status-bar. Among the languages that are endangered, the majority are threatened or shifting.
 
 What if we want to show the number of languages by endangerment status within each of the macro-areas that make up the Global South? Easy! You can make a stacked bar chart, but we will get to that after we first learn about `mutate()`.
 
@@ -365,7 +366,8 @@ If you check `glot_status` now you will find that a new column, `Status`, has be
 Let's reproduce the bar chart from above but with all the data from `glot_status`, using now the `Status` column.
 
 ```{r}
-#| label: status-bar-2
+#| label: fig-status-bar-2
+#| fig-cap: "Number of languages by endangerment status (repeated)."
 
 glot_status |>
   ggplot(aes(x = Status)) +
@@ -427,7 +429,8 @@ You see that now the order of the levels returned by `levels()` is the one we sp
 Transforming character columns to vector columns is helpful to specify a particular order of the levels which can then be used when plotting.
 
 ```{r}
-#| label: status-bar-3
+#| label: fig-status-bar-3
+#| fig-cap: "Number of languages by endangerment status (repeated)."
 
 glot_status |>
   ggplot(aes(x = Status)) +
@@ -470,7 +473,8 @@ global_south |>
 You should get the following.
 
 ```{r}
-#| label: status-stacked
+#| label: fig-status-stacked
+#| fig-cap: "Number of languages by macro-area and endangerment status."
 #| echo: false
 
 global_south |>
@@ -480,7 +484,7 @@ global_south |>
 
 A write-up example:
 
-> Figure 3 shows the number of languages by geographic macro-area, subdivided by endangerment status. Africa, Eurasia and Papunesia have substantially more languages than the other areas.
+> @fig-status-stacked shows the number of languages by geographic macro-area, subdivided by endangerment status. Africa, Eurasia and Papunesia have substantially more languages than the other areas.
 
 ::: callout-note
 #### Quiz 4
@@ -494,6 +498,8 @@ gestures |>
 ```
 :::
 
+## Filled stacked bar charts
+
 In the plot above it is difficult to assess whether different macro-areas have different proportions of endangerment. This is because the overall number of languages per area differs between areas.
 
 A solution to this is to plot **proportions** instead of raw counts.
@@ -503,16 +509,141 @@ You could calculate the proportions yourself, but there is a quicker way: using 
 You can plot proportions instead of counts by setting `position = "fill"` inside `geom_bar()`, like so:
 
 ```{r}
-#| label: status-stacked-2
-#| echo: false
+#| label: fig-status-stacked-2
+#| fig-cap: "Proportion of languages by macro-area and endangerment status."
 
 global_south |>
 ggplot(aes(x = Macroarea, fill = status)) +
   geom_bar(position = "fill")
 ```
 
-The plot now shows proportions of languages by endangerment status for each area separately. (Note that the *y*-axis label is still "count" but it is in fact proportions; you will learn how to change labels next week).
+The plot now shows proportions of languages by endangerment status for each area separately.
+
+Note that the *y*-axis label is still "count" but it is in fact proportions. You can change the labels of the axes and the fill legend with `labs()`.
+
+```{r}
+#| label: fig-status-stacked-3
+#| fig-cap: "Proportion of languages by macro-area and endangerment status."
+
+global_south |>
+ggplot(aes(x = Macroarea, fill = status)) +
+  geom_bar(position = "fill") +
+  labs(
+    x = "Macro-area",
+    y = "Proportion",
+    fill = "Endangerment"
+  )
+```
 
 With this plot it is easier to see that different areas have different proportions of endangerment. In writing:
 
-> Figure 4 shows proportions of languages by endangerment status for each macro-area. Australia, South and North America have a substantially higher proportion of extinct languages than the other areas. These areas also have a higher proportion of near extinct languages. On the other hand, Africa has the greatest proportion of non-endangered languages followed by Papunesia and Eurasia, while North and South America are among the areas with the lower proportion, together with Australia which has the lowest.
+> @fig-status-stacked-3 shows proportions of languages by endangerment status for each macro-area. Australia, South and North America have a substantially higher proportion of extinct languages than the other areas. These areas also have a higher proportion of near extinct languages. On the other hand, Africa has the greatest proportion of non-endangered languages followed by Papunesia and Eurasia, while North and South America are among the areas with the lower proportion, together with Australia which has the lowest.
+
+## Faceting and panels
+
+Sometimes we might want to separate the data into separate panels within the same plot.
+
+We can achieve that easily using **faceting**.
+
+### Polite again
+
+Let's reproduce [this plot](tutorial-w04.qmd#lets-add-geometries) from Week 4, but this time let's spice things up.
+
+This is the plot you made in Week 4. Try and reproduce it by writing the code yourself (you also have to read in the data!).
+
+```{r}
+#| label: fig-polite
+#| fig-cap: "Scatter plot of mean f0 and H1-H2 difference."
+#| echo: false
+#| message: false
+#| warning: false
+
+polite <- read_csv("data/winter2020/polite.csv")
+
+ggplot(
+  data = polite,
+  mapping = aes(x = f0mn, y = H1H2)
+) +
+  geom_point()
+```
+
+You might notice that there seems to be two subgroups within the data: one below about 200 Hz and one above about it.
+
+In fact, these subgroups are related to `gender`. Let's colour the points by gender then.
+
+You can use the `colour` aesthetic to colour the points by `gender`, like so:
+
+```{r}
+#| label: fig-polite-gender
+#| fig-cap: "Scatter plot of mean f0 and H1-H2 difference."
+#| warning: false
+
+polite |>
+  ggplot(aes(f0mn, H1H2, colour = gender)) +
+  geom_point() +
+  labs(
+    x = "Mean f0 (Hz)",
+    y = "H1-H2 difference (dB)",
+    colour = "Gender"
+  )
+```
+
+Notice how `colour = gender` must be inside the `aes()` function, because we are trying to map `colour` to the values of the column `gender`.
+
+### Does being a music student matter?
+
+That looks great, but we want to know if being a music student has an effect on the relationship of `f0mn` and `H1H2`.
+
+In the plot above, the aesthetics mappings are the following:
+
+-   `f0mn` on the *x*-axis.
+-   `H1H2` on the *y*-axis.
+-   `gender` as colour.
+
+How can we separate data further depending on whether the participant is a music student or not (`musicstudent`)?
+
+We can create panels using `facet_grid()`. This function takes lists of variables to specify panels in rows and/or columns.
+
+#### Faceting
+
+**Faceting** a plot allows to split the plot into multiple panels, arranged in rows and columns, based on one or more variables.
+
+To facet a plot, use the `facet_grid()` function.
+
+The syntax is a bit strange. You can specify rows of panels with the `rows` argument and columns of panels with `cols` argument, but you have to include column names inside `vars()`, like this:
+
+```{r}
+#| label: fig-polite-facet
+#| fig-cap: "Scatter plot of mean f0 and H1-H2 difference in non-music students (left) vs music students (right)."
+#| warning: false
+
+polite |>
+  ggplot(aes(f0mn, H1H2, colour = gender)) +
+  geom_point() +
+  facet_grid(cols = vars(musicstudent)) +
+  labs(
+    x = "Mean f0 (Hz)",
+    y = "H1-H2 difference (dB)",
+    colour = "Gender"
+  )
+```
+
+You could write a description of this plot like this:
+
+> @fig-polite-facet shows mean f0 and H1-H2 difference as a scatter plot. The two panels indicate whether the participant was a student of music. Within each panel, the participant's gender is represented by colour (red for female and blue for male). Male participants tend to have higher H1-H2 differences and lower mean f0 than females. From the plot it can also be seen that there is greater variability in H1-H2 difference in female music students compared to female non-music participants. Within each group of gender by music student there does not seem to be any specific relation between mean f0 and H1-H2 difference.
+
+The `polite` data also has a column `attitude` with values `inf` for informal and `pol` for polite. Subjects were asked to speak either as if they were talking to a friend (`inf` attitude) or to someone with a higher status (`pol` attitude).
+
+Recreate the last plot, this time faceting also by `attitude`. Use the `rows` column to create two separate rows for each value of `attitude`.
+
+```{r}
+#| label: fig-polite-facet-2
+#| eval: false
+
+polite |>
+  ggplot(aes(f0mn, H1H2, colour = gender)) +
+  geom_point() +
+  facet_grid(cols = vars(musicstudent), rows = ...)
+```
+
+Now write a description of the plot.

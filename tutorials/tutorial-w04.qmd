@@ -1,11 +1,13 @@
 ---
-title: "QML tutorial - Week 4"
+title: "DAL tutorial - Week 4"
 subtitle: "Quarto and Plotting basics"
 editor: visual
 format: 
   html:
     css: [webex.css]
     include-after-body: [webex.js]
+execute: 
+  warning: false
 ---
 
 ```{r}
@@ -411,7 +413,8 @@ For this plot, you want to use `geom_point()`. This geom simply adds point to th
 To add `geom`s to a plot, you write a `+` at the end of the `ggplot()` command and include the geom on the next line. For example:
 
 ```{r}
-#| label: first-plot
+#| label: fig-first-plot
+#| fig-cap: "Scatter plot of mean f0 and H1-H2 difference."
 
 ggplot(
   data = polite,
@@ -432,7 +435,7 @@ To create a scatter plot, use the `geom_point()` geometry.
 
 When writing your results section, you could describe the plot this way:
 
-> Figure 1 shows a scatter plot of mean f0 on the *x*-axis and H1-H2 difference on the *y*-axis. The plot suggest an overall negative relationship between mean f0 and H1-H2 difference. In other words, increasing mean f0 corresponds to decreasing breathiness.
+> @fig-first-plot shows a scatter plot of mean f0 on the *x*-axis and H1-H2 difference on the *y*-axis. The plot suggest an overall negative relationship between mean f0 and H1-H2 difference. In other words, increasing mean f0 corresponds to decreasing breathiness.
 
 ::: callout-warning
 Note that using the `+` is a quirk of `ggplot()`. The idea behind it is that you start from a bare plot and you **add** (`+`) layers of data on top of it. This is because of the philosophy behind the package, called the [Layered Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.html).
@@ -518,7 +521,6 @@ For now it might not make much sense using the pipe, but you will learn next wee
 
 As a sneak-peak, you will be able to filter the data before plotting it, like so:
 
-
 ```{r}
 #| label: filter-plot-pipe
 
@@ -528,7 +530,6 @@ polite |>
   ggplot(aes(f0mn, H1H2)) +
     geom_point()
 ```
-
 
 ## Render your Quarto file!
 

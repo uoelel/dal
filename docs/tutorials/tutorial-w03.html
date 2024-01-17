@@ -203,6 +203,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In the tutorial last week you’ve been playing around with R, RStudio and R scripts.</p>
 <p><strong>But what if you want to import data in R?</strong></p>
 <p>Easy! You can use the <code>read_*()</code> functions to read your files into R. But before we dive in, let’s first talk about some computer basics. (You can skip this section if it’s too basic for you.)</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Enable all extensions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before moving on, we recommend you enable the option to show all file extensions in the File Explorer/Finder.</p>
+<p>Follow the instructions here:</p>
+<ul>
+<li><p>Windows: <a href="https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01" class="uri">https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01</a></p></li>
+<li><p>macOS (For all files): <a href="https://support.apple.com/en-gb/guide/mac-help/mchlp2304/mac#:~:text=In%20the%20Finder%20on%20your,“Show%20all%20filename%20extensions”." class="uri">https://support.apple.com/en-gb/guide/mac-help/mchlp2304/mac#:~:text=In%20the%20Finder%20on%20your,“Show%20all%20filename%20extensions”.</a></p></li>
+</ul>
+</div>
+</div>
 <section id="files-folder-and-file-extensions" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="files-folder-and-file-extensions"><span class="header-section-number">1.1</span> Files, folder and file extensions</h3>
 <p>Files saved on your computer live in a specific place. For example, if you download a file from a browser (like Google Chrome, Safari or Firefox), the file is normally saved in the <code>Download</code> folder.</p>
@@ -221,7 +239,7 @@ User folder
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -230,7 +248,7 @@ How to find your user folder name
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>On macOS</strong></p>
 <ul>
@@ -336,8 +354,8 @@ Quiz 1
 </div>
 <div class="callout-body-container callout-body">
 Which of the following is an absolute paths?
-<div id="radio_IYMRRJPCJK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IYMRRJPCJK" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_IYMRRJPCJK" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_IYMRRJPCJK" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
+<div id="radio_JSCBMFJVTN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JSCBMFJVTN" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_JSCBMFJVTN" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_JSCBMFJVTN" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
 </div>
 </div>
 </div>
@@ -426,7 +444,7 @@ Tabular data
 └── ...</code></pre>
 <p>I recommend that you start being very organised with your files in other projects from now on, whether it’s for this course or your dissertation or else. I also suggest to avoid overly nested structures (for example, avoid having one folder for each week for this course. Rather, save all data files in the <code>data/</code> folder).</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -435,7 +453,7 @@ Organising your files
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The Open Science Framework has the following recommendations that apply very well to any type of research project.</p>
 <ul>
@@ -549,7 +567,7 @@ Working directory
 <p>So from now on I encourage you to use Quarto projects, R scripts and relative paths always!</p>
 <p>The benefit of doing so is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -558,7 +576,7 @@ Get the working directory
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can get the current working directory with the <code>getwd()</code> command.</p>
 <p>Run it now in the Console! Is the returned path the project folder path?</p>
@@ -599,8 +617,8 @@ Quiz 3
 </div>
 <div class="callout-body-container callout-body">
 How many rows does <code>shallow</code> have?
-<div id="radio_DWJIQGBMSK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DWJIQGBMSK" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_DWJIQGBMSK" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_DWJIQGBMSK" value="answer"> <span>6500</span></label>
+<div id="radio_QWTDKQYCSY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QWTDKQYCSY" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_QWTDKQYCSY" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_QWTDKQYCSY" value="answer"> <span>6500</span></label>
 </div>
 </div>
 </div>
@@ -657,7 +675,7 @@ Rds files
 <section id="practice" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="practice"><span class="header-section-number">7</span> Practice</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -666,7 +684,7 @@ Practice 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Read the following files in R, making sure you use the right <code>read_*()</code> function.</p>
 <ul>

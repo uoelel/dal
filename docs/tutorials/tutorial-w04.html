@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DAL - QML tutorial - Week 4</title>
+<title>DAL - DAL tutorial - Week 4</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -183,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">QML tutorial - Week 4</h1>
+<h1 class="title">DAL tutorial - Week 4</h1>
 <p class="subtitle lead">Quarto and Plotting basics</p>
 </div>
 
@@ -230,8 +230,8 @@ Quiz 1
 </div>
 <div class="callout-body-container callout-body">
 **When is research not reproducible?
-<div id="radio_BNSTUSRBFY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BNSTUSRBFY" value=""> <span>a. When the results do not match the researcher's expectations.</span></label><label><input type="radio" autocomplete="off" name="radio_BNSTUSRBFY" value="answer"> <span>b. When the the same data and code as in the original study do not produce the published results.</span></label><label><input type="radio" autocomplete="off" name="radio_BNSTUSRBFY" value=""> <span>c.&nbsp;When research conducted by a different research team with new data does not produce the results as published in the original study. </span></label>
+<div id="radio_OEGDISYJEA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OEGDISYJEA" value=""> <span>a. When the results do not match the researcher's expectations.</span></label><label><input type="radio" autocomplete="off" name="radio_OEGDISYJEA" value="answer"> <span>b. When the the same data and code as in the original study do not produce the published results.</span></label><label><input type="radio" autocomplete="off" name="radio_OEGDISYJEA" value=""> <span>c.&nbsp;When research conducted by a different research team with new data does not produce the results as published in the original study. </span></label>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -641,11 +641,13 @@ Geometries
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> f0mn, <span class="at">y =</span> H1H2)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 12 rows containing missing values (`geom_point()`).</code></pre>
-</div>
 <div class="cell-output-display">
-<p><img src="tutorial-w04_files/figure-html/first-plot-1.png" class="img-fluid" width="672"></p>
+<div id="fig-first-plot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="tutorial-w04_files/figure-html/fig-first-plot-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Scatter plot of mean f0 and H1-H2 difference.</figcaption>
+</figure>
+</div>
 </div>
 </div>
 <p>This type of plot, with two continuous axes and data represented by points, is called a <strong>scatter plot</strong>.</p>
@@ -665,7 +667,7 @@ Scatter plot
 </div>
 <p>When writing your results section, you could describe the plot this way:</p>
 <blockquote class="blockquote">
-<p>Figure 1 shows a scatter plot of mean f0 on the <em>x</em>-axis and H1-H2 difference on the <em>y</em>-axis. The plot suggest an overall negative relationship between mean f0 and H1-H2 difference. In other words, increasing mean f0 corresponds to decreasing breathiness.</p>
+<p><a href="#fig-first-plot">Figure&nbsp;1</a> shows a scatter plot of mean f0 on the <em>x</em>-axis and H1-H2 difference on the <em>y</em>-axis. The plot suggest an overall negative relationship between mean f0 and H1-H2 difference. In other words, increasing mean f0 corresponds to decreasing breathiness.</p>
 </blockquote>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -685,25 +687,22 @@ Warning
 <h3 data-number="3.3" class="anchored" data-anchor-id="function-arguments"><span class="header-section-number">3.3</span> Function arguments</h3>
 <p>Note that the <code>data</code> and <code>mapping</code> arguments don’t have to be named explicitly (with <code>data =</code> and <code>mapping =</code>) in the <code>ggplot()</code> function, since they are obligatory and they are specified in that order.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  polite,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> f0mn, <span class="at">y =</span> H1H2)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  polite,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> f0mn, <span class="at">y =</span> H1H2)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tutorial-w04_files/figure-html/named-arguments-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>In fact, you can also leave out <code>x =</code> and <code>y =</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  polite,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(f0mn, H1H2)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 12 rows containing missing values (`geom_point()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  polite,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(f0mn, H1H2)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tutorial-w04_files/figure-html/named-arguments-2-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -720,8 +719,8 @@ Quiz 3
 </div>
 <div class="callout-body-container callout-body">
 <strong>Which of the following will produce the same plot as the one above?</strong> Reason through it first without running the code, then run all of these to check whether they look the way you expected.
-<div id="radio_KDOXWSCQKF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_KDOXWSCQKF" value=""> <span><code>ggplot(polite, aes(H1H2, f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_KDOXWSCQKF" value="answer"> <span><code>ggplot(polite, aes(y = H1H2, x = f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_KDOXWSCQKF" value=""> <span><code>ggplot(polite, aes(y = f0mn, x = H1H2)) + geom_point()</code></span></label>
+<div id="radio_VXSZPQUHKC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VXSZPQUHKC" value=""> <span><code>ggplot(polite, aes(H1H2, f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_VXSZPQUHKC" value="answer"> <span><code>ggplot(polite, aes(y = H1H2, x = f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_VXSZPQUHKC" value=""> <span><code>ggplot(polite, aes(y = f0mn, x = H1H2)) + geom_point()</code></span></label>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
@@ -748,9 +747,9 @@ Hint
 <h3 data-number="3.4" class="anchored" data-anchor-id="what-the-pipe"><span class="header-section-number">3.4</span> What the pipe?!</h3>
 <p>The code of the latest plot can also be written this way.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2)) <span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Wait, what is that thing, <code>|&gt;</code>?</p>
 <p>It’s called a <strong>pipe</strong>. Think of a pipe as a teleporter.</p>
@@ -758,11 +757,11 @@ Hint
 <p>For now it might not make much sense using the pipe, but you will learn next week how to chain many functions one after the other using the pipe, at which point its usefulness will be more obvious.</p>
 <p>As a sneak-peak, you will be able to filter the data before plotting it, like so:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># include only rows where f0mn &lt; 300</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(f0mn <span class="sc">&lt;</span> <span class="dv">300</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2)) <span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># include only rows where f0mn &lt; 300</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(f0mn <span class="sc">&lt;</span> <span class="dv">300</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tutorial-w04_files/figure-html/filter-plot-pipe-1.png" class="img-fluid" width="672"></p>
 </div>

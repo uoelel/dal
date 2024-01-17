@@ -1,7 +1,7 @@
 ## Schedule overview
 
 | Week   | Lecture                                                        | Lab                                                    |             |
-|--------|----------------------------------------------------------------|--------------------------------------------------------|-------------|
+|------------|--------------------------|----------------------|------------|
 | 1      | [Quantitative methods and uncertainty](slides/lecture-w01.qmd) | [R basics](tutorials/tutorial-w01.qmd)                 |             |
 | 2      | [Research process](slides/lecture-w02.qmd)                     | [RStudio + R scripts](tutorials/tutorial-w02.qmd)      |             |
 | 3      | [File management](slides/lecture-w03.qmd)                      | [Read data](tutorials/tutorial-w03.qmd)                |             |
@@ -71,7 +71,7 @@ This course will be loosely based on the following online textbook. Note that th
 **Other**
 
 -   [Ellis and Levy 2008](https://www.informingscience.org/Publications/438?Source=%2FJournals%2FInformingSciJ%2FArticles%3FVolume%3D11-2008). Framework of Problem-Based Research: A Guide for Novice Researchers on the Development of a Research-Worthy Problem.
--   [Methods as theory](https://stefanocoretta.github.io/post/methods-as-theory/).
+-   [Methods as theory](https://stefanocoretta.github.io/posts/2021-03-28-methods-as-theory/).
 -   [Vasishth and Gelman 2021](https://doi.org/10.1515/ling-2019-0051). How to embrace variation and accept uncertainty in linguistic and psycholinguistic data analysis.
 -   Molnar 2022. Modeling Mindsets: The many cultures of learning from data.
 -   [Darwin Holmes 2020](https://doi.org/10.34293/education.v8i4.3232). Researcher Positionality - A Consideration of Its Influence and Place in Qualitative Research - A New Researcher Guide

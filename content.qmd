@@ -1,7 +1,7 @@
 ## Schedule overview
 
 | Week   | Lecture                                                        | Lab                                                    |             |
-|-----------------|----------------------|------------------|-----------------|
+|--------|----------------------------------------------------------------|--------------------------------------------------------|-------------|
 | 1      | [Quantitative methods and uncertainty](slides/lecture-w01.qmd) | [R basics](tutorials/tutorial-w01.qmd)                 |             |
 | 2      | [Research process](slides/lecture-w02.qmd)                     | [RStudio + R scripts](tutorials/tutorial-w02.qmd)      |             |
 | 3      | [File management](slides/lecture-w03.qmd)                      | [Read data](tutorials/tutorial-w03.qmd)                |             |
@@ -109,8 +109,8 @@ This course will be loosely based on the following online textbook. Note that th
 -   [Kirby and Sonderegger 2018](https://doi.org/10.1016/j.wocn.2018.05.005). Mixed-effects design analysis for experimental phonetics.
 -   [Gaeta and Brydges 2020](https://doi.org/10.1044/2020_JSLHR-19-00299). An Examination of Effect Sizes and Statistical Power in Speech, Language, and Hearing Research.
 -   [Brysbaert 2020](https://doi.org/10.1017/S1366728920000437). Power considerations in bilingualism research: Time to step up our game.
-- [An estimate of number of speakers per study in phonetics](https://stefanocoretta.github.io/posts/2019-05-03-speakers-per-study/) (Coretta 2019).
-- [Bochynska et al. 2023](https://doi.org/10.5070/G6011239). Reproducible research practices and transparency across linguistics.
+-   [An estimate of number of speakers per study in phonetics](https://stefanocoretta.github.io/posts/2019-05-03-speakers-per-study/) (Coretta 2019).
+-   [Bochynska et al. 2023](https://doi.org/10.5070/G6011239). Reproducible research practices and transparency across linguistics.
 
 **Other**
 

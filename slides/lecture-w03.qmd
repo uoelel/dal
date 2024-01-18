@@ -134,6 +134,10 @@ The [Creative Commons licenses](https://creativecommons.org/share-your-work/) ar
 
 ## Activity {background-color="var(--inverse)"}
 
--   Reorganise one of your project folders (for example your dissertation folder).
+-   Discuss in small groups.
 
--   OR read online materials on "research project management" (use your favourite search engine to search "research project management")
+    -   How have you organised your files so far?
+
+    -   Something you would like to change?
+
+    -   Something you would like to keep?

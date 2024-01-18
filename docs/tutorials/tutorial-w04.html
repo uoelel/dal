@@ -174,8 +174,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#function-arguments" id="toc-function-arguments" class="nav-link" data-scroll-target="#function-arguments"><span class="header-section-number">3.3</span> Function arguments</a></li>
   <li><a href="#what-the-pipe" id="toc-what-the-pipe" class="nav-link" data-scroll-target="#what-the-pipe"><span class="header-section-number">3.4</span> What the pipe?!</a></li>
   </ul></li>
-  <li><a href="#render-your-quarto-file" id="toc-render-your-quarto-file" class="nav-link" data-scroll-target="#render-your-quarto-file"><span class="header-section-number">4</span> Render your Quarto file!</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5</span> Summary</a></li>
+  <li><a href="#changing-aesthetics" id="toc-changing-aesthetics" class="nav-link" data-scroll-target="#changing-aesthetics"><span class="header-section-number">4</span> Changing aesthetics</a>
+  <ul class="collapse">
+  <li><a href="#colour-aesthetic" id="toc-colour-aesthetic" class="nav-link" data-scroll-target="#colour-aesthetic"><span class="header-section-number">4.1</span> <code>colour</code> aesthetic</a></li>
+  <li><a href="#alpha-aesthetic" id="toc-alpha-aesthetic" class="nav-link" data-scroll-target="#alpha-aesthetic"><span class="header-section-number">4.2</span> <code>alpha</code> aesthetic</a></li>
+  </ul></li>
+  <li><a href="#labels" id="toc-labels" class="nav-link" data-scroll-target="#labels"><span class="header-section-number">5</span> Labels</a></li>
+  <li><a href="#render-your-quarto-file" id="toc-render-your-quarto-file" class="nav-link" data-scroll-target="#render-your-quarto-file"><span class="header-section-number">6</span> Render your Quarto file!</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">7</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -231,8 +237,8 @@ Quiz 1
 </div>
 <div class="callout-body-container callout-body">
 **When is research not reproducible?
-<div id="radio_VVTUEIWTYU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VVTUEIWTYU" value=""> <span>a. When the results do not match the researcher's expectations.</span></label><label><input type="radio" autocomplete="off" name="radio_VVTUEIWTYU" value="answer"> <span>b. When the the same data and code as in the original study do not produce the published results.</span></label><label><input type="radio" autocomplete="off" name="radio_VVTUEIWTYU" value=""> <span>c.&nbsp;When research conducted by a different research team with new data does not produce the results as published in the original study. </span></label>
+<div id="radio_IIROGRQXST" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IIROGRQXST" value=""> <span>a. When the results do not match the researcher's expectations.</span></label><label><input type="radio" autocomplete="off" name="radio_IIROGRQXST" value="answer"> <span>b. When the the same data and code as in the original study do not produce the published results.</span></label><label><input type="radio" autocomplete="off" name="radio_IIROGRQXST" value=""> <span>c.&nbsp;When research conducted by a different research team with new data does not produce the results as published in the original study. </span></label>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -720,8 +726,8 @@ Quiz 3
 </div>
 <div class="callout-body-container callout-body">
 <strong>Which of the following will produce the same plot as the one above?</strong> Reason through it first without running the code, then run all of these to check whether they look the way you expected.
-<div id="radio_SVYEHJWBIB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SVYEHJWBIB" value=""> <span><code>ggplot(polite, aes(H1H2, f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_SVYEHJWBIB" value="answer"> <span><code>ggplot(polite, aes(y = H1H2, x = f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_SVYEHJWBIB" value=""> <span><code>ggplot(polite, aes(y = f0mn, x = H1H2)) + geom_point()</code></span></label>
+<div id="radio_GYQRTJZSJU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GYQRTJZSJU" value=""> <span><code>ggplot(polite, aes(H1H2, f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_GYQRTJZSJU" value="answer"> <span><code>ggplot(polite, aes(y = H1H2, x = f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_GYQRTJZSJU" value=""> <span><code>ggplot(polite, aes(y = f0mn, x = H1H2)) + geom_point()</code></span></label>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
@@ -769,14 +775,128 @@ Hint
 </div>
 </section>
 </section>
-<section id="render-your-quarto-file" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="render-your-quarto-file"><span class="header-section-number">4</span> Render your Quarto file!</h2>
+<section id="changing-aesthetics" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="changing-aesthetics"><span class="header-section-number">4</span> Changing aesthetics</h2>
+<section id="colour-aesthetic" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="colour-aesthetic"><span class="header-section-number">4.1</span> <code>colour</code> aesthetic</h3>
+<p>You might notice that there seems to be two subgroups within the data: one below about 200 Hz and one above about it.</p>
+<p>In fact, these subgroups are related to <code>gender</code>. Let’s colour the points by gender then.</p>
+<p>You can use the <code>colour</code> aesthetic to colour the points by <code>gender</code>, like so:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-polite-gender" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="tutorial-w04_files/figure-html/fig-polite-gender-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Scatter plot of mean f0 and H1-H2 difference, by gender.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Notice how <code>colour = gender</code> must be inside the <code>aes()</code> function, because we are trying to map <code>colour</code> to the values of the column <code>gender</code>. Colours are automatically assigned to each level in <code>gender</code>.</p>
+<p>The default colour palette is used, but you can customise it. You will learn later in the course how to create custom palettes, but you can quickly change palette using one of the <code>scale_colour_*()</code> functions.</p>
+<p>A useful function is the <code>scale_colour_brewer()</code> function. This function creates palettes based on <a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">ColorBrewer</a> 2.0. There are three types of palettes (see the linked website for examples):</p>
+<ul>
+<li><p>Sequential (<code>seq</code>): a gradient sequence of hues from lighter to darker.</p></li>
+<li><p>Diverging (<code>div</code>): useful when you need a neutral middle colour and sequential colours on either side of the neutral colour.</p></li>
+<li><p>Qualitative (<code>qual</code>): useful for categorical variables.</p></li>
+</ul>
+<p>Let’s use the default qualitative palette.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type =</span> <span class="st">"qual"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-polite-gender-brewer" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="tutorial-w04_files/figure-html/fig-polite-gender-brewer-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Scatter plot of mean f0 and H1-H2 difference, by gender.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Now try changing the <code>palette</code> argument of the <code>scale_colour_brewer()</code> function to different palettes. (Check the function documentation for a list).</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extra: The default colour palette
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you want to know more about the default colour palette, check this <a href="https://www.statology.org/ggplot-default-colors/">blog post</a> out.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="alpha-aesthetic" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="alpha-aesthetic"><span class="header-section-number">4.2</span> <code>alpha</code> aesthetic</h3>
+<p>Another useful ggplot2 aesthetic is <code>alpha</code>. This aesthetic sets the transparency of the geometry: <code>0</code> means completely transparent and `1` means completely opaque.</p>
+<p>Change alpha in the code below to <code>0.5</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> ...) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type =</span> <span class="st">"qual"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When you are setting a value yourself, rather than mapping an aesthetic to values in a specific column (like we did above with <code>colour</code>), you should add the aesthetic outside of <code>aes()</code> and usually in the geom function you want to set the alpha with.</p>
+<p>Setting a lower alpha is useful when there are a lot of points or other geometries that overlap with each other and it just looks like a blob of colour (you can’t really see the individual geometries; you will see an example next week). It is not the case here, and in fact reducing the alpha makes the plot quite illegible!</p>
+</section>
+</section>
+<section id="labels" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="labels"><span class="header-section-number">5</span> Labels</h2>
+<p>If you want to change the labels of the axes and the legend, you can use the <code>labs()</code> function, like this.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mean f0 (Hz)"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"H1-H2 difference (dB)"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"Gender"</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-polite-gender-labs" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="tutorial-w04_files/figure-html/fig-polite-gender-labs-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Scatter plot of mean f0 and H1-H2 difference, by gender.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Also add a <code>title</code> and a <code>subtitle</code> (use these two arguments within the <code>labs()</code> function).</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For example, <code>labs(title = "...", ...)</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="render-your-quarto-file" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="render-your-quarto-file"><span class="header-section-number">6</span> Render your Quarto file!</h2>
 <p>Now that you have done all of this hard work, why don’t you try and render the Quarto file you’ve been working on to an HTML file?</p>
 <p>Go ahead, click on the “Render” button and if everything works fine you should see a rendered HTML file in a second!</p>
 <p>Note that you will be asked to render your Quarto files for the assessments, so I recommend you try this out now.</p>
 </section>
-<section id="summary" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="summary"><span class="header-section-number">5</span> Summary</h2>
+<section id="summary" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="summary"><span class="header-section-number">7</span> Summary</h2>
 <p>That’s all for this week!</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">

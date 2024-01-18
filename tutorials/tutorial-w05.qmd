@@ -519,11 +519,32 @@ ggplot(aes(x = Macroarea, fill = status)) +
 
 The plot now shows proportions of languages by endangerment status for each area separately.
 
-Note that the *y*-axis label is still "count" but it is in fact proportions. You can change the labels of the axes and the fill legend with `labs()`.
+Note that the *y*-axis label is still "count" but should be "proportion" .Use `labs()` to change the axes labels and the legend name.
+
+```{r}
+#| label: status-stacked-3-ex
+#| eval: false
+
+global_south |>
+ggplot(aes(x = Macroarea, fill = status)) +
+  geom_bar(position = "fill") +
+  labs(
+    ...
+  )
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+If to change the name of the `colour` legend, you use the `colour` argument in `labs()`, guess which argument you should use for `fill`?
+:::
+
+You should get this.
 
 ```{r}
 #| label: fig-status-stacked-3
 #| fig-cap: "Proportion of languages by macro-area and endangerment status."
+#| echo: false
 
 global_south |>
 ggplot(aes(x = Macroarea, fill = status)) +
@@ -566,29 +587,6 @@ ggplot(
 ) +
   geom_point()
 ```
-
-You might notice that there seems to be two subgroups within the data: one below about 200 Hz and one above about it.
-
-In fact, these subgroups are related to `gender`. Let's colour the points by gender then.
-
-You can use the `colour` aesthetic to colour the points by `gender`, like so:
-
-```{r}
-#| label: fig-polite-gender
-#| fig-cap: "Scatter plot of mean f0 and H1-H2 difference."
-#| warning: false
-
-polite |>
-  ggplot(aes(f0mn, H1H2, colour = gender)) +
-  geom_point() +
-  labs(
-    x = "Mean f0 (Hz)",
-    y = "H1-H2 difference (dB)",
-    colour = "Gender"
-  )
-```
-
-Notice how `colour = gender` must be inside the `aes()` function, because we are trying to map `colour` to the values of the column `gender`.
 
 ### Does being a music student matter?
 

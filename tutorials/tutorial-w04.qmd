@@ -531,6 +531,107 @@ polite |>
     geom_point()
 ```
 
+## Changing aesthetics
+
+### `colour` aesthetic
+
+You might notice that there seems to be two subgroups within the data: one below about 200 Hz and one above about it.
+
+In fact, these subgroups are related to `gender`. Let's colour the points by gender then.
+
+You can use the `colour` aesthetic to colour the points by `gender`, like so:
+
+```{r}
+#| label: fig-polite-gender
+#| fig-cap: "Scatter plot of mean f0 and H1-H2 difference, by gender."
+#| warning: false
+
+polite |>
+  ggplot(aes(f0mn, H1H2, colour = gender)) +
+  geom_point()
+```
+
+Notice how `colour = gender` must be inside the `aes()` function, because we are trying to map `colour` to the values of the column `gender`. Colours are automatically assigned to each level in `gender`.
+
+The default colour palette is used, but you can customise it. You will learn later in the course how to create custom palettes, but you can quickly change palette using one of the `scale_colour_*()` functions.
+
+A useful function is the `scale_colour_brewer()` function. This function creates palettes based on [ColorBrewer](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) 2.0. There are three types of palettes (see the linked website for examples):
+
+-   Sequential (`seq`): a gradient sequence of hues from lighter to darker.
+
+-   Diverging (`div`): useful when you need a neutral middle colour and sequential colours on either side of the neutral colour.
+
+-   Qualitative (`qual`): useful for categorical variables.
+
+Let's use the default qualitative palette.
+
+```{r}
+#| label: fig-polite-gender-brewer
+#| fig-cap: "Scatter plot of mean f0 and H1-H2 difference, by gender."
+#| warning: false
+
+polite |>
+  ggplot(aes(f0mn, H1H2, colour = gender)) +
+  geom_point() +
+  scale_color_brewer(type = "qual")
+```
+
+Now try changing the `palette` argument of the `scale_colour_brewer()` function to different palettes. (Check the function documentation for a list).
+
+::: {.callout-important collapse="true"}
+#### Extra: The default colour palette
+
+If you want to know more about the default colour palette, check this [blog post](https://www.statology.org/ggplot-default-colors/) out.
+:::
+
+### `alpha` aesthetic
+
+Another useful ggplot2 aesthetic is `alpha`. This aesthetic sets the transparency of the geometry: `0` means completely transparent and \`1\` means completely opaque.
+
+Change alpha in the code below to `0.5`.
+
+```{r}
+#| label: polite-gender-alpha-ex
+#| fig-cap: "Scatter plot of mean f0 and H1-H2 difference, by gender."
+#| eval: false
+
+polite |>
+  ggplot(aes(f0mn, H1H2, colour = gender)) +
+  geom_point(alpha = ...) +
+  scale_color_brewer(type = "qual")
+```
+
+When you are setting a value yourself, rather than mapping an aesthetic to values in a specific column (like we did above with `colour`), you should add the aesthetic outside of `aes()` and usually in the geom function you want to set the alpha with.
+
+Setting a lower alpha is useful when there are a lot of points or other geometries that overlap with each other and it just looks like a blob of colour (you can't really see the individual geometries; you will see an example next week). It is not the case here, and in fact reducing the alpha makes the plot quite illegible!
+
+## Labels
+
+If you want to change the labels of the axes and the legend, you can use the `labs()` function, like this.
+
+```{r}
+#| label: fig-polite-gender-labs
+#| fig-cap: "Scatter plot of mean f0 and H1-H2 difference, by gender."
+#| warning: false
+
+polite |>
+  ggplot(aes(f0mn, H1H2, colour = gender)) +
+  geom_point() +
+  labs(
+    x = "Mean f0 (Hz)",
+    y = "H1-H2 difference (dB)",
+    colour = "Gender"
+  )
+```
+
+Also add a `title` and a `subtitle` (use these two arguments within the `labs()` function).
+
+::: {.callout-tip collapse="true"}
+#### Hint
+
+For example, `labs(title = "...", ...)`.
+:::
+
 ## Render your Quarto file!
 
 Now that you have done all of this hard work, why don't you try and render the Quarto file you've been working on to an HTML file?

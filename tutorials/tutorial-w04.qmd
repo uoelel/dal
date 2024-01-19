@@ -578,6 +578,19 @@ polite |>
 
 Now try changing the `palette` argument of the `scale_colour_brewer()` function to different palettes. (Check the function documentation for a list).
 
+Another set of palettes is provided by `scale_colour_viridis_d()` (the `d` stands for "discrete" palette, to be used for categorical variables). Here's an example.
+
+```{r}
+#| label: fig-polite-gender-viridis
+#| fig-cap: "Scatter plot of mean f0 and H1-H2 difference, by gender."
+#| warning: false
+
+polite |>
+  ggplot(aes(f0mn, H1H2, colour = gender)) +
+  geom_point() +
+  scale_color_viridis_d(option = "B")
+```
+
 ::: {.callout-important collapse="true"}
 #### Extra: The default colour palette
 

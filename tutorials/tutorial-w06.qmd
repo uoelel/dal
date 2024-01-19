@@ -477,7 +477,7 @@ shallow |>
   geom_rug(alpha = 0.1)
 ```
 
-::: {.callout-important collapse="TRUE"}
+::: {.callout-important collapse="true"}
 #### Probability distributions
 
 A **probability distribution** defines the distribution of probabilities along a range of values. Probability distributions can be visualised using density lines. There are different families of probability distributions, each with its own characteristic shape. Probability distributions can be summarised with a set of parameters (each distribution family has its own parameters).

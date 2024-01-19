@@ -49,6 +49,14 @@ This formative assessments covers Weeks 1-6.
 ## Summative assessments
 
 ::: {.callout-tip}
+## Summative 2 data proposal: Monday 25 March at noon
+
+For the second summative assessment you will have to find a data set from published research of your choice and write a short data analysis report on the chosen data.
+
+**You must submit to Turnitin for approval a brief description of the data set including a link to the relevant publication, by Monday 25th March.**
+:::
+
+::: {.callout-tip}
 ## Summative 1: Week 10 (Thu 28 March at noon)
 
 **Due on Thursday 28 March at noon**
@@ -60,7 +68,7 @@ The first summative contains 2 guided exercises that cover things done in Weeks 
 :::
 
 ::: {.callout-tip}
-## Summative 2: Thu 25 Apr at noon
+## Summative 2: Thu 25 April at noon
 
 **Due on Thursday 25 April at noon**
 

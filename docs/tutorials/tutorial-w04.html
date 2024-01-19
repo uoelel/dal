@@ -237,8 +237,8 @@ Quiz 1
 </div>
 <div class="callout-body-container callout-body">
 **When is research not reproducible?
-<div id="radio_IIROGRQXST" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IIROGRQXST" value=""> <span>a. When the results do not match the researcher's expectations.</span></label><label><input type="radio" autocomplete="off" name="radio_IIROGRQXST" value="answer"> <span>b. When the the same data and code as in the original study do not produce the published results.</span></label><label><input type="radio" autocomplete="off" name="radio_IIROGRQXST" value=""> <span>c.&nbsp;When research conducted by a different research team with new data does not produce the results as published in the original study. </span></label>
+<div id="radio_HIAOUIWITT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HIAOUIWITT" value=""> <span>a. When the results do not match the researcher's expectations.</span></label><label><input type="radio" autocomplete="off" name="radio_HIAOUIWITT" value="answer"> <span>b. When the the same data and code as in the original study do not produce the published results.</span></label><label><input type="radio" autocomplete="off" name="radio_HIAOUIWITT" value=""> <span>c.&nbsp;When research conducted by a different research team with new data does not produce the results as published in the original study. </span></label>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -726,8 +726,8 @@ Quiz 3
 </div>
 <div class="callout-body-container callout-body">
 <strong>Which of the following will produce the same plot as the one above?</strong> Reason through it first without running the code, then run all of these to check whether they look the way you expected.
-<div id="radio_GYQRTJZSJU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GYQRTJZSJU" value=""> <span><code>ggplot(polite, aes(H1H2, f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_GYQRTJZSJU" value="answer"> <span><code>ggplot(polite, aes(y = H1H2, x = f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_GYQRTJZSJU" value=""> <span><code>ggplot(polite, aes(y = f0mn, x = H1H2)) + geom_point()</code></span></label>
+<div id="radio_SAWBKVAEDG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SAWBKVAEDG" value=""> <span><code>ggplot(polite, aes(H1H2, f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_SAWBKVAEDG" value="answer"> <span><code>ggplot(polite, aes(y = H1H2, x = f0mn)) + geom_point()</code></span></label><label><input type="radio" autocomplete="off" name="radio_SAWBKVAEDG" value=""> <span><code>ggplot(polite, aes(y = f0mn, x = H1H2)) + geom_point()</code></span></label>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
@@ -819,6 +819,21 @@ Hint
 </div>
 </div>
 <p>Now try changing the <code>palette</code> argument of the <code>scale_colour_brewer()</code> function to different palettes. (Check the function documentation for a list).</p>
+<p>Another set of palettes is provided by <code>scale_colour_viridis_d()</code> (the <code>d</code> stands for “discrete” palette, to be used for categorical variables). Here’s an example.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"B"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-polite-gender-viridis" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="tutorial-w04_files/figure-html/fig-polite-gender-viridis-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Scatter plot of mean f0 and H1-H2 difference, by gender.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -841,10 +856,10 @@ Extra: The default colour palette
 <p>Another useful ggplot2 aesthetic is <code>alpha</code>. This aesthetic sets the transparency of the geometry: <code>0</code> means completely transparent and `1` means completely opaque.</p>
 <p>Change alpha in the code below to <code>0.5</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> ...) <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type =</span> <span class="st">"qual"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> ...) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type =</span> <span class="st">"qual"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When you are setting a value yourself, rather than mapping an aesthetic to values in a specific column (like we did above with <code>colour</code>), you should add the aesthetic outside of <code>aes()</code> and usually in the geom function you want to set the alpha with.</p>
 <p>Setting a lower alpha is useful when there are a lot of points or other geometries that overlap with each other and it just looks like a blob of colour (you can’t really see the individual geometries; you will see an example next week). It is not the case here, and in fact reducing the alpha makes the plot quite illegible!</p>
@@ -854,19 +869,19 @@ Extra: The default colour palette
 <h2 data-number="5" class="anchored" data-anchor-id="labels"><span class="header-section-number">5</span> Labels</h2>
 <p>If you want to change the labels of the axes and the legend, you can use the <code>labs()</code> function, like this.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mean f0 (Hz)"</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"H1-H2 difference (dB)"</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"Gender"</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>polite <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f0mn, H1H2, <span class="at">colour =</span> gender)) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Mean f0 (Hz)"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"H1-H2 difference (dB)"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"Gender"</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-polite-gender-labs" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="tutorial-w04_files/figure-html/fig-polite-gender-labs-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Scatter plot of mean f0 and H1-H2 difference, by gender.</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;5: Scatter plot of mean f0 and H1-H2 difference, by gender.</figcaption>
 </figure>
 </div>
 </div>

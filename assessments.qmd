@@ -27,7 +27,7 @@ Finally, please note that *marking does not follow a point-based system*, i.e. d
 ## Formative assessments
 
 ::: {.callout-warning}
-## Formative 1: Week 5 (Thu 19 October at noon)
+## Formative 1: Week 5 (Thu 15 February at noon)
 
 **Reading and visualising data**
 

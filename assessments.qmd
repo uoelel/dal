@@ -63,7 +63,7 @@ For the second summative assessment you will have to find a data set from publis
 
 The first summative contains 2 guided exercises that cover things done in Weeks 1 to 7.
 
-<!-- You can find the instructions and data for the first summative here: <https://github.com/uoelel/dal-s1/>. -->
+You can find the instructions and data for the first summative here: <https://github.com/uoelel/dal-s1>.
 
 :::
 

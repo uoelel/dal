@@ -1,25 +1,25 @@
 ## Schedule overview
 
-| Week   | Lecture                                                        | Lab                                                    |             |
-|---------------|-----------------------|-------------------|---------------|
-| 1      | [Quantitative methods and uncertainty](slides/lecture-w01.qmd) | [R basics](tutorials/tutorial-w01.qmd)                 |             |
-| 2      | [Research process](slides/lecture-w02.qmd)                     | [RStudio + R scripts](tutorials/tutorial-w02.qmd)      |             |
-| 3      | [File management](slides/lecture-w03.qmd)                      | [Read data](tutorials/tutorial-w03.qmd)                |             |
-| 4      | [Data viz](slides/lecture-w04.qmd)                             | [Quarto + Plotting basics](tutorials/tutorial-w04.qmd) |             |
-| 5      | [Statistical variables](slides/lecture-w05.qmd)                | [Data transformation I](tutorials/tutorial-w05.qmd)    | F1          |
-| FL     | *No classes*                                                   |                                                        |             |
-| 6      | [Data summaries](slides/lecture-w06.qmd)                       | [Data transformation II](tutorials/tutorial-w06.qmd)   |             |
-| 7      | Tidy data                                                      | Data tidying                                           | F2          |
-| 8      | Plot design                                                    | Advanced plotting                                      |             |
-| 9      | Troubleshooting                                                | Fixing errors                                          |             |
-| 25 Mar |                                                                |                                                        | S2 proposal |
-| 28 Mar |                                                                |                                                        | S1          |
-| 25 Apr |                                                                |                                                        | S2          |
+| Week   | Lecture                                                        | Lab                                                    |                                        |
+|-----------------|---------------------|------------------|-----------------|
+| 1      | [Quantitative methods and uncertainty](slides/lecture-w01.qmd) | [R basics](tutorials/tutorial-w01.qmd)                 |                                        |
+| 2      | [Research process](slides/lecture-w02.qmd)                     | [RStudio + R scripts](tutorials/tutorial-w02.qmd)      |                                        |
+| 3      | [File management](slides/lecture-w03.qmd)                      | [Read data](tutorials/tutorial-w03.qmd)                |                                        |
+| 4      | [Data viz](slides/lecture-w04.qmd)                             | [Quarto + Plotting basics](tutorials/tutorial-w04.qmd) |                                        |
+| 5      | [Statistical variables](slides/lecture-w05.qmd)                | [Data transformation I](tutorials/tutorial-w05.qmd)    | F1                                     |
+| FL     | *No classes*                                                   |                                                        |                                        |
+| 6      | [Data summaries](slides/lecture-w06.qmd)                       | [Data transformation II](tutorials/tutorial-w06.qmd)   |                                        |
+| 7      | Tidy data                                                      | Data tidying                                           | F2                                     |
+| 8      | Plot design                                                    | Advanced plotting                                      |                                        |
+| 9      | Troubleshooting                                                | Fixing errors                                          |                                        |
+| 25 Mar |                                                                |                                                        | S2 proposal                            |
+| 28 Mar |                                                                |                                                        | [S1](https://github.com/uoelel/dal-s1) |
+| 25 Apr |                                                                |                                                        | S2                                     |
 
 ## Functions and data
 
 |     | Functions                                                                                                          | Data                                                                                                                           |
-|-------------|-----------------------------------------------|-------------|
+|---------------|------------------------------------------|---------------|
 | 1   | c(), sum(), mean(), cat(), data.frame()                                                                            |                                                                                                                                |
 | 2   | length(), library(), .libPath()                                                                                    |                                                                                                                                |
 | 3   | read_csv(), read_excel(), readRDS()                                                                                | [shallow](data/song2020/shallow.qmd), [relatives](data/los2023/relatives.qmd), [glot_status](data/coretta2022/glot_status.qmd) |

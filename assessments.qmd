@@ -37,7 +37,7 @@ This formative assessments covers Weeks 1-4.
 :::
 
 ::: {.callout-warning}
-## Formative 2: Week 10 (Thu 7 March at noon)
+## Formative 2: Week 7 (Thu 7 March at noon)
 
 **Data transformation**
 

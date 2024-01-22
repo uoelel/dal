@@ -122,15 +122,17 @@ Give a name to your new project, something like the name of the course and year 
 
 Then you need to specify where to create this new folder/Project. Click on `Browse…` and navigate to the folder you want to create the new folder/Project in. DO NOT use One Drive, as mentioned above.
 
-When done, click on `Create Project`. RStudio will automatically open your new project.
+\*\*Make sure to untick the `Use visual markdown editor` option and that the engine is set to `knitr`.\*\* The settings should be exactly as shown below.
 
 ![](../img/rstudio-5a.png)
+
+When done, click on `Create Project`. RStudio will automatically open your new project. A `.qmd` file will be opened automatically: you can safely close that for now.
 
 The project folder will contain the following files:
 
 -   A `_quarto.yml` file, that tells RStudio this is a Quarto Project.
 
--   A `.qmd` file, named after the name of project. You will learn about `.qmd` files next week.
+-   A `.qmd` file, named after the name of project. You will learn about `.qmd` files next week. You can close this file if it is still open in the File panel.
 
 -   An `.rproj` file, named after the name of the project. This file is there just to inform RStudio that this folder is a project and you are not supposed to edit it.
 
@@ -291,7 +293,7 @@ Remember that all the files of your RStudio project don't live inside RStudio bu
 
 So you can always access them from the Finder or File Explorer! **However**, do not open a file by double clicking on it from the Finder/File Explorer.
 
-Rather, **open the RStudio project by double clicking on the `.Rproj` file** and then open files from RStudio to ensure you are working within the RStudio project and the working directory is set correctly. (See the tutorial from Week 1).
+Rather, **open the RStudio project by double clicking on the `.Rproj` file** and then open files from RStudio to ensure you are working within the RStudio project and the working directory is set correctly.
 :::
 
 Now your script is ready to be filled with code. Copy the following lines of code and paste them at the top of your R script (this is the same code as above).

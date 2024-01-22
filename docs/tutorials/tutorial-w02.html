@@ -302,12 +302,13 @@ Quarto Projects
 <p>Now, this will create a new folder (aka directory) on your computer and will make that an RStudio Project (meaning, it will add a file with the <code>.Rproj</code> extension to the folder; the name of the file will be the name of the project/folder).</p>
 <p>Give a name to your new project, something like the name of the course and year (e.g.&nbsp;<code>dal-2024</code>).</p>
 <p>Then you need to specify where to create this new folder/Project. Click on <code>Browse…</code> and navigate to the folder you want to create the new folder/Project in. DO NOT use One Drive, as mentioned above.</p>
-<p>When done, click on <code>Create Project</code>. RStudio will automatically open your new project.</p>
+<p>**Make sure to untick the <code>Use visual markdown editor</code> option and that the engine is set to <code>knitr</code>.** The settings should be exactly as shown below.</p>
 <p><img src="../img/rstudio-5a.png" class="img-fluid"></p>
+<p>When done, click on <code>Create Project</code>. RStudio will automatically open your new project. A <code>.qmd</code> file will be opened automatically: you can safely close that for now.</p>
 <p>The project folder will contain the following files:</p>
 <ul>
 <li><p>A <code>_quarto.yml</code> file, that tells RStudio this is a Quarto Project.</p></li>
-<li><p>A <code>.qmd</code> file, named after the name of project. You will learn about <code>.qmd</code> files next week.</p></li>
+<li><p>A <code>.qmd</code> file, named after the name of project. You will learn about <code>.qmd</code> files next week. You can close this file if it is still open in the File panel.</p></li>
 <li><p>An <code>.rproj</code> file, named after the name of the project. This file is there just to inform RStudio that this folder is a project and you are not supposed to edit it.</p></li>
 </ul>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
@@ -496,7 +497,7 @@ Warning
 <div class="callout-body-container callout-body">
 <p>Remember that all the files of your RStudio project don’t live inside RStudio but on your computer.</p>
 <p>So you can always access them from the Finder or File Explorer! <strong>However</strong>, do not open a file by double clicking on it from the Finder/File Explorer.</p>
-<p>Rather, <strong>open the RStudio project by double clicking on the <code>.Rproj</code> file</strong> and then open files from RStudio to ensure you are working within the RStudio project and the working directory is set correctly. (See the tutorial from Week 1).</p>
+<p>Rather, <strong>open the RStudio project by double clicking on the <code>.Rproj</code> file</strong> and then open files from RStudio to ensure you are working within the RStudio project and the working directory is set correctly.</p>
 </div>
 </div>
 <p>Now your script is ready to be filled with code. Copy the following lines of code and paste them at the top of your R script (this is the same code as above).</p>

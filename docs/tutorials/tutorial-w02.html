@@ -293,7 +293,7 @@ Quarto Projects
 </div>
 </div>
 <p>You will learn a bit more about the <code>_quarto.yml</code> file below.</p>
-<p>You can create as many Quarto Projects as you wish, and I recommend to create one per project (your dissertation, a research project, a course, etc…). Also, I strongly recommend that you <strong>DO NOT save projects on One Drive</strong>. This is known to cause issues, so it is best to save projects on your Documents folder, for example.</p>
+<p>You can create as many Quarto Projects as you wish, and I recommend to create one per project (your dissertation, a research project, a course, etc…). Also, I strongly recommend that you <strong>DO NOT save projects on One Drive,</strong> but do back up your files there (or at least somewhere else). This is known to cause issues, so it is best to save projects on your Documents folder, for example.</p>
 <p>We will create a Quarto Project for this course (meaning, you will create a folder for the course which will be the Quarto Project). You will have to use this project/folder throughout the semester.</p>
 <p>To create a new Quarto Project, click on the button that looks like a transparent light blue box with a plus, in the top-left corner of RStudio. A window like the one below will pop up.</p>
 <p><img src="../img/rstudio-3.png" class="img-fluid"></p>
@@ -462,7 +462,7 @@ R script
 <p><strong>For the rest of this tutorial, you will write all code in an R script.</strong></p>
 <section id="create-an-r-script" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="create-an-r-script"><span class="header-section-number">4.1</span> Create an R script</h3>
-<p>First, create a folder called <code>code</code> in your project folder. You can do so from withint RStudio, in the Files tab or you can just create the folder in the File Explorer/Finder. This will be the folder where you will save all of your R scripts and other code files.</p>
+<p>First, create a folder called <code>code</code> in your project folder. You can do so from within RStudio, in the Files tab or you can just create the folder in the File Explorer/Finder. This will be the folder where you will save all of your R scripts and other code files.</p>
 <p>Now, to create a new R script, look at the top-left corner of RStudio: the first button to the left looks like a white sheet with a green plus sign. This is the <code>New file</code> button. Click on that and you will see a few options to create a new file.</p>
 <p>Click on <code>R Script</code>. A new empty R script will be created and will open in the File Editor window of RStudio.</p>
 <p><img src="../img/new-script-button.png" class="img-fluid"></p>
@@ -563,7 +563,22 @@ Extra: Where is my R library?
 <h4 data-number="5.0.1" class="anchored" data-anchor-id="install-packages"><span class="header-section-number">5.0.1</span> Install packages</h4>
 <p>You can install extra packages in the R library in two ways:</p>
 <ol type="1">
-<li>You can use the <code>install.packages()</code> function. This function takes the name of the package you want to install as a string, for example <code>install.packages("cowsay")</code></li>
+<li>You can use the <code>install.packages()</code> function. This function takes the name of the package you want to install as a string, for example <code>install.packages("cowsay")</code>.</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you install a package with the function <code>install.packages()</code>, do so in the Console! Do not include this function in your scripts (this is because you install packages only once, see below)).</p>
+</div>
+</div>
+<ol start="2" type="1">
 <li>Or you can go the <code>Packages</code> tab in the bottom-right panel of RStudio and click on <code>Install</code>. A small window will pop up. See the screenshot below.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
@@ -582,7 +597,7 @@ Install packages
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To <strong>install packages</strong>, fo to the Packages tab of the bottom-right panel of RStudio and click on <code>Install</code>.</p>
+<p>To <strong>install packages</strong>, go to the Packages tab of the bottom-right panel of RStudio and click on <code>Install</code>.</p>
 <p>In the “Install packages” window, list the package names and then click <code>Install</code>.</p>
 </div>
 </div>
@@ -686,6 +701,22 @@ Quiz 2
 Which of the following statements is wrong?
 <div id="radio_NLLZLHKPAP" class="webex-radiogroup">
 <label><input type="radio" autocomplete="off" name="radio_NLLZLHKPAP" value="answer"> <span>You attach libraries with <code>library()</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_NLLZLHKPAP" value=""> <span><code>install.packages()</code> does not load packages.</span></label><label><input type="radio" autocomplete="off" name="radio_NLLZLHKPAP" value=""> <span>The R library is a folder.</span></label>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explanation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This was a question about terminology. In R, you attach packages from the library using (confusingly) the <code>library()</code> function.</p>
 </div>
 </div>
 </div>

@@ -104,7 +104,7 @@ A **Quarto Project** is an RStudio project which has a `_quarto.yml` file.
 
 You will learn a bit more about the `_quarto.yml` file below.
 
-You can create as many Quarto Projects as you wish, and I recommend to create one per project (your dissertation, a research project, a course, etc...). Also, I strongly recommend that you **DO NOT save projects on One Drive**. This is known to cause issues, so it is best to save projects on your Documents folder, for example.
+You can create as many Quarto Projects as you wish, and I recommend to create one per project (your dissertation, a research project, a course, etc...). Also, I strongly recommend that you **DO NOT save projects on One Drive,** but do back up your files there (or at least somewhere else). This is known to cause issues, so it is best to save projects on your Documents folder, for example.
 
 We will create a Quarto Project for this course (meaning, you will create a folder for the course which will be the Quarto Project). You will have to use this project/folder throughout the semester.
 
@@ -272,7 +272,7 @@ An **R script** is a file with the `.R` extension that contains R code.
 
 ### Create an R script
 
-First, create a folder called `code` in your project folder. You can do so from withint RStudio, in the Files tab or you can just create the folder in the File Explorer/Finder. This will be the folder where you will save all of your R scripts and other code files.
+First, create a folder called `code` in your project folder. You can do so from within RStudio, in the Files tab or you can just create the folder in the File Explorer/Finder. This will be the folder where you will save all of your R scripts and other code files.
 
 Now, to create a new R script, look at the top-left corner of RStudio: the first button to the left looks like a white sheet with a green plus sign. This is the `New file` button. Click on that and you will see a few options to create a new file.
 
@@ -357,7 +357,12 @@ If you want to find the path of the R library on your computer, type `.libPaths(
 
 You can install extra packages in the R library in two ways:
 
-1.  You can use the `install.packages()` function. This function takes the name of the package you want to install as a string, for example `install.packages("cowsay")`
+1.  You can use the `install.packages()` function. This function takes the name of the package you want to install as a string, for example `install.packages("cowsay")`.
+
+::: callout-warning
+If you install a package with the function `install.packages()`, do so in the Console! Do not include this function in your scripts (this is because you install packages only once, see below)).
+:::
+
 2.  Or you can go the `Packages` tab in the bottom-right panel of RStudio and click on `Install`. A small window will pop up. See the screenshot below.
 
 ![](../img/install-packages.png){fig-align="center" width="350"}
@@ -367,7 +372,7 @@ Go ahead and try to install a package using the second method. Install the **cow
 ::: callout-tip
 #### Install packages
 
-To **install packages**, fo to the Packages tab of the bottom-right panel of RStudio and click on `Install`.
+To **install packages**, go to the Packages tab of the bottom-right panel of RStudio and click on `Install`.
 
 In the "Install packages" window, list the package names and then click `Install`.
 :::
@@ -460,6 +465,12 @@ opts_2 <- c(
 
 cat("Which of the following statements is wrong?", longmcq(opts_2))
 ```
+:::
+
+::: {.callout-caution collapse="true"}
+#### Explanation
+
+This was a question about terminology. In R, you attach packages from the library using (confusingly) the `library()` function.
 :::
 
 ## Including comments

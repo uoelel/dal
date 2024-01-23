@@ -33,7 +33,7 @@ Finally, please note that *marking does not follow a point-based system*, i.e. d
 
 This formative assessments covers Weeks 1-4.
 
-<!-- You can find the instructions and data for the first formative here: <https://github.com/uoelel/DAL-f1/>. -->
+You can find the instructions and data for the first formative here: <https://github.com/uoelel/dal-f1/>.
 :::
 
 ::: {.callout-warning}

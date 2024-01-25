@@ -1,7 +1,7 @@
 ## Schedule overview
 
 | Week   | Lecture                                                        | Lab                                                    |                                        |
-|------------------|--------------------|------------------|------------------|
+|------------------|-------------------|------------------|------------------|
 | 1      | [Quantitative methods and uncertainty](slides/lecture-w01.qmd) | [R basics](tutorials/tutorial-w01.qmd)                 |                                        |
 | 2      | [Research process](slides/lecture-w02.qmd)                     | [RStudio + R scripts](tutorials/tutorial-w02.qmd)      |                                        |
 | 3      | [File management](slides/lecture-w03.qmd)                      | [Read data](tutorials/tutorial-w03.qmd)                |                                        |
@@ -19,7 +19,7 @@
 ## Functions and data
 
 |     | Functions                                                                                                          | Data                                                                                                                           |
-|-----------------|---------------------------------------|-----------------|
+|------------------|-----------------------------------|------------------|
 | 1   | c(), sum(), mean(), cat(), data.frame()                                                                            |                                                                                                                                |
 | 2   | length(), library(), .libPath()                                                                                    |                                                                                                                                |
 | 3   | read_csv(), read_excel(), readRDS()                                                                                | [shallow](data/song2020/shallow.qmd), [relatives](data/los2023/relatives.qmd), [glot_status](data/coretta2022/glot_status.qmd) |
@@ -85,6 +85,7 @@
 This course will be loosely based on the following online textbook. Note that the order of the contents of the course will not closely follow that of this book, but specific chapter will be noted on this page in each week
 
 -   [R for Data Science](https://r4ds.hadley.nz) (**R4DS**).
+-   [The Turing Way](https://the-turing-way.netlify.app/index.html) (**TTW**).
 
 **Other**
 
@@ -154,6 +155,28 @@ This course will be loosely based on the following online textbook. Note that th
 -   Submitting a Data Management Plan.
 :::
 
+::: {.callout-tip collapse="false"}
+#### Readings
+
+**Textbook**
+
+-   R4DS [Ch 6](https://r4ds.hadley.nz/workflow-scripts).
+
+-   TTW, [Research Compendia](https://the-turing-way.netlify.app/reproducible-research/compendia#rr-compendia) and [File naming conventions](https://the-turing-way.netlify.app/project-design/filenaming).
+
+**From the lecture**
+
+-   [UoE Research Data Management policy](https://www.ed.ac.uk/information-services/about/policies-and-regulations/research-data-policy).
+
+-   [UoE DMP online](https://dmponline.ed.ac.uk/).
+
+-   [Creative Commons licenses](https://creativecommons.org/share-your-work/).
+
+**Other**
+
+-   
+:::
+
 ### Week 4
 
 ::: {.callout-important collapse="false"}
@@ -170,6 +193,43 @@ This course will be loosely based on the following online textbook. Note that th
 -   Create dynamic reports with Quarto.
 -   Learn about plotting systems.
 -   Basics of plotting with ggplot2.
+:::
+
+::: {.callout-tip collapse="false"}
+#### Readings
+
+**Textbook**
+
+-   R4DS [Ch 1](https://r4ds.hadley.nz/data-visualize).
+
+**From the lecture**
+
+-   [Spiegerhalter 2019](https://www.penguin.co.uk/books/294857/the-art-of-statistics-by-spiegelhalter-david/9780241258767). The art of statistics.
+
+**Other**
+
+-   [Fundamentals of data visualisation](https://clauswilke.com/dataviz/).
+
+**Catalogues**
+
+-   [Directory of visualisations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
+-   [Data viz catalogue](https://datavizcatalogue.com/index.html)
+-   [Data Viz project](https://datavizproject.com)
+-   [Top 50](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+-   [Data Viz](https://datavizm20.classes.andrewheiss.com/)
+
+**Colour**
+
+-   [ColorBrewer2](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3).
+-   [MetBrewer](https://github.com/BlakeRMills/MetBrewer).
+-   [Use colour wisely](https://albert-rapp.de/post/2022-02-19-ggplot2-color-tips-from-datawrapper/).
+
+**Recommendations**
+
+-   [Same stats different data](https://www.research.autodesk.com/app/uploads/2023/03/same-stats-different-graphs.pdf_rec2hRjLLGgM7Cn2T.pdf).
+-   [Behind bars](https://stats.stackexchange.com/a/367889).
+-   [I stopped using box plots](https://nightingaledvs.com/ive-stopped-using-box-plots-should-you/).
+-   [Issues with error bars](https://www.data-to-viz.com/caveat/error_bar.html).
 :::
 
 ### Week 5

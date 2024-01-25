@@ -140,6 +140,28 @@ albvot %>%
 
 [[Image source](https://flowingdata.com/2013/07/15/open-thread-what-is-wrong-with-these-charts/). See more examples on [Ugly Charts](https://flowingdata.com/category/visualization/ugly-visualization/).]{.f5}
 
+## (Does not) enable exploration
+
+```{r}
+#| label: gest-bar
+
+gestures %>%
+  filter(months %in% c(10, 12)) %>%
+  drop_na(count) %>%
+  group_by(months, background, gesture) %>%
+  summarise(
+    count_sum = sum(count), .groups = "drop"
+  ) %>%
+  ggplot(aes(as.factor(months), count_sum, fill = background)) +
+  geom_bar(stat = "identity") +
+  facet_grid(background ~ gesture) +
+  scale_fill_brewer(type = "qual") +
+  labs(
+    title = "Infant gesture counts (tally) at 10 and 12 mo",
+    x = "Months old", y = "Gesture count"
+  )
+```
+
 ## Enables exploration
 
 ```{r}
@@ -172,3 +194,12 @@ gestures %>%
 
 1. Reuse labels, colours, shapes throughout different plots to indicate the same thing.
 :::
+
+## Activity {background-color="var(--inverse)"}
+
+Form small groups and discuss:
+
+- Go to [Ugly Charts](https://flowingdata.com/category/visualization/ugly-visualization/), pick a couple charts to discuss.
+
+- Discuss the plots in a couple recent papers you have read.
+

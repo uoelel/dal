@@ -355,8 +355,8 @@ Quiz 1
 </div>
 <div class="callout-body-container callout-body">
 Which of the following is an absolute paths?
-<div id="radio_JSCBMFJVTN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JSCBMFJVTN" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_JSCBMFJVTN" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_JSCBMFJVTN" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
+<div id="radio_GUUECYCIDO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GUUECYCIDO" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_GUUECYCIDO" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_GUUECYCIDO" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
 </div>
 </div>
 </div>
@@ -515,7 +515,7 @@ Warning
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>song2020 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/song2020/shallow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>shallow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/song2020/shallow.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 6500 Columns: 11
 ── Column specification ────────────────────────────────────────────────────────
@@ -593,7 +593,7 @@ Get the working directory
 <p>The easiest way is to click on the name of the data listed in the <code>Environment</code> tab, in the top-right panel of RStudio.</p>
 <p>You will see a nicely formatted table, as you would in a programme like Excel.</p>
 <p>Data tables in R (i.e.&nbsp;tabular, spread-sheet like data) are called <strong>data frames</strong> or <strong>tibbles</strong>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<p>The <code>song2020</code> data frame contains 11 columns (called variables in the <code>Environment</code> tab). The 11 columns are the following:</p>
+<p>The <code>shallow</code> data frame contains 11 columns (called variables in the <code>Environment</code> tab). The 11 columns are the following:</p>
 <ul>
 <li><code>Group</code>: <code>L1</code> vs <code>L2</code> speakers of English.</li>
 <li><code>ID</code>: Subject unique ID.</li>
@@ -618,8 +618,8 @@ Quiz 3
 </div>
 <div class="callout-body-container callout-body">
 How many rows does <code>shallow</code> have?
-<div id="radio_QWTDKQYCSY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QWTDKQYCSY" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_QWTDKQYCSY" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_QWTDKQYCSY" value="answer"> <span>6500</span></label>
+<div id="radio_EQIBDNWZOE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EQIBDNWZOE" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_EQIBDNWZOE" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_EQIBDNWZOE" value="answer"> <span>6500</span></label>
 </div>
 </div>
 </div>
@@ -633,12 +633,12 @@ How many rows does <code>shallow</code> have?
 </div>
 <p>Then we can use the <code>read_excel()</code> function. Let’s read the file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>los2023 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023/relatives.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>relatives <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023/relatives.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you can view the tibble <code>los2023</code>.</p>
 <p>Note that if the Excel file has more than one sheet, you can specify the sheet number when reading the file (the default is <code>sheet = 1</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>los2023_2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023/relatives.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>relatives_2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/los2023/relatives.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The second sheet in <code>los2023.xlx</code> contains the description of the columns in the first sheet.</p>
 </section>
@@ -669,7 +669,7 @@ Rds files
 <p>It is also very easy to save a tibble to an <code>.rds</code> file with the <code>saveRDS()</code> function.</p>
 <p>For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(song2020, <span class="st">"./data/song2020/shallow.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(shallow, <span class="st">"./data/song2020/shallow.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The first argument is the name of the tibble object and the second argument is the file path to save the object to.</p>
 </section>

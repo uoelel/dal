@@ -338,11 +338,11 @@ But **DO** include `library()` in your scripts.
 At the top of `tutorial_w03.R`, write the following lines of code. Then run the code.
 
 ```{r}
-#| label: read-song2020
+#| label: read-shallow
 
 library(tidyverse)
 
-song2020 <- read_csv("./data/song2020/shallow.csv")
+shallow <- read_csv("./data/song2020/shallow.csv")
 ```
 
 If you look at the `Environment` tab, you will see `song2020` under `Data`.
@@ -405,7 +405,7 @@ Data tables in R (i.e. tabular, spread-sheet like data) are called **data frames
 
 [^2]: A **tibble** is a special data frame. We will learn more about tibbles in the following weeks.
 
-The `song2020` data frame contains 11 columns (called variables in the `Environment` tab). The 11 columns are the following:
+The `shallow` data frame contains 11 columns (called variables in the `Environment` tab). The 11 columns are the following:
 
 -   `Group`: `L1` vs `L2` speakers of English.
 -   `ID`: Subject unique ID.
@@ -453,7 +453,7 @@ Then we can use the `read_excel()` function. Let's read the file.
 ```{r}
 #| label: los2023
 
-los2023 <- read_excel("./data/los2023/relatives.xlsx")
+relatives <- read_excel("./data/los2023/relatives.xlsx")
 
 ```
 
@@ -464,7 +464,7 @@ Note that if the Excel file has more than one sheet, you can specify the sheet n
 ```{r}
 #| label: los2023-2
 
-los2023_2 <- read_excel("./data/los2023/relatives.xlsx", sheet = 2)
+relatives_2 <- read_excel("./data/los2023/relatives.xlsx", sheet = 2)
 ```
 
 The second sheet in `los2023.xlx` contains the description of the columns in the first sheet.
@@ -503,7 +503,7 @@ For example:
 #| label: save-rds
 #| eval: false
 
-saveRDS(song2020, "./data/song2020/shallow.rds")
+saveRDS(shallow, "./data/song2020/shallow.rds")
 ```
 
 The first argument is the name of the tibble object and the second argument is the file path to save the object to.

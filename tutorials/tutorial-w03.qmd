@@ -35,7 +35,7 @@ In the tutorial last week you've been playing around with R, RStudio and R scrip
 
 **But what if you want to import data in R?**
 
-Easy! You can use the `read_*()` functions to read your files into R. But before we dive in, let's first talk about some computer basics. (You can skip this section if it's too basic for you.)
+Easy! You can use the `read_*()` functions (`*` is just a place holder for specific types of files to read, like `read_csv()` or `read_excel()`) to read your files into R. But before we dive in, let's first talk about some computer basics. (You can skip this section if it's too basic for you.)
 
 ::: callout-warning
 #### Enable all extensions
@@ -537,7 +537,7 @@ Read the following files in R, making sure you use the right `read_*()` function
 
 -   [pankratz2021/si.csv](../data/pankratz2021/si.csv)
 
--   Go to <https://datashare.ed.ac.uk/handle/10283/4006> and download the file `conflict_data_.xlsx`. Read both sheets ("conflict_data2" and "demographics"). Any issues?
+-   Go to <https://datashare.ed.ac.uk/handle/10283/4006> and download the file `conflict_data_.xlsx`. Read both sheets ("conflict_data2" and "demographics"). Any issues? (I suggest looking at the spread sheet in Excel if it helps).
 :::
 
 ## Summary

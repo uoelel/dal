@@ -1,7 +1,7 @@
 ## Schedule overview
 
 | Week   | Lecture                                                        | Lab                                                    |                                        |
-|------------------|-------------------|------------------|------------------|
+|--------|----------------------------------------------------------------|--------------------------------------------------------|----------------------------------------|
 | 1      | [Quantitative methods and uncertainty](slides/lecture-w01.qmd) | [R basics](tutorials/tutorial-w01.qmd)                 |                                        |
 | 2      | [Research process](slides/lecture-w02.qmd)                     | [RStudio + R scripts](tutorials/tutorial-w02.qmd)      |                                        |
 | 3      | [File management](slides/lecture-w03.qmd)                      | [Read data](tutorials/tutorial-w03.qmd)                |                                        |
@@ -19,7 +19,7 @@
 ## Functions and data
 
 |     | Functions                                                                                                          | Data                                                                                                                           |
-|-------------------|-----------------------------------|-------------------|
+|-----|--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | 1   | c(), sum(), mean(), cat(), data.frame()                                                                            |                                                                                                                                |
 | 2   | length(), library(), .libPath()                                                                                    |                                                                                                                                |
 | 3   | read_csv(), read_excel(), readRDS()                                                                                | [shallow](data/song2020/shallow.qmd), [relatives](data/los2023/relatives.qmd), [glot_status](data/coretta2022/glot_status.qmd) |

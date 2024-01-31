@@ -66,7 +66,7 @@ The **user folder** is the folder with the name of your account.
 
 **On macOS**
 
--   Go to Finder > Preferences/Settings.
+-   Go to Finder \> Preferences/Settings.
 
 -   Go to `Sidebar`.
 
@@ -327,7 +327,7 @@ Go ahead and install the tidyverse from the Packages tab.[^1]
 
 ### `read_csv()`
 
-::: {.callout-warning}
+::: callout-warning
 #### Did you open the RStudio Quarto project?
 
 Before moving on, make sure that you have opened the RStudio Quarto project correctly (see warning at the top of the tutorial)
@@ -365,6 +365,16 @@ shallow <- read_csv("./data/song2020/shallow.csv")
 
 If you look at the `Environment` tab, you will see `song2020` under `Data`.
 
+::: callout-note
+#### Data frames and tibbles
+
+In R, a data table is called a **data frame**.
+
+**Tibbles** are special data frame created with the read functions from the tidyverse. If you are curious about the difference, check [this page](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html#:~:text=There%20are%20three%20key%20differences,%2C%20subsetting%2C%20and%20recycling%20rules.).
+
+In this course's tutorials, "data frame" and "tibble" will be used interchangeably (since we are using the read functions from the tidyverse, all resulting data frames will be tibbles).
+:::
+
 But wait, what is that `"./data/song2020/shallow.csv"`? That's a **relative path**. We briefly mentioned relative paths above, but let's understand the details now. You will be able to view the data soon.
 
 ### Relative paths
@@ -399,7 +409,7 @@ So from now on I encourage you to use Quarto projects, R scripts and relative pa
 
 The benefit of doing so is that, if you move your project or rename it, or if you share the project with somebody, all the paths will just work because they are relative!
 
-::: {.callout-tip}
+::: callout-tip
 #### Get the working directory
 
 You can get the current working directory with the `getwd()` command.

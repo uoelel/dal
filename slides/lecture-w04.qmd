@@ -42,6 +42,10 @@ formants <- formants %>%
   )
 ```
 
+##
+
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/65ba28066b1e522a08fe0497" width="100%"></iframe>
+
 ## Good data visualisation
 
 ::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}

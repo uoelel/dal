@@ -250,7 +250,7 @@ Try this yourself:
 
 -   Add code to read the following files:
 
-    -   `winter202/polite.csv`
+    -   `winter2020/polite.csv`
 
     -   `coretta2022/glot_status.rds`
 

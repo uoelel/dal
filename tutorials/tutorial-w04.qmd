@@ -37,6 +37,8 @@ Keeping track of the code you use for data analysis is a very important aspect o
 ### Reproducible research
 
 Research is **reproducible** when the same data and same code return the same results.
+
+See the [Definitions](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions) page of The Turing Way for definitions of *reproducible*, *replicable*, *robust* and *generalisable* research.
 :::
 
 R scripts are great for writing code, and you can even document the code (add explanations or notes) with comments (i.e. lines that start with `#`).
@@ -59,7 +61,7 @@ opts_1 <- c(
   "c. When research conducted by a different research team with new data does not produce the results as published in the original study. "
 )
 
-cat("**When is research not reproducible?", longmcq(opts_1))
+cat("**When is research not reproducible?**", longmcq(opts_1))
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -89,7 +91,7 @@ Quarto can be used to generate **dynamic reports**: these are files that are gen
 
 ### Formatting text
 
-R comments in R scripts cannot be formatted (for example, you can't make bold or italic texts).
+R comments in R scripts cannot be formatted (for example, you can't make text bold or italic).
 
 Text in Quarto files can be fully formatted using a simple but powerful **mark-up language** called [markdown](https://www.markdownguide.org).
 
@@ -101,7 +103,13 @@ A few quick pointers (you can test them in the [Markdown Live Preview](https://m
 
 -   You can make text bold with two stars: `**this text is bold!**`.
 
--   Headings are created with `#`: `# This is a level-1 heading`. `## This is a level-2 heading`.
+-   Headings are created with `#`: 
+
+```md
+# This is a level-1 heading
+
+## This is a level-2 heading
+```
 
 ::: callout-tip
 #### Mark-up, Markdown

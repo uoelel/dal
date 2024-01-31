@@ -176,7 +176,7 @@ gestures %>%
   drop_na(count) %>%
   ggplot(aes(as.factor(months), count, colour = background)) +
   geom_line(aes(group = id), alpha = 0.5) +
-  geom_point(alpha = 0.25) +
+  geom_point(alpha = 0.5) +
   facet_grid(background ~ gesture) +
   scale_color_brewer(type = "qual") +
   labs(
@@ -188,15 +188,15 @@ gestures %>%
 ## Practical tips
 
 ::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
-1. Show raw data (e.g. individual observations, participants, items...).
+1. Show **raw data** (e.g. individual observations, participants, items...).
 
-1. Separate data in different panels as needed.
+1. Separate data in different **panels** as needed.
 
-1. Use simple but informative labels for axes, panels, etc...
+1. Use **simple but informative labels** for axes, panels, etc...
 
-1. Use colour as a visual aid, not just for aesthetics.
+1. Use colour as a **visual aid**, not just for aesthetics.
 
-1. Reuse labels, colours, shapes throughout different plots to indicate the same thing.
+1. **Reuse** labels, colours, shapes throughout different plots to indicate the same thing.
 :::
 
 ## Activity {background-color="var(--inverse)"}

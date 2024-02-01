@@ -4,6 +4,8 @@ author:
   - Elizabeth Pankratz
   - Bob van Tiel
 year: 2021
+languages: "English"
+population: "English"
 doi: "10.1017/langcog.2021.13"
 url: "https://osf.io/t3b4u/"
 abstract: |

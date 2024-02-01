@@ -3,7 +3,7 @@ title: "Data"
 listing:
   type: table
   contents: data
-  fields: [year, title, author]
+  fields: [year, title, author, languages, population]
 format: 
   html:
     page-layout: full

@@ -2,6 +2,8 @@
 title: "Massive Auditory Lexical Decision 1.1"
 author: Tucker, Benjamin V.
 year: 2021
+languages: "English"
+population: "English"
 doi: "10.7939/r3-kh0r-r116"
 url: "https://osf.io/sa37y/"
 description: |

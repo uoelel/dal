@@ -8,6 +8,7 @@ author:
   - Ludovica Serratrice
   - Elena Lieven
 year: 2020
+population: ["Cantonese", "Bangladeshi", "British"]
 doi: "10.1111/cdev.13406"
 url: "https://github.com/stefanocoretta/infant-gestures"
 abstract: |

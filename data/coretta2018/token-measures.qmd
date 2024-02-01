@@ -4,6 +4,8 @@ author: "Stefano Coretta"
 year: 2018
 doi: "10.17605/OSF.IO/8ZHKU"
 url: "https://osf.io/8zhku/"
+languages: ["Italian", "Polish"]
+population: ["Italian", "Polish"]
 ---
 
 ## Description

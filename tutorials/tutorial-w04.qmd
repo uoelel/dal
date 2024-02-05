@@ -103,9 +103,9 @@ A few quick pointers (you can test them in the [Markdown Live Preview](https://m
 
 -   You can make text bold with two stars: `**this text is bold!**`.
 
--   Headings are created with `#`: 
+-   Headings are created with `#`:
 
-```md
+``` md
 # This is a level-1 heading
 
 ## This is a level-2 heading
@@ -119,31 +119,31 @@ A **mark-up language** is a text-formatting system consisting of symbols or keyw
 **Markdown** is a simple yet powerful mark-up language.
 :::
 
-### Create an `.qmd` file
+### Create a `.qmd` file
 
 ::: callout-warning
 #### Important
 
-When working through these tutorials, always **make sure you are in the course Quarto Project** you just created.
+When working through these tutorials, always **make sure you are in the course Quarto Project** you created before.
 
 You know you are in a Quarto Project because you can see the name of the Project in the top-right corner of RStudio, next to the light-blue cube icon.
 
 If you see `Project (none)` in the top-right corner, that means **you are not** in the Quarto Project.
 
-To make sure you are in the Quarto project, you can open the project by going to the project folder in File Explorer (Win) or Finder (macOS) and double click on the `.Rproj` file.
+To make sure you are in the Quarto project, you can open the project by going to the project folder in File Explorer (Windows) or Finder (macOS) and double click on the `.Rproj` file.
 :::
 
-To create a new `.qmd` file, just click on the `New file` button, then `Quarto Document...`. (If you are asked to install/update packages, do so.)
+To create a new `.qmd` file, just click on the `New file` button (the white square with the green plus symbol), then `Quarto Document...`. (If you are asked to install/update packages, do so.)
 
 ![](/img/new-quarto.png){fig-align="center" width="400"}
 
-A window will open. Add a title of your choice and your name. Make sure the `Use visual markdown editor` is **NOT ticked**, then click `OK` (you will be free to use the visual editor later, but it is important that you first see what a Quarto document looks like under the hood first).
+A window will open. Add a title of your choice and your name. Make sure the `Use visual markdown editor` is **NOT ticked**, then click `Create` (you will be free to use the visual editor later, but it is important that you first see what a Quarto document looks like under the hood first).
 
 ![](/img/new-quarto-window.png){fig-align="center" width="500"}
 
 A new `.qmd` file will be created and will open in the File Editor panel in RStudio.
 
-**Note** that creating a Quarto file does not automatically saves it on your computer. To do so, either use the keyboard short-cut `CMD+S`/`CTRL+S` or click on the floppy disk icon in the menu below the file tab.
+**Note** that creating a Quarto file does not automatically save it on your computer. To do so, either use the keyboard short-cut `CMD+S`/`CTRL+S` or click on the floppy disk icon in the menu below the file tab.
 
 ![](/img/save-quarto.png){fig-align="center" width="500"}
 
@@ -155,7 +155,7 @@ Remember that all the files of your RStudio project don't live inside RStudio bu
 
 A Quarto file usually has three main parts:
 
--   The YAML header (green).
+-   The YAML header (green in the screenshot below).
 
 -   Code chunks (red).
 
@@ -205,7 +205,10 @@ Now, all code in Quarto files, no matter where they are saved, will be run with 
 
 You will use the Quarto document you created to write text and code for this tutorial.
 
-This is what the Quarto document should look like now:
+**Delete everything in the Quarto document below the YAML header.** 
+It's just example text—we're not attached to it!
+
+This is what the Quarto document should look like now (if your YAML header also contains "`format:html`, that's completely fine):
 
 ![](/img/quarto-empty.png){fig-align="center" width="500"}
 
@@ -236,7 +239,8 @@ To run the code, you have two options:
 
 -   Ensure the text cursor is inside the code chunk and press `SHIFT+CMD+ENTER/SHIFT+CTRL+ENTER`. This too runs all the code in the code chunk.
 
-If you want to run line by line in the code chunk, you can place the text cursor on the line you want to run and press `CMD+ENTER/CTRL+ENTER`. The current line is run nd the text cursor is moved to the next line.
+If you want to run line by line in the code chunk, you can place the text cursor on the line you want to run and press `CMD+ENTER/CTRL+ENTER`. The current line is run and the text cursor is moved to the next line.
+Just like in the .R scripts that we've been using in past weeks.
 :::
 
 Run the `setup` chunk now.
@@ -256,7 +260,7 @@ Try this yourself:
 
 -   Set the label of the chunk to `read-data`.
 
--   Add code to read the following files:
+-   Add code to read the following files (hint: think about where these files are located relative to the working directory, that is, the project folder). Assign the datasets to the variable names `polite` and `glot_status` respectively.
 
     -   `winter2020/polite.csv`
 
@@ -273,7 +277,14 @@ To render a Quarto file, just click on the `Render` button and an HTML file will
 
 ![](/img/quarto-render.png){fig-align="center" width="400"}
 
-It will also be shown in the Viewer pane (like in the picture below) or in a new window (you can set this option in the RStudio `Preferences > R Markdown > Basics > Show output preview in…`).
+It may be shown in the Viewer pane (like in the picture below) or in a new browser window.
+There are a few ways you can set this option to whichever version you prefer.
+Follow the instructions that work for you—they all do the same thing.
+
+- `Tools > Global Options > R Markdown > Show output preview in…`
+- `Preferences > R Markdown > Basics > Show output preview in…`.
+- Right beside the `Render` button, you will see a little white gear. Click on that gear, and a drop-down menu will open. Click on `Preview in Window` or `Preview in Viewer Pane`, whichever you prefer.
+
 
 ![](/img/quarto-render-view.png){fig-align="center" width="700"}
 
@@ -287,7 +298,7 @@ This is very handy when you are writing an analysis report you need to share wit
 Quarto files can be **rendered** into other formats, like HTML, PDF and Word documents.
 :::
 
-The assessments of this course will require you to write text and code in a Quarto file and render it to PDF.
+The assessments of this course will require you to write text and code in a Quarto file and render it to HTML.
 
 You could even write your dissertation in Quarto!
 
@@ -296,6 +307,9 @@ The following sections will introduce you to the basics of plotting data. You wi
 ## Plotting basics
 
 Plotting data in R is easy once you understand the basics.
+
+Create a new second-level header in your Quarto document called `## Making plots`.
+Everything else in this tutorial will go into this section.
 
 ### Graphic systems
 
@@ -343,7 +357,7 @@ The tidyverse package [ggplot2](https://ggplot2.tidyverse.org) provides users wi
 To be able to use the functions in a package, you first need to **attach the package**. We have already attached the `library(tidyverse)` packages, among which there is ggplot2, so you don't need to do anything else.
 :::
 
-We will first use the `polite` data to learn the basics of plotting using ggplot.
+We will first use the `polite` data to learn the basics of plotting using ggplot (remember you read this data in before in Practice 1?).
 
 In this tutorial we will use the following columns:
 
@@ -360,14 +374,14 @@ These are the minimum constituents of a ggplot2 plot.
 
 -   The `data`: you have to specify the data frame with the data you want to plot.
 
--   The `mapping`: the mapping tells ggplot how to map data columns to parts of the plot like the axes or groupings within the data. These parts are called *aesthetics*, or `aes` for short.
+-   The `mapping`: the mapping tells ggplot how to map data columns to parts of the plot like the axes or groupings within the data. (For example, which variable is shown on the x axis, and which one is on the y axis? If data comes from two different groups, should each group get its own colour?) These different parts of the plot are called *aesthetics*, or `aes` for short.
 :::
 
 You can specify the data and mapping with the `data` and `mapping` arguments of the `ggplot()` function.
 
 Note that the `mapping` argument is always specified with `aes()`: `mapping = aes(…)`.
 
-In the following bare plot, we are just mapping `background` to the *x*-axis `count_tot` the *y*-axis, from the `gestures_tot` data frame.
+In the following bare plot, we are just mapping `f0mn` to the *x*-axis and `H1H2` to the *y*-axis, from the `polite` data frame.
 
 **Create a new code chunk, copy the following code and run it.** From this point on I will assume you'll create a new code chunk and run the code yourself, without explicit instructions.
 
@@ -381,6 +395,9 @@ ggplot(
 ```
 
 Not much to see here: just two axes!
+So where's the data?
+Don't worry, we didn't do anything wrong.
+Showing the data itself requires a further step, which we'll turn to next.
 
 ::: callout-note
 #### Quiz 2
@@ -404,7 +421,7 @@ ggplot(
 
 ### Let's add geometries
 
-Nice, but we are missing the most important part: showing the data!
+Our code so far makes nice axes, but we are missing the most important part: showing the data!
 
 Data is represented with **geometries**, or `geom`s for short. `geom`s are added to the base ggplot with functions whose names all start with `geom_`.
 
@@ -447,6 +464,7 @@ When writing your results section, you could describe the plot this way:
 
 ::: callout-warning
 Note that using the `+` is a quirk of `ggplot()`. The idea behind it is that you start from a bare plot and you **add** (`+`) layers of data on top of it. This is because of the philosophy behind the package, called the [Layered Grammar of Graphics](http://vita.had.co.nz/papers/layered-grammar.html).
+In fact, Grammar of Graphics is where you get the GG in ggplot!
 :::
 
 ### Function arguments
@@ -500,9 +518,9 @@ cat("**Which of the following will produce the same plot as the one above?** Rea
 
 When specifying arguments, the order matters when not using the argument names.
 
-So this `aes(a, b)` is different from `aes(b, a)`.
+So `aes(a, b)` is different from `aes(b, a)`.
 
-But this `aes(y = b, x = a)` is the same as `aes(a, b)`.
+But `aes(y = b, x = a)` is the same as `aes(a, b)`.
 :::
 :::
 
@@ -527,7 +545,7 @@ The pipe `|>` teleports the data `polite` into the following function as the fir
 
 For now it might not make much sense using the pipe, but you will learn next week how to chain many functions one after the other using the pipe, at which point its usefulness will be more obvious.
 
-As a sneak-peak, you will be able to filter the data before plotting it, like so:
+As a sneak peek, you will be able to filter the data before plotting it, like so:
 
 ```{r}
 #| label: filter-plot-pipe
@@ -558,6 +576,13 @@ polite |>
   ggplot(aes(f0mn, H1H2, colour = gender)) +
   geom_point()
 ```
+
+::: callout-tip
+#### `colour` or `color`?
+
+To make ggplot easy for users of different Englishes, it's possible to write the colour aesthetic either as the British-style `colour` or the American-style `color`!
+Both will get the job done.
+:::
 
 Notice how `colour = gender` must be inside the `aes()` function, because we are trying to map `colour` to the values of the column `gender`. Colours are automatically assigned to each level in `gender`.
 
@@ -607,7 +632,7 @@ If you want to know more about the default colour palette, check this [blog post
 
 ### `alpha` aesthetic
 
-Another useful ggplot2 aesthetic is `alpha`. This aesthetic sets the transparency of the geometry: `0` means completely transparent and \`1\` means completely opaque.
+Another useful ggplot2 aesthetic is `alpha`. This aesthetic sets the transparency of the geometry: `0` means completely transparent and `1` means completely opaque.
 
 Change alpha in the code below to `0.5`.
 
@@ -622,7 +647,7 @@ polite |>
   scale_color_brewer(type = "qual")
 ```
 
-When you are setting a value yourself, rather than mapping an aesthetic to values in a specific column (like we did above with `colour`), you should add the aesthetic outside of `aes()` and usually in the geom function you want to set the alpha with.
+When you are setting a value yourself that should apply to all instances of some geometry, rather than mapping an aesthetic to values in a specific column (like we did above with `colour`), you should add the aesthetic outside of `aes()` and usually in the geom function you want to modify.
 
 Setting a lower alpha is useful when there are a lot of points or other geometries that overlap with each other and it just looks like a blob of colour (you can't really see the individual geometries; you will see an example next week). It is not the case here, and in fact reducing the alpha makes the plot quite illegible!
 

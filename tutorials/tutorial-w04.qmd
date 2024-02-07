@@ -24,7 +24,7 @@ library(webexercises)
 #| echo: false
 #| message: false
 
-polite <- read_csv("data/winter2020/polite.csv")
+polite <- read_csv("data/winter2012/polite.csv")
 ```
 
 ## Quarto
@@ -260,7 +260,7 @@ Try this yourself:
 
 -   Add code to read the following files (hint: think about where these files are located relative to the working directory, that is, the project folder). Assign the datasets to the variable names `polite` and `glot_status` respectively.
 
-    -   `winter2020/polite.csv`
+    -   `winter2012/polite.csv`
 
     -   `coretta2022/glot_status.rds`
 

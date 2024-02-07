@@ -86,8 +86,8 @@ polite <- read_csv("https://raw.githubusercontent.com/learnB4SS/learnB4SS/main/d
   arrange(index) %>%
   select(-index, -years_in_ger)
 
-dir.create("data/winter2020/", showWarnings = FALSE)
-write_csv(polite, "data/winter2020/polite.csv")
+dir.create("data/winter2012/", showWarnings = FALSE)
+write_csv(polite, "data/winter2012/polite.csv")
 ```
 
 ## Tucker 2019: MALD 1.1

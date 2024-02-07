@@ -1,7 +1,7 @@
 ## Schedule overview
 
 | Week   | Lecture                                                        | Lab                                                    |                                        |
-|--------|----------------------------------------------------------------|--------------------------------------------------------|----------------------------------------|
+|-----------------|---------------------|------------------|-----------------|
 | 1      | [Quantitative methods and uncertainty](slides/lecture-w01.qmd) | [R basics](tutorials/tutorial-w01.qmd)                 |                                        |
 | 2      | [Research process](slides/lecture-w02.qmd)                     | [RStudio + R scripts](tutorials/tutorial-w02.qmd)      |                                        |
 | 3      | [File management](slides/lecture-w03.qmd)                      | [Read data](tutorials/tutorial-w03.qmd)                |                                        |
@@ -19,12 +19,12 @@
 ## Functions and data
 
 |     | Functions                                                                                                          | Data                                                                                                                           |
-|-----|--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+|-----------------|--------------------------|-----------------------------|
 | 1   | c(), sum(), mean(), cat(), data.frame()                                                                            |                                                                                                                                |
 | 2   | length(), library(), .libPath()                                                                                    |                                                                                                                                |
 | 3   | read_csv(), read_excel(), readRDS()                                                                                | [shallow](data/song2020/shallow.qmd), [relatives](data/los2023/relatives.qmd), [glot_status](data/coretta2022/glot_status.qmd) |
-| 4   | ggplot(), aes(), geom_point(), labs(), colour and alpha, scale_colour_brewer(), scale_colour_viridis_d(), \|\>     | [polite](data/winter2020/polite.qmd)                                                                                           |
-| 5   | filter(), mutate(), geom_bar(), as.factor(), factor(), facet_grid()                                                | [glot_status](data/coretta2022/glot_status.qmd), [polite](data/winter2020/polite.qmd)                                          |
+| 4   | ggplot(), aes(), geom_point(), labs(), colour and alpha, scale_colour_brewer(), scale_colour_viridis_d(), \|\>     | [polite](data/winter2012/polite.qmd)                                                                                           |
+| 5   | filter(), mutate(), geom_bar(), as.factor(), factor(), facet_grid()                                                | [glot_status](data/coretta2022/glot_status.qmd), [polite](data/winter2012/polite.qmd)                                          |
 | 6   | group_by(), summarise(), count(), geom_density(), geom_rug(), mean(), sd(), median(), min(), max(), range(), log() | [shallow](data/song2020/shallow.qmd), [gestures](data/cameron2020/gestures.qmd)                                                |
 | 7   | pivot\_\*(), join\_\*(), list.files(), geom_violin(), geom_jitter(), facet_wrap()                                  |                                                                                                                                |
 | 8   | geom_hist(), stat_ellipse(), geom_tile(), likert, geom_sf                                                          |                                                                                                                                |

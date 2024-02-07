@@ -579,7 +579,7 @@ This is the plot you made in Week 4. Try and reproduce it by writing the code yo
 #| message: false
 #| warning: false
 
-polite <- read_csv("data/winter2020/polite.csv")
+polite <- read_csv("data/winter2012/polite.csv")
 
 ggplot(
   data = polite,

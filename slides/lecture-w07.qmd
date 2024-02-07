@@ -1,0 +1,101 @@
+---
+title: "Data Analysis for LEL - Week 7"
+subtitle: "Tidy data"
+author: "Stefano Coretta"
+institute: University of Edinburgh
+format:
+  mono-light-revealjs:
+    theme: [default, custom.scss]
+    history: false
+filters: [tachyonsextra]
+execute: 
+  echo: false
+---
+
+## Types of data
+
+-   Tabular (or rectangular) data (like spreadsheets).
+
+-   Audio and/or video recordings.
+
+-   Texts or transcripts.
+
+-   Annotation (ELAN, TextGrids, ...).
+
+-   Images.
+
+## Tabular data
+
+-   Tabular data is made of **rows and columns**.
+
+-   Prefer formats like Comma Separated Values (`.csv`) or Tab Separated Values (`.tsv`) over MS Excel.
+
+-   If you use Excel, **keep one sheet per Excel file**! (Don't have data in multiple sheet within the same Excel file).
+
+-   Include **ONE TABLE per file**. (You can transform and summarise data in R).
+
+## Tabular data: DON'T
+
+![](/img/bad-example-1.png){fig-align="center"}
+
+## Coding data
+
+Use **explicit coding**:
+
+-   **Don't use colours** to code your data! (Software like R will discard colours and any formatting).
+
+-   Each variable to be coded should have **its own column**.
+
+-   Use **clear labels**:
+
+    -   ACCURACY: incorrect, correct.
+        -   Not 0, 1.
+    -   DYSLEXIC: dyslexic, non-dyslexic (or control).
+        -   Not 0, 1 or yes, no.
+    -   VOWEL: a, i, u.
+    -   YEAR ABROAD: year_abroad, no_abroad
+        -   Not yes, no.
+
+## Coding data: DON'T
+
+![](/img/bad-example-2.png){fig-align="center"}
+
+## Coding data: DON'T
+
+![](/img/bad-example-3.png){fig-align="center"}
+
+## Coding data: DO
+
+![](/img/good-example-1.png){fig-align="center"}
+
+## Tidy data
+
+![](/img/tidydata_1.jpg){fig-align="center"}
+
+::: notes
+https://github.com/allisonhorst/stats-illustrations
+:::
+
+## Tidy data
+
+![](/img/tidydata_2.jpg){fig-align="center"}
+
+::: notes
+https://github.com/allisonhorst/stats-illustrations
+:::
+
+## Tidy data: DON'T
+
+![](/img/untidy-1.png){fig-align="center"}
+
+## Tidy data: DO
+
+![](/img/tidy-1.png){fig-align="center"}
+
+## Tidy data: DO
+
+![](/img/tidy-2.png){fig-align="center"}
+
+## Tidy data: DO
+
+![](/img/tidy-3.png){fig-align="center"}

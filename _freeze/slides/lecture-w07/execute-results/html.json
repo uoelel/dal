@@ -1,0 +1,19 @@
+{
+  "hash": "29fa950090917100de693e3e1aefd091",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Data Analysis for LEL - Week 7\"\nsubtitle: \"Tidy data\"\nauthor: \"Stefano Coretta\"\ninstitute: University of Edinburgh\nformat:\n  mono-light-revealjs:\n    theme: [default, custom.scss]\n    history: false\nfilters: [tachyonsextra]\nexecute: \n  echo: false\nknitr:\n  opts_chunk: \n    fig-align: center\n    fig-width: 7\n---\n\n\n# Types of data\n\n-   Tabular (or rectangular) data (like spreadsheets).\n\n-   Audio and/or video recordings.\n\n-   Texts or transcripts.\n\n-   Annotation (ELAN, TextGrids, ...).\n\n-   Images.\n\n# Tabular data\n\n-   Tabular data is made of **rows and columns**.\n\n-   Prefer formats like Comma Separated Values (`.csv`) or Tab Separated Values (`.tsv`) over MS Excel.\n\n-   If you use Excel, **keep one sheet per Excel file**! (Don't have data in multiple sheet within the same Excel file).\n\n-   Include **ONE TABLE per file**. (You can transform and summarise data in R).\n\n# Tabular data: DON'T\n\n![](/img/bad-example-1.png){fig-align=\"center\"}\n\n# Coding data\n\nUse **explicit coding**:\n\n-   **Don't use colours** to code your data! (Software like R will discard colours and any formatting).\n\n-   Each variable to be coded should have **its own column**.\n\n-   Use **clear labels**:\n\n    -   ACCURACY: incorrect, correct.\n        -   Not 0, 1.\n    -   DYSLEXIC: dyslexic, non-dyslexic (or control).\n        -   Not 0, 1 or yes, no.\n    -   VOWEL: a, i, u.\n    -   YEAR ABROAD: year_abroad, no_abroad\n        -   Not yes, no.\n\n# Coding data: DON'T\n\n![](/img/bad-example-2.png){fig-align=\"center\"}\n\n# Coding data: DON'T\n\n![](/img/bad-example-3.png){fig-align=\"center\"}\n\n# Coding data: DO\n\n![](/img/good-example-1.png){fig-align=\"center\"}\n\n# Tidy data\n\n![](/img/tidydata_1.jpg){fig-align=\"center\"}\n\n::: notes\nhttps://github.com/allisonhorst/stats-illustrations\n:::\n\n# Tidy data\n\n![](/img/tidydata_2.jpg){fig-align=\"center\"}\n\n::: notes\nhttps://github.com/allisonhorst/stats-illustrations\n:::\n\n# Tidy data: DON'T\n\n![](/img/untidy-1.png){fig-align=\"center\"}\n\n# Tidy data: DO\n\n![](/img/tidy-1.png){fig-align=\"center\"}\n\n# Tidy data: DO\n\n![](/img/tidy-2.png){fig-align=\"center\"}\n\n# Tidy data: DO\n\n![](/img/tidy-3.png){fig-align=\"center\"}\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

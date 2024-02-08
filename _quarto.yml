@@ -24,8 +24,9 @@ website:
         text: Course content
       - href: assessments.qmd
         text: Assessment
-      - href: data.qmd
+      - href: https://uoelel.github.io/qm-data/
         text: Data
+        target: _blank
 
 format:
   html:
@@ -34,6 +35,7 @@ format:
     toc: true
     df-print: paged
     number-sections: true
+    link-external-newwindow: true
 
 callout-icon: false
 

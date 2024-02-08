@@ -241,7 +241,7 @@ Throughout the course we will be using data files that come from linguistic rese
 
 **Please, follow these instructions carefully.**
 
-1.  Download the zip archive with all the data by right-clicking on the following link and download the file: [data.zip](../data/data.zip).
+1.  Download the zip archive with all the data by right-clicking on the following link and download the file: [data.zip](https://uoelel.github.io/qm-data/data.zip).
 
 2.  Unzip the zip file to extract the contents. (If you don't know how to do this, ask one of the tutors to help you!)
 

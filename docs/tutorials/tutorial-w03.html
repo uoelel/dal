@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Assessment</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data.html"> 
+    <a class="nav-link" href="https://uoelel.github.io/qm-data/" target="_blank"> 
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
@@ -379,8 +379,8 @@ Quiz 1
 </div>
 <div class="callout-body-container callout-body">
 Which of the following is an absolute path?
-<div id="radio_DVQMCZNRLO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DVQMCZNRLO" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_DVQMCZNRLO" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_DVQMCZNRLO" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
+<div id="radio_KCWFYMXMXI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KCWFYMXMXI" value=""> <span><code>Downloads/courses/dal/data/</code></span></label><label><input type="radio" autocomplete="off" name="radio_KCWFYMXMXI" value="answer"> <span><code>/Users/smruti/Downloads/data/files/</code></span></label><label><input type="radio" autocomplete="off" name="radio_KCWFYMXMXI" value=""> <span><code>sascha/Documents/files_pdf/paper.pdf</code></span></label>
 </div>
 </div>
 </div>
@@ -443,7 +443,7 @@ Tabular data
 <p>Throughout the course we will be using data files that come from linguistic research. You should download now the data files according to the following instructions</p>
 <p><strong>Please, follow these instructions carefully.</strong></p>
 <ol type="1">
-<li><p>Download the zip archive with all the data by right-clicking on the following link and download the file: <a href="../data/data.zip">data.zip</a>.</p></li>
+<li><p>Download the zip archive with all the data by right-clicking on the following link and download the file: <a href="https://uoelel.github.io/qm-data/data.zip">data.zip</a>.</p></li>
 <li><p>Unzip the zip file to extract the contents. (If you don’t know how to do this, ask one of the tutors to help you!)</p></li>
 <li><p>Create a folder called <code>data/</code> (the slash is there just to remind you that it’s a folder, but you don’t have to include it in the name) in the Quarto project you are using for the course.</p>
 <ol type="1">
@@ -667,8 +667,8 @@ Quiz 3
 </div>
 <div class="callout-body-container callout-body">
 How many rows does <code>shallow</code> have?
-<div id="radio_PVWSELUEYJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PVWSELUEYJ" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_PVWSELUEYJ" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_PVWSELUEYJ" value="answer"> <span>6500</span></label>
+<div id="radio_LYLPHFWJZS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LYLPHFWJZS" value=""> <span>11</span></label><label><input type="radio" autocomplete="off" name="radio_LYLPHFWJZS" value=""> <span>650</span></label><label><input type="radio" autocomplete="off" name="radio_LYLPHFWJZS" value="answer"> <span>6500</span></label>
 </div>
 </div>
 </div>
@@ -1060,6 +1060,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,

@@ -255,7 +255,7 @@ global_south <- glot_status |>
   )
 ```
 
-This should not look too alien! The first statement, `consonant %in% c("p", "t", "k")` looks at the `consonant` column and, for each row, it returns `TRUE` if the current row value is in `c("p", "t", "k")`, and `FALSE` if not.
+This should not look too alien! The first statement, `Macroarea %in% c("Africa", "Australia", "Papunesia", "South America")` looks at the `Macroarea` column and, for each row, it returns `TRUE` if the current row value is in `c("Africa", "Australia", "Papunesia", "South America")`, and `FALSE` if not.
 
 ```{r}
 #| label: global-south
@@ -396,7 +396,7 @@ glot_status <- glot_status |>
     Status = as.factor(Status)
   )
 
-# read below for an expanation of the dollar disgn $ syntax
+# read below for an explanation of the dollar disgn $ syntax
 levels(glot_status$Status)
 
 ```
@@ -519,7 +519,7 @@ ggplot(aes(x = Macroarea, fill = status)) +
 
 The plot now shows proportions of languages by endangerment status for each area separately.
 
-Note that the *y*-axis label is still "count" but should be "proportion" .Use `labs()` to change the axes labels and the legend name.
+Note that the *y*-axis label is still "count" but should be "proportion". Use `labs()` to change the axes labels and the legend name.
 
 ```{r}
 #| label: status-stacked-3-ex
@@ -583,7 +583,7 @@ polite <- read_csv("data/winter2012/polite.csv")
 
 ggplot(
   data = polite,
-  mapping = aes(x = f0mn, y = H1H2)
+  mapping = aes(x = f0mn, y = H1H2, col = gender)
 ) +
   geom_point()
 ```

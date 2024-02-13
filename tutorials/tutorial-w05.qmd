@@ -583,7 +583,7 @@ polite <- read_csv("data/winter2012/polite.csv")
 
 ggplot(
   data = polite,
-  mapping = aes(x = f0mn, y = H1H2, col = gender)
+  mapping = aes(x = f0mn, y = H1H2, colour = gender)
 ) +
   geom_point()
 ```

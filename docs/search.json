@@ -172,14 +172,14 @@
     "href": "slides/lecture-w07.html#types-of-data",
     "title": "Data Analysis for LEL - Week 7",
     "section": "Types of data",
-    "text": "Types of data\n\nTabular (or rectangular) data (like spreadsheets).\nAudio and/or video recordings.\nTexts or transcripts.\nAnnotation (ELAN, TextGrids, …).\nImages."
+    "text": "Types of data\n\n\nTabular (or rectangular) data (like spreadsheets).\nAudio and/or video recordings.\nTexts or transcripts.\nAnnotation (ELAN, TextGrids, …).\nImages."
   },
   {
     "objectID": "slides/lecture-w07.html#tabular-data",
     "href": "slides/lecture-w07.html#tabular-data",
     "title": "Data Analysis for LEL - Week 7",
     "section": "Tabular data",
-    "text": "Tabular data\n\nTabular data is made of rows and columns.\nPrefer formats like Comma Separated Values (.csv) or Tab Separated Values (.tsv) over MS Excel.\nIf you use Excel, keep one sheet per Excel file! (Don’t have data in multiple sheet within the same Excel file).\nInclude ONE TABLE per file. (You can transform and summarise data in R)."
+    "text": "Tabular data\n\n\nTabular data is made of rows and columns.\nPrefer formats like Comma Separated Values (.csv) or Tab Separated Values (.tsv) over MS Excel.\nIf you use Excel, keep one sheet per Excel file! (Don’t have data in multiple sheet within the same Excel file).\nInclude ONE TABLE per file. (You can transform and summarise data in R)."
   },
   {
     "objectID": "slides/lecture-w07.html#tabular-data-dont",
@@ -193,7 +193,7 @@
     "href": "slides/lecture-w07.html#coding-data",
     "title": "Data Analysis for LEL - Week 7",
     "section": "Coding data",
-    "text": "Coding data\nUse explicit coding:\n\nDon’t use colours to code your data! (Software like R will discard colours and any formatting).\nEach variable to be coded should have its own column.\nUse clear labels:\n\nACCURACY: incorrect, correct.\n\nNot 0, 1.\n\nDYSLEXIC: dyslexic, non-dyslexic (or control).\n\nNot 0, 1 or yes, no.\n\nVOWEL: a, i, u.\nYEAR ABROAD: year_abroad, no_abroad\n\nNot yes, no."
+    "text": "Coding data\n\nUse explicit coding:\n\nDon’t use colours to code your data! (Software like R will discard colours and any formatting).\nEach variable to be coded should have its own column.\nUse clear labels:\n\nACCURACY: incorrect, correct.\n\nNot 0, 1.\n\nDYSLEXIC: dyslexic, non-dyslexic (or control).\n\nNot 0, 1 or yes, no.\n\nVOWEL: a, i, u.\nYEAR ABROAD: year_abroad, no_abroad\n\nNot yes, no."
   },
   {
     "objectID": "slides/lecture-w07.html#coding-data-dont",

@@ -14,6 +14,8 @@ execute:
 
 ## Types of data
 
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+
 -   Tabular (or rectangular) data (like spreadsheets).
 
 -   Audio and/or video recordings.
@@ -23,16 +25,21 @@ execute:
 -   Annotation (ELAN, TextGrids, ...).
 
 -   Images.
+:::
 
 ## Tabular data
 
+::: {.bg-washed-blue .b--dark-blue .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
 -   Tabular data is made of **rows and columns**.
+:::
 
--   Prefer formats like Comma Separated Values (`.csv`) or Tab Separated Values (`.tsv`) over MS Excel.
+::: {.bg-washed-green .b--dark-green .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
+-   Prefer formats like Comma Separated Values (`.csv`) or Tab Separated Values (`.tsv`) over MS Excel files. For big data, use [Parquet](https://r4ds.hadley.nz/arrow.html) files.
 
--   If you use Excel, **keep one sheet per Excel file**! (Don't have data in multiple sheet within the same Excel file).
+-   If you use Excel files, **keep one sheet per Excel file**! (Don't have data in multiple sheet within the same Excel file).
 
 -   Include **ONE TABLE per file**. (You can transform and summarise data in R).
+:::
 
 ## Tabular data: DON'T
 
@@ -40,6 +47,7 @@ execute:
 
 ## Coding data
 
+::: {.bg-washed-green .b--dark-green .ba .bw2 .br3 .shadow-5 .ph4 .mt2}
 Use **explicit coding**:
 
 -   **Don't use colours** to code your data! (Software like R will discard colours and any formatting).
@@ -55,6 +63,7 @@ Use **explicit coding**:
     -   VOWEL: a, i, u.
     -   YEAR ABROAD: year_abroad, no_abroad
         -   Not yes, no.
+:::
 
 ## Coding data: DON'T
 

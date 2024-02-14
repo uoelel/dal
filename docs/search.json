@@ -179,7 +179,7 @@
     "href": "slides/lecture-w07.html#tabular-data",
     "title": "Data Analysis for LEL - Week 7",
     "section": "Tabular data",
-    "text": "Tabular data\n\n\nTabular data is made of rows and columns.\nPrefer formats like Comma Separated Values (.csv) or Tab Separated Values (.tsv) over MS Excel.\nIf you use Excel, keep one sheet per Excel file! (Don’t have data in multiple sheet within the same Excel file).\nInclude ONE TABLE per file. (You can transform and summarise data in R)."
+    "text": "Tabular data\n\n\nTabular data is made of rows and columns.\n\n\n\n\nPrefer formats like Comma Separated Values (.csv) or Tab Separated Values (.tsv) over MS Excel files. For big data, use Parquet files.\nIf you use Excel files, keep one sheet per Excel file! (Don’t have data in multiple sheet within the same Excel file).\nInclude ONE TABLE per file. (You can transform and summarise data in R)."
   },
   {
     "objectID": "slides/lecture-w07.html#tabular-data-dont",
@@ -313,6 +313,13 @@
     "title": "Data Analysis for LEL - Week 5",
     "section": "Types of variables",
     "text": "Types of variables\n\nNumeric continuous variable: between any two values there is an infinite number of values.\n\nThe variable can take on any positive and negative number, including 0.\nThe variable can take on any positive number only.\nProportions and percentages: The variable can take on any number between 0 and 1.\n\n\n\n\nNumeric discrete variable: between any two consecutive values there are no other values.\n\nCounts: The variable can take only on any positive integer number."
+  },
+  {
+    "objectID": "slides/lecture-w05.html#types-of-variables-3",
+    "href": "slides/lecture-w05.html#types-of-variables-3",
+    "title": "Data Analysis for LEL - Week 5",
+    "section": "Types of variables",
+    "text": "Types of variables\n\nCategorical (discrete) variable.\n\nBinary or dichotomous: The variable can take only one of two values.\nThe variable can take any of three of more values.\nOrdinal: The variable can take any of three of more values and the values have a natural order."
   },
   {
     "objectID": "slides/lecture-w05.html#operationalisation",
@@ -1167,12 +1174,5 @@
     "title": "DAL tutorial - Week 5",
     "section": "7 Faceting and panels",
     "text": "7 Faceting and panels\nSometimes we might want to separate the data into separate panels within the same plot.\nWe can achieve that easily using faceting.\n\n7.1 Polite again\nLet’s reproduce this plot from Week 4, but this time let’s spice things up.\nThis is the plot you made in Week 4. Try and reproduce it by writing the code yourself (you also have to read in the data!).\n\n\n\n\n\n\n\n\nFigure 7: Scatter plot of mean f0 and H1-H2 difference.\n\n\n\n\n\n\n\n7.2 Does being a music student matter?\nThat looks great, but we want to know if being a music student has an effect on the relationship of f0mn and H1H2.\nIn the plot above, the aesthetics mappings are the following:\n\nf0mn on the x-axis.\nH1H2 on the y-axis.\ngender as colour.\n\nHow can we separate data further depending on whether the participant is a music student or not (musicstudent)?\nWe can create panels using facet_grid(). This function takes lists of variables to specify panels in rows and/or columns.\n\n7.2.1 Faceting\nFaceting a plot allows to split the plot into multiple panels, arranged in rows and columns, based on one or more variables.\nTo facet a plot, use the facet_grid() function.\nThe syntax is a bit strange. You can specify rows of panels with the rows argument and columns of panels with cols argument, but you have to include column names inside vars(), like this:\n\npolite |&gt;\n  ggplot(aes(f0mn, H1H2, colour = gender)) +\n  geom_point() +\n  facet_grid(cols = vars(musicstudent)) +\n  labs(\n    x = \"Mean f0 (Hz)\",\n    y = \"H1-H2 difference (dB)\",\n    colour = \"Gender\"\n  )\n\n\n\n\n\n\n\nFigure 8: Scatter plot of mean f0 and H1-H2 difference in non-music students (left) vs music students (right).\n\n\n\n\n\nYou could write a description of this plot like this:\n\nFigure 8 shows mean f0 and H1-H2 difference as a scatter plot. The two panels indicate whether the participant was a student of music. Within each panel, the participant’s gender is represented by colour (red for female and blue for male). Male participants tend to have higher H1-H2 differences and lower mean f0 than females. From the plot it can also be seen that there is greater variability in H1-H2 difference in female music students compared to female non-music participants. Within each group of gender by music student there does not seem to be any specific relation between mean f0 and H1-H2 difference.\n\nThe polite data also has a column attitude with values inf for informal and pol for polite. Subjects were asked to speak either as if they were talking to a friend (inf attitude) or to someone with a higher status (pol attitude).\nRecreate the last plot, this time faceting also by attitude. Use the rows column to create two separate rows for each value of attitude.\n\npolite |&gt;\n  ggplot(aes(f0mn, H1H2, colour = gender)) +\n  geom_point() +\n  facet_grid(cols = vars(musicstudent), rows = ...)\n\nNow write a description of the plot."
-  },
-  {
-    "objectID": "slides/lecture-w05.html#types-of-variables-3",
-    "href": "slides/lecture-w05.html#types-of-variables-3",
-    "title": "Data Analysis for LEL - Week 5",
-    "section": "Types of variables",
-    "text": "Types of variables\n\nCategorical (discrete) variable.\n\nBinary or dichotomous: The variable can take only one of two values.\nThe variable can take any of three of more values.\nOrdinal: The variable can take any of three of more values and the values have a natural order."
   }
 ]

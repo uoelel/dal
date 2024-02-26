@@ -411,9 +411,9 @@ group_by(shallow, Group) |>
 
 The `group_by()` function takes at least two arguments:
 
--   The name of the tibble to group.
+-   The name of the tibble you want to group.
 
--   The name of the columns to group the tibble by, separated by commas.
+-   The name of the columns you want to group the tibble by, separated by commas.
 
 Here we are grouping `shallow` by `Group`.
 
@@ -455,7 +455,7 @@ Look again at the density plot of reaction times. Can you see the long tail of t
 
 **Reaction times are numeric and continuous, but can only be positive!** Because of this, usually the distribution of reaction times looks like the one in plot: a big lump on the left side and a long tail to the right.
 
-It is common practice to transform variables that can only tale positive values to reduce the asymmetry in the distribution.
+It is common practice to transform variables that can only take positive values to reduce the asymmetry in the distribution.
 
 A common transformation is to calculate the **logarithm** of the values. You can calculate the logarithm (or log) of a number in R using the `log()` function. Calculating the logs of a variable is known as a **log-transformation**.
 

@@ -16,6 +16,12 @@ knitr:
     fig-width: 7
 ---
 
+## 
+
+![](/img/QRCode for DAL mid-term feedback 2023-24.png){fig-align="center"}
+
+Link: <https://forms.office.com/e/rc0CAJc8YV>
+
 ## Summary measures
 
 ![](/img/data-summ.png){fig-align="center"}

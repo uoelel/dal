@@ -250,7 +250,7 @@ Summary measures
 <pre><code>[1] 867.36</code></pre>
 </div>
 </div>
-<p>The second argument sets the number of decimals to round to (by default, it is <code>0</code>, so the number is rounded to the nearest integer).</p>
+<p>The second argument sets the number of decimals to round to (by default, it is <code>0</code>, so the number is rounded to the nearest integer, that is, to the nearest whole number with no decimal values).</p>
 <p>Let’s recalculate the mean by rounding it this time.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(shallow, <span class="at">RT_mean =</span> <span class="fu">round</span>(<span class="fu">mean</span>(RT)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -348,12 +348,12 @@ Quiz 1
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>What does the <code>na.rm</code> argument of <code>mean()</code> do?
-<div id="radio_ARYPKTGCVX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ARYPKTGCVX" value=""> <span>It changes <code>NA</code>s to <code>FALSE</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_ARYPKTGCVX" value=""> <span>It converts <code>NA</code>s to <code>0</code>s.</span></label><label><input type="radio" autocomplete="off" name="radio_ARYPKTGCVX" value="answer"> <span>It removes <code>NA</code>s before taking the mean.</span></label>
+<div id="radio_TFVFCQCIWA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TFVFCQCIWA" value=""> <span>It changes <code>NA</code>s to <code>FALSE</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_TFVFCQCIWA" value=""> <span>It converts <code>NA</code>s to <code>0</code>s.</span></label><label><input type="radio" autocomplete="off" name="radio_TFVFCQCIWA" value="answer"> <span>It removes <code>NA</code>s before taking the mean.</span></label>
 </div></li>
 <li>Which is the mean of <code>c(4, 23, NA, 5)</code> when <code>na.rm</code> has the default value?
-<div id="radio_DPYHUUWDQJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DPYHUUWDQJ" value="answer"> <span><code>NA</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_DPYHUUWDQJ" value=""> <span><code>0</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_DPYHUUWDQJ" value=""> <span><code>10.66</code>.</span></label>
+<div id="radio_APZIJTKFHN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_APZIJTKFHN" value="answer"> <span><code>NA</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_APZIJTKFHN" value=""> <span><code>0</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_APZIJTKFHN" value=""> <span><code>10.66</code>.</span></label>
 </div></li>
 </ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -514,7 +514,7 @@ Hint
 </div>
 <p>How many <em>correct</em> trials are there in the <code>shallow</code> tibble? And how many <em>incorrect</em> trials?</p>
 <p>Note that you can add <strong>multiple column names, separated by commas</strong>, to get counts for the combinations of values of each column.</p>
-<p>Try to get counts of the combination of <code>ACC</code> and <code>Group</code> (<code>L1</code> vs <code>L2</code> participants). Replace <code>...</code> with the right code.</p>
+<p>Try to get counts of the combination of <code>ACC</code> and <code>Group</code> (<code>L1</code> vs <code>L2</code> participants). Replace <code>...</code> with the right code. Mess around and find out what works—you can’t break anything!—or check the documentation of <code>count()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(shallow, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -610,8 +610,8 @@ Hint
 </div>
 <p>The <code>group_by()</code> function takes at least two arguments:</p>
 <ul>
-<li><p>The name of the tibble to group.</p></li>
-<li><p>The name of the columns to group the tibble by, separated by commas.</p></li>
+<li><p>The name of the tibble you want to group.</p></li>
+<li><p>The name of the columns you want to group the tibble by, separated by commas.</p></li>
 </ul>
 <p>Here we are grouping <code>shallow</code> by <code>Group</code>.</p>
 <p>In fact, you can even use a pipe for the tibble of <code>group_by()</code> as we have done for other functions, like so:</p>
@@ -641,8 +641,8 @@ Quiz 3
 </div>
 <div class="callout-body-container callout-body">
 Which of the following returns the number of words in <code>shallow</code>?
-<div id="radio_CXINHZEJHJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CXINHZEJHJ" value=""> <span><code>count(shallow, Target)</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_CXINHZEJHJ" value="answer"> <span><code>shallow |&gt; distinct(Target) |&gt; count()</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_CXINHZEJHJ" value=""> <span><code>shallow |&gt; count(Target)</code>.</span></label>
+<div id="radio_MHYVDTNZLH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MHYVDTNZLH" value=""> <span><code>count(shallow, Target)</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_MHYVDTNZLH" value="answer"> <span><code>shallow |&gt; distinct(Target) |&gt; count()</code>.</span></label><label><input type="radio" autocomplete="off" name="radio_MHYVDTNZLH" value=""> <span><code>shallow |&gt; count(Target)</code>.</span></label>
 </div>
 </div>
 </div>
@@ -651,7 +651,8 @@ Which of the following returns the number of words in <code>shallow</code>?
 <h2 data-number="5" class="anchored" data-anchor-id="log-transformation"><span class="header-section-number">5</span> Log-transformation</h2>
 <p>Look again at the density plot of reaction times. Can you see the long tail of the density line on the right side of it?</p>
 <p><strong>Reaction times are numeric and continuous, but can only be positive!</strong> Because of this, usually the distribution of reaction times looks like the one in plot: a big lump on the left side and a long tail to the right.</p>
-<p>It is common practice to transform variables that can only tale positive values to reduce the asymmetry in the distribution.</p>
+<p>(Remember above, how the median of RT was smaller than the mean of RT? The long tail results in a higher mean, whereas the median is a better reflection of where the data is densest.)</p>
+<p>It is common practice to transform variables that can only take positive values to reduce the asymmetry in the distribution.</p>
 <p>A common transformation is to calculate the <strong>logarithm</strong> of the values. You can calculate the logarithm (or log) of a number in R using the <code>log()</code> function. Calculating the logs of a variable is known as a <strong>log-transformation</strong>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -701,7 +702,7 @@ Probability distributions
 <p>An important probability distribution family is the <strong>Gaussian distribution</strong> (aka normal distribution). In practice, data generated by a Gaussian distribution are very rare in the world, and most linguistic data follows other distributions.</p>
 <p>A Gaussian distribution can be defined by specifying the value of a mean and a standard deviation. Check out this <a href="https://seeing-theory.brown.edu/index.html">web app</a> to learn more about probability and probability distributions.</p>
 <p>Log-transformation is normally applied to variables that follow the <strong>log-normal</strong> distribution. Logging a log-normal variable changes its properties so that it matches more the properties of a Gaussian distribution (that’s why it’s called log-normal: it becomes more Gaussian (aka normal) if you log it).</p>
-<p>Probability distributions are a very important concept for statistical modelling. Linear models are a very flexible tool to model all sorts of data with all sorts of distributions. If you want to learn more about linear models, check Bodo Winter’s book, <em>Statistics for Linguistics with R</em>.</p>
+<p>Probability distributions are a very important concept for statistical modelling. Linear models are a very flexible tool to model all sorts of data with all sorts of distributions. If you want to learn more about linear models, check out Bodo Winter’s book, <em>Statistics for Linguistics with R</em>.</p>
 </div>
 </div>
 </div>
@@ -722,9 +723,9 @@ Practice 1
 <li><p>Read the <code>cameron2020/gestures.csv</code> file in R.</p></li>
 <li><p>Calculate the following:</p>
 <ul>
-<li><p>Measure of central tendency and dispersion for the <code>count</code> column (it contains the number of gestures performed by each child in different tasks).</p></li>
-<li><p>Measure of central tendency and dispersion for the <code>count</code> column grouped by <code>month</code> (the child’s age).</p></li>
-<li><p>Total number of gestures by children (<code>dyad</code>).</p></li>
+<li><p>Appropriate measures of central tendency and dispersion for the <code>count</code> column (it contains the number of gestures performed by each child in different tasks).</p></li>
+<li><p>Appropriate measures of central tendency and dispersion for the <code>count</code> column grouped by <code>months</code> (the child’s age).</p></li>
+<li><p>Total number of gestures from each child (<code>dyad</code>).</p></li>
 <li><p>Number of children by <code>background</code>.</p></li>
 </ul></li>
 <li><p>Write a short paragraph where you report the measures.</p></li>

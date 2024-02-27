@@ -412,9 +412,9 @@ group_by(shallow, Group) |>
 
 The `group_by()` function takes at least two arguments:
 
--   The name of the tibble to group.
+-   The name of the tibble you want to group.
 
--   The name of the columns to group the tibble by, separated by commas.
+-   The name of the columns you want to group the tibble by, separated by commas.
 
 Here we are grouping `shallow` by `Group`.
 

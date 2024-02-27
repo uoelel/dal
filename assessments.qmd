@@ -39,17 +39,15 @@ You can find the instructions and data for the first formative here: <https://gi
 ::: {.callout-warning}
 ## Formative 2: Week 7 (Thu 7 March at noon)
 
-**Data transformation**
+**Interim feedback on Summative 1**
 
-This formative assessments covers Weeks 1-6.
-
-<!-- You can find the instructions and data for the second formative here: <https://github.com/uoelel/DAL-f2/>. -->
+You can submit your work so far on Summative 1 (see below). General feedback will be released short after the F2 deadline.
 :::
 
 ## Summative assessments
 
 ::: {.callout-tip}
-## Summative 2 data proposal: Monday 25 March at noon
+## Proposal for Summative 2: Monday 25 March at noon
 
 For the second summative assessment you will have to find a data set from published research of your choice and write a short data analysis report on the chosen data.
 

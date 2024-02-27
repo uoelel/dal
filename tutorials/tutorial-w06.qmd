@@ -71,7 +71,7 @@ round(num, 2)
 
 ```
 
-The second argument sets the number of decimals to round to (by default, it is `0`, so the number is rounded to the nearest integer).
+The second argument sets the number of decimals to round to (by default, it is `0`, so the number is rounded to the nearest integer, that is, to the nearest whole number with no decimal values).
 
 Let's recalculate the mean by rounding it this time.
 
@@ -318,6 +318,7 @@ How many *correct* trials are there in the `shallow` tibble? And how many *incor
 Note that you can add **multiple column names, separated by commas**, to get counts for the combinations of values of each column.
 
 Try to get counts of the combination of `ACC` and `Group` (`L1` vs `L2` participants). Replace `...` with the right code.
+Mess around and find out what works—you can't break anything!—or check the documentation of `count()`.
 
 ```{r}
 #| label: count-acc-group-ex
@@ -455,6 +456,9 @@ Look again at the density plot of reaction times. Can you see the long tail of t
 
 **Reaction times are numeric and continuous, but can only be positive!** Because of this, usually the distribution of reaction times looks like the one in plot: a big lump on the left side and a long tail to the right.
 
+(Remember above, how the median of RT was smaller than the mean of RT?
+The long tail results in a higher mean, whereas the median is a better reflection of where the data is densest.)
+
 It is common practice to transform variables that can only take positive values to reduce the asymmetry in the distribution.
 
 A common transformation is to calculate the **logarithm** of the values. You can calculate the logarithm (or log) of a number in R using the `log()` function. Calculating the logs of a variable is known as a **log-transformation**.
@@ -488,7 +492,7 @@ A Gaussian distribution can be defined by specifying the value of a mean and a s
 
 Log-transformation is normally applied to variables that follow the **log-normal** distribution. Logging a log-normal variable changes its properties so that it matches more the properties of a Gaussian distribution (that's why it's called log-normal: it becomes more Gaussian (aka normal) if you log it).
 
-Probability distributions are a very important concept for statistical modelling. Linear models are a very flexible tool to model all sorts of data with all sorts of distributions. If you want to learn more about linear models, check Bodo Winter's book, *Statistics for Linguistics with R*.
+Probability distributions are a very important concept for statistical modelling. Linear models are a very flexible tool to model all sorts of data with all sorts of distributions. If you want to learn more about linear models, check out Bodo Winter's book, *Statistics for Linguistics with R*.
 :::
 
 ## Practice
@@ -500,11 +504,11 @@ Probability distributions are a very important concept for statistical modelling
 
 -   Calculate the following:
 
-    -   Measure of central tendency and dispersion for the `count` column (it contains the number of gestures performed by each child in different tasks).
+    -   Appropriate measures of central tendency and dispersion for the `count` column (it contains the number of gestures performed by each child in different tasks).
 
-    -   Measure of central tendency and dispersion for the `count` column grouped by `month` (the child's age).
+    -   Appropriate measures of central tendency and dispersion for the `count` column grouped by `months` (the child's age).
 
-    -   Total number of gestures by children (`dyad`).
+    -   Total number of gestures from each child (`dyad`).
 
     -   Number of children by `background`.
 

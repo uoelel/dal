@@ -1,0 +1,18 @@
+---
+title: "DAL tutorial - Week 7"
+subtitle: "Data tidying and joining"
+editor: visual
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+---
+
+For this tutorial, you should go through the examples in the following chapters of the R4DS textbook:
+
+-   R4DS [Ch 5](https://r4ds.hadley.nz/data-tidy) on tidying data.
+-   R4DS [Ch 19](https://r4ds.hadley.nz/joins) on joining data.
+
+You can read them in any order you like.
+
+These chapters cover functions and methods that you will need to complete Exercise 2 of Summative Assessment 1.

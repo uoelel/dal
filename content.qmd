@@ -9,7 +9,7 @@
 | 5      | [Statistical variables](slides/lecture-w05.qmd)                | [Data transformation I](tutorials/tutorial-w05.qmd)    | [F1](https://github.com/uoelel/dal-f1) |
 | FL     | *No classes*                                                   |                                                        |                                        |
 | 6      | [Data summaries](slides/lecture-w06.qmd)                       | [Data transformation II](tutorials/tutorial-w06.qmd)   |                                        |
-| 7      | [Tidy data](slides/lecture-w07.qmd)                            | Data tidying                                           | F2                                     |
+| 7      | [Tidy data](slides/lecture-w07.qmd)                            | [Data tidying and joining](tutorials/tutorial-w07.qmd)                                           | F2                                     |
 | 8      | Plot design                                                    | Advanced plotting                                      |                                        |
 | 9      | Troubleshooting                                                | Fixing errors                                          |                                        |
 | 25 Mar |                                                                |                                                        | S2 proposal                            |
@@ -267,4 +267,39 @@ This course will be loosely based on the following online textbook. Note that th
 -   Obtain summary measures in R.
 -   Use grouped data.
 -   Create density plots.
+:::
+
+::: {.callout-tip collapse="false"}
+#### Readings
+
+**Textbook**
+
+-   R4DS [Ch 3](https://r4ds.hadley.nz/data-transform.html#sec-summarize).
+:::
+
+### Week 7
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   What types of data do exist?
+-   What does data coding entail?
+-   What is tidy data and what does it mean for data to be non-tidy?
+
+**Skills**
+
+-   Coding data.
+-   Tidy up non-tidy tibbles.
+-   Join separate tibbles based on key columns.
+:::
+
+::: {.callout-tip collapse="false"}
+#### Readings
+
+**Textbook**
+
+-   R4DS [Ch 5](https://r4ds.hadley.nz/data-tidy).
+-   R4DS [Ch 19](https://r4ds.hadley.nz/joins).
 :::

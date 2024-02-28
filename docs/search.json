@@ -4,7 +4,7 @@
     "href": "tutorials/tutorial-w07.html",
     "title": "DAL tutorial - Week 7",
     "section": "",
-    "text": "For this tutorial, you should go through the examples in the following chapters of the R4DS textbook:\n\nR4DS Ch 5 on tidying data.\nR4DS Ch 19 on joining data.\n\nYou can read them in any order you like.\nThese chapters cover functions and methods that you will need to complete Exercise 2 of Summative Assessment 1."
+    "text": "For this tutorial, you should go through the following chapters of the R4DS textbook:\n\nR4DS Ch 5 on tidying data.\nR4DS Ch 19 on joining data.\n\nYou can read them in any order you like (even jump from one to the other). Make sure you try the code out yourself and feel free to try the exercises as well (you can find the solutions here.\nThese chapters cover functions and methods that you will need to complete Exercise 2 of Summative Assessment 1."
   },
   {
     "objectID": "tutorials/tutorial-w05.html",

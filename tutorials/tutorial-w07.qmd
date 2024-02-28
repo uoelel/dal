@@ -8,11 +8,11 @@ format:
     include-after-body: [webex.js]
 ---
 
-For this tutorial, you should go through the examples in the following chapters of the R4DS textbook:
+For this tutorial, you should go through the following chapters of the R4DS textbook:
 
 -   R4DS [Ch 5](https://r4ds.hadley.nz/data-tidy) on tidying data.
 -   R4DS [Ch 19](https://r4ds.hadley.nz/joins) on joining data.
 
-You can read them in any order you like.
+You can read them in any order you like (even jump from one to the other). Make sure you try the code out yourself and feel free to try the exercises as well (you can find the solutions [here](https://jrnold.github.io/r4ds-exercise-solutions/).
 
 These chapters cover functions and methods that you will need to complete Exercise 2 of Summative Assessment 1.

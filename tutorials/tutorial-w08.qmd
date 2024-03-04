@@ -7,3 +7,212 @@ format:
     css: [webex.css]
     include-after-body: [webex.js]
 ---
+
+## Overview
+
+In this tutorial, you can go through the different sections in any order you like and you can pick and choose which sections you want to work on.
+
+The tutors will be able to help you chose sections that might be useful based on your interests or your dissertation projects (whether you are working on it now or you will next year!).
+
+In this tutorial, there will be less explicit instructions or explanations. Before starting, make sure you attach the necessary packages (like tidyverse).
+
+You can find information on the data in the [QM data](https://uoelel.github.io/qm-data/) website.
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+
+```
+
+## Formant data
+
+In this section we will plot formant data from Italian.
+
+```{r}
+#| label: formants
+
+# .rda are R data files and they can be read with `load()`
+load("data/coretta2018a/formants.rda")
+```
+
+The data contains F1 and F2 measurements at 3 points within each vowel. We want to plot the values at the mid-point of the vowel.
+
+```{r}
+#| label: f1-f2
+
+formants |> 
+  ggplot(aes(f12, f22, colour = vowel)) +
+  geom_point(alpha = 0.5)
+
+```
+
+This doesn't look right tho... Shouldn't /a/ be at the bottom, /i/ on the top-left and /u/ on the top-right?
+
+Let's fix this! First we need to use `f22` as the *x*-axis and `f12` as the *y*-axis.
+
+```{r}
+#| label: f2-f1
+
+formants |> 
+  ggplot(aes(f22, f12, colour = vowel)) +
+  geom_point(alpha = 0.5)
+```
+
+But now the plot is upside-down!
+
+To fix this we need to reverse both axes with `scale_*_reverse()`.
+
+```{r}
+#| label: f1-f2-reverse
+
+formants |> 
+  ggplot(aes(f22, f12, colour = vowel)) +
+  geom_point(alpha = 0.5) +
+  scale_x_reverse() + scale_y_reverse()
+```
+
+We can do better! Let's split the data for each participant and let's plot ellipses for each vowel.
+
+We can plot speakers separately with `facet_wrap()`: this works like `facet_grid()` but instead of specifying variables for rows and columns you just specify one variable and the data of each value in that variable will be plotted in a separate panel. This is useful when you have many different values, like speaker here. (if you want to learn how to make your plot taller, like the one below, check the Extra box below).
+
+```{r}
+#| label: f1-f2-reverse-wrap
+#| warning: false
+#| fig-asp: 1.5
+
+formants |> 
+  ggplot(aes(f22, f12, colour = vowel)) +
+  geom_point(alpha = 0.5) +
+  stat_ellipse() +
+  scale_x_reverse() + scale_y_reverse() +
+  facet_wrap(vars(speaker), ncol = 3)
+```
+
+::: {.callout-important collapse="true"}
+#### Extra: Setting the figure aspect ratio
+
+You can set the aspect ratio of a figure in a Quarto document with the `fig-asp` Quarto option.
+
+```         
+{r}
+#| label: tall-figure
+#| fig-asp: 1.5
+
+(your figure code)
+```
+:::
+
+## Reaction times
+
+You have learnt how to use density plots, but an alternative way of plotting continuous data by categorical groups is to use strip charts and violin plots, alone or in combination!
+
+Let's plot reaction times from the `shallow` data.
+
+```{r}
+#| label: shallow
+
+shallow <- read_csv("data/song2020/shallow.csv")
+```
+
+You can plot violin plots using `geom_violin()`. A violin is basically just a density plot, mirrored vertically. The wider parts of the violin indicate a greater density of data around the related *y*-axis values.
+
+```{r}
+#| label: violin
+
+shallow |> 
+  # we filter to include only the critical trials
+  filter(Critical_Filler == "Critical") |> 
+  ggplot(aes(Relation_type, RT)) +
+  geom_violin() +
+  facet_grid(cols = vars(Group))
+
+```
+
+We can overlay a strip chart, which is basically just the raw data, plotted as dots that are jittered horizontally.
+
+```{r}
+#| label: violin-strip
+
+shallow |> 
+  # we filter to include only the critical trials
+  filter(Critical_Filler == "Critical") |> 
+  ggplot(aes(Relation_type, RT)) +
+  geom_violin() +
+  # the width argument in geom_jitter() specifies how wide the jitter should be, as
+  # a value between 0 and 1.
+  # the lower the number, the narrower the jitter.
+  geom_jitter(width = 0.1, alpha = 0.25) +
+  facet_grid(cols = vars(Group))
+```
+
+Can you tell if there are differences in RTs between the different groups and relation types?
+
+## Fundamental frequency (f0)
+
+```{r}
+#| label: formants-2
+
+# .rda are R data files and they can be read with `load()`
+load("data/coretta2018a/formants.rda")
+```
+
+Let's plot f0 for different vowels. We can use a violin plot with a strip chart (see previous section!).
+
+```{r}
+#| label: f0
+
+formants |> 
+  ggplot(aes(label, f0)) +
+  geom_violin() +
+  geom_jitter(width = 0.1, alpha = 0.1)
+```
+
+You might notice something weird going on... The violins are quite bumpy! This is because different people have different mean f0.
+
+We want to **normalise** the data across speakers, so that individual differences in mean f0 are removed. This process is also called standardisation or *z*-scoring.
+
+*Z*-scores are a standardised unit that allows you to compare things that are on different scales. Our f0 values are on different scales because some speakers have higher mean f0, some have lower mean f0.
+
+*Z-*scores are calculated by removing the mean from each value and dividing it by the standard deviation. Since we are normalising *within* subject, we need to calculate the mean and standard deviation for each participant and apply those to each participant's data separately.
+
+```{r}
+#| label: f0-z
+
+formants <- formants |> 
+  # group data by speaker so that normalisation is applied for each speaker
+  # separately
+  group_by(speaker) |> 
+  # calculate z-scores
+  mutate(
+    f0_z = (f0 - mean(f0)) / sd(f0)
+  )
+
+head(formants$f0_z)
+```
+
+Now we can recreate the plot above but using `f0_z`.
+
+```{r}
+#| label: f0-z-plot
+
+formants |> 
+  ggplot(aes(label, f0_z)) +
+  geom_violin() +
+  geom_jitter(aes(colour = vowel), width = 0.1, alpha = 0.1)
+```
+
+Why is `colour = vowel` in `geom_jitter(aes(...))`? Because we want to colour only the jittered points. If we put `colour = vowel` in the main `ggplot(aes(...))` , then the violin *borders* would also be coloured.
+
+If you want to colour the areas of the violins instead, you can use the `fill` aesthetic. This will work both in the main `ggplot(aes(...))` or in `geom_violin(aes(...))` because the points of `geom_jitter()` can't be given a colour fill, but only a colour.
+
+## Rating (Likert) scales
+
+Rating scales, like Likert scales, are very strange variables. They are categorical and ordinal.
+
+Despite being very common, the practice of treating Likert scales as numeric is quite inappropriate. For an explanation, check the first two pages of [Verissimo 2021](https://doi.org/10.1017/S1366728921000316).
+
+A very nice type of plot that is very useful for Likert scale data is a so-called **divergent stacked bar chart**.
+
+The [likert](https://github.com/jbryer/likert) package has a few handy functions to make creating divergent stacked bar charts very straightforward. You will have to install this package (remember not to include the code for installation in your document; you need to install the package only once).

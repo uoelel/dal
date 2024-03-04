@@ -90,12 +90,36 @@ formants |>
   facet_wrap(vars(speaker), ncol = 3)
 ```
 
+If you want to learn how to normalise the data across speaker so that you can recreate the following plot, check @sec-f0 .
+
+```{r}
+#| label: norm-vow
+#| echo: false
+
+formants |> 
+  group_by(speaker) |> 
+  mutate(
+    f1_z = (f12 - mean(f12)) / sd(f12),
+    f2_z = (f22 - mean(f22)) / sd(f22)
+  ) |> 
+  ggplot(aes(f2_z, f1_z, colour = vowel)) +
+  geom_point(alpha = 0.25) +
+  stat_ellipse() +
+  scale_x_reverse() + scale_y_reverse() +
+  labs(
+    title = "Normalised F1/F2 plot of 5 Italian vowels",
+    x = "F2 (norm)", y = "F1 (norm)"
+  )
+
+
+```
+
 ::: {.callout-important collapse="true"}
 #### Extra: Setting the figure aspect ratio
 
 You can set the aspect ratio of a figure in a Quarto document with the `fig-asp` Quarto option.
 
-```         
+``` r
 {r}
 #| label: tall-figure
 #| fig-asp: 1.5
@@ -149,7 +173,7 @@ shallow |>
 
 Can you tell if there are differences in RTs between the different groups and relation types?
 
-## Fundamental frequency (f0)
+## Fundamental frequency (f0) {#sec-f0}
 
 ```{r}
 #| label: formants-2
@@ -215,4 +239,61 @@ Despite being very common, the practice of treating Likert scales as numeric is 
 
 A very nice type of plot that is very useful for Likert scale data is a so-called **divergent stacked bar chart**.
 
-The [likert](https://github.com/jbryer/likert) package has a few handy functions to make creating divergent stacked bar charts very straightforward. You will have to install this package (remember not to include the code for installation in your document; you need to install the package only once).
+The HH package has a few handy functions to make creating divergent stacked bar charts very straightforward. You will have to install this package (remember not to include the code for installation in your document; you need to install the package only once).
+
+We will create a plot of language attitudes towards Esperanto and Emilian (Gallo-Italian). Let's read the data (it's an `.rds` file!). Participants were asked the following: "when you hear somebody speaking Emilian/Esperanto, you would think they are..." and they were presented with 9 adjectives, which they had to rate from strongly disagree (meaning they strongly disagreed that somebody speaking Emilian/Esperanto had that quality) to strongly agree (meaning they strongly agreed that the person had that quality). Esperanto speakers rated Esperanto while Emilian speakers rated Emilian.
+
+```{r}
+#| label: emilianto-attitude
+emilianto_attitude <- readRDS("data/hampton2023/emilianto_attitude.rds")
+```
+
+To be able to plot with the `likert()` function from the HH package, we first need to wrangle the data.
+
+Basically, we need a new tibble with counts of each value of the scale for each of the adjectives participants had to rate. Make sure you understand each line of the following code.
+
+```{r}
+#| label: emilianto-lik
+
+emilianto_lik <- emilianto_attitude %>%
+  
+  # let's select only the columns we need
+  select(language, educated:familiar) %>%
+  
+  # let's pivot the data so that we get a longer tibble, with the columns
+  # language, adjective and score
+  pivot_longer(educated:familiar, names_to = "adjective", values_to = "score") %>%
+  
+  # and we count the numbers of each adjective and score combo
+  count(language, adjective, score) %>%
+  
+  # then we pivot again so that now the data is wider, with the columns,
+  # language, adjective, and one column for each of the five scores
+  pivot_wider(names_from = "score", values_from = n) %>%
+  
+  # we rename the scores to the actualy label that the participants saw
+  rename("strong disagree" = `1`, "disagree" = `2`, "neither" = `3`, "agree" = `4`, "strong agree" = `5`)
+emilianto_lik
+```
+
+Now we can finally plot this using the `likert()` function. The function takes a formula that describes how to plot the data: here, we want a divergent stacked bar for each adjective and we want all the scores (`adjective ~ .`), but we also want to facet by language (`| language`).
+
+```{r}
+#| label: emilianto-lik-plot
+
+HH::likert(
+  # formula
+  adjective ~ . | language,
+  # data
+  emilianto_lik,
+  as.percent = TRUE,
+  # plot title
+  main = "Language attitudes towards Emilian and Esperanto"
+)
+```
+
+What is that `HH::likert()`? That's the R way of calling a function from a package directly, without the need to attach the full package with `library(HH)`. This is useful, for example, for packages that override functions from other packages when attached or for packages that attach a lot of package dependencies.
+
+In most cases you won't have to worry, but if you ever think that function overwriting is causing issues, you know you can use the `package::function()` syntax.
+
+What can you tell about the attitude towards Emilian and Esperanto from the plot?

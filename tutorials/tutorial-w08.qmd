@@ -10,13 +10,13 @@ format:
 
 ## Overview
 
-In this tutorial, you can go through the different sections in any order you like and you can pick and choose which sections you want to work on.
+In this tutorial, you can go through the different sections in any order you like and you can pick and choose which sections you want to work on. **Note that you should complete @sec-accuracy because it covers `stat_summary()` which you need for Exercise 1 of the first summative**.
 
 The tutors will be able to help you chose sections that might be useful based on your interests or your dissertation projects (whether you are working on it now or you will next year!).
 
 In this tutorial, there will be less explicit instructions or explanations. Before starting, make sure you attach the necessary packages (like tidyverse).
 
-You can find information on the data in the [QM data](https://uoelel.github.io/qm-data/) website.
+You can find information on the data in the [QM data](https://uoelel.github.io/qm-data/) website or by clicking the "Description" button in each section.
 
 ```{r}
 #| label: setup
@@ -28,6 +28,11 @@ library(tidyverse)
 
 ## Formant data
 
+```{=html}
+<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/coretta2018a/formants.html" role="button">Description</a>
+<br>
+<br>
+```
 In this section we will plot formant data from Italian.
 
 ```{r}
@@ -48,7 +53,7 @@ formants |>
 
 ```
 
-This doesn't look right tho... Shouldn't /a/ be at the bottom, /i/ on the top-left and /u/ on the top-right?
+This doesn't look right though... Shouldn't /a/ be at the bottom, /i/ on the top-left and /u/ on the top-right?
 
 Let's fix this! First we need to use `f22` as the *x*-axis and `f12` as the *y*-axis.
 
@@ -130,6 +135,11 @@ You can set the aspect ratio of a figure in a Quarto document with the `fig-asp`
 
 ## Reaction times
 
+```{=html}
+<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/song2020/shallow.html" role="button">Description</a>
+<br>
+<br>
+```
 You have learnt how to use density plots, but an alternative way of plotting continuous data by categorical groups is to use strip charts and violin plots, alone or in combination!
 
 Let's plot reaction times from the `shallow` data.
@@ -173,8 +183,164 @@ shallow |>
 
 Can you tell if there are differences in RTs between the different groups and relation types?
 
+## Accuracy {#sec-accuracy}
+
+```{=html}
+<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a>
+<br>
+<br>
+```
+Let's look at data from Koppensteiner et al, 2016. The study looked at the relationship between sound iconicity and body motion.
+
+```{r}
+#| label: takete-maluma
+
+takete_maluma <- read_delim("data/koppensteiner2016/takete_maluma.txt")
+```
+
+The study specifically analysed the accuracy of the responses (`Answer`) but in this tutorial we will look instead at the response itself (whether they selected `takete` or `maluma`).
+
+Alas, this piece of information is not coded in a column in the data, but we can create a new column based on the available info.
+
+-   When the stimulus is `Takete` and the answer is `CORRECT` then the participant's response was `shaking`.
+
+-   When the stimulus is `Takete` and the answer is `WRONG` then the participant's response was `flowing`.
+
+-   When the stimulus is `Maluma` and the answer is `CORRECT` then the participant's response was `shaking`.
+
+-   When the stimulus is `Maluma` and the answer is `WRONG` then the participant's response was `flowing`.
+
+Now, go ahead and create a new column called `Response` using the `mutate()` and the `case_when()` function.
+
+We have not encountered this function yet, so here's a challenge for you: check out [its documentation](https://dplyr.tidyverse.org/reference/case_when.html) to learn how it works. You will also need to use the AND operator `&`: this allows you to put two statements together, like `Tak_Mal_Stim == "Takete" & Answer == "CORRECT"` for "if stimulus is Takete AND answer is CORRECT".
+
+(If you are following the documentation but `case_when()` is still giving you mysterious errors, make sure that your version of dplyr is the most current one. To do this, run `packageVersion("dplyr")` in the console. You want the output to be `1.1.0`. If it's not, you'll need to update tidyverse by re-installing it.)
+
+::: {.callout-warning collapse="true"}
+#### Solution
+
+```{r}
+#| label: takmal
+
+takete_maluma <- takete_maluma %>%
+  mutate(
+    Response = case_when(
+      Tak_Mal_Stim == "Takete" & Answer == "CORRECT" ~ "shaking",
+      Tak_Mal_Stim == "Takete" & Answer == "WRONG" ~ "flowing",
+      Tak_Mal_Stim == "Maluma" & Answer == "CORRECT" ~ "flowing",
+      Tak_Mal_Stim == "Maluma" & Answer == "WRONG" ~ "shaking"
+    )
+  )
+```
+:::
+
+You should now have something that looks like this:
+
+```{r}
+takete_maluma
+```
+
+A common (but incorrect) way of plotting proportion/percentage data (like accuracy) is to calculate the mean accuracy of each participant and then produce a bar chart with error bars that indicate the mean accuracy and the dispersion around the mean accuracy.
+
+You might have seen something like this in many paper.
+
+```{r}
+#| label: bad
+#| echo: false
+
+takete_maluma |> 
+  group_by(Rater, Tak_Mal_Stim) |> 
+  summarise(prop = sum(as.numeric(as.factor(Response))-1) / n(), .groups = "drop") |> 
+  group_by(Tak_Mal_Stim) |> 
+  add_tally() %>%
+  summarise(mean_prop = mean(prop), sd_prop = sd(prop)) |> 
+  ggplot(aes(Tak_Mal_Stim, mean_prop)) +
+  geom_bar(stat = "identity") +
+  geom_errorbar(aes(ymin = mean_prop - sd_prop / sqrt(46), ymax = mean_prop + sd_prop / sqrt(46)), width = 0.2)
+
+```
+
+THE HORROR. Alas, this is a very bad way of processing proportion data. Check this [blog post](https://www.data-to-viz.com/caveat/error_bar.html) if you want to learn why.
+
+The alternative (robust) way to plot proportion data is to show the proportion for individual participants (`Rater` in the `takete_maluma` data frame).
+
+To do so we can use a combination of `summarise()`, `geom_jitter()` and `stat_summary()`.
+
+First, we need to calculate the proportion of "shaking" responses by participant (`Rater`) with the simple formula: number of "shaking" responses / total number of responses. (Note that you could have well picked "flowing" instead of "shaking").
+
+To calculate this proportion we need to create a new column with a numeric version of the `Response` column. Since we want to calculate the proportion of "shaking" responses, we use `1` for "shaking and `0` for "flowing".
+
+We can do that using the `ifelse()` function.
+
+```{r}
+#| label: takmal-num
+
+takete_maluma <- takete_maluma %>%
+  mutate(
+    Response_num = ifelse(Response == "shaking", 1, 0)
+  )
+takete_maluma
+```
+
+We can use a special tidyverse function, `n()`, which returns the number of rows in the data frame. Since we will group the data frame by `Rater` and `Tak_Mal_Stim`, `n()` returns the number of rows for each participant and each stimulus!
+
+```{r}
+#| label: takmal-prop
+
+shaking_prop <- takete_maluma %>%
+  group_by(Rater, Tak_Mal_Stim) %>%
+  summarise(
+    shaking_prop = sum(Response_num) / n(),
+    # The following drops the grouping created by group_by() which we don't
+    # need anymore.
+    .groups = "drop"
+  )
+shaking_prop
+```
+
+Now we can plot the proportions and add mean and confidence intervals using `geom_jitter()` and `stat_summary()`.
+
+Before proceeding, you need to install the **Hmisc** package. There is no need to attach it (it is used by `stat_summary()` under the hood).
+
+```{r}
+#| label: prop-plot
+
+ggplot() +
+  # Proportion of each participant
+  geom_jitter(
+    data = shaking_prop,
+    aes(x = Tak_Mal_Stim, y = shaking_prop),
+    width = 0.1, alpha = 0.5
+  ) +
+  # Mean proportion by stimulus with CI
+  stat_summary(
+    data = takete_maluma,
+    aes(x = Tak_Mal_Stim, y = Response_num, colour = Tak_Mal_Stim),
+    fun.data = "mean_cl_boot", size = 1
+  ) +
+  labs(
+    title = "Proportion of takete responses by participant and stimulus",
+    caption = "Mean proportion is represented by coloured points with 95% bootstrapped Confidence Intervals.",
+    x = "Stimulus",
+    y = "Proportion"
+  ) +
+  # ylim(0, 1) +
+  theme(legend.position = "none")
+```
+
+You will notice something new: we have specified the data inside `geom_jitter()` and `stat_summary()` instead of inside `ggplot()`. This is because the two functions need different data: `geom_jitter()` needs the data with the proportion we calculated for each participant and stimulus; `stat_summary()` needs to calculate the mean and CIs from the overall data, rather than from the proportion data we created.
+
+We are also specifying the aesthetics within each geom/stat function, because while `x` is the same, the `y` differs!
+
+In `stat_summary()`, the `fun.data` argument lets you specify the function you want to use for the summary statistics to be added. Here we are using the `mean_cl_boot` function, which returns the mean proportion of `Response_num` and the 95% Confidence Intervals (CIs, there are [*frequentist* confidence intervals](https://rpsychologist.com/d3/ci/)) of that mean. The CIs are calculated using a bootstrapping procedure (if you are interested in learning what that is, check the documentation of `smean.sd` from the Hmisc package).
+
 ## Fundamental frequency (f0) {#sec-f0}
 
+```{=html}
+<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/coretta2018a/formants.html" role="button">Description</a>
+<br>
+<br>
+```
 ```{r}
 #| label: formants-2
 
@@ -182,7 +348,7 @@ Can you tell if there are differences in RTs between the different groups and re
 load("data/coretta2018a/formants.rda")
 ```
 
-Let's plot f0 for different vowels. We can use a violin plot with a strip chart (see previous section!).
+Let's plot f0 for different vowels: We can use a violin plot with a strip chart (see previous section!).
 
 ```{r}
 #| label: f0
@@ -233,6 +399,11 @@ If you want to colour the areas of the violins instead, you can use the `fill` a
 
 ## Rating (Likert) scales
 
+```{=html}
+<a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/hampton2023/emilianto_attitude.html" role="button">Description</a>
+<br>
+<br>
+```
 Rating scales, like Likert scales, are very strange variables. They are categorical and ordinal.
 
 Despite being very common, the practice of treating Likert scales as numeric is quite inappropriate. For an explanation, check the first two pages of [Verissimo 2021](https://doi.org/10.1017/S1366728921000316).
@@ -241,14 +412,16 @@ A very nice type of plot that is very useful for Likert scale data is a so-calle
 
 The HH package has a few handy functions to make creating divergent stacked bar charts very straightforward. You will have to install this package (remember not to include the code for installation in your document; you need to install the package only once).
 
-We will create a plot of language attitudes towards Esperanto and Emilian (Gallo-Italian). Let's read the data (it's an `.rds` file!). Participants were asked the following: "when you hear somebody speaking Emilian/Esperanto, you would think they are..." and they were presented with 9 adjectives, which they had to rate from strongly disagree (meaning they strongly disagreed that somebody speaking Emilian/Esperanto had that quality) to strongly agree (meaning they strongly agreed that the person had that quality). Esperanto speakers rated Esperanto while Emilian speakers rated Emilian.
+We will create a plot of language attitudes towards Esperanto and Emilian (Gallo-Italian). Let's read the data (it's an `.rds` file!).
+
+Participants were asked the following: "when you hear somebody speaking Emilian/Esperanto, you would think they are..." and they were presented with 9 adjectives, which they had to rate from strongly disagree (meaning they strongly disagreed that somebody speaking Emilian/Esperanto had that quality) to strongly agree (meaning they strongly agreed that the person had that quality). Esperanto speakers rated Esperanto while Emilian speakers rated Emilian.
 
 ```{r}
 #| label: emilianto-attitude
 emilianto_attitude <- readRDS("data/hampton2023/emilianto_attitude.rds")
 ```
 
-To be able to plot with the `likert()` function from the HH package, we first need to wrangle the data.
+To be able to plot with the `likert()` function from the HH package (install the package now), we first need to wrangle the data.
 
 Basically, we need a new tibble with counts of each value of the scale for each of the adjectives participants had to rate. Make sure you understand each line of the following code.
 

@@ -1,0 +1,200 @@
+---
+title: "Data Analysis for LEL - Week 8"
+subtitle: "Advanced plotting"
+author: "Stefano Coretta"
+institute: University of Edinburgh
+format:
+  mono-light-revealjs:
+    theme: [default, custom.scss]
+    history: false
+filters: [tachyonsextra]
+execute: 
+  echo: false
+---
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(ggmosaic)
+library(ggalluvial)
+library(ritwals)
+```
+
+```{r}
+#| label: read-data
+
+glot_status <- readRDS("data/coretta2022/glot_status.rds")
+formants <- read_csv("data/coretta2018/formants.csv") |> 
+  mutate(time = time / 9) |> 
+  pivot_longer(f1:f2, names_to = "formant") |> 
+  mutate(id = paste(file, formant, sep = "_"))
+gestures <- read_csv("data/cameron2020/gestures.csv")
+polite <- read_csv("data/winter2012/polite.csv")
+```
+
+## Mosaic plot
+
+```{r}
+#| label: mosaic
+#| echo: true
+#| output-location: column
+#| fig-asp: 1
+
+glot_status |> 
+  filter(status != "extinct") |> 
+  droplevels() |> 
+  ggplot() +
+  # from the ggmosaic package
+  geom_mosaic(
+    aes(product(Macroarea), fill = status),
+    alpha = 1) +
+  scale_fill_brewer(palette = "BuPu") +
+  theme_dark() +
+  theme(legend.position = "bottom")
+```
+
+## Line plot
+
+```{r}
+#| label: line-plot
+#| echo: true
+#| output-location: column
+#| fig-asp: 1
+
+formants %>%
+  filter(c2 %in% c("t", "k")) |>
+  filter(vowel %in% c("a", "o")) |> 
+  ggplot(aes(time, value, group = id, colour = formant)) +
+  geom_line(alpha = 0.8) +
+  facet_grid(cols = vars(c2), rows = vars(vowel)) +
+  scale_color_brewer(type = "qual") +
+  labs(
+    x = "Relative time", y = "Formant value (Hz)",
+    title = "Formant trajectories of Italian /a, o/ followed by /k/ or /t/"
+  )
+```
+
+## Line plot with points
+
+```{r}
+#| label: line-plot-points
+#| echo: true
+#| output-location: column
+#| fig-asp: 1
+
+formants %>%
+  filter(c2 %in% c("t", "k")) |>
+  filter(vowel %in% c("a", "o")) |> 
+  ggplot(aes(time, value, group = id,
+             colour = formant)) +
+  geom_line(alpha = 0.25) +
+  geom_point(alpha = 0.5) +
+  facet_grid(cols = vars(c2), rows = vars(vowel)) +
+  scale_color_brewer(type = "qual") +
+  labs(
+    x = "Relative time", y = "Formant value (Hz)",
+    title = "Formant trajectories of Italian /a, o/ followed by /k/ or /t/"
+  )
+```
+
+## Connected dots plot
+
+```{r}
+#| label: connected-dots
+#| echo: true
+#| output-location: column
+#| fig-asp: 1
+
+gestures |> 
+  filter(gesture != "ho_gv", count < 30) |> 
+  group_by(dyad, background, months, gesture) |> 
+  summarise(
+    count_tot = sum(count),
+    .groups = "drop"
+  ) |> 
+  ggplot(aes(gesture, count_tot, colour = background),
+         alpha = 0.2) +
+  geom_line(aes(group = dyad),
+            alpha = 0.5) +
+  geom_point() +
+  facet_grid(background ~ months) +
+  labs(
+    title = "Infant gesture counts at 10, 11 and 12 mo",
+    x = "Gesture type", y = "Gesture count"
+  ) +
+  theme_light() +
+  theme(legend.position = "none")
+```
+
+## WALS data
+
+```{r}
+#| label: wals
+#| echo: true
+
+library(ritwals)
+wals_data <- intersect_features(c("45A", "70A")) |> 
+  filter(feature_ID %in% c("45A", "70A")) |> 
+  select(feature_ID, value, language) |> 
+  filter(str_detect(value, "No", negate = TRUE)) |> 
+  pivot_wider(names_from = feature_ID, values_from = value) |> 
+  count(`45A`, `70A`) |> 
+  mutate(
+    `45A` = factor(`45A`, levels = c("Binary politeness distinction", "Multiple politeness distinctions", "Pronouns avoided for politeness")),
+    `70A` = factor(`70A`, levels = c("Second singular and second plural", "Second singular", "Second plural", "Second person number-neutral"))
+  ) |> 
+  drop_na()
+wals_data
+```
+
+## Alluvial plot
+
+```{r}
+#| label: alluvial
+#| echo: true
+#| output-location: column
+#| fig-asp: 1
+
+wals_data |> 
+  ggplot(aes(y = n, axis1 = `45A`, axis2 = `70A`)) +
+  geom_alluvium(aes(fill = `45A`)) +
+  geom_stratum() +
+  geom_text(stat = "stratum",
+            aes(label = after_stat(stratum))) +
+  scale_fill_brewer(palette = "Dark2") +
+  labs(title = "Languages with a politeness distinction and a morphological imperative") +
+  theme_light() +
+  theme(legend.position = "none")
+```
+
+## Violin plot
+
+```{r}
+#| label: violin
+#| echo: true
+#| output-location: column
+#| fig-asp: 1
+
+polite |> 
+  drop_na(f0mn) |> 
+  group_by(subject) |> 
+  mutate(f0mn_z = (f0mn - mean(f0mn)) / sd(f0mn)) |> 
+  ggplot(aes(attitude, f0mn_z)) +
+  geom_violin() +
+  geom_jitter(aes(colour = attitude),
+              width = 0.05,
+              alpha = 0.5) +
+  stat_summary(fun = "median", geom = "point",
+               shape = 17, size = 5) +
+  facet_grid(cols = vars(musicstudent), labeller = label_both) +
+  scale_color_manual(values = c("orange", "purple")) +
+  labs(
+    title = "Mean f0 of Korean speakers by attitude",
+    y = "Mean f0 (z-scores)",
+    caption = "Korean speakers were students living in Germany. Mean f0 was z-scored within each speaker."
+  ) +
+  ThemePark::theme_starwars() +
+  theme(legend.position = "none")
+```
+

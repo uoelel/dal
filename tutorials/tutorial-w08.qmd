@@ -35,24 +35,22 @@ library(tidyverse)
 ```
 In this section we will plot formant data from Italian.
 
-
 ::: {.callout-important collapse="true"}
 #### What to do if you don't have `coretta2018a/` in your `data/` folder
 
 You'll need to download `formants.rda` from GitHub, create a folder called `coretta2018a/`, and move `formants.rda` into it.
 
-- Visit [this link](https://github.com/uoelel/qm-data/blob/main/data/coretta2018a/formants.rda).
-- To the right of the "Raw" button on the right-hand side of the page, click the button with the down arrow to download the "raw" file. Now `formants.rda` should be downloaded onto your computer.
-- In your `data/` folder, create a new folder called  `coretta2018a/`.
-- Move `formants.rda` into `data/coretta2018a/`.
-
+-   Visit [this link](https://github.com/uoelel/qm-data/blob/main/data/coretta2018a/formants.rda).
+-   To the right of the "Raw" button on the right-hand side of the page, click the button with the down arrow to download the "raw" file. Now `formants.rda` should be downloaded onto your computer.
+-   In your `data/` folder, create a new folder called `coretta2018a/`.
+-   Move `formants.rda` into `data/coretta2018a/`.
 :::
-
 
 ```{r}
 #| label: formants
 
 # .rda are R data files and they can be read with `load()`
+# `load()` does not need to be assigned to avariable for the data to be added to the enviornment
 load("data/coretta2018a/formants.rda")
 ```
 
@@ -92,18 +90,13 @@ formants |>
   scale_x_reverse() + scale_y_reverse()
 ```
 
-We can do better! Let's split the data for each participant and let's plot ellipses for each vowel.
+We can do better! Let's split the data for each participant and let's plot ellipses (circles) for each vowel.
 
-We can plot speakers separately with `facet_wrap()`: this works like `facet_grid()` but instead of specifying variables for rows and columns, you just specify one variable.
-The data of each value in that variable will be plotted in a separate panel. 
-This is useful when you have many different values for a single variable, like `speaker` here. 
+We can plot speakers separately with `facet_wrap()`: this works like `facet_grid()` but instead of specifying variables for rows and columns, you just specify one variable. The data of each value in that variable will be plotted in a separate panel. This is useful when you have many different values for a single variable, like `speaker` here.
 
-We're also adding in ellipses around each cluster using `stat_ellipse()`.
-If you see test that says `Warning: Probable convergence failure`, that's because some ellipses might not fit the data super well.
-Don't worry about it for now.
+We're also adding in ellipses around each cluster using `stat_ellipse()`. If you see test that says `Warning: Probable convergence failure`, that's because some ellipses might not fit the data super well. Don't worry about it for now.
 
-(Note: the plot your code generates will look more squashed than to the one below.
-If you want to learn how to make your plot taller, like the one below, check out the Extra box below.)
+(Note: the plot your code generates will look more squashed than to the one below. If you want to learn how to make your plot taller, like the one below, check out the Extra box below.)
 
 ```{r}
 #| label: f1-f2-reverse-wrap
@@ -118,8 +111,7 @@ formants |>
   facet_wrap(vars(speaker), ncol = 3)
 ```
 
-In the plot below, the data is normalised within speakers: note how the numbers along the axis labels are different and the clusters are a bit less dispersed.
-If you want to learn how to normalise the data within speakers so that you can recreate the following plot, check @sec-f0 .
+In the plot below, the data is normalised within speakers: note how the numbers along the axis labels are different and the clusters are a bit less dispersed. If you want to learn how to normalise the data within speakers so that you can recreate the following plot, check @sec-f0 .
 
 ```{r}
 #| label: norm-vow
@@ -248,7 +240,7 @@ We have not encountered this function yet, so here's a challenge for you: check 
 ```{r}
 #| label: takmal
 
-takete_maluma <- takete_maluma %>%
+takete_maluma <- takete_maluma |>
   mutate(
     Response = case_when(
       Tak_Mal_Stim == "Takete" & Answer == "CORRECT" ~ "shaking",
@@ -288,13 +280,11 @@ takete_maluma |>
 
 THE HORROR. Alas, this is a very bad way of processing proportion data. Check this [blog post](https://www.data-to-viz.com/caveat/error_bar.html) if you want to learn why.
 
-The alternative (robust) way to plot proportion data is to show the proportion for individual participants (`Rater` in the `takete_maluma` data frame).
-For example, what percentage of the time did a participant give a "shaking" response?
+The alternative (robust) way to plot proportion data is to show the proportion for individual participants (`Rater` in the `takete_maluma` data frame). For example, what percentage of the time did a participant give a "shaking" response?
 
 To do so we can use a combination of `summarise()`, `geom_jitter()` and `stat_summary()`.
 
-First, we need to calculate the proportion of "shaking" responses by participant (`Rater`) with the simple formula: number of "shaking" responses / total number of responses. 
-(Note that you could have well picked "flowing" instead of "shaking", and that would give you an equivalent but opposite result: if somebody gave 70% "shaking" responses, they must have given 30% "flowing" responses. The most important thing is to be consistent throughout the entire computation.)
+First, we need to calculate the proportion of "shaking" responses by participant (`Rater`) with the simple formula: number of "shaking" responses / total number of responses. (Note that you could have well picked "flowing" instead of "shaking", and that would give you an equivalent but opposite result: if somebody gave 70% "shaking" responses, they must have given 30% "flowing" responses. The most important thing is to be consistent throughout the entire computation.)
 
 To calculate this proportion, we first need to create a new column with a numeric version of the `Response` column. Since we want to calculate the proportion of "shaking" responses, we use `1` for "shaking and `0` for "flowing".
 
@@ -303,7 +293,7 @@ We can do that using the `ifelse()` function.
 ```{r}
 #| label: takmal-num
 
-takete_maluma <- takete_maluma %>%
+takete_maluma <- takete_maluma |>
   mutate(
     Response_num = ifelse(Response == "shaking", 1, 0)
   )
@@ -315,8 +305,8 @@ We can use a special tidyverse function, `n()`, which returns the number of rows
 ```{r}
 #| label: takmal-prop
 
-shaking_prop <- takete_maluma %>%
-  group_by(Rater, Tak_Mal_Stim) %>%
+shaking_prop <- takete_maluma |>
+  group_by(Rater, Tak_Mal_Stim) |>
   summarise(
     shaking_prop = sum(Response_num) / n(),
     # The following drops the grouping created by group_by() which we don't
@@ -326,12 +316,11 @@ shaking_prop <- takete_maluma %>%
 shaking_prop
 ```
 
-Why does `sum(Response_num) / n()` give us the proportion of "shaking" responses?
-We coded every "shaking" response as 1, so if somebody gave 5 "shaking" responses and 10 "flowing" responses, we would calculate $5 / (5 + 10) = 5/15 = 33.3\%$.
+Why does `sum(Response_num) / n()` give us the proportion of "shaking" responses? We coded every "shaking" response as 1, so if somebody gave 5 "shaking" responses and 10 "flowing" responses, we would calculate $5 / (5 + 10) = 5/15 = 33.3\%$.
 
 Now we can plot the proportions and add mean and confidence intervals using `geom_jitter()` and `stat_summary()`.
 
-Before proceeding, you need to install the **Hmisc** package. There is no need to attach it (it is used by `stat_summary()` under the hood).
+Before proceeding, you need to install the **Hmisc** package. There is no need to attach it (it is used by `stat_summary()` under the hood). *Remember not to include the code for installation in your document; you need to install the package only once.*
 
 ```{r}
 #| label: prop-plot
@@ -381,19 +370,16 @@ In `stat_summary()`, the `fun.data` argument lets you specify the function you w
 load("data/coretta2018a/formants.rda")
 ```
 
-
 ::: {.callout-important collapse="true"}
 #### What to do if you don't have `coretta2018a/` in your `data/` folder
 
 You'll need to download `formants.rda` from GitHub, create a folder called `coretta2018a/`, and move `formants.rda` into it.
 
-- Visit [this link](https://github.com/uoelel/qm-data/blob/main/data/coretta2018a/formants.rda).
-- To the right of the "Raw" button on the right-hand side of the page, click the button with the down arrow to download the "raw" file. Now `formants.rda` should be downloaded onto your computer.
-- In your `data/` folder, create a new folder called  `coretta2018a/`.
-- Move `formants.rda` into `data/coretta2018a/`.
-
+-   Visit [this link](https://github.com/uoelel/qm-data/blob/main/data/coretta2018a/formants.rda).
+-   To the right of the "Raw" button on the right-hand side of the page, click the button with the down arrow to download the "raw" file. Now `formants.rda` should be downloaded onto your computer.
+-   In your `data/` folder, create a new folder called `coretta2018a/`.
+-   Move `formants.rda` into `data/coretta2018a/`.
 :::
-
 
 Let's plot f0 for different vowels: We can use a violin plot with a strip chart (see previous section!).
 
@@ -412,8 +398,7 @@ We want to **normalise** the data across speakers, so that individual difference
 
 *Z*-scores are a standardised unit that allows you to compare things that are on different scales. Our f0 values are on different scales because some speakers have higher mean f0, some have lower mean f0.
 
-*Z-*scores are calculated by removing the mean from each value and dividing it by the standard deviation. Since we are normalising *within* subject, we need to calculate the mean and standard deviation for each participant and apply those to each participant's data separately.
-We achieve this by grouping the data by `speaker`, and then creating a new column that contains each speaker's *z*-scores.
+*Z-*scores are calculated by removing the mean from each value and dividing it by the standard deviation. Since we are normalising *within* subject, we need to calculate the mean and standard deviation for each participant and apply those to each participant's data separately. We achieve this by grouping the data by `speaker`, and then creating a new column that contains each speaker's *z*-scores.
 
 ```{r}
 #| label: f0-z
@@ -454,18 +439,19 @@ If you want to colour the areas of the violins instead, you can use the `fill` a
 <br>
 <br>
 ```
-Likert scales are a kind of rating scales (see [here](https://resources.pollfish.com/market-research/rating-scales-and-likert-scales/) for more on the relationship between them).
-Such scales produce very strange variables. They are categorical and ordinal.
+Likert scales are a kind of rating scales (see [here](https://resources.pollfish.com/market-research/rating-scales-and-likert-scales/) for more on the relationship between them). Such scales produce very strange variables. They are categorical and ordinal.
 
 Despite being very common, the practice of treating Likert scales as numeric is quite inappropriate. For an explanation, check the first two pages of [Verissimo (2021)](https://doi.org/10.1017/S1366728921000316).
 
 A very nice type of plot that is very useful for Likert scale data is a so-called **divergent stacked bar chart**.
 
-The HH package has a few handy functions to make creating divergent stacked bar charts very straightforward. You will have to install this package (remember not to include the code for installation in your document; you need to install the package only once).
+The **HH** package has a few handy functions to make creating divergent stacked bar charts very straightforward. You will have to install this package (remember not to include the code for installation in your document; you need to install the package only once).
 
-We will create a plot of language attitudes towards Esperanto and Emilian (Gallo-Italian). Let's read the data (it's an `.rds` file!).
+We will create a plot of language attitudes towards Esperanto and Emilian (Gallo-Italian).
 
 Participants were asked the following: "when you hear somebody speaking Emilian/Esperanto, you would think they are..." and they were presented with 9 adjectives, which they had to rate from strongly disagree (meaning they strongly disagreed that somebody speaking Emilian/Esperanto had that quality) to strongly agree (meaning they strongly agreed that the person had that quality). Esperanto speakers rated Esperanto while Emilian speakers rated Emilian.
+
+Let's read the data (it's an `.rds` file!).
 
 ```{r}
 #| label: emilianto-attitude
@@ -477,36 +463,34 @@ emilianto_attitude <- readRDS("data/hampton2023/emilianto_attitude.rds")
 
 You'll need to download `emilianto_attitude.rds` from GitHub, create a folder called `hampton2023/`, and move `emilianto_attitude.rds` into it.
 
-- Visit [this link](https://github.com/uoelel/qm-data/blob/main/data/hampton2023/emilianto_attitude.rds).
-- To the right of the "Raw" button on the right-hand side of the page, click the button with the down arrow to download the "raw" file. Now `emilianto_attitude.rds` should be downloaded onto your computer.
-- In your `data/` folder, create a new folder called  `hampton2023/`.
-- Move `emilianto_attitude.rds` into `data/hampton2023/`.
-
+-   Visit [this link](https://github.com/uoelel/qm-data/blob/main/data/hampton2023/emilianto_attitude.rds).
+-   To the right of the "Raw" button on the right-hand side of the page, click the button with the down arrow to download the "raw" file. Now `emilianto_attitude.rds` should be downloaded onto your computer.
+-   In your `data/` folder, create a new folder called `hampton2023/`.
+-   Move `emilianto_attitude.rds` into `data/hampton2023/`.
 :::
 
 Install the `HH` package before proceeding (but you don't need to attach it).
 
 To be able to plot with the `likert()` function from the `HH` package, we first need to wrangle the data.
 
-Basically, we need a new tibble with counts of each value of the scale for each of the adjectives participants had to rate. 
-In other words, how many times did people say "strong disagree", "disagree", and so on, for each adjective.
+Basically, we need a new tibble with counts of each value of the scale for each of the adjectives that participants had to rate. In other words, how many times did people say "strong disagree", "disagree", and so on, for each adjective.
 
 Make sure you understand each line of the following code.
 
 ```{r}
 #| label: emilianto-lik
 
-emilianto_lik <- emilianto_attitude %>%
+emilianto_lik <- emilianto_attitude |>
   
   # let's select only the columns we need
-  select(language, educated:familiar) %>%
+  select(language, educated:familiar) |>
   
   # let's pivot the data so that we get a longer tibble, with the columns
   # language, adjective and score
-  pivot_longer(educated:familiar, names_to = "adjective", values_to = "score") %>%
+  pivot_longer(educated:familiar, names_to = "adjective", values_to = "score") |>
   
   # and we count the numbers of each adjective and score combo
-  count(language, adjective, score) %>%
+  count(language, adjective, score) |>
   
   # then we pivot again so that now the data is wider, with the columns,
   # language, adjective, and one column for each of the five scores

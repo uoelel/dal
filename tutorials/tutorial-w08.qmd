@@ -12,7 +12,7 @@ format:
 
 In this tutorial, you can go through the different sections in any order you like and you can pick and choose which sections you want to work on. **Note that you should complete @sec-accuracy because it covers `stat_summary()` which you need for Exercise 1 of the first summative**.
 
-The tutors will be able to help you chose sections that might be useful based on your interests or your dissertation projects (whether you are working on it now or you will next year!).
+The tutors will be able to help you choose sections that might be useful based on your interests or your dissertation projects (whether you are working on it now or you will next year!).
 
 In this tutorial, there will be less explicit instructions or explanations. Before starting, make sure you attach the necessary packages (like tidyverse).
 
@@ -34,6 +34,20 @@ library(tidyverse)
 <br>
 ```
 In this section we will plot formant data from Italian.
+
+
+::: {.callout-important collapse="true"}
+#### What to do if you don't have `coretta2018a/` in your `data/` folder
+
+You'll need to download `formants.rda` from GitHub, create a folder called `coretta2018a/`, and move `formants.rda` into it.
+
+- Visit [this link](https://github.com/uoelel/qm-data/blob/main/data/coretta2018a/formants.rda).
+- To the right of the "Raw" button on the right-hand side of the page, click the button with the down arrow to download the "raw" file. Now `formants.rda` should be downloaded onto your computer.
+- In your `data/` folder, create a new folder called  `coretta2018a/`.
+- Move `formants.rda` into `data/coretta2018a/`.
+
+:::
+
 
 ```{r}
 #| label: formants
@@ -80,7 +94,16 @@ formants |>
 
 We can do better! Let's split the data for each participant and let's plot ellipses for each vowel.
 
-We can plot speakers separately with `facet_wrap()`: this works like `facet_grid()` but instead of specifying variables for rows and columns you just specify one variable and the data of each value in that variable will be plotted in a separate panel. This is useful when you have many different values, like speaker here. (if you want to learn how to make your plot taller, like the one below, check the Extra box below).
+We can plot speakers separately with `facet_wrap()`: this works like `facet_grid()` but instead of specifying variables for rows and columns, you just specify one variable.
+The data of each value in that variable will be plotted in a separate panel. 
+This is useful when you have many different values for a single variable, like `speaker` here. 
+
+We're also adding in ellipses around each cluster using `stat_ellipse()`.
+If you see test that says `Warning: Probable convergence failure`, that's because some ellipses might not fit the data super well.
+Don't worry about it for now.
+
+(Note: the plot your code generates will look more squashed than to the one below.
+If you want to learn how to make your plot taller, like the one below, check out the Extra box below.)
 
 ```{r}
 #| label: f1-f2-reverse-wrap
@@ -95,7 +118,8 @@ formants |>
   facet_wrap(vars(speaker), ncol = 3)
 ```
 
-If you want to learn how to normalise the data across speaker so that you can recreate the following plot, check @sec-f0 .
+In the plot below, the data is normalised within speakers: note how the numbers along the axis labels are different and the clusters are a bit less dispersed.
+If you want to learn how to normalise the data within speakers so that you can recreate the following plot, check @sec-f0 .
 
 ```{r}
 #| label: norm-vow
@@ -123,6 +147,8 @@ formants |>
 #### Extra: Setting the figure aspect ratio
 
 You can set the aspect ratio of a figure in a Quarto document with the `fig-asp` Quarto option.
+
+The result won't look different when you just run the code chunk, but when you render the document to HTML, the figure will have the aspect ratio you specify.
 
 ``` r
 {r}
@@ -183,7 +209,7 @@ shallow |>
 
 Can you tell if there are differences in RTs between the different groups and relation types?
 
-## Accuracy {#sec-accuracy}
+## Accuracy and computing proportions {#sec-accuracy}
 
 ```{=html}
 <a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a>
@@ -198,7 +224,7 @@ Let's look at data from Koppensteiner et al, 2016. The study looked at the relat
 takete_maluma <- read_delim("data/koppensteiner2016/takete_maluma.txt")
 ```
 
-The study specifically analysed the accuracy of the responses (`Answer`) but in this tutorial we will look instead at the response itself (whether they selected `takete` or `maluma`).
+The study specifically analysed the accuracy of the responses (`Answer`) but in this tutorial we will look instead at the response itself (whether they selected a `shaking` motion or a `flowing` motion).
 
 Alas, this piece of information is not coded in a column in the data, but we can create a new column based on the available info.
 
@@ -242,7 +268,7 @@ takete_maluma
 
 A common (but incorrect) way of plotting proportion/percentage data (like accuracy) is to calculate the mean accuracy of each participant and then produce a bar chart with error bars that indicate the mean accuracy and the dispersion around the mean accuracy.
 
-You might have seen something like this in many paper.
+You might have seen something like this in many papers.
 
 ```{r}
 #| label: bad
@@ -263,12 +289,14 @@ takete_maluma |>
 THE HORROR. Alas, this is a very bad way of processing proportion data. Check this [blog post](https://www.data-to-viz.com/caveat/error_bar.html) if you want to learn why.
 
 The alternative (robust) way to plot proportion data is to show the proportion for individual participants (`Rater` in the `takete_maluma` data frame).
+For example, what percentage of the time did a participant give a "shaking" response?
 
 To do so we can use a combination of `summarise()`, `geom_jitter()` and `stat_summary()`.
 
-First, we need to calculate the proportion of "shaking" responses by participant (`Rater`) with the simple formula: number of "shaking" responses / total number of responses. (Note that you could have well picked "flowing" instead of "shaking").
+First, we need to calculate the proportion of "shaking" responses by participant (`Rater`) with the simple formula: number of "shaking" responses / total number of responses. 
+(Note that you could have well picked "flowing" instead of "shaking", and that would give you an equivalent but opposite result: if somebody gave 70% "shaking" responses, they must have given 30% "flowing" responses. The most important thing is to be consistent throughout the entire computation.)
 
-To calculate this proportion we need to create a new column with a numeric version of the `Response` column. Since we want to calculate the proportion of "shaking" responses, we use `1` for "shaking and `0` for "flowing".
+To calculate this proportion, we first need to create a new column with a numeric version of the `Response` column. Since we want to calculate the proportion of "shaking" responses, we use `1` for "shaking and `0` for "flowing".
 
 We can do that using the `ifelse()` function.
 
@@ -282,7 +310,7 @@ takete_maluma <- takete_maluma %>%
 takete_maluma
 ```
 
-We can use a special tidyverse function, `n()`, which returns the number of rows in the data frame. Since we will group the data frame by `Rater` and `Tak_Mal_Stim`, `n()` returns the number of rows for each participant and each stimulus!
+We can use a special tidyverse function, `n()`, which returns the number of rows in the data frame, or if the data is grouped, the number of rows in each group. Since we will group the data frame by `Rater` and `Tak_Mal_Stim`, `n()` returns the number of rows for each participant and each stimulus!
 
 ```{r}
 #| label: takmal-prop
@@ -298,6 +326,9 @@ shaking_prop <- takete_maluma %>%
 shaking_prop
 ```
 
+Why does `sum(Response_num) / n()` give us the proportion of "shaking" responses?
+We coded every "shaking" response as 1, so if somebody gave 5 "shaking" responses and 10 "flowing" responses, we would calculate $5 / (5 + 10) = 5/15 = 33.3\%$.
+
 Now we can plot the proportions and add mean and confidence intervals using `geom_jitter()` and `stat_summary()`.
 
 Before proceeding, you need to install the **Hmisc** package. There is no need to attach it (it is used by `stat_summary()` under the hood).
@@ -312,7 +343,7 @@ ggplot() +
     aes(x = Tak_Mal_Stim, y = shaking_prop),
     width = 0.1, alpha = 0.5
   ) +
-  # Mean proportion by stimulus with CI
+  # Mean proportion by stimulus with confidence interval
   stat_summary(
     data = takete_maluma,
     aes(x = Tak_Mal_Stim, y = Response_num, colour = Tak_Mal_Stim),
@@ -328,13 +359,15 @@ ggplot() +
   theme(legend.position = "none")
 ```
 
-You will notice something new: we have specified the data inside `geom_jitter()` and `stat_summary()` instead of inside `ggplot()`. This is because the two functions need different data: `geom_jitter()` needs the data with the proportion we calculated for each participant and stimulus; `stat_summary()` needs to calculate the mean and CIs from the overall data, rather than from the proportion data we created.
+Do you see how much more informative and interesting this plot is, compared to the bar-and-whisker plot above?
+
+You will notice something new in the code: we have specified the data inside `geom_jitter()` and `stat_summary()` instead of inside `ggplot()`. This is because the two functions need different data: `geom_jitter()` needs the data with the proportion we calculated for each participant and stimulus; `stat_summary()` needs to calculate the mean and CIs from the overall data, rather than from the proportion data we created.
 
 We are also specifying the aesthetics within each geom/stat function, because while `x` is the same, the `y` differs!
 
 In `stat_summary()`, the `fun.data` argument lets you specify the function you want to use for the summary statistics to be added. Here we are using the `mean_cl_boot` function, which returns the mean proportion of `Response_num` and the 95% Confidence Intervals (CIs, there are [*frequentist* confidence intervals](https://rpsychologist.com/d3/ci/)) of that mean. The CIs are calculated using a bootstrapping procedure (if you are interested in learning what that is, check the documentation of `smean.sd` from the Hmisc package).
 
-## Fundamental frequency (f0) {#sec-f0}
+## Fundamental frequency (f0) and normalisation {#sec-f0}
 
 ```{=html}
 <a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/coretta2018a/formants.html" role="button">Description</a>
@@ -347,6 +380,20 @@ In `stat_summary()`, the `fun.data` argument lets you specify the function you w
 # .rda are R data files and they can be read with `load()`
 load("data/coretta2018a/formants.rda")
 ```
+
+
+::: {.callout-important collapse="true"}
+#### What to do if you don't have `coretta2018a/` in your `data/` folder
+
+You'll need to download `formants.rda` from GitHub, create a folder called `coretta2018a/`, and move `formants.rda` into it.
+
+- Visit [this link](https://github.com/uoelel/qm-data/blob/main/data/coretta2018a/formants.rda).
+- To the right of the "Raw" button on the right-hand side of the page, click the button with the down arrow to download the "raw" file. Now `formants.rda` should be downloaded onto your computer.
+- In your `data/` folder, create a new folder called  `coretta2018a/`.
+- Move `formants.rda` into `data/coretta2018a/`.
+
+:::
+
 
 Let's plot f0 for different vowels: We can use a violin plot with a strip chart (see previous section!).
 
@@ -366,6 +413,7 @@ We want to **normalise** the data across speakers, so that individual difference
 *Z*-scores are a standardised unit that allows you to compare things that are on different scales. Our f0 values are on different scales because some speakers have higher mean f0, some have lower mean f0.
 
 *Z-*scores are calculated by removing the mean from each value and dividing it by the standard deviation. Since we are normalising *within* subject, we need to calculate the mean and standard deviation for each participant and apply those to each participant's data separately.
+We achieve this by grouping the data by `speaker`, and then creating a new column that contains each speaker's *z*-scores.
 
 ```{r}
 #| label: f0-z
@@ -393,6 +441,8 @@ formants |>
   geom_jitter(aes(colour = vowel), width = 0.1, alpha = 0.1)
 ```
 
+Now the distributions are a lot less lumpy!
+
 Why is `colour = vowel` in `geom_jitter(aes(...))`? Because we want to colour only the jittered points. If we put `colour = vowel` in the main `ggplot(aes(...))` , then the violin *borders* would also be coloured.
 
 If you want to colour the areas of the violins instead, you can use the `fill` aesthetic. This will work both in the main `ggplot(aes(...))` or in `geom_violin(aes(...))` because the points of `geom_jitter()` can't be given a colour fill, but only a colour.
@@ -404,9 +454,10 @@ If you want to colour the areas of the violins instead, you can use the `fill` a
 <br>
 <br>
 ```
-Rating scales, like Likert scales, are very strange variables. They are categorical and ordinal.
+Likert scales are a kind of rating scales (see [here](https://resources.pollfish.com/market-research/rating-scales-and-likert-scales/) for more on the relationship between them).
+Such scales produce very strange variables. They are categorical and ordinal.
 
-Despite being very common, the practice of treating Likert scales as numeric is quite inappropriate. For an explanation, check the first two pages of [Verissimo 2021](https://doi.org/10.1017/S1366728921000316).
+Despite being very common, the practice of treating Likert scales as numeric is quite inappropriate. For an explanation, check the first two pages of [Verissimo (2021)](https://doi.org/10.1017/S1366728921000316).
 
 A very nice type of plot that is very useful for Likert scale data is a so-called **divergent stacked bar chart**.
 
@@ -421,9 +472,26 @@ Participants were asked the following: "when you hear somebody speaking Emilian/
 emilianto_attitude <- readRDS("data/hampton2023/emilianto_attitude.rds")
 ```
 
-To be able to plot with the `likert()` function from the HH package (install the package now), we first need to wrangle the data.
+::: {.callout-important collapse="true"}
+#### What to do if you don't have `hampton2023/` in your `data/` folder
 
-Basically, we need a new tibble with counts of each value of the scale for each of the adjectives participants had to rate. Make sure you understand each line of the following code.
+You'll need to download `emilianto_attitude.rds` from GitHub, create a folder called `hampton2023/`, and move `emilianto_attitude.rds` into it.
+
+- Visit [this link](https://github.com/uoelel/qm-data/blob/main/data/hampton2023/emilianto_attitude.rds).
+- To the right of the "Raw" button on the right-hand side of the page, click the button with the down arrow to download the "raw" file. Now `emilianto_attitude.rds` should be downloaded onto your computer.
+- In your `data/` folder, create a new folder called  `hampton2023/`.
+- Move `emilianto_attitude.rds` into `data/hampton2023/`.
+
+:::
+
+Install the `HH` package before proceeding (but you don't need to attach it).
+
+To be able to plot with the `likert()` function from the `HH` package, we first need to wrangle the data.
+
+Basically, we need a new tibble with counts of each value of the scale for each of the adjectives participants had to rate. 
+In other words, how many times did people say "strong disagree", "disagree", and so on, for each adjective.
+
+Make sure you understand each line of the following code.
 
 ```{r}
 #| label: emilianto-lik
@@ -444,7 +512,7 @@ emilianto_lik <- emilianto_attitude %>%
   # language, adjective, and one column for each of the five scores
   pivot_wider(names_from = "score", values_from = n) %>%
   
-  # we rename the scores to the actualy label that the participants saw
+  # we rename the scores to the actual label that the participants saw
   rename("strong disagree" = `1`, "disagree" = `2`, "neither" = `3`, "agree" = `4`, "strong agree" = `5`)
 emilianto_lik
 ```

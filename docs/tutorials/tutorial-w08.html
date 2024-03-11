@@ -104,6 +104,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="webex.css">
@@ -161,8 +190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
   <li><a href="#formant-data" id="toc-formant-data" class="nav-link" data-scroll-target="#formant-data"><span class="header-section-number">2</span> Formant data</a></li>
   <li><a href="#reaction-times" id="toc-reaction-times" class="nav-link" data-scroll-target="#reaction-times"><span class="header-section-number">3</span> Reaction times</a></li>
-  <li><a href="#sec-accuracy" id="toc-sec-accuracy" class="nav-link" data-scroll-target="#sec-accuracy"><span class="header-section-number">4</span> Accuracy</a></li>
-  <li><a href="#sec-f0" id="toc-sec-f0" class="nav-link" data-scroll-target="#sec-f0"><span class="header-section-number">5</span> Fundamental frequency (f0)</a></li>
+  <li><a href="#sec-accuracy" id="toc-sec-accuracy" class="nav-link" data-scroll-target="#sec-accuracy"><span class="header-section-number">4</span> Accuracy and computing proportions</a></li>
+  <li><a href="#sec-f0" id="toc-sec-f0" class="nav-link" data-scroll-target="#sec-f0"><span class="header-section-number">5</span> Fundamental frequency (f0) and normalisation</a></li>
   <li><a href="#rating-likert-scales" id="toc-rating-likert-scales" class="nav-link" data-scroll-target="#rating-likert-scales"><span class="header-section-number">6</span> Rating (Likert) scales</a></li>
   </ul>
 </nav>
@@ -193,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
 <p>In this tutorial, you can go through the different sections in any order you like and you can pick and choose which sections you want to work on. <strong>Note that you should complete <a href="#sec-accuracy" class="quarto-xref">Section&nbsp;4</a> because it covers <code>stat_summary()</code> which you need for Exercise 1 of the first summative</strong>.</p>
-<p>The tutors will be able to help you chose sections that might be useful based on your interests or your dissertation projects (whether you are working on it now or you will next year!).</p>
+<p>The tutors will be able to help you choose sections that might be useful based on your interests or your dissertation projects (whether you are working on it now or you will next year!).</p>
 <p>In this tutorial, there will be less explicit instructions or explanations. Before starting, make sure you attach the necessary packages (like tidyverse).</p>
 <p>You can find information on the data in the <a href="https://uoelel.github.io/qm-data/">QM data</a> website or by clicking the “Description” button in each section.</p>
 </section>
@@ -203,6 +232,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <br>
 <br>
 <p>In this section we will plot formant data from Italian.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What to do if you don’t have <code>coretta2018a/</code> in your <code>data/</code> folder
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You’ll need to download <code>formants.rda</code> from GitHub, create a folder called <code>coretta2018a/</code>, and move <code>formants.rda</code> into it.</p>
+<ul>
+<li>Visit <a href="https://github.com/uoelel/qm-data/blob/main/data/coretta2018a/formants.rda">this link</a>.</li>
+<li>To the right of the “Raw” button on the right-hand side of the page, click the button with the down arrow to download the “raw” file. Now <code>formants.rda</code> should be downloaded onto your computer.</li>
+<li>In your <code>data/</code> folder, create a new folder called <code>coretta2018a/</code>.</li>
+<li>Move <code>formants.rda</code> into <code>data/coretta2018a/</code>.</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .rda are R data files and they can be read with `load()`</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/coretta2018a/formants.rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -250,7 +301,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We can do better! Let’s split the data for each participant and let’s plot ellipses for each vowel.</p>
-<p>We can plot speakers separately with <code>facet_wrap()</code>: this works like <code>facet_grid()</code> but instead of specifying variables for rows and columns you just specify one variable and the data of each value in that variable will be plotted in a separate panel. This is useful when you have many different values, like speaker here. (if you want to learn how to make your plot taller, like the one below, check the Extra box below).</p>
+<p>We can plot speakers separately with <code>facet_wrap()</code>: this works like <code>facet_grid()</code> but instead of specifying variables for rows and columns, you just specify one variable. The data of each value in that variable will be plotted in a separate panel. This is useful when you have many different values for a single variable, like <code>speaker</code> here.</p>
+<p>We’re also adding in ellipses around each cluster using <code>stat_ellipse()</code>. If you see test that says <code>Warning: Probable convergence failure</code>, that’s because some ellipses might not fit the data super well. Don’t worry about it for now.</p>
+<p>(Note: the plot your code generates will look more squashed than to the one below. If you want to learn how to make your plot taller, like the one below, check out the Extra box below.)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>formants <span class="sc">|&gt;</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(f22, f12, <span class="at">colour =</span> vowel)) <span class="sc">+</span></span>
@@ -266,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>If you want to learn how to normalise the data across speaker so that you can recreate the following plot, check <a href="#sec-f0" class="quarto-xref">Section&nbsp;5</a> .</p>
+<p>In the plot below, the data is normalised within speakers: note how the numbers along the axis labels are different and the clusters are a bit less dispersed. If you want to learn how to normalise the data within speakers so that you can recreate the following plot, check <a href="#sec-f0" class="quarto-xref">Section&nbsp;5</a> .</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -277,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -286,9 +339,10 @@ Extra: Setting the figure aspect ratio
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can set the aspect ratio of a figure in a Quarto document with the <code>fig-asp</code> Quarto option.</p>
+<p>The result won’t look different when you just run the code chunk, but when you render the document to HTML, the figure will have the aspect ratio you specify.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>{r}</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tall-figure</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-asp: 1.5</span></span>
@@ -357,7 +411,7 @@ dbl (3): ACC, RT, logRT
 <p>Can you tell if there are differences in RTs between the different groups and relation types?</p>
 </section>
 <section id="sec-accuracy" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="sec-accuracy"><span class="header-section-number">4</span> Accuracy</h2>
+<h2 data-number="4" class="anchored" data-anchor-id="sec-accuracy"><span class="header-section-number">4</span> Accuracy and computing proportions</h2>
 <a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/koppensteiner2016/takete_maluma.html" role="button">Description</a>
 <br>
 <br>
@@ -375,7 +429,7 @@ dbl (2): Corr_1_Wrong_0, Female_0
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<p>The study specifically analysed the accuracy of the responses (<code>Answer</code>) but in this tutorial we will look instead at the response itself (whether they selected <code>takete</code> or <code>maluma</code>).</p>
+<p>The study specifically analysed the accuracy of the responses (<code>Answer</code>) but in this tutorial we will look instead at the response itself (whether they selected a <code>shaking</code> motion or a <code>flowing</code> motion).</p>
 <p>Alas, this piece of information is not coded in a column in the data, but we can create a new column based on the available info.</p>
 <ul>
 <li><p>When the stimulus is <code>Takete</code> and the answer is <code>CORRECT</code> then the participant’s response was <code>shaking</code>.</p></li>
@@ -387,7 +441,7 @@ dbl (2): Corr_1_Wrong_0, Female_0
 <p>We have not encountered this function yet, so here’s a challenge for you: check out <a href="https://dplyr.tidyverse.org/reference/case_when.html">its documentation</a> to learn how it works. You will also need to use the AND operator <code>&amp;</code>: this allows you to put two statements together, like <code>Tak_Mal_Stim == "Takete" &amp; Answer == "CORRECT"</code> for “if stimulus is Takete AND answer is CORRECT”.</p>
 <p>(If you are following the documentation but <code>case_when()</code> is still giving you mysterious errors, make sure that your version of dplyr is the most current one. To do this, run <code>packageVersion("dplyr")</code> in the console. You want the output to be <code>1.1.0</code>. If it’s not, you’ll need to update tidyverse by re-installing it.)</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -396,7 +450,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>takete_maluma <span class="ot">&lt;-</span> takete_maluma <span class="sc">%&gt;%</span></span>
@@ -424,7 +478,7 @@ Solution
 </div>
 </div>
 <p>A common (but incorrect) way of plotting proportion/percentage data (like accuracy) is to calculate the mean accuracy of each participant and then produce a bar chart with error bars that indicate the mean accuracy and the dispersion around the mean accuracy.</p>
-<p>You might have seen something like this in many paper.</p>
+<p>You might have seen something like this in many papers.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -435,10 +489,10 @@ Solution
 </div>
 </div>
 <p>THE HORROR. Alas, this is a very bad way of processing proportion data. Check this <a href="https://www.data-to-viz.com/caveat/error_bar.html">blog post</a> if you want to learn why.</p>
-<p>The alternative (robust) way to plot proportion data is to show the proportion for individual participants (<code>Rater</code> in the <code>takete_maluma</code> data frame).</p>
+<p>The alternative (robust) way to plot proportion data is to show the proportion for individual participants (<code>Rater</code> in the <code>takete_maluma</code> data frame). For example, what percentage of the time did a participant give a “shaking” response?</p>
 <p>To do so we can use a combination of <code>summarise()</code>, <code>geom_jitter()</code> and <code>stat_summary()</code>.</p>
-<p>First, we need to calculate the proportion of “shaking” responses by participant (<code>Rater</code>) with the simple formula: number of “shaking” responses / total number of responses. (Note that you could have well picked “flowing” instead of “shaking”).</p>
-<p>To calculate this proportion we need to create a new column with a numeric version of the <code>Response</code> column. Since we want to calculate the proportion of “shaking” responses, we use <code>1</code> for “shaking and <code>0</code> for”flowing”.</p>
+<p>First, we need to calculate the proportion of “shaking” responses by participant (<code>Rater</code>) with the simple formula: number of “shaking” responses / total number of responses. (Note that you could have well picked “flowing” instead of “shaking”, and that would give you an equivalent but opposite result: if somebody gave 70% “shaking” responses, they must have given 30% “flowing” responses. The most important thing is to be consistent throughout the entire computation.)</p>
+<p>To calculate this proportion, we first need to create a new column with a numeric version of the <code>Response</code> column. Since we want to calculate the proportion of “shaking” responses, we use <code>1</code> for “shaking and <code>0</code> for”flowing”.</p>
 <p>We can do that using the <code>ifelse()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>takete_maluma <span class="ot">&lt;-</span> takete_maluma <span class="sc">%&gt;%</span></span>
@@ -454,7 +508,7 @@ Solution
 </div>
 </div>
 </div>
-<p>We can use a special tidyverse function, <code>n()</code>, which returns the number of rows in the data frame. Since we will group the data frame by <code>Rater</code> and <code>Tak_Mal_Stim</code>, <code>n()</code> returns the number of rows for each participant and each stimulus!</p>
+<p>We can use a special tidyverse function, <code>n()</code>, which returns the number of rows in the data frame, or if the data is grouped, the number of rows in each group. Since we will group the data frame by <code>Rater</code> and <code>Tak_Mal_Stim</code>, <code>n()</code> returns the number of rows for each participant and each stimulus!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>shaking_prop <span class="ot">&lt;-</span> takete_maluma <span class="sc">%&gt;%</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Rater, Tak_Mal_Stim) <span class="sc">%&gt;%</span></span>
@@ -473,6 +527,7 @@ Solution
 </div>
 </div>
 </div>
+<p>Why does <code>sum(Response_num) / n()</code> give us the proportion of “shaking” responses? We coded every “shaking” response as 1, so if somebody gave 5 “shaking” responses and 10 “flowing” responses, we would calculate <span class="math inline">\(5 / (5 + 10) = 5/15 = 33.3\%\)</span>.</p>
 <p>Now we can plot the proportions and add mean and confidence intervals using <code>geom_jitter()</code> and <code>stat_summary()</code>.</p>
 <p>Before proceeding, you need to install the <strong>Hmisc</strong> package. There is no need to attach it (it is used by <code>stat_summary()</code> under the hood).</p>
 <div class="cell">
@@ -483,7 +538,7 @@ Solution
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Tak_Mal_Stim, <span class="at">y =</span> shaking_prop),</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mean proportion by stimulus with CI</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mean proportion by stimulus with confidence interval</span></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> takete_maluma,</span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Tak_Mal_Stim, <span class="at">y =</span> Response_num, <span class="at">colour =</span> Tak_Mal_Stim),</span>
@@ -505,18 +560,41 @@ Solution
 </div>
 </div>
 </div>
-<p>You will notice something new: we have specified the data inside <code>geom_jitter()</code> and <code>stat_summary()</code> instead of inside <code>ggplot()</code>. This is because the two functions need different data: <code>geom_jitter()</code> needs the data with the proportion we calculated for each participant and stimulus; <code>stat_summary()</code> needs to calculate the mean and CIs from the overall data, rather than from the proportion data we created.</p>
+<p>Do you see how much more informative and interesting this plot is, compared to the bar-and-whisker plot above?</p>
+<p>You will notice something new in the code: we have specified the data inside <code>geom_jitter()</code> and <code>stat_summary()</code> instead of inside <code>ggplot()</code>. This is because the two functions need different data: <code>geom_jitter()</code> needs the data with the proportion we calculated for each participant and stimulus; <code>stat_summary()</code> needs to calculate the mean and CIs from the overall data, rather than from the proportion data we created.</p>
 <p>We are also specifying the aesthetics within each geom/stat function, because while <code>x</code> is the same, the <code>y</code> differs!</p>
 <p>In <code>stat_summary()</code>, the <code>fun.data</code> argument lets you specify the function you want to use for the summary statistics to be added. Here we are using the <code>mean_cl_boot</code> function, which returns the mean proportion of <code>Response_num</code> and the 95% Confidence Intervals (CIs, there are <a href="https://rpsychologist.com/d3/ci/"><em>frequentist</em> confidence intervals</a>) of that mean. The CIs are calculated using a bootstrapping procedure (if you are interested in learning what that is, check the documentation of <code>smean.sd</code> from the Hmisc package).</p>
 </section>
 <section id="sec-f0" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="sec-f0"><span class="header-section-number">5</span> Fundamental frequency (f0)</h2>
+<h2 data-number="5" class="anchored" data-anchor-id="sec-f0"><span class="header-section-number">5</span> Fundamental frequency (f0) and normalisation</h2>
 <a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/coretta2018a/formants.html" role="button">Description</a>
 <br>
 <br>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .rda are R data files and they can be read with `load()`</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/coretta2018a/formants.rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What to do if you don’t have <code>coretta2018a/</code> in your <code>data/</code> folder
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You’ll need to download <code>formants.rda</code> from GitHub, create a folder called <code>coretta2018a/</code>, and move <code>formants.rda</code> into it.</p>
+<ul>
+<li>Visit <a href="https://github.com/uoelel/qm-data/blob/main/data/coretta2018a/formants.rda">this link</a>.</li>
+<li>To the right of the “Raw” button on the right-hand side of the page, click the button with the down arrow to download the “raw” file. Now <code>formants.rda</code> should be downloaded onto your computer.</li>
+<li>In your <code>data/</code> folder, create a new folder called <code>coretta2018a/</code>.</li>
+<li>Move <code>formants.rda</code> into <code>data/coretta2018a/</code>.</li>
+</ul>
+</div>
+</div>
 </div>
 <p>Let’s plot f0 for different vowels: We can use a violin plot with a strip chart (see previous section!).</p>
 <div class="cell">
@@ -535,7 +613,7 @@ Solution
 <p>You might notice something weird going on… The violins are quite bumpy! This is because different people have different mean f0.</p>
 <p>We want to <strong>normalise</strong> the data across speakers, so that individual differences in mean f0 are removed. This process is also called standardisation or <em>z</em>-scoring.</p>
 <p><em>Z</em>-scores are a standardised unit that allows you to compare things that are on different scales. Our f0 values are on different scales because some speakers have higher mean f0, some have lower mean f0.</p>
-<p><em>Z-</em>scores are calculated by removing the mean from each value and dividing it by the standard deviation. Since we are normalising <em>within</em> subject, we need to calculate the mean and standard deviation for each participant and apply those to each participant’s data separately.</p>
+<p><em>Z-</em>scores are calculated by removing the mean from each value and dividing it by the standard deviation. Since we are normalising <em>within</em> subject, we need to calculate the mean and standard deviation for each participant and apply those to each participant’s data separately. We achieve this by grouping the data by <code>speaker</code>, and then creating a new column that contains each speaker’s <em>z</em>-scores.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>formants <span class="ot">&lt;-</span> formants <span class="sc">|&gt;</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group data by speaker so that normalisation is applied for each speaker</span></span>
@@ -565,6 +643,7 @@ Solution
 </div>
 </div>
 </div>
+<p>Now the distributions are a lot less lumpy!</p>
 <p>Why is <code>colour = vowel</code> in <code>geom_jitter(aes(...))</code>? Because we want to colour only the jittered points. If we put <code>colour = vowel</code> in the main <code>ggplot(aes(...))</code> , then the violin <em>borders</em> would also be coloured.</p>
 <p>If you want to colour the areas of the violins instead, you can use the <code>fill</code> aesthetic. This will work both in the main <code>ggplot(aes(...))</code> or in <code>geom_violin(aes(...))</code> because the points of <code>geom_jitter()</code> can’t be given a colour fill, but only a colour.</p>
 </section>
@@ -573,8 +652,8 @@ Solution
 <a class="btn btn-primary" href="https://uoelel.github.io/qm-data/data/hampton2023/emilianto_attitude.html" role="button">Description</a>
 <br>
 <br>
-<p>Rating scales, like Likert scales, are very strange variables. They are categorical and ordinal.</p>
-<p>Despite being very common, the practice of treating Likert scales as numeric is quite inappropriate. For an explanation, check the first two pages of <a href="https://doi.org/10.1017/S1366728921000316">Verissimo 2021</a>.</p>
+<p>Likert scales are a kind of rating scales (see <a href="https://resources.pollfish.com/market-research/rating-scales-and-likert-scales/">here</a> for more on the relationship between them). Such scales produce very strange variables. They are categorical and ordinal.</p>
+<p>Despite being very common, the practice of treating Likert scales as numeric is quite inappropriate. For an explanation, check the first two pages of <a href="https://doi.org/10.1017/S1366728921000316">Verissimo (2021)</a>.</p>
 <p>A very nice type of plot that is very useful for Likert scale data is a so-called <strong>divergent stacked bar chart</strong>.</p>
 <p>The HH package has a few handy functions to make creating divergent stacked bar charts very straightforward. You will have to install this package (remember not to include the code for installation in your document; you need to install the package only once).</p>
 <p>We will create a plot of language attitudes towards Esperanto and Emilian (Gallo-Italian). Let’s read the data (it’s an <code>.rds</code> file!).</p>
@@ -582,8 +661,32 @@ Solution
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>emilianto_attitude <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/hampton2023/emilianto_attitude.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To be able to plot with the <code>likert()</code> function from the HH package (install the package now), we first need to wrangle the data.</p>
-<p>Basically, we need a new tibble with counts of each value of the scale for each of the adjectives participants had to rate. Make sure you understand each line of the following code.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What to do if you don’t have <code>hampton2023/</code> in your <code>data/</code> folder
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You’ll need to download <code>emilianto_attitude.rds</code> from GitHub, create a folder called <code>hampton2023/</code>, and move <code>emilianto_attitude.rds</code> into it.</p>
+<ul>
+<li>Visit <a href="https://github.com/uoelel/qm-data/blob/main/data/hampton2023/emilianto_attitude.rds">this link</a>.</li>
+<li>To the right of the “Raw” button on the right-hand side of the page, click the button with the down arrow to download the “raw” file. Now <code>emilianto_attitude.rds</code> should be downloaded onto your computer.</li>
+<li>In your <code>data/</code> folder, create a new folder called <code>hampton2023/</code>.</li>
+<li>Move <code>emilianto_attitude.rds</code> into <code>data/hampton2023/</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Install the <code>HH</code> package before proceeding (but you don’t need to attach it).</p>
+<p>To be able to plot with the <code>likert()</code> function from the <code>HH</code> package, we first need to wrangle the data.</p>
+<p>Basically, we need a new tibble with counts of each value of the scale for each of the adjectives participants had to rate. In other words, how many times did people say “strong disagree”, “disagree”, and so on, for each adjective.</p>
+<p>Make sure you understand each line of the following code.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>emilianto_lik <span class="ot">&lt;-</span> emilianto_attitude <span class="sc">%&gt;%</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -601,7 +704,7 @@ Solution
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># language, adjective, and one column for each of the five scores</span></span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"score"</span>, <span class="at">values_from =</span> n) <span class="sc">%&gt;%</span></span>
 <span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we rename the scores to the actualy label that the participants saw</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we rename the scores to the actual label that the participants saw</span></span>
 <span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"strong disagree"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">1</span><span class="st">`</span>, <span class="st">"disagree"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">2</span><span class="st">`</span>, <span class="st">"neither"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">3</span><span class="st">`</span>, <span class="st">"agree"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">4</span><span class="st">`</span>, <span class="st">"strong agree"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">5</span><span class="st">`</span>)</span>
 <span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>emilianto_lik</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">

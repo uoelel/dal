@@ -256,7 +256,8 @@ What to do if you don’t have <code>coretta2018a/</code> in your <code>data/</c
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .rda are R data files and they can be read with `load()`</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/coretta2018a/formants.rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `load()` does not need to be assigned to avariable for the data to be added to the enviornment</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/coretta2018a/formants.rda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The data contains F1 and F2 measurements at 3 points within each vowel. We want to plot the values at the mid-point of the vowel.</p>
 <div class="cell">
@@ -300,7 +301,7 @@ What to do if you don’t have <code>coretta2018a/</code> in your <code>data/</c
 </div>
 </div>
 </div>
-<p>We can do better! Let’s split the data for each participant and let’s plot ellipses for each vowel.</p>
+<p>We can do better! Let’s split the data for each participant and let’s plot ellipses (circles) for each vowel.</p>
 <p>We can plot speakers separately with <code>facet_wrap()</code>: this works like <code>facet_grid()</code> but instead of specifying variables for rows and columns, you just specify one variable. The data of each value in that variable will be plotted in a separate panel. This is useful when you have many different values for a single variable, like <code>speaker</code> here.</p>
 <p>We’re also adding in ellipses around each cluster using <code>stat_ellipse()</code>. If you see test that says <code>Warning: Probable convergence failure</code>, that’s because some ellipses might not fit the data super well. Don’t worry about it for now.</p>
 <p>(Note: the plot your code generates will look more squashed than to the one below. If you want to learn how to make your plot taller, like the one below, check out the Extra box below.)</p>
@@ -453,7 +454,7 @@ Solution
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>takete_maluma <span class="ot">&lt;-</span> takete_maluma <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>takete_maluma <span class="ot">&lt;-</span> takete_maluma <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Response =</span> <span class="fu">case_when</span>(</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      Tak_Mal_Stim <span class="sc">==</span> <span class="st">"Takete"</span> <span class="sc">&amp;</span> Answer <span class="sc">==</span> <span class="st">"CORRECT"</span> <span class="sc">~</span> <span class="st">"shaking"</span>,</span>
@@ -495,7 +496,7 @@ Solution
 <p>To calculate this proportion, we first need to create a new column with a numeric version of the <code>Response</code> column. Since we want to calculate the proportion of “shaking” responses, we use <code>1</code> for “shaking and <code>0</code> for”flowing”.</p>
 <p>We can do that using the <code>ifelse()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>takete_maluma <span class="ot">&lt;-</span> takete_maluma <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>takete_maluma <span class="ot">&lt;-</span> takete_maluma <span class="sc">|&gt;</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Response_num =</span> <span class="fu">ifelse</span>(Response <span class="sc">==</span> <span class="st">"shaking"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  )</span>
@@ -510,8 +511,8 @@ Solution
 </div>
 <p>We can use a special tidyverse function, <code>n()</code>, which returns the number of rows in the data frame, or if the data is grouped, the number of rows in each group. Since we will group the data frame by <code>Rater</code> and <code>Tak_Mal_Stim</code>, <code>n()</code> returns the number of rows for each participant and each stimulus!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>shaking_prop <span class="ot">&lt;-</span> takete_maluma <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Rater, Tak_Mal_Stim) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>shaking_prop <span class="ot">&lt;-</span> takete_maluma <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Rater, Tak_Mal_Stim) <span class="sc">|&gt;</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">shaking_prop =</span> <span class="fu">sum</span>(Response_num) <span class="sc">/</span> <span class="fu">n</span>(),</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The following drops the grouping created by group_by() which we don't</span></span>
@@ -529,7 +530,7 @@ Solution
 </div>
 <p>Why does <code>sum(Response_num) / n()</code> give us the proportion of “shaking” responses? We coded every “shaking” response as 1, so if somebody gave 5 “shaking” responses and 10 “flowing” responses, we would calculate <span class="math inline">\(5 / (5 + 10) = 5/15 = 33.3\%\)</span>.</p>
 <p>Now we can plot the proportions and add mean and confidence intervals using <code>geom_jitter()</code> and <code>stat_summary()</code>.</p>
-<p>Before proceeding, you need to install the <strong>Hmisc</strong> package. There is no need to attach it (it is used by <code>stat_summary()</code> under the hood).</p>
+<p>Before proceeding, you need to install the <strong>Hmisc</strong> package. There is no need to attach it (it is used by <code>stat_summary()</code> under the hood). <em>Remember not to include the code for installation in your document; you need to install the package only once.</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Proportion of each participant</span></span>
@@ -655,9 +656,10 @@ What to do if you don’t have <code>coretta2018a/</code> in your <code>data/</c
 <p>Likert scales are a kind of rating scales (see <a href="https://resources.pollfish.com/market-research/rating-scales-and-likert-scales/">here</a> for more on the relationship between them). Such scales produce very strange variables. They are categorical and ordinal.</p>
 <p>Despite being very common, the practice of treating Likert scales as numeric is quite inappropriate. For an explanation, check the first two pages of <a href="https://doi.org/10.1017/S1366728921000316">Verissimo (2021)</a>.</p>
 <p>A very nice type of plot that is very useful for Likert scale data is a so-called <strong>divergent stacked bar chart</strong>.</p>
-<p>The HH package has a few handy functions to make creating divergent stacked bar charts very straightforward. You will have to install this package (remember not to include the code for installation in your document; you need to install the package only once).</p>
-<p>We will create a plot of language attitudes towards Esperanto and Emilian (Gallo-Italian). Let’s read the data (it’s an <code>.rds</code> file!).</p>
+<p>The <strong>HH</strong> package has a few handy functions to make creating divergent stacked bar charts very straightforward. You will have to install this package (remember not to include the code for installation in your document; you need to install the package only once).</p>
+<p>We will create a plot of language attitudes towards Esperanto and Emilian (Gallo-Italian).</p>
 <p>Participants were asked the following: “when you hear somebody speaking Emilian/Esperanto, you would think they are…” and they were presented with 9 adjectives, which they had to rate from strongly disagree (meaning they strongly disagreed that somebody speaking Emilian/Esperanto had that quality) to strongly agree (meaning they strongly agreed that the person had that quality). Esperanto speakers rated Esperanto while Emilian speakers rated Emilian.</p>
+<p>Let’s read the data (it’s an <code>.rds</code> file!).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>emilianto_attitude <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/hampton2023/emilianto_attitude.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -685,20 +687,20 @@ What to do if you don’t have <code>hampton2023/</code> in your <code>data/</co
 </div>
 <p>Install the <code>HH</code> package before proceeding (but you don’t need to attach it).</p>
 <p>To be able to plot with the <code>likert()</code> function from the <code>HH</code> package, we first need to wrangle the data.</p>
-<p>Basically, we need a new tibble with counts of each value of the scale for each of the adjectives participants had to rate. In other words, how many times did people say “strong disagree”, “disagree”, and so on, for each adjective.</p>
+<p>Basically, we need a new tibble with counts of each value of the scale for each of the adjectives that participants had to rate. In other words, how many times did people say “strong disagree”, “disagree”, and so on, for each adjective.</p>
 <p>Make sure you understand each line of the following code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>emilianto_lik <span class="ot">&lt;-</span> emilianto_attitude <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>emilianto_lik <span class="ot">&lt;-</span> emilianto_attitude <span class="sc">|&gt;</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># let's select only the columns we need</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(language, educated<span class="sc">:</span>familiar) <span class="sc">%&gt;%</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(language, educated<span class="sc">:</span>familiar) <span class="sc">|&gt;</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># let's pivot the data so that we get a longer tibble, with the columns</span></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># language, adjective and score</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(educated<span class="sc">:</span>familiar, <span class="at">names_to =</span> <span class="st">"adjective"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(educated<span class="sc">:</span>familiar, <span class="at">names_to =</span> <span class="st">"adjective"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># and we count the numbers of each adjective and score combo</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(language, adjective, score) <span class="sc">%&gt;%</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(language, adjective, score) <span class="sc">|&gt;</span></span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># then we pivot again so that now the data is wider, with the columns,</span></span>
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># language, adjective, and one column for each of the five scores</span></span>

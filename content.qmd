@@ -303,3 +303,27 @@ This course will be loosely based on the following online textbook. Note that th
 -   R4DS [Ch 5](https://r4ds.hadley.nz/data-tidy).
 -   R4DS [Ch 19](https://r4ds.hadley.nz/joins).
 :::
+
+### Week 8
+
+::: {.callout-important collapse="false"}
+#### Learning Objectives
+
+**Questions**
+
+-   What other type of plots can be helpful?
+-   What are common pitfalls of designing plots?
+-   How can we avoid those pitfalls?
+
+**Skills**
+
+-   Think about pros and cons of different types of plots.
+-   Create specialised plots.
+-   Normalise data and compute proportions.
+:::
+
+::: {.callout-tip collapse="false"}
+#### Readings
+
+See week 8 slides.
+:::

@@ -266,6 +266,34 @@
     "text": "Violin plot\n\n\npolite |&gt; \n  drop_na(f0mn) |&gt; \n  group_by(subject) |&gt; \n  mutate(f0mn_z = (f0mn - mean(f0mn)) / sd(f0mn)) |&gt; \n  ggplot(aes(attitude, f0mn_z)) +\n  geom_violin() +\n  geom_jitter(aes(colour = attitude),\n              width = 0.05,\n              alpha = 0.5) +\n  stat_summary(fun = \"median\", geom = \"point\",\n               shape = 17, size = 5) +\n  facet_grid(cols = vars(musicstudent), labeller = label_both) +\n  scale_color_manual(values = c(\"orange\", \"purple\")) +\n  labs(\n    title = \"Mean f0 of Korean speakers by attitude\",\n    y = \"Mean f0 (z-scores)\",\n    caption = \"Korean speakers were students living in Germany. Mean f0 was z-scored within each speaker.\"\n  ) +\n  ThemePark::theme_starwars() +\n  theme(legend.position = \"none\")"
   },
   {
+    "objectID": "slides/lecture-w08.html#dont-use-box-plots",
+    "href": "slides/lecture-w08.html#dont-use-box-plots",
+    "title": "Data Analysis for LEL - Week 8",
+    "section": "Don’t use box-plots",
+    "text": "Don’t use box-plots\nThe Datasaurus example.\nAlso see post by Nick Desbarats: I’ve stopped using box plots, should you?."
+  },
+  {
+    "objectID": "slides/lecture-w08.html#dont-use-error-bars",
+    "href": "slides/lecture-w08.html#dont-use-error-bars",
+    "title": "Data Analysis for LEL - Week 8",
+    "section": "Don’t use error bars",
+    "text": "Don’t use error bars\nSee The issue with error bars by Data To Viz."
+  },
+  {
+    "objectID": "slides/lecture-w08.html#dont-plot-means-of-proportionpercentage-means",
+    "href": "slides/lecture-w08.html#dont-plot-means-of-proportionpercentage-means",
+    "title": "Data Analysis for LEL - Week 8",
+    "section": "Don’t plot means of proportion/percentage means",
+    "text": "Don’t plot means of proportion/percentage means\n\nset.seed(992)\nparticipants &lt;- 10\nobservations &lt;- round(runif(participants, 1, 15))\nprobabilities &lt;- runif(participants)\nbinary_outcomes &lt;- rbinom(participants, size = observations, prob = probabilities)\n\nmean(binary_outcomes / observations)\n\n[1] 0.714881\n\nsum(binary_outcomes) / sum(observations)\n\n[1] 0.7866667\n\n\n\nThe mean of means is the same as the overall mean only if the N for each participant is the same.\nEven in this case, a mean by itself is MEANingless and plotting standard errors with error bars can be misleading (see previous slide).\nSo plot the proportion of each participant and the overall proportion!"
+  },
+  {
+    "objectID": "slides/lecture-w08.html#to-summarise",
+    "href": "slides/lecture-w08.html#to-summarise",
+    "title": "Data Analysis for LEL - Week 8",
+    "section": "To summarise",
+    "text": "To summarise\n\n\nShow raw data (e.g. individual observations, participants, items…).\nDo not use box-plots, even if you are asked to!\n\nUse density plots, violin plots, strip charts.\n\nDo not use “error bars”, even if you are asked to!\n\nIf the person asking insists, ask “which measure should I use for the error bars?”.\nThe only sensible answer is “X% Confidence Intervals” (where X is usually 95%).\n\nDo not use means of proportions!\n\nCalculate the overall proportion and/or show the proportion of each participant as raw data."
+  },
+  {
     "objectID": "slides/lecture-w06.html#section",
     "href": "slides/lecture-w06.html#section",
     "title": "Data Analysis for LEL - Week 6",

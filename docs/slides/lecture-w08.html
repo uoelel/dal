@@ -612,6 +612,61 @@ Stefano Coretta
 </div>
 </div>
 </div>
+</section>
+<section id="dont-use-box-plots" class="slide level2">
+<h2>Don’t use box-plots</h2>
+<p>The <a href="https://www.research.autodesk.com/publications/same-stats-different-graphs/">Datasaurus</a> example.</p>
+<p>Also see post by Nick Desbarats: <a href="https://nightingaledvs.com/ive-stopped-using-box-plots-should-you/">I’ve stopped using box plots, should you?</a>.</p>
+
+<img data-src="../img/boxplot-outliers.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="dont-use-error-bars" class="slide level2">
+<h2>Don’t use error bars</h2>
+<p>See <a href="https://www.data-to-viz.com/caveat/error_bar.html">The issue with error bars</a> by Data To Viz.</p>
+</section>
+<section id="dont-plot-means-of-proportionpercentage-means" class="slide level2">
+<h2>Don’t plot means of proportion/percentage means</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">set.seed</span>(<span class="dv">992</span>)</span>
+<span id="cb9-2"><a></a>participants <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb9-3"><a></a>observations <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(participants, <span class="dv">1</span>, <span class="dv">15</span>))</span>
+<span id="cb9-4"><a></a>probabilities <span class="ot">&lt;-</span> <span class="fu">runif</span>(participants)</span>
+<span id="cb9-5"><a></a>binary_outcomes <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(participants, <span class="at">size =</span> observations, <span class="at">prob =</span> probabilities)</span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="fu">mean</span>(binary_outcomes <span class="sc">/</span> observations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.714881</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">sum</span>(binary_outcomes) <span class="sc">/</span> <span class="fu">sum</span>(observations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7866667</code></pre>
+</div>
+</div>
+<ul>
+<li><p>The mean of means is the same as the overall mean only if the N for each participant is the same.</p></li>
+<li><p>Even in this case, a mean by itself is MEANingless and plotting standard errors with error bars can be misleading (see previous slide).</p></li>
+<li><p>So <strong>plot the proportion of each participant and the overall proportion!</strong></p></li>
+</ul>
+</section>
+<section id="to-summarise" class="slide level2">
+<h2>To summarise</h2>
+<div class="bg-washed-blue b--dark-blue ba bw2 br3 shadow-5 ph4 mt2">
+<ol type="1">
+<li><p>Show <strong>raw data</strong> (e.g.&nbsp;individual observations, participants, items…).</p></li>
+<li><p>Do not use box-plots, even if you are asked to!</p>
+<ol type="1">
+<li>Use density plots, violin plots, strip charts.</li>
+</ol></li>
+<li><p>Do not use “error bars”, even if you are asked to!</p>
+<ol type="1">
+<li><p>If the person asking insists, ask “which measure should I use for the error bars?”.</p></li>
+<li><p>The only sensible answer is “X% Confidence Intervals” (where X is usually 95%).</p></li>
+</ol></li>
+<li><p>Do not use means of proportions!</p>
+<ol type="1">
+<li>Calculate the overall proportion and/or show the proportion of each participant as raw data.</li>
+</ol></li>
+</ol>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

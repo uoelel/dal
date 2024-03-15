@@ -1,0 +1,19 @@
+{
+  "hash": "77249d4dc6036ce247b7bd4eef64a29f",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"DAL tutorial - Week 9\"\nsubtitle: \"Troubleshooting\"\neditor: visual\nformat: \n  html:\n    css: [webex.css]\n    include-after-body: [webex.js]\nexecute: \n  eval: false\n---\n\n\n## Troubleshooting\n\nGo to <https://bookdown.org/yih_huynh/Guide-to-R-Book/trouble.html> and read about common errors and how to fix them.\n\n::: callout-warning\n## Terminology\n\nThe linked page talks about \"loading libraries\" and \"loading packages\", but you know very well by now that we **attach packages** and we don't \"load libraries\".\n\nFor a technical explanation about loading vs attaching and packages vs libraries see: <https://r-pkgs.org/dependencies-mindset-background.html#sec-dependencies-namespace> and following sections.\n:::\n\n## Fix me!\n\nThe following code chunks have code that throws errors or generate mistakes (without throwing errors). Try to run them in R, study the error and fix the code!\n\n\n::: {.cell}\n\n```{.r .cell-code}\na <- \"2\"\na + 1\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\niris |>\n  group_by(species) |>\n  summary(\n    mean = mean(Petal.Lengths)\n  )\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlirbary(tidyvrese)\n\nstarwars\n  mutate(\n    sex = fatcor(sex, level = c(\"female\", \"hermaphrodite\", \"male\", \"none\"))\n  ) |> \n  count(Sex)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\niris |> \n  ggplot(x = Species, y = Petal.Length) |> \n  geom_jiter()\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nbat <- tibble(\n  id = c(A, B, C),\n  response = rbinom(10, 1, 0.5)\n)\n\ncat(bat.response)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../site_libs/pagedtable-1.1/css/pagedtable.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/pagedtable-1.1/js/pagedtable.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

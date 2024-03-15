@@ -1,0 +1,65 @@
+---
+title: "DAL tutorial - Week 9"
+subtitle: "Troubleshooting"
+editor: visual
+format: 
+  html:
+    css: [webex.css]
+    include-after-body: [webex.js]
+execute: 
+  eval: false
+---
+
+## Troubleshooting
+
+Go to <https://bookdown.org/yih_huynh/Guide-to-R-Book/trouble.html> and read about common errors and how to fix them.
+
+::: callout-warning
+## Terminology
+
+The linked page talks about "loading libraries" and "loading packages", but you know very well by now that we **attach packages** and we don't "load libraries".
+
+For a technical explanation about loading vs attaching and packages vs libraries see: <https://r-pkgs.org/dependencies-mindset-background.html#sec-dependencies-namespace> and following sections.
+:::
+
+## Fix me!
+
+The following code chunks have code that throws errors or generate mistakes (without throwing errors). Try to run them in R, study the error and fix the code!
+
+```{r}
+a <- "2"
+a + 1
+```
+
+```{r}
+iris |>
+  group_by(species) |>
+  summary(
+    mean = mean(Petal.Lengths)
+  )
+```
+
+```{r}
+lirbary(tidyvrese)
+
+starwars
+  mutate(
+    sex = fatcor(sex, level = c("female", "hermaphrodite", "male", "none"))
+  ) |> 
+  count(Sex)
+```
+
+```{r}
+iris |> 
+  ggplot(x = Species, y = Petal.Length) |> 
+  geom_jiter()
+```
+
+```{r}
+bat <- tibble(
+  id = c(A, B, C),
+  response = rbinom(10, 1, 0.5)
+)
+
+cat(bat.response)
+```

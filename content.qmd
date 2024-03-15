@@ -11,7 +11,7 @@
 | 6      | [Data summaries](slides/lecture-w06.qmd)                       | [Data transformation II](tutorials/tutorial-w06.qmd)   |                                        |
 | 7      | [Tidy data](slides/lecture-w07.qmd)                            | [Data tidying and joining](tutorials/tutorial-w07.qmd) | F2                                     |
 | 8      | [Plot design](slides/lecture-w08.qmd)                          | [Advanced plotting](tutorials/tutorial-w08.qmd)        |                                        |
-| 9      | [Where to next?](slides/lecture-w09.qmd)                       | Fixing errors                                          |                                        |
+| 9      | [Where to next?](slides/lecture-w09.qmd)                       | [Troubleshooting](tutorials/tutorial-w09.qmd)          |                                        |
 | 25 Mar |                                                                |                                                        | S2 proposal                            |
 | 28 Mar |                                                                |                                                        | [S1](https://github.com/uoelel/dal-s1) |
 | 25 Apr |                                                                |                                                        | S2                                     |

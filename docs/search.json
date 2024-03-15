@@ -221,28 +221,56 @@
     "href": "slides/lecture-w08.html#mosaic-plot",
     "title": "Data Analysis for LEL - Week 8",
     "section": "Mosaic plot",
-    "text": "Mosaic plot\n\n\nglot_status |&gt; \n  filter(status != \"extinct\") |&gt; \n  droplevels() |&gt; \n  ggplot() +\n  # from the ggmosaic package\n  geom_mosaic(\n    aes(product(Macroarea), fill = status),\n    alpha = 1) +\n  scale_fill_brewer(palette = \"BuPu\") +\n  theme_dark() +\n  theme(legend.position = \"bottom\")"
+    "text": "Mosaic plot\n\nglot_status |&gt; \n  filter(status != \"extinct\") |&gt; \n  droplevels() |&gt; \n  ggplot() +\n  # from the ggmosaic package\n  geom_mosaic(\n    aes(product(Macroarea), fill = status),\n    alpha = 1) +\n  scale_fill_brewer(palette = \"BuPu\") +\n  theme_dark() +\n  theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "slides/lecture-w08.html#mosaic-plot-output",
+    "href": "slides/lecture-w08.html#mosaic-plot-output",
+    "title": "Data Analysis for LEL - Week 8",
+    "section": "Mosaic plot",
+    "text": "Mosaic plot"
   },
   {
     "objectID": "slides/lecture-w08.html#line-plot",
     "href": "slides/lecture-w08.html#line-plot",
     "title": "Data Analysis for LEL - Week 8",
     "section": "Line plot",
-    "text": "Line plot\n\n\nformants %&gt;%\n  filter(c2 %in% c(\"t\", \"k\")) |&gt;\n  filter(vowel %in% c(\"a\", \"o\")) |&gt; \n  ggplot(aes(time, value, group = id, colour = formant)) +\n  geom_line(alpha = 0.8) +\n  facet_grid(cols = vars(c2), rows = vars(vowel)) +\n  scale_color_brewer(type = \"qual\") +\n  labs(\n    x = \"Relative time\", y = \"Formant value (Hz)\",\n    title = \"Formant trajectories of Italian /a, o/ followed by /k/ or /t/\"\n  )"
+    "text": "Line plot\n\nformants %&gt;%\n  filter(c2 %in% c(\"t\", \"k\")) |&gt;\n  filter(vowel %in% c(\"a\", \"o\")) |&gt; \n  ggplot(aes(time, value, group = id, colour = formant)) +\n  geom_line(alpha = 0.8) +\n  facet_grid(cols = vars(c2), rows = vars(vowel)) +\n  scale_color_brewer(type = \"qual\") +\n  labs(\n    x = \"Relative time\", y = \"Formant value (Hz)\",\n    title = \"Formant trajectories of Italian /a, o/ followed by /k/ or /t/\"\n  )"
+  },
+  {
+    "objectID": "slides/lecture-w08.html#line-plot-output",
+    "href": "slides/lecture-w08.html#line-plot-output",
+    "title": "Data Analysis for LEL - Week 8",
+    "section": "Line plot",
+    "text": "Line plot"
   },
   {
     "objectID": "slides/lecture-w08.html#line-plot-with-points",
     "href": "slides/lecture-w08.html#line-plot-with-points",
     "title": "Data Analysis for LEL - Week 8",
     "section": "Line plot with points",
-    "text": "Line plot with points\n\n\nformants %&gt;%\n  filter(c2 %in% c(\"t\", \"k\")) |&gt;\n  filter(vowel %in% c(\"a\", \"o\")) |&gt; \n  ggplot(aes(time, value, group = id,\n             colour = formant)) +\n  geom_line(alpha = 0.25) +\n  geom_point(alpha = 0.5) +\n  facet_grid(cols = vars(c2), rows = vars(vowel)) +\n  scale_color_brewer(type = \"qual\") +\n  labs(\n    x = \"Relative time\", y = \"Formant value (Hz)\",\n    title = \"Formant trajectories of Italian /a, o/ followed by /k/ or /t/\"\n  )"
+    "text": "Line plot with points\n\nformants %&gt;%\n  filter(c2 %in% c(\"t\", \"k\")) |&gt;\n  filter(vowel %in% c(\"a\", \"o\")) |&gt; \n  ggplot(aes(time, value, group = id,\n             colour = formant)) +\n  geom_line(alpha = 0.25) +\n  geom_point(alpha = 0.5) +\n  facet_grid(cols = vars(c2), rows = vars(vowel)) +\n  scale_color_brewer(type = \"qual\") +\n  labs(\n    x = \"Relative time\", y = \"Formant value (Hz)\",\n    title = \"Formant trajectories of Italian /a, o/ followed by /k/ or /t/\"\n  )"
+  },
+  {
+    "objectID": "slides/lecture-w08.html#line-plot-with-points-output",
+    "href": "slides/lecture-w08.html#line-plot-with-points-output",
+    "title": "Data Analysis for LEL - Week 8",
+    "section": "Line plot with points",
+    "text": "Line plot with points"
   },
   {
     "objectID": "slides/lecture-w08.html#connected-dots-plot",
     "href": "slides/lecture-w08.html#connected-dots-plot",
     "title": "Data Analysis for LEL - Week 8",
     "section": "Connected dots plot",
-    "text": "Connected dots plot\n\n\ngestures |&gt; \n  filter(gesture != \"ho_gv\", count &lt; 30) |&gt; \n  group_by(dyad, background, months, gesture) |&gt; \n  summarise(\n    count_tot = sum(count),\n    .groups = \"drop\"\n  ) |&gt; \n  ggplot(aes(gesture, count_tot, colour = background),\n         alpha = 0.2) +\n  geom_line(aes(group = dyad),\n            alpha = 0.5) +\n  geom_point() +\n  facet_grid(background ~ months) +\n  labs(\n    title = \"Infant gesture counts at 10, 11 and 12 mo\",\n    x = \"Gesture type\", y = \"Gesture count\"\n  ) +\n  theme_light() +\n  theme(legend.position = \"none\")"
+    "text": "Connected dots plot\n\ngestures |&gt; \n  filter(gesture != \"ho_gv\", count &lt; 30) |&gt; \n  group_by(dyad, background, months, gesture) |&gt; \n  summarise(\n    count_tot = sum(count),\n    .groups = \"drop\"\n  ) |&gt; \n  ggplot(aes(gesture, count_tot, colour = background),\n         alpha = 0.2) +\n  geom_line(aes(group = dyad),\n            alpha = 0.5) +\n  geom_point() +\n  facet_grid(background ~ months) +\n  labs(\n    title = \"Infant gesture counts at 10, 11 and 12 mo\",\n    x = \"Gesture type\", y = \"Gesture count\"\n  ) +\n  theme_light() +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "slides/lecture-w08.html#connected-dots-plot-output",
+    "href": "slides/lecture-w08.html#connected-dots-plot-output",
+    "title": "Data Analysis for LEL - Week 8",
+    "section": "Connected dots plot",
+    "text": "Connected dots plot"
   },
   {
     "objectID": "slides/lecture-w08.html#wals-data",
@@ -256,14 +284,28 @@
     "href": "slides/lecture-w08.html#alluvial-plot",
     "title": "Data Analysis for LEL - Week 8",
     "section": "Alluvial plot",
-    "text": "Alluvial plot\n\n\nwals_data |&gt; \n  ggplot(aes(y = n, axis1 = `45A`, axis2 = `70A`)) +\n  geom_alluvium(aes(fill = `45A`)) +\n  geom_stratum() +\n  geom_text(stat = \"stratum\",\n            aes(label = after_stat(stratum))) +\n  scale_fill_brewer(palette = \"Dark2\") +\n  labs(title = \"Languages with a politeness distinction and a morphological imperative\") +\n  theme_light() +\n  theme(legend.position = \"none\")"
+    "text": "Alluvial plot\n\nwals_data |&gt; \n  ggplot(aes(y = n, axis1 = `45A`, axis2 = `70A`)) +\n  geom_alluvium(aes(fill = `45A`)) +\n  geom_stratum() +\n  geom_text(stat = \"stratum\",\n            aes(label = after_stat(stratum))) +\n  scale_fill_brewer(palette = \"Dark2\") +\n  labs(title = \"Languages with a politeness distinction and a morphological imperative\") +\n  theme_light() +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "slides/lecture-w08.html#alluvial-plot-output",
+    "href": "slides/lecture-w08.html#alluvial-plot-output",
+    "title": "Data Analysis for LEL - Week 8",
+    "section": "Alluvial plot",
+    "text": "Alluvial plot"
   },
   {
     "objectID": "slides/lecture-w08.html#violin-plot",
     "href": "slides/lecture-w08.html#violin-plot",
     "title": "Data Analysis for LEL - Week 8",
     "section": "Violin plot",
-    "text": "Violin plot\n\n\npolite |&gt; \n  drop_na(f0mn) |&gt; \n  group_by(subject) |&gt; \n  mutate(f0mn_z = (f0mn - mean(f0mn)) / sd(f0mn)) |&gt; \n  ggplot(aes(attitude, f0mn_z)) +\n  geom_violin() +\n  geom_jitter(aes(colour = attitude),\n              width = 0.05,\n              alpha = 0.5) +\n  stat_summary(fun = \"median\", geom = \"point\",\n               shape = 17, size = 5) +\n  facet_grid(cols = vars(musicstudent), labeller = label_both) +\n  scale_color_manual(values = c(\"orange\", \"purple\")) +\n  labs(\n    title = \"Mean f0 of Korean speakers by attitude\",\n    y = \"Mean f0 (z-scores)\",\n    caption = \"Korean speakers were students living in Germany. Mean f0 was z-scored within each speaker.\"\n  ) +\n  ThemePark::theme_starwars() +\n  theme(legend.position = \"none\")"
+    "text": "Violin plot\n\npolite |&gt; \n  drop_na(f0mn) |&gt; \n  group_by(subject) |&gt; \n  mutate(f0mn_z = (f0mn - mean(f0mn)) / sd(f0mn)) |&gt; \n  ggplot(aes(attitude, f0mn_z)) +\n  geom_violin() +\n  geom_jitter(aes(colour = attitude),\n              width = 0.05,\n              alpha = 0.5) +\n  stat_summary(fun = \"median\", geom = \"point\",\n               shape = 17, size = 5) +\n  facet_grid(cols = vars(musicstudent), labeller = label_both) +\n  scale_color_manual(values = c(\"orange\", \"purple\")) +\n  labs(\n    title = \"Mean f0 of Korean speakers by attitude\",\n    y = \"Mean f0 (z-scores)\",\n    caption = \"Korean speakers were students living in Germany. Mean f0 was z-scored within each speaker.\"\n  ) +\n  ThemePark::theme_starwars() +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "slides/lecture-w08.html#violin-plot-output",
+    "href": "slides/lecture-w08.html#violin-plot-output",
+    "title": "Data Analysis for LEL - Week 8",
+    "section": "Violin plot",
+    "text": "Violin plot"
   },
   {
     "objectID": "slides/lecture-w08.html#dont-use-box-plots",

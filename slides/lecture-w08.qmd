@@ -38,8 +38,7 @@ polite <- read_csv("data/winter2012/polite.csv")
 ```{r}
 #| label: mosaic
 #| echo: true
-#| output-location: column
-#| fig-asp: 1
+#| output-location: slide
 
 glot_status |> 
   filter(status != "extinct") |> 
@@ -59,8 +58,8 @@ glot_status |>
 ```{r}
 #| label: line-plot
 #| echo: true
-#| output-location: column
-#| fig-asp: 1
+#| output-location: slide
+
 
 formants %>%
   filter(c2 %in% c("t", "k")) |>
@@ -80,8 +79,8 @@ formants %>%
 ```{r}
 #| label: line-plot-points
 #| echo: true
-#| output-location: column
-#| fig-asp: 1
+#| output-location: slide
+
 
 formants %>%
   filter(c2 %in% c("t", "k")) |>
@@ -103,8 +102,8 @@ formants %>%
 ```{r}
 #| label: connected-dots
 #| echo: true
-#| output-location: column
-#| fig-asp: 1
+#| output-location: slide
+
 
 gestures |> 
   filter(gesture != "ho_gv", count < 30) |> 
@@ -153,8 +152,8 @@ wals_data
 ```{r}
 #| label: alluvial
 #| echo: true
-#| output-location: column
-#| fig-asp: 1
+#| output-location: slide
+
 
 wals_data |> 
   ggplot(aes(y = n, axis1 = `45A`, axis2 = `70A`)) +
@@ -173,8 +172,8 @@ wals_data |>
 ```{r}
 #| label: violin
 #| echo: true
-#| output-location: column
-#| fig-asp: 1
+#| output-location: slide
+
 
 polite |> 
   drop_na(f0mn) |> 

@@ -410,8 +410,7 @@ Stefano Coretta
 </section>
 <section id="mosaic-plot" class="slide level2">
 <h2>Mosaic plot</h2>
-<div class="cell columns column-output-location">
-<div class="column">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>glot_status <span class="sc">|&gt;</span> </span>
 <span id="cb1-2"><a></a>  <span class="fu">filter</span>(status <span class="sc">!=</span> <span class="st">"extinct"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb1-3"><a></a>  <span class="fu">droplevels</span>() <span class="sc">|&gt;</span> </span>
@@ -423,7 +422,10 @@ Stefano Coretta
 <span id="cb1-9"><a></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"BuPu"</span>) <span class="sc">+</span></span>
 <span id="cb1-10"><a></a>  <span class="fu">theme_dark</span>() <span class="sc">+</span></span>
 <span id="cb1-11"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
+</div>
+
+</section>
+<section id="mosaic-plot-output" class="slide level2 output-location-slide"><h2>Mosaic plot</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -431,13 +433,9 @@ Stefano Coretta
 </figure>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="line-plot" class="slide level2">
+</div></section><section id="line-plot" class="slide level2">
 <h2>Line plot</h2>
-<div class="cell columns column-output-location">
-<div class="column">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>formants <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a></a>  <span class="fu">filter</span>(c2 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"t"</span>, <span class="st">"k"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb2-3"><a></a>  <span class="fu">filter</span>(vowel <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"o"</span>)) <span class="sc">|&gt;</span> </span>
@@ -449,7 +447,10 @@ Stefano Coretta
 <span id="cb2-9"><a></a>    <span class="at">x =</span> <span class="st">"Relative time"</span>, <span class="at">y =</span> <span class="st">"Formant value (Hz)"</span>,</span>
 <span id="cb2-10"><a></a>    <span class="at">title =</span> <span class="st">"Formant trajectories of Italian /a, o/ followed by /k/ or /t/"</span></span>
 <span id="cb2-11"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
+</div>
+
+</section>
+<section id="line-plot-output" class="slide level2 output-location-slide"><h2>Line plot</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -457,13 +458,9 @@ Stefano Coretta
 </figure>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="line-plot-with-points" class="slide level2">
+</div></section><section id="line-plot-with-points" class="slide level2">
 <h2>Line plot with points</h2>
-<div class="cell columns column-output-location">
-<div class="column">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>formants <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">filter</span>(c2 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"t"</span>, <span class="st">"k"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb3-3"><a></a>  <span class="fu">filter</span>(vowel <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"o"</span>)) <span class="sc">|&gt;</span> </span>
@@ -477,7 +474,10 @@ Stefano Coretta
 <span id="cb3-11"><a></a>    <span class="at">x =</span> <span class="st">"Relative time"</span>, <span class="at">y =</span> <span class="st">"Formant value (Hz)"</span>,</span>
 <span id="cb3-12"><a></a>    <span class="at">title =</span> <span class="st">"Formant trajectories of Italian /a, o/ followed by /k/ or /t/"</span></span>
 <span id="cb3-13"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
+</div>
+
+</section>
+<section id="line-plot-with-points-output" class="slide level2 output-location-slide"><h2>Line plot with points</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -485,13 +485,9 @@ Stefano Coretta
 </figure>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="connected-dots-plot" class="slide level2">
+</div></section><section id="connected-dots-plot" class="slide level2">
 <h2>Connected dots plot</h2>
-<div class="cell columns column-output-location">
-<div class="column">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>gestures <span class="sc">|&gt;</span> </span>
 <span id="cb4-2"><a></a>  <span class="fu">filter</span>(gesture <span class="sc">!=</span> <span class="st">"ho_gv"</span>, count <span class="sc">&lt;</span> <span class="dv">30</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb4-3"><a></a>  <span class="fu">group_by</span>(dyad, background, months, gesture) <span class="sc">|&gt;</span> </span>
@@ -511,7 +507,10 @@ Stefano Coretta
 <span id="cb4-17"><a></a>  ) <span class="sc">+</span></span>
 <span id="cb4-18"><a></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
 <span id="cb4-19"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
+</div>
+
+</section>
+<section id="connected-dots-plot-output" class="slide level2 output-location-slide"><h2>Connected dots plot</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -519,10 +518,7 @@ Stefano Coretta
 </figure>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="wals-data" class="slide level2">
+</div></section><section id="wals-data" class="slide level2">
 <h2>WALS data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(ritwals)</span>
@@ -555,8 +551,7 @@ Stefano Coretta
 </section>
 <section id="alluvial-plot" class="slide level2">
 <h2>Alluvial plot</h2>
-<div class="cell columns column-output-location">
-<div class="column">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>wals_data <span class="sc">|&gt;</span> </span>
 <span id="cb7-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> n, <span class="at">axis1 =</span> <span class="st">`</span><span class="at">45A</span><span class="st">`</span>, <span class="at">axis2 =</span> <span class="st">`</span><span class="at">70A</span><span class="st">`</span>)) <span class="sc">+</span></span>
 <span id="cb7-3"><a></a>  <span class="fu">geom_alluvium</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="st">`</span><span class="at">45A</span><span class="st">`</span>)) <span class="sc">+</span></span>
@@ -567,7 +562,10 @@ Stefano Coretta
 <span id="cb7-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Languages with a politeness distinction and a morphological imperative"</span>) <span class="sc">+</span></span>
 <span id="cb7-9"><a></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
 <span id="cb7-10"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
+</div>
+
+</section>
+<section id="alluvial-plot-output" class="slide level2 output-location-slide"><h2>Alluvial plot</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -575,13 +573,9 @@ Stefano Coretta
 </figure>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="violin-plot" class="slide level2">
+</div></section><section id="violin-plot" class="slide level2">
 <h2>Violin plot</h2>
-<div class="cell columns column-output-location">
-<div class="column">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>polite <span class="sc">|&gt;</span> </span>
 <span id="cb8-2"><a></a>  <span class="fu">drop_na</span>(f0mn) <span class="sc">|&gt;</span> </span>
 <span id="cb8-3"><a></a>  <span class="fu">group_by</span>(subject) <span class="sc">|&gt;</span> </span>
@@ -602,7 +596,10 @@ Stefano Coretta
 <span id="cb8-18"><a></a>  ) <span class="sc">+</span></span>
 <span id="cb8-19"><a></a>  ThemePark<span class="sc">::</span><span class="fu">theme_starwars</span>() <span class="sc">+</span></span>
 <span id="cb8-20"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
+</div>
+
+</section>
+<section id="violin-plot-output" class="slide level2 output-location-slide"><h2>Violin plot</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -610,10 +607,7 @@ Stefano Coretta
 </figure>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="dont-use-box-plots" class="slide level2">
+</div></section><section id="dont-use-box-plots" class="slide level2">
 <h2>Don’t use box-plots</h2>
 <p>The <a href="https://www.research.autodesk.com/publications/same-stats-different-graphs/">Datasaurus</a> example.</p>
 <p>Also see post by Nick Desbarats: <a href="https://nightingaledvs.com/ive-stopped-using-box-plots-should-you/">I’ve stopped using box plots, should you?</a>.</p>

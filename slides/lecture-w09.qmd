@@ -1,0 +1,117 @@
+---
+title: "Data Analysis for LEL - Week 9"
+subtitle: "Where to next?"
+author: "Stefano Coretta"
+institute: University of Edinburgh
+format:
+  mono-light-revealjs:
+    theme: [default, custom.scss]
+    history: false
+filters: [tachyonsextra]
+execute: 
+  echo: false
+---
+
+## 
+
+![](/img/QRCode%20for%20Data%20Analysis%20for%20Linguistics%20and%20English%20Language%20Tuesday%2019th%20March%202024%20at%2011.10am.png){fig-align="center"}
+
+## Where to next? {background-image="/img/vecteezy_choice-right-way-in-career-business-decisions_12975322.jpg"}
+
+::: notes
+[Illustration](https://www.vecteezy.com/vector-art/12975322-choice-right-way-in-career-business-decisions) by [Yuliya Pauliukevich](https://www.vecteezy.com/members/klyaksun) on www.vecteezy.com.
+:::
+
+## 
+
+```{=html}
+<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/PCKOPY/questions/65f412791e3ef6ae2b0077e9" width="100%"></iframe>
+```
+## Statistical modelling
+
+![](/img/data-model.png){fig-align="center"}
+
+##  {background-color="var(--inverse)"}
+
+::: f1
+A **statistical model** is a (simplified) mathematical representation of a process.
+:::
+
+![](/img/vecteezy_girl-character-animation-set-in-contemporary-style_12861900.jpg){fig-align="center"}
+
+::: notes
+[Illustration](https://www.vecteezy.com/vector-art/12861900-girl-character-animation-set-in-contemporary-style) by [Yuliya Pauliukevich](https://www.vecteezy.com/members/klyaksun) on www.vecteezy.com.
+:::
+
+## Linear models
+
+::: box-note
+-   **Linear models** are a type of statistical model.
+
+-   In their simplest form, they are equivalent to the **formula of a line**.
+
+$$
+y = a + b \cdot x
+$$
+:::
+
+## 
+
+```{r}
+library(htmltools)
+
+HTML('<section id="Lines" data-background-iframe="https://stefanocoretta.shinyapps.io/lines/" data-background-interactive>
+</section>')
+```
+
+## Obscure terminology
+
+![](/img/9wyf_6osr_181129.jpg){fig-align="center"}
+
+See [One Thousand and One names](https://stefanocoretta.github.io/posts/2022-07-22-one-thousand-and-one-names/).
+
+::: notes
+[Illustration](https://www.vecteezy.com/vector-art/298133-a-dark-stone-cave) by [Matt Cole](https://www.vecteezy.com/members/graphicsrf) on www.vecteezy.com.
+:::
+
+## Statistical inference
+
+::: box-note
+**Frequentist inference**
+
+-   Null Hypothesis Significance Testing (NHST).
+
+-   Inference based on *p*-values (they don't mean what most people think they mean).
+
+-   MUST READ: [Mindless statistics](https://doi.org/10.1016/j.socec.2004.09.033) by Gigerenzer.
+:::
+
+. . .
+
+::: box-tip
+**Bayesian inference**
+
+-   Inference based on the probabilities of possible values.
+
+-   Re-use prior knowledge to make research a cumulative enterprise.
+
+-   MUST READ: [How to become a Bayesian in eight easy steps](https://doi.org/10.3758/s13423-017-1317-5) by Etz et al.
+:::
+
+## Machine learning
+
+::: box-warning
+-   Beware the golems! See [The Golem of Prague](https://www.youtube.com/watch?v=FdnMWdICdRs&list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus) by McElreath.
+
+-   Machine Learning is a **mindset**. See \[Modeling Mindsets\] by Molnar.
+
+-   No interest in the how and why, just in predictive accuracy.
+:::
+
+## (Not) the end
+
+![](/img/209_generated.jpg){fig-align="center"}
+
+::: notes
+[Illustration](https://www.vecteezy.com/vector-art/2013521-bright-constellations-galaxies-in-the-dark-starry-sky-above-the-pine-forest) by [Artyom Kozhemyakin](https://www.vecteezy.com/members/ddeviceee) on www.vecteezy.com.
+:::

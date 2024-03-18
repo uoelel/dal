@@ -26,14 +26,12 @@ For a technical explanation about loading vs attaching and packages vs libraries
 
 The following code chunks have code that throws errors or generate mistakes (without throwing errors). Try to run them in R, study the error and fix the code!
 
-
 **Example 1:**
 
 ```{r}
 a <- "2"
 a + 1
 ```
-
 
 **Example 2:**
 
@@ -46,7 +44,6 @@ iris |>
     mean = mean(Petal.Lengths)
   )
 ```
-
 
 **Example 3:**
 
@@ -62,7 +59,6 @@ starwars
 
 Do all of the levels of the variable `sex` show up in your tibble/data frame of counts?
 
-
 **Example 4:**
 
 ```{r}
@@ -70,7 +66,6 @@ iris |>
   ggplot(x = Species, y = Petal.Length) |> 
   geom_jiter()
 ```
-
 
 **Example 5:**
 
@@ -83,7 +78,6 @@ bat <- tibble(
 cat(bat.response)
 ```
 
-
 **Example 6:**
 
 ```{r}
@@ -93,18 +87,17 @@ starwars %>%
   geom_point() +
   scale_x_log10()
   labs(
-    x = 'Mass'
-    y = 'Height'
-    colour = 'Sex'
-    shape = 'Sex
+    x = "Mass"
+    y = "Height"
+    colour = "Sex"
+    shape = "Sex
   )
 ```
-
 
 **Example 7:**
 
 ```{r}
-tucker2019 <- read_csv('data/tucker2019/mald_1_1.rds')
+tucker2019 <- read_csv("data/tucker2019/mald_1_1.rds")
 
 tucker2019 %>% 
   ggplot(aes(x = isword, y = RT, colour = ACC, fill = ACC)) +
@@ -112,5 +105,27 @@ tucker2019 %>%
     alpha = 0.3,
     position_jitterdodge(),
   ) +
-  scale_colour_manual(values = c('#dc050c', '#196b50', ))
+  scale_colour_manual(values = c("#dc050c", "#196b50", ))
 ```
+
+## Where to ask for help online
+
+There are a few places you can ask for help online:
+
+-   [StackOverflow](https://stackoverflow.com) is always a good place to start. You should first check if your question or a similar one has been answered already (in most cases, it has!) and if not you can post your question. Make sure you include a [Minimal Working Example](https://stackoverflow.com/help/minimal-reproducible-example).
+
+-   Another place is the [Posit Community](https://community.rstudio.com). It's similar to StackOverflow, but it is specific to R and RStudio related things.
+
+-   You can also ask ChatGPT for help. It is usually good for programming/coding stuff, but not so much for statistics.
+
+-   If you have issues with specific R packages, you could open an issue on GitHub on the respective package repository to let the developer know about the issue.
+
+-   In most cases, even just searching for your question using any web search engine will take you to the right places.
+
+::: callout-important
+## Disclosing help in assessments
+
+Note that if you ask for help online as part of your assessment and you receive an answer (either by a human or by AI), **you are obliged to disclose it in your assessment.**
+
+Asking for help won't impact your mark, but make sure that proper attribution is given in the assessment (for example, if somebody shared some code with you, you should acknowledge the author of the code).
+:::

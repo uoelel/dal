@@ -26,10 +26,18 @@ For a technical explanation about loading vs attaching and packages vs libraries
 
 The following code chunks have code that throws errors or generate mistakes (without throwing errors). Try to run them in R, study the error and fix the code!
 
+
+**Example 1:**
+
 ```{r}
 a <- "2"
 a + 1
 ```
+
+
+**Example 2:**
+
+Note: The goal of the following code chunk is to produce a tibble/data frame.
 
 ```{r}
 iris |>
@@ -38,6 +46,9 @@ iris |>
     mean = mean(Petal.Lengths)
   )
 ```
+
+
+**Example 3:**
 
 ```{r}
 lirbary(tidyvrese)
@@ -49,11 +60,19 @@ starwars
   count(Sex)
 ```
 
+Do all of the levels of the variable `sex` show up in your tibble/data frame of counts?
+
+
+**Example 4:**
+
 ```{r}
 iris |> 
   ggplot(x = Species, y = Petal.Length) |> 
   geom_jiter()
 ```
+
+
+**Example 5:**
 
 ```{r}
 bat <- tibble(
@@ -62,4 +81,36 @@ bat <- tibble(
 )
 
 cat(bat.response)
+```
+
+
+**Example 6:**
+
+```{r}
+starwars %>% 
+  filter(sex != is.na(sex)) %>% 
+  ggplot(aes(x = mass, y = height, colour = sex, shape = sex) +
+  geom_point() +
+  scale_x_log10()
+  labs(
+    x = 'Mass'
+    y = 'Height'
+    colour = 'Sex'
+    shape = 'Sex
+  )
+```
+
+
+**Example 7:**
+
+```{r}
+tucker2019 <- read_csv('data/tucker2019/mald_1_1.rds')
+
+tucker2019 %>% 
+  ggplot(aes(x = isword, y = RT, colour = ACC, fill = ACC)) +
+  geom_jitter(
+    alpha = 0.3,
+    position_jitterdodge(),
+  ) +
+  scale_colour_manual(values = c('#dc050c', '#196b50', ))
 ```

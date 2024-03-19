@@ -48,6 +48,16 @@ iris |>
 **Example 3:**
 
 ```{r}
+library(dplyr)
+library(MASS)
+
+iris |> 
+  select(Species, Petal.Length, Petal.Width)
+```
+
+**Example 4:**
+
+```{r}
 lirbary(tidyvrese)
 
 starwars

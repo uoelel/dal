@@ -64,15 +64,15 @@ filters:
 
 ## Research process
 
-![](/img/res-process.png){fig-align="center"}
+![](../img/res-process.png){fig-align="center"}
 
 ## Research process
 
-![](/img/res-process-data-ana.png){fig-align="center"}
+![](../img/res-process-data-ana.png){fig-align="center"}
 
 ## Data analysis
 
-![](/img/data-quant-qual.png){fig-align="center"}
+![](../img/data-quant-qual.png){fig-align="center"}
 
 ## What is the purpose of data analysis? {background-color="var(--inverse)"}
 
@@ -140,9 +140,8 @@ Statistics as the **art** of applying the science of scientific methods. (From [
 
 ## Statistics is not infallible
 
-::: {.columns}
-
-::: {.column width="50%" .f2}
+::: columns
+::: {.column .f2 width="50%"}
 But...
 
 *all that glisters is not gold*
@@ -151,5 +150,4 @@ But...
 ::: {.column width="50%"}
 ![](/img/gollum-statistician.png){width="500"}
 :::
-
 :::
